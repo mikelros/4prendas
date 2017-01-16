@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion
 {
-    partial class Form1
+    partial class frmInicio
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -28,9 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // frmInicio
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(980, 602);
+            this.Name = "frmInicio";
+            this.Text = "4Tiendas";
+            this.Load += new System.EventHandler(this.frmInicio_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
