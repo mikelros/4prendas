@@ -28,13 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.btnTestNext = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // btnTestNext
+            // 
+            this.btnTestNext.BackColor = System.Drawing.Color.Coral;
+            this.btnTestNext.Location = new System.Drawing.Point(514, 571);
+            this.btnTestNext.Name = "btnTestNext";
+            this.btnTestNext.Size = new System.Drawing.Size(75, 19);
+            this.btnTestNext.TabIndex = 11;
+            this.btnTestNext.Text = "FormPalante";
+            this.btnTestNext.UseVisualStyleBackColor = false;
+            this.btnTestNext.Click += new System.EventHandler(this.btnTestNext_Click);
             // 
             // frmInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(980, 602);
+            this.Controls.Add(this.btnTestNext);
             this.Name = "frmInicio";
             this.Text = "4Tiendas";
             this.Load += new System.EventHandler(this.frmInicio_Load);
@@ -43,6 +56,8 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnTestNext;
     }
 }
 

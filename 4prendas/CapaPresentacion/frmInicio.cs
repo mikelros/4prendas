@@ -21,5 +21,11 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void btnTestNext_Click(object sender, EventArgs e)
+        {
+            (new frmLoginAdmin()).Show();
+        }
+
     }
 }

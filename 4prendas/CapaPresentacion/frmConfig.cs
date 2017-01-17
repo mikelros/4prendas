@@ -16,5 +16,11 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
+
+        private void btnTestPrev_Click(object sender, EventArgs e)
+        {
+            
+            
+        }
     }
 }

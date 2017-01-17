@@ -16,5 +16,17 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
+
+        private void frmLoginAdmin_Load(object sender, EventArgs e)
+        {
+            lblPassError.Hide();
+            lblUserError.Hide();
+
+        }
+
+        private void btnTestNext_Click(object sender, EventArgs e)
+        {
+            (new frmConfig()).Show();
+        }
     }
 }
