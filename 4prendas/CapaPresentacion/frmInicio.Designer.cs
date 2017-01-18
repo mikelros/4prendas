@@ -36,7 +36,7 @@
             this.btnTestNext.BackColor = System.Drawing.Color.Coral;
             this.btnTestNext.Location = new System.Drawing.Point(514, 571);
             this.btnTestNext.Name = "btnTestNext";
-            this.btnTestNext.Size = new System.Drawing.Size(75, 19);
+            this.btnTestNext.Size = new System.Drawing.Size(89, 19);
             this.btnTestNext.TabIndex = 11;
             this.btnTestNext.Text = "FormPalante";
             this.btnTestNext.UseVisualStyleBackColor = false;

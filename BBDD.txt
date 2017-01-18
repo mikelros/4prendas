@@ -1,0 +1,20 @@
+RECOGIDA (ropa):
+	FechaRecogida(+hora)	Empleado(nombre+foto(borrar foto fisica))	NºRecogida(correlativo)    CantArticulos	Entregador -->Puede haber 8 recogidas y 6 registros por fallo
+
+REGISTRO de empleado para una recogida  (NºRecogida(existe)/NºPedido(no existe)):
+	CodigoArticulo		Description	Talla	   Stock    Empleado	(CodigoBarras)	¿Estanterias?
+(Familia|Subfamilia|NºCorrelativo)	     (Peso/Litros)			
+    XX	     XX		000
+
+VENTAS (campo devolucion fecha/bool):
+	Empleado	FechaVenta	NºVenta/NºFactura	CodigoArticulo/CodigoBarras	Precio	IVA(depende del tipo producto) --> Sacar ticket
+
+DEVOLUCION (no quitar de venta, marcarlo):
+	Empleado	NºVenta		Articulo	FechaVenta(calculado en pant) --> Sacar ticket
+
+TABLAS:
+	IVAS:		
+	   CodFamilia
+	   IVA
+
+
