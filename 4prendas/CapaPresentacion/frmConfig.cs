@@ -22,5 +22,15 @@ namespace CapaPresentacion
             
             
         }
+
+        private void rbtnFood_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbtnClothes_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
