@@ -58,6 +58,7 @@
             this.label1.Size = new System.Drawing.Size(72, 18);
             this.label1.TabIndex = 1;
             this.label1.Text = "Usuario:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblUserError
             // 
@@ -75,6 +76,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(153, 20);
             this.textBox1.TabIndex = 3;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox2
             // 
@@ -82,6 +84,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(153, 20);
             this.textBox2.TabIndex = 6;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // lblPassError
             // 
@@ -102,6 +105,7 @@
             this.label3.Size = new System.Drawing.Size(100, 18);
             this.label3.TabIndex = 4;
             this.label3.Text = "Contraseña:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // btnCancel
             // 
