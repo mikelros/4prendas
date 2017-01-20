@@ -17,14 +17,17 @@ namespace CapaPresentacion
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
-
+            //add product
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
 
+            //confirmar salida?
+
+            //comprobar si se han añadido para la recogida tantos productos como hubiese en la recogida
         }
     }
 }
