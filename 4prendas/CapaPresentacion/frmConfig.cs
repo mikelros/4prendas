@@ -32,5 +32,35 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void btnCreate_Click(object sender, EventArgs e)
+        {
+            //string msg = datos.crearEmpleado(txtName.text, txtNumber.text, txtPhoto.text);
+            //if (msg == "")
+            //{
+            //    MessageBox.Show("El empleado " + txtName.Text + " se ha creado correctamente");
+            //}else
+            //{
+            //    MessageBox.Show(msg);
+            //}
+        
+        }
+
+        private void bntCreateCancel_Click(object sender, EventArgs e)
+        {
+            txtName.Text = "";
+            txtNumber.Text = "";
+            txtPhoto.Text = "";
+        }
+
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            //datos.eliminarEmpleado(txtNumbre.text);
+        }
     }
 }

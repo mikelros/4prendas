@@ -28,26 +28,65 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnTestNext = new System.Windows.Forms.Button();
+            this.btnIRAREGISTRO = new System.Windows.Forms.Button();
+            this.btnIRARECOGIDA = new System.Windows.Forms.Button();
+            this.btnIRACONFIG = new System.Windows.Forms.Button();
+            this.btnIRALOGINADMIN = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btnTestNext
+            // btnIRAREGISTRO
             // 
-            this.btnTestNext.BackColor = System.Drawing.Color.Coral;
-            this.btnTestNext.Location = new System.Drawing.Point(514, 571);
-            this.btnTestNext.Name = "btnTestNext";
-            this.btnTestNext.Size = new System.Drawing.Size(75, 19);
-            this.btnTestNext.TabIndex = 11;
-            this.btnTestNext.Text = "FormPalante";
-            this.btnTestNext.UseVisualStyleBackColor = false;
-            this.btnTestNext.Click += new System.EventHandler(this.btnTestNext_Click);
+            this.btnIRAREGISTRO.BackColor = System.Drawing.Color.Coral;
+            this.btnIRAREGISTRO.Location = new System.Drawing.Point(12, 136);
+            this.btnIRAREGISTRO.Name = "btnIRAREGISTRO";
+            this.btnIRAREGISTRO.Size = new System.Drawing.Size(75, 19);
+            this.btnIRAREGISTRO.TabIndex = 12;
+            this.btnIRAREGISTRO.Text = "Registro";
+            this.btnIRAREGISTRO.UseVisualStyleBackColor = false;
+            this.btnIRAREGISTRO.Click += new System.EventHandler(this.btnIRAREGISTRO_Click);
+            // 
+            // btnIRARECOGIDA
+            // 
+            this.btnIRARECOGIDA.BackColor = System.Drawing.Color.Coral;
+            this.btnIRARECOGIDA.Location = new System.Drawing.Point(12, 98);
+            this.btnIRARECOGIDA.Name = "btnIRARECOGIDA";
+            this.btnIRARECOGIDA.Size = new System.Drawing.Size(75, 19);
+            this.btnIRARECOGIDA.TabIndex = 13;
+            this.btnIRARECOGIDA.Text = "Recogida";
+            this.btnIRARECOGIDA.UseVisualStyleBackColor = false;
+            this.btnIRARECOGIDA.Click += new System.EventHandler(this.btnIRARECOGIDA_Click);
+            // 
+            // btnIRACONFIG
+            // 
+            this.btnIRACONFIG.BackColor = System.Drawing.Color.Coral;
+            this.btnIRACONFIG.Location = new System.Drawing.Point(12, 48);
+            this.btnIRACONFIG.Name = "btnIRACONFIG";
+            this.btnIRACONFIG.Size = new System.Drawing.Size(75, 19);
+            this.btnIRACONFIG.TabIndex = 14;
+            this.btnIRACONFIG.Text = "Config";
+            this.btnIRACONFIG.UseVisualStyleBackColor = false;
+            this.btnIRACONFIG.Click += new System.EventHandler(this.btnIRACONFIG_Click);
+            // 
+            // btnIRALOGINADMIN
+            // 
+            this.btnIRALOGINADMIN.BackColor = System.Drawing.Color.Coral;
+            this.btnIRALOGINADMIN.Location = new System.Drawing.Point(12, 12);
+            this.btnIRALOGINADMIN.Name = "btnIRALOGINADMIN";
+            this.btnIRALOGINADMIN.Size = new System.Drawing.Size(75, 19);
+            this.btnIRALOGINADMIN.TabIndex = 15;
+            this.btnIRALOGINADMIN.Text = "LoginAdmin";
+            this.btnIRALOGINADMIN.UseVisualStyleBackColor = false;
+            this.btnIRALOGINADMIN.Click += new System.EventHandler(this.btnIRALOGINADMIN_Click);
             // 
             // frmInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(980, 602);
-            this.Controls.Add(this.btnTestNext);
+            this.ClientSize = new System.Drawing.Size(523, 400);
+            this.Controls.Add(this.btnIRALOGINADMIN);
+            this.Controls.Add(this.btnIRACONFIG);
+            this.Controls.Add(this.btnIRARECOGIDA);
+            this.Controls.Add(this.btnIRAREGISTRO);
             this.Name = "frmInicio";
             this.Text = "4Tiendas";
             this.Load += new System.EventHandler(this.frmInicio_Load);
@@ -57,7 +96,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnTestNext;
+        private System.Windows.Forms.Button btnIRAREGISTRO;
+        private System.Windows.Forms.Button btnIRARECOGIDA;
+        private System.Windows.Forms.Button btnIRACONFIG;
+        private System.Windows.Forms.Button btnIRALOGINADMIN;
     }
 }
 
