@@ -249,6 +249,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "frmRegistro";
             this.Text = "frmRegistro";
+            this.Load += new System.EventHandler(this.frmRegistro_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

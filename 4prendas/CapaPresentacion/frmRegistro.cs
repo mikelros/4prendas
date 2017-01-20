@@ -29,5 +29,21 @@ namespace CapaPresentacion
 
             //comprobar si se han añadido para la recogida tantos productos como hubiese en la recogida
         }
+
+        private void frmRegistro_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            
+                if (MessageBox.Show("¿Seguro que deseas salir?", "Salir",
+                   MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    e.Cancel = true;
+                }
+            
+        }
     }
 }
