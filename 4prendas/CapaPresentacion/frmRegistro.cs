@@ -41,7 +41,7 @@ namespace CapaPresentacion
                 if (MessageBox.Show("¿Seguro que deseas salir?", "Salir",
                    MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    e.Cancel = true;
+                    e.Cancel = true; 
                 }
             
         }
