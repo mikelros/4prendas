@@ -10,6 +10,19 @@ namespace CapaNegocio
     {
         public ulong SacarControl(ulong codBarras)
         {
+            //Supongamos que estamos utilizando el código ficticio de 05432122345.
+            //Sumar todos los dígitos en las posiciones impares(dígitos en la posición 1, 3, 5, 7, 9 y 11)
+            //0 + 4 + 2 + 2 + 3 + 5 = 16
+            //Multiplicar por 3.
+            //16 * 3 = 48
+            //Sumar todos los dígitos en las posiciones pares (dígitos en la posición 2, 4, 6, 8 y 10).
+            //5 + 3 + 1 + 2 + 4 = 15
+            //Sumar los resultados de los pasos 3 y 2.
+            //48 + 15 = 63
+            //Determinar qué número hay que añadir al resultado de la etapa 4 para crear un múltiplo de 10.
+            //63 + 7 = 70
+            //Por lo tanto, el dígito de control es 7.
+
             char[] codBarrasChar = codBarras.ToString().ToCharArray();
             ulong impares = 0;
             ulong pares = 0;
