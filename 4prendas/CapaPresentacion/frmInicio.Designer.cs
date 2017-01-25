@@ -40,16 +40,16 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnCalculator = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
@@ -62,6 +62,8 @@
             this.button19 = new System.Windows.Forms.Button();
             this.button20 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnStock = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -201,65 +203,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Familia";
             // 
-            // button1
+            // button9
             // 
-            this.button1.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Location = new System.Drawing.Point(6, 17);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(92, 92);
-            this.button1.TabIndex = 58;
-            this.button1.UseVisualStyleBackColor = true;
+            this.button9.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
+            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button9.Location = new System.Drawing.Point(104, 409);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(92, 92);
+            this.button9.TabIndex = 67;
+            this.button9.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // button10
             // 
-            this.button2.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.Location = new System.Drawing.Point(104, 17);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(92, 92);
-            this.button2.TabIndex = 59;
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.Location = new System.Drawing.Point(104, 115);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(92, 92);
-            this.button3.TabIndex = 61;
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button4.Location = new System.Drawing.Point(6, 115);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(92, 92);
-            this.button4.TabIndex = 60;
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button5.Location = new System.Drawing.Point(104, 213);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(92, 92);
-            this.button5.TabIndex = 63;
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
-            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button6.Location = new System.Drawing.Point(6, 213);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(92, 92);
-            this.button6.TabIndex = 62;
-            this.button6.UseVisualStyleBackColor = true;
+            this.button10.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
+            this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button10.Location = new System.Drawing.Point(6, 409);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(92, 92);
+            this.button10.TabIndex = 66;
+            this.button10.UseVisualStyleBackColor = true;
             // 
             // button7
             // 
@@ -281,25 +243,65 @@
             this.button8.TabIndex = 64;
             this.button8.UseVisualStyleBackColor = true;
             // 
-            // button9
+            // button5
             // 
-            this.button9.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
-            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button9.Location = new System.Drawing.Point(104, 409);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(92, 92);
-            this.button9.TabIndex = 67;
-            this.button9.UseVisualStyleBackColor = true;
+            this.button5.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button5.Location = new System.Drawing.Point(104, 213);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(92, 92);
+            this.button5.TabIndex = 63;
+            this.button5.UseVisualStyleBackColor = true;
             // 
-            // button10
+            // button6
             // 
-            this.button10.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
-            this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button10.Location = new System.Drawing.Point(6, 409);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(92, 92);
-            this.button10.TabIndex = 66;
-            this.button10.UseVisualStyleBackColor = true;
+            this.button6.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
+            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button6.Location = new System.Drawing.Point(6, 213);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(92, 92);
+            this.button6.TabIndex = 62;
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3.Location = new System.Drawing.Point(104, 115);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(92, 92);
+            this.button3.TabIndex = 61;
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button4.Location = new System.Drawing.Point(6, 115);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(92, 92);
+            this.button4.TabIndex = 60;
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.Location = new System.Drawing.Point(104, 17);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(92, 92);
+            this.button2.TabIndex = 59;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Location = new System.Drawing.Point(6, 17);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(92, 92);
+            this.button1.TabIndex = 58;
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -429,12 +431,34 @@
             this.dataGridView1.Size = new System.Drawing.Size(617, 484);
             this.dataGridView1.TabIndex = 69;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(977, 23);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(126, 18);
+            this.label2.TabIndex = 70;
+            this.label2.Text = "Alerta de stock:";
+            // 
+            // btnStock
+            // 
+            this.btnStock.BackColor = System.Drawing.Color.Lime;
+            this.btnStock.Location = new System.Drawing.Point(1100, 22);
+            this.btnStock.Name = "btnStock";
+            this.btnStock.Size = new System.Drawing.Size(47, 23);
+            this.btnStock.TabIndex = 71;
+            this.btnStock.Text = "0";
+            this.btnStock.UseVisualStyleBackColor = false;
+            // 
             // frmInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1219, 690);
+            this.Controls.Add(this.btnStock);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -499,6 +523,8 @@
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.Button button20;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnStock;
     }
 }
 
