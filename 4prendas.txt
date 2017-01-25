@@ -16,6 +16,7 @@ los productos tienen stock minimo y se puede cambiar -> genera alguna alerta o a
 que el logo y las imagenes y las familias y todo se pueda cambiar
 que salgan las etiquetas del cod barras en el listado
 brother ql-700
+etiqueta con codigo barras e imagen, codproducto, precio
 
 CUIDADO CON LA RESOLUCIÓN
 
