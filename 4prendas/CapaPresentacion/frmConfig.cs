@@ -12,6 +12,7 @@ namespace CapaPresentacion
 {
     public partial class frmConfig : Form
     {
+        //Employer employer;
         public frmConfig()
         {
             InitializeComponent();
@@ -19,8 +20,8 @@ namespace CapaPresentacion
 
         private void btnTestPrev_Click(object sender, EventArgs e)
         {
-            
-            
+
+
         }
 
         private void rbtnFood_CheckedChanged(object sender, EventArgs e)
@@ -43,24 +44,44 @@ namespace CapaPresentacion
             //{
             //    MessageBox.Show(msg);
             //}
-        
+
         }
 
         private void bntCreateCancel_Click(object sender, EventArgs e)
         {
-            txtName.Text = "";
-            txtNumber.Text = "";
-            txtPhoto.Text = "";
+            txtCreateName.Text = "";
+            txtCreateNumEmployer.Text = "";
+            txtCreatePhoto.Text = "";
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)
         {
-
+            //employer = datos.buscarEmpleado(txtNumber.text);
+            //if (employer == null)
+            //{
+            //    lblEmployerError.show();
+            //}else
+            //{
+            //    lblEmployerError.Hide();
+            //}
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            //datos.eliminarEmpleado(txtNumbre.text);
+            //datos.eliminarEmpleado(employer.number);
+        }
+
+        private void frmConfig_Load(object sender, EventArgs e)
+        {
+            lblEmployerError.Hide();
+
+        }
+
+        private void btnDeleteCancel_Click(object sender, EventArgs e)
+        {
+            txtDeleteNumEmployer.Text = "";
+            lblDeleteName.Text = "";
+            lblEmployerError.Hide();
         }
     }
 }
