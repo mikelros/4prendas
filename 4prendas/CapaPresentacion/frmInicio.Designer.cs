@@ -38,6 +38,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnCalculator = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -48,7 +49,7 @@
             this.btnIRAREGISTRO.BackColor = System.Drawing.Color.Coral;
             this.btnIRAREGISTRO.Location = new System.Drawing.Point(3, 305);
             this.btnIRAREGISTRO.Name = "btnIRAREGISTRO";
-            this.btnIRAREGISTRO.Size = new System.Drawing.Size(75, 19);
+            this.btnIRAREGISTRO.Size = new System.Drawing.Size(92, 29);
             this.btnIRAREGISTRO.TabIndex = 12;
             this.btnIRAREGISTRO.Text = "Registro";
             this.btnIRAREGISTRO.UseVisualStyleBackColor = false;
@@ -59,7 +60,7 @@
             this.btnIRARECOGIDA.BackColor = System.Drawing.Color.Coral;
             this.btnIRARECOGIDA.Location = new System.Drawing.Point(3, 267);
             this.btnIRARECOGIDA.Name = "btnIRARECOGIDA";
-            this.btnIRARECOGIDA.Size = new System.Drawing.Size(75, 19);
+            this.btnIRARECOGIDA.Size = new System.Drawing.Size(92, 32);
             this.btnIRARECOGIDA.TabIndex = 13;
             this.btnIRARECOGIDA.Text = "Recogida";
             this.btnIRARECOGIDA.UseVisualStyleBackColor = false;
@@ -70,7 +71,7 @@
             this.btnIRACONFIG.BackColor = System.Drawing.Color.Coral;
             this.btnIRACONFIG.Location = new System.Drawing.Point(3, 217);
             this.btnIRACONFIG.Name = "btnIRACONFIG";
-            this.btnIRACONFIG.Size = new System.Drawing.Size(75, 19);
+            this.btnIRACONFIG.Size = new System.Drawing.Size(92, 30);
             this.btnIRACONFIG.TabIndex = 14;
             this.btnIRACONFIG.Text = "Config";
             this.btnIRACONFIG.UseVisualStyleBackColor = false;
@@ -81,7 +82,7 @@
             this.btnIRALOGINADMIN.BackColor = System.Drawing.Color.Coral;
             this.btnIRALOGINADMIN.Location = new System.Drawing.Point(3, 181);
             this.btnIRALOGINADMIN.Name = "btnIRALOGINADMIN";
-            this.btnIRALOGINADMIN.Size = new System.Drawing.Size(75, 19);
+            this.btnIRALOGINADMIN.Size = new System.Drawing.Size(92, 30);
             this.btnIRALOGINADMIN.TabIndex = 15;
             this.btnIRALOGINADMIN.Text = "LoginAdmin";
             this.btnIRALOGINADMIN.UseVisualStyleBackColor = false;
@@ -127,9 +128,11 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.Image = global::CapaPresentacion.Properties.Resources.newsle_empty_icon;
             this.pictureBox2.Location = new System.Drawing.Point(802, 157);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(100, 129);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 54;
             this.pictureBox2.TabStop = false;
             // 
@@ -143,12 +146,23 @@
             this.pictureBox1.TabIndex = 50;
             this.pictureBox1.TabStop = false;
             // 
+            // btnCalculator
+            // 
+            this.btnCalculator.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
+            this.btnCalculator.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCalculator.Location = new System.Drawing.Point(3, 356);
+            this.btnCalculator.Name = "btnCalculator";
+            this.btnCalculator.Size = new System.Drawing.Size(92, 101);
+            this.btnCalculator.TabIndex = 56;
+            this.btnCalculator.UseVisualStyleBackColor = true;
+            // 
             // frmInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1011, 626);
+            this.Controls.Add(this.btnCalculator);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label1);
@@ -182,6 +196,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Button btnCalculator;
     }
 }
 
