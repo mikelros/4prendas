@@ -19,7 +19,25 @@ namespace CapaPresentacion
 
         private void frmInicio_Load(object sender, EventArgs e)
         {
+            checkStockMinimo();
+            loadWorkersList();
+        }
 
+        private void checkStockMinimo()
+        {
+            int num = 1;//negocio.prodsStockMinimo();
+            if (num > 0){
+                btnStock.BackColor = Color.Red;
+                btnStock.Text = num.ToString();
+            } else {
+                btnStock.BackColor = Color.Lime;
+                btnStock.Text = "0";
+            }
+        }
+
+        private void loadWorkersList()
+        {
+            //cmbEmpleado.DataSource = listWorkersID();
         }
 
         private void btnTestNext_Click(object sender, EventArgs e)
@@ -54,9 +72,18 @@ namespace CapaPresentacion
 
         }
 
-        private void groupBox2_Enter(object sender, EventArgs e)
+        private void cmbEmpleado_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //lblWorkerName = Negocio.getWorkerName();
+            //imgWorker.Image = Negocio.getWorkerImage();
+        }
 
+        private void btnCalculator_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process proceso = new System.Diagnostics.Process();
+            proceso.StartInfo.FileName = "calc.exe";
+            proceso.StartInfo.Arguments = "";
+            proceso.Start();
         }
     }
 }
