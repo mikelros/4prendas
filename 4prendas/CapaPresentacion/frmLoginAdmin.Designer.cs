@@ -41,19 +41,22 @@
             // 
             // btnLogin
             // 
+            this.btnLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(54, 111);
+            this.btnLogin.Location = new System.Drawing.Point(578, 298);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(75, 23);
+            this.btnLogin.Size = new System.Drawing.Size(75, 90);
             this.btnLogin.TabIndex = 0;
             this.btnLogin.Text = "&Entrar";
+            this.btnLogin.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnLogin.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 15);
+            this.label1.Location = new System.Drawing.Point(209, 155);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 18);
             this.label1.TabIndex = 1;
@@ -61,9 +64,10 @@
             // 
             // lblUserError
             // 
+            this.lblUserError.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lblUserError.AutoSize = true;
             this.lblUserError.ForeColor = System.Drawing.Color.Red;
-            this.lblUserError.Location = new System.Drawing.Point(119, 38);
+            this.lblUserError.Location = new System.Drawing.Point(315, 178);
             this.lblUserError.Name = "lblUserError";
             this.lblUserError.Size = new System.Drawing.Size(99, 13);
             this.lblUserError.TabIndex = 2;
@@ -71,23 +75,26 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(113, 15);
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.textBox1.Location = new System.Drawing.Point(309, 155);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(153, 20);
             this.textBox1.TabIndex = 3;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(113, 60);
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.textBox2.Location = new System.Drawing.Point(309, 200);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(153, 20);
             this.textBox2.TabIndex = 6;
             // 
             // lblPassError
             // 
+            this.lblPassError.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lblPassError.AutoSize = true;
             this.lblPassError.ForeColor = System.Drawing.Color.Red;
-            this.lblPassError.Location = new System.Drawing.Point(119, 83);
+            this.lblPassError.Location = new System.Drawing.Point(315, 223);
             this.lblPassError.Name = "lblPassError";
             this.lblPassError.Size = new System.Drawing.Size(114, 13);
             this.lblPassError.TabIndex = 5;
@@ -95,9 +102,10 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(13, 60);
+            this.label3.Location = new System.Drawing.Point(209, 200);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(100, 18);
             this.label3.TabIndex = 4;
@@ -105,22 +113,26 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(156, 111);
+            this.btnCancel.Location = new System.Drawing.Point(476, 298);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(75, 90);
             this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "&Cancelar";
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // btnTestNext
             // 
+            this.btnTestNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnTestNext.BackColor = System.Drawing.Color.Coral;
-            this.btnTestNext.Location = new System.Drawing.Point(203, 140);
+            this.btnTestNext.Location = new System.Drawing.Point(548, 132);
             this.btnTestNext.Name = "btnTestNext";
-            this.btnTestNext.Size = new System.Drawing.Size(75, 19);
+            this.btnTestNext.Size = new System.Drawing.Size(75, 86);
             this.btnTestNext.TabIndex = 9;
             this.btnTestNext.Text = "FormPalante";
+            this.btnTestNext.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnTestNext.UseVisualStyleBackColor = false;
             this.btnTestNext.Click += new System.EventHandler(this.btnTestNext_Click);
             // 
@@ -128,7 +140,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(290, 159);
+            this.ClientSize = new System.Drawing.Size(686, 413);
             this.Controls.Add(this.btnTestNext);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.textBox2);
@@ -138,8 +150,10 @@
             this.Controls.Add(this.lblUserError);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnLogin);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmLoginAdmin";
             this.Text = "LoginAdmin";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmLoginAdmin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
