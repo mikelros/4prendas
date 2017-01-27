@@ -8,9 +8,9 @@ namespace CapaEntidades
 {
     class SubFamilia
     {
-        private String codSubFamilia;
-        private String nombre;
-        private String imagen;
+        private string codSubFamilia;
+        private string nombre;
+        private string imagen;
         private int iva;
         
         public SubFamilia()
@@ -18,7 +18,7 @@ namespace CapaEntidades
 
         }
 
-        public SubFamilia(String codSubFamilia, String nombre, String imagen, int iva)
+        public SubFamilia(string codSubFamilia, string nombre, string imagen, int iva)
         {
             this.codSubFamilia = codSubFamilia;
             this.nombre = nombre;
@@ -26,7 +26,7 @@ namespace CapaEntidades
             this.iva = iva;
         }
 
-        public String CodSubFamilia
+        public string CodSubFamilia
         {
             get
             {
@@ -38,7 +38,7 @@ namespace CapaEntidades
             }
         }
 
-        public String Nombre
+        public string Nombre
         {
             get
             {
@@ -50,7 +50,7 @@ namespace CapaEntidades
             }
         }
 
-        public String Imagen
+        public string Imagen
         {
             get
             {
