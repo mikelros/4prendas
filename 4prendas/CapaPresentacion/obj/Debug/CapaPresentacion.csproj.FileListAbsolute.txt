@@ -2,3 +2,6 @@ C:\Users\Asier\Source\Repos\4prendas\4prendas\CapaPresentacion\bin\Debug\CapaPre
 C:\Users\Mikel\Documents\2ºDAM\Acceso a datos\2ª Evaluación\Ejercicios\4prendas\4prendas\CapaPresentacion\bin\Debug\CapaPresentacion.exe.config
 C:\Users\Asier\Source\Repos\4prendas2\4prendas\CapaPresentacion\bin\Debug\CapaPresentacion.exe.config
 D:\DAM\Acceso Datos\4prendas\4prendas\CapaPresentacion\bin\Debug\CapaPresentacion.exe.config
+C:\Users\Asgarth\Source\Repos\4prendas\4prendas\CapaPresentacion\bin\Debug\CapaPresentacion.exe.config
+C:\Users\Asgarth\Source\Repos\4prendas\4prendas\CapaPresentacion\obj\Debug\CapaPresentacion.exe
+C:\Users\Asgarth\Source\Repos\4prendas\4prendas\CapaPresentacion\obj\Debug\CapaPresentacion.pdb

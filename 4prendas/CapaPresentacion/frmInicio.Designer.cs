@@ -76,7 +76,7 @@
             // 
             this.btnIRAREGISTRO.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnIRAREGISTRO.BackColor = System.Drawing.Color.Coral;
-            this.btnIRAREGISTRO.Location = new System.Drawing.Point(1070, 679);
+            this.btnIRAREGISTRO.Location = new System.Drawing.Point(1062, 614);
             this.btnIRAREGISTRO.Name = "btnIRAREGISTRO";
             this.btnIRAREGISTRO.Size = new System.Drawing.Size(92, 29);
             this.btnIRAREGISTRO.TabIndex = 12;
@@ -88,7 +88,7 @@
             // 
             this.btnIRARECOGIDA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnIRARECOGIDA.BackColor = System.Drawing.Color.Coral;
-            this.btnIRARECOGIDA.Location = new System.Drawing.Point(1070, 641);
+            this.btnIRARECOGIDA.Location = new System.Drawing.Point(1062, 576);
             this.btnIRARECOGIDA.Name = "btnIRARECOGIDA";
             this.btnIRARECOGIDA.Size = new System.Drawing.Size(92, 32);
             this.btnIRARECOGIDA.TabIndex = 13;
@@ -100,7 +100,7 @@
             // 
             this.btnIRACONFIG.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnIRACONFIG.BackColor = System.Drawing.Color.Coral;
-            this.btnIRACONFIG.Location = new System.Drawing.Point(1070, 605);
+            this.btnIRACONFIG.Location = new System.Drawing.Point(1062, 540);
             this.btnIRACONFIG.Name = "btnIRACONFIG";
             this.btnIRACONFIG.Size = new System.Drawing.Size(92, 30);
             this.btnIRACONFIG.TabIndex = 14;
@@ -112,7 +112,7 @@
             // 
             this.btnIRALOGINADMIN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnIRALOGINADMIN.BackColor = System.Drawing.Color.Coral;
-            this.btnIRALOGINADMIN.Location = new System.Drawing.Point(1070, 569);
+            this.btnIRALOGINADMIN.Location = new System.Drawing.Point(1062, 504);
             this.btnIRALOGINADMIN.Name = "btnIRALOGINADMIN";
             this.btnIRALOGINADMIN.Size = new System.Drawing.Size(92, 30);
             this.btnIRALOGINADMIN.TabIndex = 15;
@@ -162,6 +162,7 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 55;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // imgWorker
             // 

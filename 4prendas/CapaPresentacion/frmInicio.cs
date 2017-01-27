@@ -21,7 +21,12 @@ namespace CapaPresentacion
         {
             checkStockMinimo();
             loadWorkersList();
+            //Cargar botones familia();
         }
+
+        //Al seleccionar familia, cargar subfamilia
+
+        //Al seleccionar subfamilia, cagar dgv
 
         private void checkStockMinimo()
         {
@@ -67,6 +72,7 @@ namespace CapaPresentacion
 
         private void btnIRAREGISTRO_Click(object sender, EventArgs e)
         {
+
             Form frm = new frmRegistro();
             frm.Show();
 
@@ -84,6 +90,11 @@ namespace CapaPresentacion
             proceso.StartInfo.FileName = "calc.exe";
             proceso.StartInfo.Arguments = "";
             proceso.Start();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
