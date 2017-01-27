@@ -61,10 +61,12 @@
             // btnExit
             // 
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExit.BackgroundImage")));
+            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(746, 381);
+            this.btnExit.Location = new System.Drawing.Point(746, 358);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 90);
+            this.btnExit.Size = new System.Drawing.Size(75, 113);
             this.btnExit.TabIndex = 8;
             this.btnExit.Text = "&Salir";
             this.btnExit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -73,10 +75,12 @@
             // btnApply
             // 
             this.btnApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnApply.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnApply.BackgroundImage")));
+            this.btnApply.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnApply.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnApply.Location = new System.Drawing.Point(665, 381);
+            this.btnApply.Location = new System.Drawing.Point(665, 358);
             this.btnApply.Name = "btnApply";
-            this.btnApply.Size = new System.Drawing.Size(75, 90);
+            this.btnApply.Size = new System.Drawing.Size(75, 113);
             this.btnApply.TabIndex = 9;
             this.btnApply.Text = "&Aplicar";
             this.btnApply.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -136,17 +140,19 @@
             this.grbNewEmployer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbNewEmployer.Location = new System.Drawing.Point(258, 133);
             this.grbNewEmployer.Name = "grbNewEmployer";
-            this.grbNewEmployer.Size = new System.Drawing.Size(193, 283);
+            this.grbNewEmployer.Size = new System.Drawing.Size(193, 302);
             this.grbNewEmployer.TabIndex = 13;
             this.grbNewEmployer.TabStop = false;
             this.grbNewEmployer.Text = "Nuevo Empleado";
             // 
             // bntCreateCancel
             // 
+            this.bntCreateCancel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bntCreateCancel.BackgroundImage")));
+            this.bntCreateCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.bntCreateCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bntCreateCancel.Location = new System.Drawing.Point(108, 182);
+            this.bntCreateCancel.Location = new System.Drawing.Point(108, 183);
             this.bntCreateCancel.Name = "bntCreateCancel";
-            this.bntCreateCancel.Size = new System.Drawing.Size(79, 90);
+            this.bntCreateCancel.Size = new System.Drawing.Size(79, 113);
             this.bntCreateCancel.TabIndex = 12;
             this.bntCreateCancel.Text = "C&ancelar";
             this.bntCreateCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -155,10 +161,12 @@
             // 
             // btnCreate
             // 
+            this.btnCreate.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCreate.BackgroundImage")));
+            this.btnCreate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreate.Location = new System.Drawing.Point(9, 182);
+            this.btnCreate.Location = new System.Drawing.Point(9, 183);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(75, 90);
+            this.btnCreate.Size = new System.Drawing.Size(75, 113);
             this.btnCreate.TabIndex = 11;
             this.btnCreate.Text = "&Crear";
             this.btnCreate.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -241,7 +249,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(466, 133);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(193, 283);
+            this.groupBox1.Size = new System.Drawing.Size(193, 302);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Eliminar Empleado";
@@ -279,10 +287,12 @@
             // 
             // btnDeleteCancel
             // 
+            this.btnDeleteCancel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDeleteCancel.BackgroundImage")));
+            this.btnDeleteCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnDeleteCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteCancel.Location = new System.Drawing.Point(108, 182);
+            this.btnDeleteCancel.Location = new System.Drawing.Point(108, 183);
             this.btnDeleteCancel.Name = "btnDeleteCancel";
-            this.btnDeleteCancel.Size = new System.Drawing.Size(79, 90);
+            this.btnDeleteCancel.Size = new System.Drawing.Size(79, 113);
             this.btnDeleteCancel.TabIndex = 12;
             this.btnDeleteCancel.Text = "C&ancelar";
             this.btnDeleteCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -290,10 +300,12 @@
             // 
             // btnDelete
             // 
+            this.btnDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDelete.BackgroundImage")));
+            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(9, 182);
+            this.btnDelete.Location = new System.Drawing.Point(9, 183);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 90);
+            this.btnDelete.Size = new System.Drawing.Size(75, 113);
             this.btnDelete.TabIndex = 11;
             this.btnDelete.Text = "E&liminar";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
