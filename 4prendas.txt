@@ -1,0 +1,23 @@
+todo en una pantalla completo, intuitivo, con botón atrás
+lo suyo es que aparezca por grupos para insertar productos
+dar visto bueno siendo admin para datos ya introducidos
+administracion donde se puedan meter familias y empleados y borrar archivos solo admins
+excel(de hacerlo que no se pase de ancho) y access (o word)
+cambiar imagenes de familias para cambio entre ropa y super
+subfamilias también tienen imagen se puede cambiar etc
+que quede registrado que alumno mete productos etc
+versiones imprimibles, que se pueda imprimir "por familias o lo que sea"
+impresión sin todos los campos: interesa codproducto PADB000, codigo barras entero, descripcion, peso/talla y unidades (y la info de estanteria)
+hacer backups de bdd
+que puedas buscar productos por: producto, codigo, familia o empleado y se pueda volver al principal
+igual esconder el cod barras porque solo usan PADB000 y no lo anterior ??
+podrían cambiar el 22 31014, dejar que lo metan
+los productos tienen stock minimo y se puede cambiar -> genera alguna alerta o algo
+que el logo y las imagenes y las familias y todo se pueda cambiar
+que salgan las etiquetas del cod barras en el listado
+brother ql-700
+etiqueta con codigo barras e imagen, codproducto, precio
+
+CUIDADO CON LA RESOLUCIÓN
+
+	inicia: logo (que se pueda cambiar) y elegir registro prod, almacenamiento de estanteria y venta
