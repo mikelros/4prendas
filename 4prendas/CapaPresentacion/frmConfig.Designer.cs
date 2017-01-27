@@ -44,12 +44,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtCreateName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.grbImprimir = new System.Windows.Forms.GroupBox();
-            this.rbtnSells = new System.Windows.Forms.RadioButton();
-            this.rbtnAll = new System.Windows.Forms.RadioButton();
-            this.rbtnCollection = new System.Windows.Forms.RadioButton();
-            this.rbtnRefunds = new System.Windows.Forms.RadioButton();
-            this.btnPrint = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblEmployerError = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -61,28 +55,31 @@
             this.label6 = new System.Windows.Forms.Label();
             this.grbType.SuspendLayout();
             this.grbNewEmployer.SuspendLayout();
-            this.grbImprimir.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnExit
             // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(265, 348);
+            this.btnExit.Location = new System.Drawing.Point(746, 381);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 23);
+            this.btnExit.Size = new System.Drawing.Size(75, 90);
             this.btnExit.TabIndex = 8;
             this.btnExit.Text = "&Salir";
+            this.btnExit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnExit.UseVisualStyleBackColor = true;
             // 
             // btnApply
             // 
+            this.btnApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnApply.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnApply.Location = new System.Drawing.Point(127, 348);
+            this.btnApply.Location = new System.Drawing.Point(665, 381);
             this.btnApply.Name = "btnApply";
-            this.btnApply.Size = new System.Drawing.Size(75, 23);
+            this.btnApply.Size = new System.Drawing.Size(75, 90);
             this.btnApply.TabIndex = 9;
             this.btnApply.Text = "&Aplicar";
+            this.btnApply.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnApply.UseVisualStyleBackColor = true;
             // 
             // rbtnFood
@@ -113,10 +110,11 @@
             // 
             // grbType
             // 
+            this.grbType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.grbType.Controls.Add(this.rbtnFood);
             this.grbType.Controls.Add(this.rbtnClothes);
             this.grbType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbType.Location = new System.Drawing.Point(12, 12);
+            this.grbType.Location = new System.Drawing.Point(123, 133);
             this.grbType.Name = "grbType";
             this.grbType.Size = new System.Drawing.Size(117, 85);
             this.grbType.TabIndex = 12;
@@ -125,6 +123,7 @@
             // 
             // grbNewEmployer
             // 
+            this.grbNewEmployer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.grbNewEmployer.Controls.Add(this.bntCreateCancel);
             this.grbNewEmployer.Controls.Add(this.btnCreate);
             this.grbNewEmployer.Controls.Add(this.btnBrowse);
@@ -135,9 +134,9 @@
             this.grbNewEmployer.Controls.Add(this.txtCreateName);
             this.grbNewEmployer.Controls.Add(this.label1);
             this.grbNewEmployer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbNewEmployer.Location = new System.Drawing.Point(147, 12);
+            this.grbNewEmployer.Location = new System.Drawing.Point(258, 133);
             this.grbNewEmployer.Name = "grbNewEmployer";
-            this.grbNewEmployer.Size = new System.Drawing.Size(193, 238);
+            this.grbNewEmployer.Size = new System.Drawing.Size(193, 283);
             this.grbNewEmployer.TabIndex = 13;
             this.grbNewEmployer.TabStop = false;
             this.grbNewEmployer.Text = "Nuevo Empleado";
@@ -145,22 +144,24 @@
             // bntCreateCancel
             // 
             this.bntCreateCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bntCreateCancel.Location = new System.Drawing.Point(108, 194);
+            this.bntCreateCancel.Location = new System.Drawing.Point(108, 182);
             this.bntCreateCancel.Name = "bntCreateCancel";
-            this.bntCreateCancel.Size = new System.Drawing.Size(79, 23);
+            this.bntCreateCancel.Size = new System.Drawing.Size(79, 90);
             this.bntCreateCancel.TabIndex = 12;
             this.bntCreateCancel.Text = "C&ancelar";
+            this.bntCreateCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.bntCreateCancel.UseVisualStyleBackColor = true;
             this.bntCreateCancel.Click += new System.EventHandler(this.bntCreateCancel_Click);
             // 
             // btnCreate
             // 
             this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreate.Location = new System.Drawing.Point(9, 194);
+            this.btnCreate.Location = new System.Drawing.Point(9, 182);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(75, 23);
+            this.btnCreate.Size = new System.Drawing.Size(75, 90);
             this.btnCreate.TabIndex = 11;
             this.btnCreate.Text = "&Crear";
+            this.btnCreate.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCreate.UseVisualStyleBackColor = true;
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
@@ -226,81 +227,9 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Nombre:";
             // 
-            // grbImprimir
-            // 
-            this.grbImprimir.Controls.Add(this.rbtnSells);
-            this.grbImprimir.Controls.Add(this.rbtnAll);
-            this.grbImprimir.Controls.Add(this.rbtnCollection);
-            this.grbImprimir.Controls.Add(this.rbtnRefunds);
-            this.grbImprimir.Controls.Add(this.btnPrint);
-            this.grbImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbImprimir.Location = new System.Drawing.Point(554, 12);
-            this.grbImprimir.Name = "grbImprimir";
-            this.grbImprimir.Size = new System.Drawing.Size(193, 238);
-            this.grbImprimir.TabIndex = 17;
-            this.grbImprimir.TabStop = false;
-            this.grbImprimir.Text = "Imprimir";
-            // 
-            // rbtnSells
-            // 
-            this.rbtnSells.AutoSize = true;
-            this.rbtnSells.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnSells.Location = new System.Drawing.Point(9, 78);
-            this.rbtnSells.Name = "rbtnSells";
-            this.rbtnSells.Size = new System.Drawing.Size(68, 22);
-            this.rbtnSells.TabIndex = 16;
-            this.rbtnSells.TabStop = true;
-            this.rbtnSells.Text = "Venta";
-            this.rbtnSells.UseVisualStyleBackColor = true;
-            // 
-            // rbtnAll
-            // 
-            this.rbtnAll.AutoSize = true;
-            this.rbtnAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnAll.Location = new System.Drawing.Point(9, 106);
-            this.rbtnAll.Name = "rbtnAll";
-            this.rbtnAll.Size = new System.Drawing.Size(65, 22);
-            this.rbtnAll.TabIndex = 15;
-            this.rbtnAll.TabStop = true;
-            this.rbtnAll.Text = "Todo";
-            this.rbtnAll.UseVisualStyleBackColor = true;
-            // 
-            // rbtnCollection
-            // 
-            this.rbtnCollection.AutoSize = true;
-            this.rbtnCollection.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnCollection.Location = new System.Drawing.Point(9, 22);
-            this.rbtnCollection.Name = "rbtnCollection";
-            this.rbtnCollection.Size = new System.Drawing.Size(97, 22);
-            this.rbtnCollection.TabIndex = 13;
-            this.rbtnCollection.TabStop = true;
-            this.rbtnCollection.Text = "Recogida";
-            this.rbtnCollection.UseVisualStyleBackColor = true;
-            // 
-            // rbtnRefunds
-            // 
-            this.rbtnRefunds.AutoSize = true;
-            this.rbtnRefunds.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnRefunds.Location = new System.Drawing.Point(9, 50);
-            this.rbtnRefunds.Name = "rbtnRefunds";
-            this.rbtnRefunds.Size = new System.Drawing.Size(128, 22);
-            this.rbtnRefunds.TabIndex = 14;
-            this.rbtnRefunds.TabStop = true;
-            this.rbtnRefunds.Text = "Devoluciones";
-            this.rbtnRefunds.UseVisualStyleBackColor = true;
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrint.Location = new System.Drawing.Point(112, 194);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(75, 23);
-            this.btnPrint.TabIndex = 11;
-            this.btnPrint.Text = "&Print";
-            this.btnPrint.UseVisualStyleBackColor = true;
-            // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.groupBox1.Controls.Add(this.lblEmployerError);
             this.groupBox1.Controls.Add(this.btnSearch);
             this.groupBox1.Controls.Add(this.lblDeleteName);
@@ -310,9 +239,9 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(355, 12);
+            this.groupBox1.Location = new System.Drawing.Point(466, 133);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(193, 238);
+            this.groupBox1.Size = new System.Drawing.Size(193, 283);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Eliminar Empleado";
@@ -351,21 +280,23 @@
             // btnDeleteCancel
             // 
             this.btnDeleteCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteCancel.Location = new System.Drawing.Point(108, 194);
+            this.btnDeleteCancel.Location = new System.Drawing.Point(108, 182);
             this.btnDeleteCancel.Name = "btnDeleteCancel";
-            this.btnDeleteCancel.Size = new System.Drawing.Size(79, 23);
+            this.btnDeleteCancel.Size = new System.Drawing.Size(79, 90);
             this.btnDeleteCancel.TabIndex = 12;
             this.btnDeleteCancel.Text = "C&ancelar";
+            this.btnDeleteCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnDeleteCancel.UseVisualStyleBackColor = true;
             // 
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(9, 194);
+            this.btnDelete.Location = new System.Drawing.Point(9, 182);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.Size = new System.Drawing.Size(75, 90);
             this.btnDelete.TabIndex = 11;
             this.btnDelete.Text = "E&liminar";
+            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnDelete.UseVisualStyleBackColor = true;
             // 
             // txtDeleteNumEmployer
@@ -400,21 +331,20 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(833, 483);
-            this.Controls.Add(this.grbImprimir);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grbNewEmployer);
             this.Controls.Add(this.grbType);
             this.Controls.Add(this.btnApply);
             this.Controls.Add(this.btnExit);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmConfig";
             this.Text = "Configuración";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmConfig_Load);
             this.grbType.ResumeLayout(false);
             this.grbType.PerformLayout();
             this.grbNewEmployer.ResumeLayout(false);
             this.grbNewEmployer.PerformLayout();
-            this.grbImprimir.ResumeLayout(false);
-            this.grbImprimir.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -438,12 +368,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button bntCreateCancel;
         private System.Windows.Forms.Button btnCreate;
-        private System.Windows.Forms.GroupBox grbImprimir;
-        private System.Windows.Forms.RadioButton rbtnSells;
-        private System.Windows.Forms.RadioButton rbtnAll;
-        private System.Windows.Forms.RadioButton rbtnCollection;
-        private System.Windows.Forms.RadioButton rbtnRefunds;
-        private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblEmployerError;
         private System.Windows.Forms.Button btnSearch;
