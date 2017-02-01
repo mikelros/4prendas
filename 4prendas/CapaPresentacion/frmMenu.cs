@@ -20,11 +20,11 @@ namespace CapaPresentacion
 
         private void frmMenu_Load(object sender, EventArgs e)
         {
-            int medioX = this.Size.Width / 2;
             int medioY = this.Size.Height / 2;
-            pboVenta.Location = new Point(medioX - pboVenta.Width / 2, medioY - pboVenta.Height / 2);
-            pboRecogida.Location = new Point(this.Size.Width / 4 - pboRecogida.Width / 2, medioY - pboRecogida.Height / 2);
-            pboAlmacenamiento.Location = new Point(this.Size.Width * 3 / 4 - pboAlmacenamiento.Width / 2, medioY - pboAlmacenamiento.Height / 2);
+            pboRecogida.Location = new Point((this.Size.Width / 5) - pboRecogida.Width / 2, medioY - (pboRecogida.Height / 2));
+            pboRegistro.Location = new Point((this.Size.Width * 2 / 5) - pboRegistro.Width / 2, medioY - (pboRegistro.Height / 2));
+            pboVenta.Location = new Point((this.Size.Width * 3 / 5) - pboVenta.Width / 2, medioY - (pboVenta.Height / 2));
+            pboAlmacenamiento.Location = new Point((this.Size.Width  * 4 / 5) - pboAlmacenamiento.Width / 2, medioY - (pboAlmacenamiento.Height / 2));
 
         }
 
@@ -42,8 +42,8 @@ namespace CapaPresentacion
 
         private void pboVenta_Click(object sender, EventArgs e)
         {
-            Form frmRecogida = new frmVenta();
-            frmRecogida.Show();
+            Form frmVenta = new frmVenta();
+            frmVenta.Show();
             this.Close();
         }
 
@@ -52,6 +52,13 @@ namespace CapaPresentacion
             //Form frmRecogida = new frmAlmacenamiento();
             //frmRecogida.Show();
             //this.Close();
+        }
+
+        private void pboRegistro_Click(object sender, EventArgs e)
+        {
+            Form frmRegistro = new frmRegistro();
+            frmRegistro.Show();
+            this.Close();
         }
     }
 }

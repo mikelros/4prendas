@@ -35,11 +35,13 @@
             this.pboVenta = new System.Windows.Forms.PictureBox();
             this.pboAlmacenamiento = new System.Windows.Forms.PictureBox();
             this.btnExit = new System.Windows.Forms.Button();
+            this.pboRegistro = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbo4prendas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboCuatrovientos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboRecogida)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboVenta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboAlmacenamiento)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboRegistro)).BeginInit();
             this.SuspendLayout();
             // 
             // pbo4prendas
@@ -80,7 +82,7 @@
             // 
             this.pboVenta.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pboVenta.BackColor = System.Drawing.Color.Black;
-            this.pboVenta.Location = new System.Drawing.Point(583, 343);
+            this.pboVenta.Location = new System.Drawing.Point(710, 343);
             this.pboVenta.Name = "pboVenta";
             this.pboVenta.Size = new System.Drawing.Size(143, 186);
             this.pboVenta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -92,7 +94,7 @@
             // 
             this.pboAlmacenamiento.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pboAlmacenamiento.BackColor = System.Drawing.Color.Black;
-            this.pboAlmacenamiento.Location = new System.Drawing.Point(1016, 343);
+            this.pboAlmacenamiento.Location = new System.Drawing.Point(1036, 343);
             this.pboAlmacenamiento.Name = "pboAlmacenamiento";
             this.pboAlmacenamiento.Size = new System.Drawing.Size(143, 186);
             this.pboAlmacenamiento.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -115,6 +117,18 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // pboRegistro
+            // 
+            this.pboRegistro.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pboRegistro.BackColor = System.Drawing.Color.Black;
+            this.pboRegistro.Location = new System.Drawing.Point(402, 343);
+            this.pboRegistro.Name = "pboRegistro";
+            this.pboRegistro.Size = new System.Drawing.Size(143, 186);
+            this.pboRegistro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pboRegistro.TabIndex = 62;
+            this.pboRegistro.TabStop = false;
+            this.pboRegistro.Click += new System.EventHandler(this.pboRegistro_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -122,6 +136,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1312, 838);
+            this.Controls.Add(this.pboRegistro);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.pboAlmacenamiento);
             this.Controls.Add(this.pboVenta);
@@ -138,6 +153,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pboRecogida)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboVenta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboAlmacenamiento)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboRegistro)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,5 +167,6 @@
         private System.Windows.Forms.PictureBox pboVenta;
         private System.Windows.Forms.PictureBox pboAlmacenamiento;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.PictureBox pboRegistro;
     }
 }
