@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
-    public partial class frmInicio : Form
+    public partial class frmVenta : Form
     {
         string searchBy;
-        public frmInicio()
+        public frmVenta()
         {
             InitializeComponent();
         }
