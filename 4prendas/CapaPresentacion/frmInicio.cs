@@ -12,6 +12,7 @@ namespace CapaPresentacion
 {
     public partial class frmInicio : Form
     {
+        string searchBy;
         public frmInicio()
         {
             InitializeComponent();
@@ -92,9 +93,27 @@ namespace CapaPresentacion
             proceso.Start();
         }
 
-        private void pictureBox3_Click(object sender, EventArgs e)
+        private void cmbSearch_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //searchBy = selectedIndex
+        }
 
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            switch (searchBy)
+            {
+                case "Barcode":
+                    //dgvProducts.datasource = searchByBarcode(txtSearch.text)
+                    break;
+                case "Family":
+                    //dgvProducts.datasource = searchByFamily(txtSearch.text)
+                    break;
+                case "SubFamily":
+                    //dgvProducts.datasource = searchBySubFamily(txtSearch.text)
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
