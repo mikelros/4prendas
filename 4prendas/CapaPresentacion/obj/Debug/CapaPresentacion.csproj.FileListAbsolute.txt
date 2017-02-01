@@ -16,3 +16,15 @@ C:\Users\Asier\Source\Repos\4prendas3\4prendas\CapaPresentacion\obj\Debug\CapaPr
 C:\Users\Asier\Source\Repos\4prendas3\4prendas\CapaPresentacion\obj\Debug\CapaPresentacion.exe
 C:\Users\Asier\Source\Repos\4prendas3\4prendas\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
 C:\Users\Asgarth\Source\Repos\4prendas2\4prendas\CapaPresentacion\bin\Debug\CapaPresentacion.exe.config
+C:\Users\Asgarth\Source\Repos\4prendas2\4prendas\CapaPresentacion\bin\Debug\CapaPresentacion.exe
+C:\Users\Asgarth\Source\Repos\4prendas2\4prendas\CapaPresentacion\bin\Debug\CapaPresentacion.pdb
+C:\Users\Asgarth\Source\Repos\4prendas2\4prendas\CapaPresentacion\obj\Debug\CapaPresentacion.csprojResolveAssemblyReference.cache
+C:\Users\Asgarth\Source\Repos\4prendas2\4prendas\CapaPresentacion\obj\Debug\CapaPresentacion.frmConfig.resources
+C:\Users\Asgarth\Source\Repos\4prendas2\4prendas\CapaPresentacion\obj\Debug\CapaPresentacion.frmVenta.resources
+C:\Users\Asgarth\Source\Repos\4prendas2\4prendas\CapaPresentacion\obj\Debug\CapaPresentacion.frmLoginAdmin.resources
+C:\Users\Asgarth\Source\Repos\4prendas2\4prendas\CapaPresentacion\obj\Debug\CapaPresentacion.frmRecogida.resources
+C:\Users\Asgarth\Source\Repos\4prendas2\4prendas\CapaPresentacion\obj\Debug\CapaPresentacion.frmRegistro.resources
+C:\Users\Asgarth\Source\Repos\4prendas2\4prendas\CapaPresentacion\obj\Debug\CapaPresentacion.Properties.Resources.resources
+C:\Users\Asgarth\Source\Repos\4prendas2\4prendas\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.GenerateResource.Cache
+C:\Users\Asgarth\Source\Repos\4prendas2\4prendas\CapaPresentacion\obj\Debug\CapaPresentacion.exe
+C:\Users\Asgarth\Source\Repos\4prendas2\4prendas\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
