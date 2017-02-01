@@ -13,12 +13,11 @@ namespace CapaEntidades
         private string medida;
         private int stock;
         private int stockMinimo;
-        private int empleadoId;
+        private Empleado empleado;
         private Lugar lugar;
         private Familia familia;
-        private SubFamilia subFamilia;
-        private int numeroVenta;
-        private int recogidaId;
+        private Venta venta;
+        private Recogida recogida;
         private DateTime fechaEntrada;
         private int coste;
 
@@ -28,20 +27,37 @@ namespace CapaEntidades
 
         }
 
-        public Producto(string codArticulo, string descripcion, string medida, int stock, int stockMinimo, int empleadoId, Lugar lugar,
-            Familia familia, SubFamilia subFamilia, int numeroVenta, int recogidaId, DateTime fechaEntrada, int coste)
+        //Sin venta
+        public Producto(string codArticulo, string descripcion, string medida, int stock, int stockMinimo, Empleado empleado, Lugar lugar,
+           Familia familia, Recogida recogida, DateTime fechaEntrada, int coste)
         {
             this.codigoArticulo = codArticulo;
             this.descripcion = descripcion;
             this.medida = medida;
             this.stock = stock;
             this.stockMinimo = stockMinimo;
-            this.empleadoId = empleadoId;
+            this.empleado = empleado;
             this.lugar = lugar;
             this.familia = familia;
-            this.subFamilia = subFamilia;
-            this.numeroVenta = numeroVenta;
-            this.recogidaId = recogidaId;
+            this.recogida = recogida;
+            this.fechaEntrada = fechaEntrada;
+            this.coste = coste;
+        }
+        
+        //Todos los campos
+        public Producto(string codArticulo, string descripcion, string medida, int stock, int stockMinimo, Empleado empleado, Lugar lugar,
+            Familia familia, SubFamilia subFamilia, Venta venta, Recogida recogida, DateTime fechaEntrada, int coste)
+        {
+            this.codigoArticulo = codArticulo;
+            this.descripcion = descripcion;
+            this.medida = medida;
+            this.stock = stock;
+            this.stockMinimo = stockMinimo;
+            this.empleado = empleado;
+            this.lugar = lugar;
+            this.familia = familia;
+            this.venta = venta;
+            this.recogida = recogida;
             this.fechaEntrada = fechaEntrada;
             this.coste = coste;
         }
@@ -106,15 +122,15 @@ namespace CapaEntidades
             }
         }
 
-        public int EmpleadoId
+        public Empleado EmpleadoId
         {
             get
             {
-                return empleadoId;
+                return empleado;
             }
             set
             {
-                empleadoId = value;
+                empleado = value;
             }
         }
 
@@ -142,39 +158,27 @@ namespace CapaEntidades
             }
         }
 
-        public SubFamilia SubFamilia
+        public Venta Venta
         {
             get
             {
-                return subFamilia;
+                return venta;
             }
             set
             {
-                subFamilia = value;
+                venta = value;
             }
         }
 
-        public int NumeroVenta
+        public Recogida Recogida
         {
             get
             {
-                return numeroVenta;
+                return recogida;
             }
             set
             {
-                numeroVenta = value;
-            }
-        }
-
-        public int RecogidaId
-        {
-            get
-            {
-                return recogidaId;
-            }
-            set
-            {
-                recogidaId = value;
+                recogida = value;
             }
         }
 

@@ -15,6 +15,13 @@ namespace CapaEntidades
 
         public Recogida() { }
 
+        public Recogida(DateTime fechaRecogida, Empleado empleado, int cantidadProductos)
+        {
+            this.fechaRecogida = fechaRecogida;
+            this.empleado = empleado;
+            this.cantidadProductos = cantidadProductos;
+        }
+
         public Recogida(DateTime fechaRecogida, Empleado empleado, int cantidadProductos, Persona persona)
         {
             this.fechaRecogida = fechaRecogida;
