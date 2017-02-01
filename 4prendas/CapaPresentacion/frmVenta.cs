@@ -20,6 +20,7 @@ namespace CapaPresentacion
 
         private void frmInicio_Load(object sender, EventArgs e)
         {
+            dgvCarrito.Hide();
             checkStockMinimo();
             loadWorkersList();
             //Cargar botones familia();
@@ -114,6 +115,18 @@ namespace CapaPresentacion
                 default:
                     break;
             }
+        }
+
+
+
+        private void btnCarrito_Click(object sender, EventArgs e)
+        {
+            dgvCarrito.Show();
+        }
+
+        private void dgvCarrito_MouseLeave(object sender, EventArgs e)
+        {
+            dgvCarrito.Hide();
         }
     }
 }
