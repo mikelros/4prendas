@@ -273,5 +273,25 @@ namespace CapaPresentacion
         {
             this.Close();
         }
+
+        private void btnCopy_Click(object sender, EventArgs e)
+        {
+            string FileToCopy;
+            SaveFileDialog NewCopy = new SaveFileDialog();
+            NewCopy.Filter = "Base de datos|*.accdb";
+            NewCopy.ShowDialog();
+            FileToCopy = "CUASHOP_MODA.accdb";
+            
+            if (System.IO.File.Exists(FileToCopy))
+            {
+                if (!NewCopy.FileName.Equals(""))
+                {
+                    System.IO.File.Copy(FileToCopy, NewCopy.FileName);
+                    MessageBox.Show("File Copied");
+                }
+            }
+
+
+        }
     }
 }
