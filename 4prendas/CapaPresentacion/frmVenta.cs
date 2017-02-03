@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,8 @@ namespace CapaPresentacion
 
         private void frmInicio_Load(object sender, EventArgs e)
         {
+
+
             dgvCarrito.Hide();
             checkStockMinimo();
             loadWorkersList();
@@ -127,6 +130,13 @@ namespace CapaPresentacion
         private void dgvCarrito_MouseLeave(object sender, EventArgs e)
         {
             dgvCarrito.Hide();
+        }
+
+        private int leerTipoDeTienda()
+        {
+            StreamReader sr = File.OpenText("archivo.txt");
+            string name = sr.ReadLine();
+            return 1;
         }
     }
 }
