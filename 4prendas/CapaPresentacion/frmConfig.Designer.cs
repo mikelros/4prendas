@@ -35,6 +35,7 @@
             this.rbtnClothes = new System.Windows.Forms.RadioButton();
             this.grbType = new System.Windows.Forms.GroupBox();
             this.grbNewEmployer = new System.Windows.Forms.GroupBox();
+            this.lblCreateIntParseError = new System.Windows.Forms.Label();
             this.bntCreateCancel = new System.Windows.Forms.Button();
             this.btnCreate = new System.Windows.Forms.Button();
             this.btnBrowse = new System.Windows.Forms.Button();
@@ -45,6 +46,7 @@
             this.txtCreateName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblDeleteIntParseError = new System.Windows.Forms.Label();
             this.lblEmployerError = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.lblDeleteName = new System.Windows.Forms.Label();
@@ -68,9 +70,10 @@
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 113);
             this.btnExit.TabIndex = 8;
-            this.btnExit.Text = "&Salir";
+            this.btnExit.Text = "A&trás";
             this.btnExit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnApply
             // 
@@ -85,6 +88,7 @@
             this.btnApply.Text = "&Aplicar";
             this.btnApply.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnApply.UseVisualStyleBackColor = true;
+            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
             // 
             // rbtnFood
             // 
@@ -128,6 +132,7 @@
             // grbNewEmployer
             // 
             this.grbNewEmployer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.grbNewEmployer.Controls.Add(this.lblCreateIntParseError);
             this.grbNewEmployer.Controls.Add(this.bntCreateCancel);
             this.grbNewEmployer.Controls.Add(this.btnCreate);
             this.grbNewEmployer.Controls.Add(this.btnBrowse);
@@ -140,17 +145,27 @@
             this.grbNewEmployer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbNewEmployer.Location = new System.Drawing.Point(258, 133);
             this.grbNewEmployer.Name = "grbNewEmployer";
-            this.grbNewEmployer.Size = new System.Drawing.Size(193, 302);
+            this.grbNewEmployer.Size = new System.Drawing.Size(193, 319);
             this.grbNewEmployer.TabIndex = 13;
             this.grbNewEmployer.TabStop = false;
             this.grbNewEmployer.Text = "Nuevo Empleado";
+            // 
+            // lblCreateIntParseError
+            // 
+            this.lblCreateIntParseError.AutoSize = true;
+            this.lblCreateIntParseError.ForeColor = System.Drawing.Color.Red;
+            this.lblCreateIntParseError.Location = new System.Drawing.Point(26, 128);
+            this.lblCreateIntParseError.Name = "lblCreateIntParseError";
+            this.lblCreateIntParseError.Size = new System.Drawing.Size(144, 15);
+            this.lblCreateIntParseError.TabIndex = 16;
+            this.lblCreateIntParseError.Text = "Introduce un número!";
             // 
             // bntCreateCancel
             // 
             this.bntCreateCancel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bntCreateCancel.BackgroundImage")));
             this.bntCreateCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.bntCreateCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bntCreateCancel.Location = new System.Drawing.Point(108, 183);
+            this.bntCreateCancel.Location = new System.Drawing.Point(108, 200);
             this.bntCreateCancel.Name = "bntCreateCancel";
             this.bntCreateCancel.Size = new System.Drawing.Size(79, 113);
             this.bntCreateCancel.TabIndex = 12;
@@ -164,7 +179,7 @@
             this.btnCreate.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCreate.BackgroundImage")));
             this.btnCreate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreate.Location = new System.Drawing.Point(9, 183);
+            this.btnCreate.Location = new System.Drawing.Point(9, 200);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(75, 113);
             this.btnCreate.TabIndex = 11;
@@ -176,7 +191,7 @@
             // btnBrowse
             // 
             this.btnBrowse.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBrowse.Location = new System.Drawing.Point(108, 153);
+            this.btnBrowse.Location = new System.Drawing.Point(108, 172);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(79, 23);
             this.btnBrowse.TabIndex = 10;
@@ -186,7 +201,7 @@
             // 
             // txtCreatePhoto
             // 
-            this.txtCreatePhoto.Location = new System.Drawing.Point(6, 155);
+            this.txtCreatePhoto.Location = new System.Drawing.Point(6, 174);
             this.txtCreatePhoto.Name = "txtCreatePhoto";
             this.txtCreatePhoto.Size = new System.Drawing.Size(96, 21);
             this.txtCreatePhoto.TabIndex = 9;
@@ -195,7 +210,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 128);
+            this.label3.Location = new System.Drawing.Point(6, 147);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 18);
             this.label3.TabIndex = 8;
@@ -238,6 +253,7 @@
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.groupBox1.Controls.Add(this.lblDeleteIntParseError);
             this.groupBox1.Controls.Add(this.lblEmployerError);
             this.groupBox1.Controls.Add(this.btnSearch);
             this.groupBox1.Controls.Add(this.lblDeleteName);
@@ -249,10 +265,20 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(466, 133);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(193, 302);
+            this.groupBox1.Size = new System.Drawing.Size(193, 319);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Eliminar Empleado";
+            // 
+            // lblDeleteIntParseError
+            // 
+            this.lblDeleteIntParseError.AutoSize = true;
+            this.lblDeleteIntParseError.ForeColor = System.Drawing.Color.Red;
+            this.lblDeleteIntParseError.Location = new System.Drawing.Point(26, 77);
+            this.lblDeleteIntParseError.Name = "lblDeleteIntParseError";
+            this.lblDeleteIntParseError.Size = new System.Drawing.Size(144, 15);
+            this.lblDeleteIntParseError.TabIndex = 15;
+            this.lblDeleteIntParseError.Text = "Introduce un número!";
             // 
             // lblEmployerError
             // 
@@ -274,6 +300,7 @@
             this.btnSearch.Size = new System.Drawing.Size(46, 41);
             this.btnSearch.TabIndex = 14;
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // lblDeleteName
             // 
@@ -290,26 +317,28 @@
             this.btnDeleteCancel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDeleteCancel.BackgroundImage")));
             this.btnDeleteCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnDeleteCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteCancel.Location = new System.Drawing.Point(108, 183);
+            this.btnDeleteCancel.Location = new System.Drawing.Point(108, 200);
             this.btnDeleteCancel.Name = "btnDeleteCancel";
             this.btnDeleteCancel.Size = new System.Drawing.Size(79, 113);
             this.btnDeleteCancel.TabIndex = 12;
             this.btnDeleteCancel.Text = "C&ancelar";
             this.btnDeleteCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnDeleteCancel.UseVisualStyleBackColor = true;
+            this.btnDeleteCancel.Click += new System.EventHandler(this.btnDeleteCancel_Click);
             // 
             // btnDelete
             // 
             this.btnDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDelete.BackgroundImage")));
             this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(9, 183);
+            this.btnDelete.Location = new System.Drawing.Point(9, 200);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 113);
             this.btnDelete.TabIndex = 11;
             this.btnDelete.Text = "E&liminar";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // txtDeleteNumEmployer
             // 
@@ -389,5 +418,7 @@
         private System.Windows.Forms.TextBox txtDeleteNumEmployer;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblCreateIntParseError;
+        private System.Windows.Forms.Label lblDeleteIntParseError;
     }
 }

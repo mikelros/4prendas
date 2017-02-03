@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaEntidades
 {
-    class Lugar
+    public class Lugar
     {
         private string estanteria;
         private int estante;

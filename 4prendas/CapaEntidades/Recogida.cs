@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaEntidades
 {
-    class Recogida
+    public class Recogida
     {
         private DateTime fechaRecogida;
         private Empleado empleado;
@@ -14,6 +14,13 @@ namespace CapaEntidades
         private Persona persona;
 
         public Recogida() { }
+
+        public Recogida(DateTime fechaRecogida, Empleado empleado, int cantidadProductos)
+        {
+            this.fechaRecogida = fechaRecogida;
+            this.empleado = empleado;
+            this.cantidadProductos = cantidadProductos;
+        }
 
         public Recogida(DateTime fechaRecogida, Empleado empleado, int cantidadProductos, Persona persona)
         {
