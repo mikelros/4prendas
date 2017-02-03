@@ -73,6 +73,7 @@
             this.btnExit.Text = "A&trás";
             this.btnExit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnApply
             // 
@@ -87,6 +88,7 @@
             this.btnApply.Text = "&Aplicar";
             this.btnApply.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnApply.UseVisualStyleBackColor = true;
+            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
             // 
             // rbtnFood
             // 
@@ -298,6 +300,7 @@
             this.btnSearch.Size = new System.Drawing.Size(46, 41);
             this.btnSearch.TabIndex = 14;
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // lblDeleteName
             // 
@@ -321,6 +324,7 @@
             this.btnDeleteCancel.Text = "C&ancelar";
             this.btnDeleteCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnDeleteCancel.UseVisualStyleBackColor = true;
+            this.btnDeleteCancel.Click += new System.EventHandler(this.btnDeleteCancel_Click);
             // 
             // btnDelete
             // 
@@ -334,6 +338,7 @@
             this.btnDelete.Text = "E&liminar";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // txtDeleteNumEmployer
             // 
