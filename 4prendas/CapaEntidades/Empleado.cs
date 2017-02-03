@@ -10,6 +10,8 @@ namespace CapaEntidades
     {
         private string nombre;
         private string foto;
+        private List<Venta> ventas;
+        private List<Devolucion> devoluciones;
 
         public Empleado() { }
 
@@ -17,6 +19,14 @@ namespace CapaEntidades
         {
             this.nombre = nombre;
             this.foto = foto;
+        }
+
+        public Empleado(string nombre, string foto, List<Venta> ventas, List<Devolucion> devoluciones)
+        {
+            this.nombre = nombre;
+            this.foto = foto;
+            this.ventas = ventas;
+            this.devoluciones = devoluciones;
         }
 
         public string Nombre
@@ -40,6 +50,30 @@ namespace CapaEntidades
             set
             {
                 foto = value;
+            }
+        }
+
+        public List<Venta> Ventas
+        {
+            get
+            {
+                return ventas;
+            }
+            set
+            {
+                ventas = value;
+            }
+        }
+
+        public List<Devolucion> Devoluciones
+        {
+            get
+            {
+                return devoluciones;
+            }
+            set
+            {
+                devoluciones = value;
             }
         }
     }

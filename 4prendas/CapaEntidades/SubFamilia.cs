@@ -8,22 +8,38 @@ namespace CapaEntidades
 {
     class SubFamilia
     {
+        private string codFamilia;
         private string codSubFamilia;
         private string nombre;
         private string imagen;
         private int iva;
+        private int numeroCodigo;
         
         public SubFamilia()
         {
 
         }
 
-        public SubFamilia(string codSubFamilia, string nombre, string imagen, int iva)
+        public SubFamilia(string codFamilia, string codSubFamilia, string nombre, string imagen, int iva, int numeroCodigo)
         {
+            this.codFamilia = codFamilia;
             this.codSubFamilia = codSubFamilia;
             this.nombre = nombre;
             this.imagen = imagen;
             this.iva = iva;
+            this.numeroCodigo = numeroCodigo;
+        }
+
+        public string CodFamilia
+        {
+            get
+            {
+                return codFamilia;
+            }
+            set
+            {
+                codFamilia = value;
+            }
         }
 
         public string CodSubFamilia
@@ -71,6 +87,18 @@ namespace CapaEntidades
             set
             {
                 iva = value;
+            }
+        }
+
+        public int NumeroCodigo
+        {
+            get
+            {
+                return numeroCodigo;
+            }
+            set
+            {
+                numeroCodigo = value;
             }
         }
     }

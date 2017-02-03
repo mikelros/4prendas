@@ -8,17 +8,38 @@ namespace CapaEntidades
 {
     class Devolucion
     {
+        private int numDevolucion;
         private Venta venta;
-        private Producto producto;
+        private Producto articulo;
         private Empleado empleado;
 
         public Devolucion() { }
 
+        public Devolucion(int numDevolucion, Venta venta, Producto producto, Empleado empleado)
+        {
+            this.numDevolucion = numDevolucion;
+            this.venta = venta;
+            this.articulo = producto;
+            this.empleado = empleado;
+        }
+
         public Devolucion(Venta venta, Producto producto, Empleado empleado)
         {
             this.venta = venta;
-            this.producto = producto;
+            this.articulo = producto;
             this.empleado = empleado;
+        }
+
+        public int NumDevolucion
+        {
+            get
+            {
+                return numDevolucion;
+            }
+            set
+            {
+                numDevolucion = value;
+            }
         }
 
         public Venta Venta

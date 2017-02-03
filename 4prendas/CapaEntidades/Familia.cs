@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaEntidades
 {
-    public class Familia
+    class Familia
     {
         private string codFamilia;
         private string nombre;
@@ -18,7 +18,14 @@ namespace CapaEntidades
 
         }
 
-        public Familia(string codFamilia, string nombre, string imagen, ArrayList<SubFamilia> subFamilias) 
+        public Familia(string codFamilia, string nombre, string imagen)
+        {
+            this.codFamilia = codFamilia;
+            this.nombre = nombre;
+            this.imagen = imagen;
+        }
+
+        public Familia(string codFamilia, string nombre, string imagen, List<SubFamilia> subFamilias) 
         {
             this.codFamilia = codFamilia;
             this.nombre = nombre;
