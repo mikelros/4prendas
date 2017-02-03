@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaEntidades
 {
-    class Devolucion
+    public class Devolucion
     {
         private int numDevolucion;
         private Venta venta;
