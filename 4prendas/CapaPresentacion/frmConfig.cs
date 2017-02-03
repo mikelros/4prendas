@@ -179,7 +179,7 @@ namespace CapaPresentacion
 
                 using (StreamWriter outputFile = new StreamWriter(mydocpath + @"\.config.txt"))
                 {
-                    outputFile.WriteLine(shopMode);
+                    outputFile.WriteLine("ShopMode=" + shopMode);
                 }
             }
             catch
