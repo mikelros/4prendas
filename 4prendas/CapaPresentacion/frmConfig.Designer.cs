@@ -35,6 +35,7 @@
             this.rbtnClothes = new System.Windows.Forms.RadioButton();
             this.grbType = new System.Windows.Forms.GroupBox();
             this.grbNewEmployer = new System.Windows.Forms.GroupBox();
+            this.lblCreateIntParseError = new System.Windows.Forms.Label();
             this.bntCreateCancel = new System.Windows.Forms.Button();
             this.btnCreate = new System.Windows.Forms.Button();
             this.btnBrowse = new System.Windows.Forms.Button();
@@ -45,6 +46,7 @@
             this.txtCreateName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblDeleteIntParseError = new System.Windows.Forms.Label();
             this.lblEmployerError = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.lblDeleteName = new System.Windows.Forms.Label();
@@ -53,8 +55,6 @@
             this.txtDeleteNumEmployer = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.lblDeleteIntParseError = new System.Windows.Forms.Label();
-            this.lblCreateIntParseError = new System.Windows.Forms.Label();
             this.grbType.SuspendLayout();
             this.grbNewEmployer.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -70,7 +70,7 @@
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 113);
             this.btnExit.TabIndex = 8;
-            this.btnExit.Text = "&Salir";
+            this.btnExit.Text = "A&trás";
             this.btnExit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnExit.UseVisualStyleBackColor = true;
             // 
@@ -147,6 +147,16 @@
             this.grbNewEmployer.TabIndex = 13;
             this.grbNewEmployer.TabStop = false;
             this.grbNewEmployer.Text = "Nuevo Empleado";
+            // 
+            // lblCreateIntParseError
+            // 
+            this.lblCreateIntParseError.AutoSize = true;
+            this.lblCreateIntParseError.ForeColor = System.Drawing.Color.Red;
+            this.lblCreateIntParseError.Location = new System.Drawing.Point(26, 128);
+            this.lblCreateIntParseError.Name = "lblCreateIntParseError";
+            this.lblCreateIntParseError.Size = new System.Drawing.Size(144, 15);
+            this.lblCreateIntParseError.TabIndex = 16;
+            this.lblCreateIntParseError.Text = "Introduce un número!";
             // 
             // bntCreateCancel
             // 
@@ -258,6 +268,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Eliminar Empleado";
             // 
+            // lblDeleteIntParseError
+            // 
+            this.lblDeleteIntParseError.AutoSize = true;
+            this.lblDeleteIntParseError.ForeColor = System.Drawing.Color.Red;
+            this.lblDeleteIntParseError.Location = new System.Drawing.Point(26, 77);
+            this.lblDeleteIntParseError.Name = "lblDeleteIntParseError";
+            this.lblDeleteIntParseError.Size = new System.Drawing.Size(144, 15);
+            this.lblDeleteIntParseError.TabIndex = 15;
+            this.lblDeleteIntParseError.Text = "Introduce un número!";
+            // 
             // lblEmployerError
             // 
             this.lblEmployerError.AutoSize = true;
@@ -341,26 +361,6 @@
             this.label6.Size = new System.Drawing.Size(73, 18);
             this.label6.TabIndex = 4;
             this.label6.Text = "Nombre:";
-            // 
-            // lblDeleteIntParseError
-            // 
-            this.lblDeleteIntParseError.AutoSize = true;
-            this.lblDeleteIntParseError.ForeColor = System.Drawing.Color.Red;
-            this.lblDeleteIntParseError.Location = new System.Drawing.Point(26, 77);
-            this.lblDeleteIntParseError.Name = "lblDeleteIntParseError";
-            this.lblDeleteIntParseError.Size = new System.Drawing.Size(144, 15);
-            this.lblDeleteIntParseError.TabIndex = 15;
-            this.lblDeleteIntParseError.Text = "Introduce un número!";
-            // 
-            // lblCreateIntParseError
-            // 
-            this.lblCreateIntParseError.AutoSize = true;
-            this.lblCreateIntParseError.ForeColor = System.Drawing.Color.Red;
-            this.lblCreateIntParseError.Location = new System.Drawing.Point(26, 128);
-            this.lblCreateIntParseError.Name = "lblCreateIntParseError";
-            this.lblCreateIntParseError.Size = new System.Drawing.Size(144, 15);
-            this.lblCreateIntParseError.TabIndex = 16;
-            this.lblCreateIntParseError.Text = "Introduce un número!";
             // 
             // frmConfig
             // 
