@@ -29,20 +29,87 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
+            this.pboRegistro = new System.Windows.Forms.PictureBox();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.pboAlmacenamiento = new System.Windows.Forms.PictureBox();
+            this.pboVenta = new System.Windows.Forms.PictureBox();
+            this.pboRecogida = new System.Windows.Forms.PictureBox();
             this.pbo4prendas = new System.Windows.Forms.PictureBox();
             this.pboCuatrovientos = new System.Windows.Forms.PictureBox();
-            this.pboRecogida = new System.Windows.Forms.PictureBox();
-            this.pboVenta = new System.Windows.Forms.PictureBox();
-            this.pboAlmacenamiento = new System.Windows.Forms.PictureBox();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.pboRegistro = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pboRegistro)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboAlmacenamiento)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboVenta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboRecogida)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbo4prendas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboCuatrovientos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pboRecogida)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pboVenta)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pboAlmacenamiento)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pboRegistro)).BeginInit();
             this.SuspendLayout();
+            // 
+            // pboRegistro
+            // 
+            this.pboRegistro.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pboRegistro.BackColor = System.Drawing.Color.Black;
+            this.pboRegistro.Image = global::CapaPresentacion.Properties.Resources.registro;
+            this.pboRegistro.Location = new System.Drawing.Point(402, 343);
+            this.pboRegistro.Name = "pboRegistro";
+            this.pboRegistro.Size = new System.Drawing.Size(165, 186);
+            this.pboRegistro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboRegistro.TabIndex = 62;
+            this.pboRegistro.TabStop = false;
+            this.pboRegistro.Click += new System.EventHandler(this.pboRegistro_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExit.BackgroundImage")));
+            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Location = new System.Drawing.Point(1225, 713);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(75, 113);
+            this.btnExit.TabIndex = 61;
+            this.btnExit.Text = "&Salir";
+            this.btnExit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // pboAlmacenamiento
+            // 
+            this.pboAlmacenamiento.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pboAlmacenamiento.BackColor = System.Drawing.Color.Black;
+            this.pboAlmacenamiento.Image = global::CapaPresentacion.Properties.Resources.almacenamiento;
+            this.pboAlmacenamiento.Location = new System.Drawing.Point(1036, 343);
+            this.pboAlmacenamiento.Name = "pboAlmacenamiento";
+            this.pboAlmacenamiento.Size = new System.Drawing.Size(165, 186);
+            this.pboAlmacenamiento.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboAlmacenamiento.TabIndex = 60;
+            this.pboAlmacenamiento.TabStop = false;
+            this.pboAlmacenamiento.Click += new System.EventHandler(this.pboAlmacenamiento_Click);
+            // 
+            // pboVenta
+            // 
+            this.pboVenta.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pboVenta.BackColor = System.Drawing.Color.Black;
+            this.pboVenta.Image = global::CapaPresentacion.Properties.Resources.cesta;
+            this.pboVenta.Location = new System.Drawing.Point(710, 343);
+            this.pboVenta.Name = "pboVenta";
+            this.pboVenta.Size = new System.Drawing.Size(165, 186);
+            this.pboVenta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboVenta.TabIndex = 59;
+            this.pboVenta.TabStop = false;
+            this.pboVenta.Click += new System.EventHandler(this.pboVenta_Click);
+            // 
+            // pboRecogida
+            // 
+            this.pboRecogida.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pboRecogida.BackColor = System.Drawing.Color.Black;
+            this.pboRecogida.Image = ((System.Drawing.Image)(resources.GetObject("pboRecogida.Image")));
+            this.pboRecogida.Location = new System.Drawing.Point(112, 343);
+            this.pboRecogida.Name = "pboRecogida";
+            this.pboRecogida.Size = new System.Drawing.Size(165, 186);
+            this.pboRecogida.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboRecogida.TabIndex = 58;
+            this.pboRecogida.TabStop = false;
+            this.pboRecogida.Click += new System.EventHandler(this.pboRecogida_Click);
             // 
             // pbo4prendas
             // 
@@ -66,69 +133,6 @@
             this.pboCuatrovientos.TabIndex = 56;
             this.pboCuatrovientos.TabStop = false;
             // 
-            // pboRecogida
-            // 
-            this.pboRecogida.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pboRecogida.BackColor = System.Drawing.Color.Black;
-            this.pboRecogida.Location = new System.Drawing.Point(112, 343);
-            this.pboRecogida.Name = "pboRecogida";
-            this.pboRecogida.Size = new System.Drawing.Size(143, 186);
-            this.pboRecogida.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pboRecogida.TabIndex = 58;
-            this.pboRecogida.TabStop = false;
-            this.pboRecogida.Click += new System.EventHandler(this.pboRecogida_Click);
-            // 
-            // pboVenta
-            // 
-            this.pboVenta.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pboVenta.BackColor = System.Drawing.Color.Black;
-            this.pboVenta.Location = new System.Drawing.Point(710, 343);
-            this.pboVenta.Name = "pboVenta";
-            this.pboVenta.Size = new System.Drawing.Size(143, 186);
-            this.pboVenta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pboVenta.TabIndex = 59;
-            this.pboVenta.TabStop = false;
-            this.pboVenta.Click += new System.EventHandler(this.pboVenta_Click);
-            // 
-            // pboAlmacenamiento
-            // 
-            this.pboAlmacenamiento.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pboAlmacenamiento.BackColor = System.Drawing.Color.Black;
-            this.pboAlmacenamiento.Location = new System.Drawing.Point(1036, 343);
-            this.pboAlmacenamiento.Name = "pboAlmacenamiento";
-            this.pboAlmacenamiento.Size = new System.Drawing.Size(143, 186);
-            this.pboAlmacenamiento.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pboAlmacenamiento.TabIndex = 60;
-            this.pboAlmacenamiento.TabStop = false;
-            this.pboAlmacenamiento.Click += new System.EventHandler(this.pboAlmacenamiento_Click);
-            // 
-            // btnExit
-            // 
-            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExit.BackgroundImage")));
-            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(1225, 713);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 113);
-            this.btnExit.TabIndex = 61;
-            this.btnExit.Text = "&Salir";
-            this.btnExit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // pboRegistro
-            // 
-            this.pboRegistro.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pboRegistro.BackColor = System.Drawing.Color.Black;
-            this.pboRegistro.Location = new System.Drawing.Point(402, 343);
-            this.pboRegistro.Name = "pboRegistro";
-            this.pboRegistro.Size = new System.Drawing.Size(143, 186);
-            this.pboRegistro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pboRegistro.TabIndex = 62;
-            this.pboRegistro.TabStop = false;
-            this.pboRegistro.Click += new System.EventHandler(this.pboRegistro_Click);
-            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -148,14 +152,13 @@
             this.Text = "frmMenu";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMenu_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pboRegistro)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboAlmacenamiento)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboVenta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboRecogida)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbo4prendas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboCuatrovientos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pboRecogida)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pboVenta)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pboAlmacenamiento)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pboRegistro)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

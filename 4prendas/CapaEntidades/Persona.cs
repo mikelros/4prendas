@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaEntidades
 {
-    class Persona
+    public class Persona
     {
         private string profesor;
         private string curso;

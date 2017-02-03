@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaEntidades
 {
-    class Recogida
+    public class Recogida
     {
         private DateTime fechaRecogida;
         private Empleado empleado;

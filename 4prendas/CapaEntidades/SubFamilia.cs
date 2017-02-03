@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaEntidades
 {
-    class SubFamilia
+    public class SubFamilia
     {
         private string codFamilia;
         private string codSubFamilia;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaEntidades
 {
-    class Empleado
+    public class Empleado
     {
         private string nombre;
         private string foto;

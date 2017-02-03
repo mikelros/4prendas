@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaEntidades
 {
-    class Administrador
+    public class Administrador
     {
         private string usuario;
         private string contrasena;
