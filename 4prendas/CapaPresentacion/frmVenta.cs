@@ -13,6 +13,7 @@ namespace CapaPresentacion
 {
     public partial class frmVenta : Form
     {
+        string shopMode;
         string searchBy;
         public frmVenta()
         {
@@ -21,8 +22,6 @@ namespace CapaPresentacion
 
         private void frmInicio_Load(object sender, EventArgs e)
         {
-
-
             dgvCarrito.Hide();
             checkStockMinimo();
             loadWorkersList();
@@ -132,11 +131,39 @@ namespace CapaPresentacion
             dgvCarrito.Hide();
         }
 
-        private int leerTipoDeTienda()
+        private void loadShopMode()
         {
-            StreamReader sr = File.OpenText("archivo.txt");
-            string name = sr.ReadLine();
-            return 1;
+            string line;
+            try
+            {
+                string mydocpath =
+                Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+                System.IO.StreamReader file = new System.IO.StreamReader(mydocpath + @"\.config.txt");
+
+                System.Console.WriteLine(shopMode);
+                while ((line = file.ReadLine()) != null)
+                {
+                    if (line.StartsWith("ShopMode="))
+                    {
+                        shopMode = line.Split('=')[1];
+                    }
+                }
+
+                file.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Error al cargar el archivo de configuración!!! " + "" + "Se cargara la configuración por defecto", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                shopMode = "food";
+            }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Form frmMenu = new frmMenu();
+            frmMenu.Show();
+            this.Close();
         }
     }
 }
