@@ -14,6 +14,8 @@ namespace CapaPresentacion
     public partial class frmConfig : Form
     {
         //Employer employer;
+
+        string mydocpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         string shopMode;
 
         public frmConfig()
@@ -34,6 +36,26 @@ namespace CapaPresentacion
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
+            if (txtCreateName.Text.Equals("") || txtCreateNumEmployer.Text.Equals("") || txtCreatePhoto.Text.Equals(""))
+            {
+                lblCreateError.Show();
+                return;
+            }else
+            {
+                lblCreateError.Hide();
+            }
+            if (!File.Exists(txtCreatePhoto.Text))
+            {
+                lblCreateFileNoExistError.Show();
+            }else
+            {
+                lblCreateFileNoExistError.Hide();
+                string NombreArchivo;
+                NombreArchivo = System.IO.Path.GetFileNameWithoutExtension(txtCreatePhoto.Text);
+                Bitmap Picture = new Bitmap(txtCreatePhoto.Text);
+                Picture.Save(mydocpath + @NombreArchivo + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+
+            }
             //string msg = datos.crearEmpleado(txtName.text, txtNumber.text, txtPhoto.text);
             //if (msg == "")
             //{
@@ -44,7 +66,7 @@ namespace CapaPresentacion
             //}
 
         }
-
+        
         private void bntCreateCancel_Click(object sender, EventArgs e)
         {
             txtCreateName.Text = "";
@@ -55,35 +77,60 @@ namespace CapaPresentacion
 
         private void btnBrowse_Click(object sender, EventArgs e)
         {
-            int i;
-            if (int.TryParse(txtCreateNumEmployer.Text, out i))
+            Stream myStream = null;
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+            openFileDialog1.InitialDirectory = "c:\\";
+            openFileDialog1.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*";
+            openFileDialog1.FilterIndex = 2;
+            openFileDialog1.RestoreDirectory = true;
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                //employer = datos.buscarEmpleado(txtCreateNumEmployer.text);
-                //if (employer == null)
-                //{
-                //    lblEmployerError.show();
-                //}else
-                //{
-                //    lblEmployerError.Hide();
-                //}
-            }
-            else
-            {
-                lblCreateIntParseError.Show();
+                try
+                {
+                    if ((myStream = openFileDialog1.OpenFile()) != null)
+                    {
+                        using (myStream)
+                        {
+                            txtCreatePhoto.Text = myStream.ToString();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
+                }
             }
 
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            //datos.eliminarEmpleado(employer.number);
+            //if (employer = null)
+            //{
+
+            //}
+            //else
+            //{
+            //    //datos.eliminarEmpleado(employer.number);
+            //}
         }
 
         private void frmConfig_Load(object sender, EventArgs e)
         {
-            lblEmployerError.Hide();
+            lblEmployerNoExistError.Hide();
+
+            lblCreateFileNoExistError.Hide();
+
             lblDeleteIntParseError.Hide();
             lblCreateIntParseError.Hide();
+
+            lblDeleteError.Hide();
+            lblCreateError.Hide();
+
+            lblCreateExistingNumberError.Hide();
+
             loadShopMode();
 
         }
@@ -92,8 +139,6 @@ namespace CapaPresentacion
             string line;
             try
             {
-                string mydocpath =
-                Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
                 System.IO.StreamReader file = new System.IO.StreamReader(mydocpath + @"\.config.txt");
 
@@ -127,7 +172,7 @@ namespace CapaPresentacion
         {
             txtDeleteNumEmployer.Text = "";
             lblDeleteName.Text = "";
-            lblEmployerError.Hide();
+            lblEmployerNoExistError.Hide();
             lblCreateIntParseError.Hide();
             lblDeleteIntParseError.Hide();
         }
@@ -166,7 +211,7 @@ namespace CapaPresentacion
             txtDeleteNumEmployer.Text = "";
             txtDeleteNumEmployer.Focus();
             lblDeleteIntParseError.Hide();
-            lblEmployerError.Hide();
+            lblEmployerNoExistError.Hide();
         }
 
 
@@ -174,8 +219,6 @@ namespace CapaPresentacion
         {
             try
             {
-                string mydocpath =
-                Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
                 using (StreamWriter outputFile = new StreamWriter(mydocpath + @"\.config.txt"))
                 {

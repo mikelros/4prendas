@@ -35,6 +35,8 @@
             this.rbtnClothes = new System.Windows.Forms.RadioButton();
             this.grbType = new System.Windows.Forms.GroupBox();
             this.grbNewEmployer = new System.Windows.Forms.GroupBox();
+            this.lblCreateError = new System.Windows.Forms.Label();
+            this.lblCreateExistingNumberError = new System.Windows.Forms.Label();
             this.lblCreateIntParseError = new System.Windows.Forms.Label();
             this.bntCreateCancel = new System.Windows.Forms.Button();
             this.btnCreate = new System.Windows.Forms.Button();
@@ -46,8 +48,9 @@
             this.txtCreateName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblDeleteError = new System.Windows.Forms.Label();
             this.lblDeleteIntParseError = new System.Windows.Forms.Label();
-            this.lblEmployerError = new System.Windows.Forms.Label();
+            this.lblEmployerNoExistError = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.lblDeleteName = new System.Windows.Forms.Label();
             this.btnDeleteCancel = new System.Windows.Forms.Button();
@@ -55,6 +58,7 @@
             this.txtDeleteNumEmployer = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.lblCreateFileNoExistError = new System.Windows.Forms.Label();
             this.grbType.SuspendLayout();
             this.grbNewEmployer.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -132,6 +136,9 @@
             // grbNewEmployer
             // 
             this.grbNewEmployer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.grbNewEmployer.Controls.Add(this.lblCreateFileNoExistError);
+            this.grbNewEmployer.Controls.Add(this.lblCreateError);
+            this.grbNewEmployer.Controls.Add(this.lblCreateExistingNumberError);
             this.grbNewEmployer.Controls.Add(this.lblCreateIntParseError);
             this.grbNewEmployer.Controls.Add(this.bntCreateCancel);
             this.grbNewEmployer.Controls.Add(this.btnCreate);
@@ -143,12 +150,32 @@
             this.grbNewEmployer.Controls.Add(this.txtCreateName);
             this.grbNewEmployer.Controls.Add(this.label1);
             this.grbNewEmployer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbNewEmployer.Location = new System.Drawing.Point(258, 133);
+            this.grbNewEmployer.Location = new System.Drawing.Point(258, 118);
             this.grbNewEmployer.Name = "grbNewEmployer";
-            this.grbNewEmployer.Size = new System.Drawing.Size(193, 319);
+            this.grbNewEmployer.Size = new System.Drawing.Size(193, 353);
             this.grbNewEmployer.TabIndex = 13;
             this.grbNewEmployer.TabStop = false;
             this.grbNewEmployer.Text = "Nuevo Empleado";
+            // 
+            // lblCreateError
+            // 
+            this.lblCreateError.AutoSize = true;
+            this.lblCreateError.ForeColor = System.Drawing.Color.Red;
+            this.lblCreateError.Location = new System.Drawing.Point(6, 334);
+            this.lblCreateError.Name = "lblCreateError";
+            this.lblCreateError.Size = new System.Drawing.Size(181, 15);
+            this.lblCreateError.TabIndex = 18;
+            this.lblCreateError.Text = "Rellena todos los campos!!";
+            // 
+            // lblCreateExistingNumberError
+            // 
+            this.lblCreateExistingNumberError.AutoSize = true;
+            this.lblCreateExistingNumberError.ForeColor = System.Drawing.Color.Red;
+            this.lblCreateExistingNumberError.Location = new System.Drawing.Point(26, 132);
+            this.lblCreateExistingNumberError.Name = "lblCreateExistingNumberError";
+            this.lblCreateExistingNumberError.Size = new System.Drawing.Size(153, 15);
+            this.lblCreateExistingNumberError.TabIndex = 17;
+            this.lblCreateExistingNumberError.Text = "Número ya registrado!!";
             // 
             // lblCreateIntParseError
             // 
@@ -165,7 +192,7 @@
             this.bntCreateCancel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bntCreateCancel.BackgroundImage")));
             this.bntCreateCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.bntCreateCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bntCreateCancel.Location = new System.Drawing.Point(108, 200);
+            this.bntCreateCancel.Location = new System.Drawing.Point(108, 218);
             this.bntCreateCancel.Name = "bntCreateCancel";
             this.bntCreateCancel.Size = new System.Drawing.Size(79, 113);
             this.bntCreateCancel.TabIndex = 12;
@@ -179,7 +206,7 @@
             this.btnCreate.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCreate.BackgroundImage")));
             this.btnCreate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreate.Location = new System.Drawing.Point(9, 200);
+            this.btnCreate.Location = new System.Drawing.Point(9, 218);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(75, 113);
             this.btnCreate.TabIndex = 11;
@@ -253,8 +280,9 @@
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.groupBox1.Controls.Add(this.lblDeleteError);
             this.groupBox1.Controls.Add(this.lblDeleteIntParseError);
-            this.groupBox1.Controls.Add(this.lblEmployerError);
+            this.groupBox1.Controls.Add(this.lblEmployerNoExistError);
             this.groupBox1.Controls.Add(this.btnSearch);
             this.groupBox1.Controls.Add(this.lblDeleteName);
             this.groupBox1.Controls.Add(this.btnDeleteCancel);
@@ -263,12 +291,22 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(466, 133);
+            this.groupBox1.Location = new System.Drawing.Point(466, 118);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(193, 319);
+            this.groupBox1.Size = new System.Drawing.Size(193, 353);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Eliminar Empleado";
+            // 
+            // lblDeleteError
+            // 
+            this.lblDeleteError.AutoSize = true;
+            this.lblDeleteError.ForeColor = System.Drawing.Color.Red;
+            this.lblDeleteError.Location = new System.Drawing.Point(6, 334);
+            this.lblDeleteError.Name = "lblDeleteError";
+            this.lblDeleteError.Size = new System.Drawing.Size(167, 15);
+            this.lblDeleteError.TabIndex = 17;
+            this.lblDeleteError.Text = "Seleciona un empleado!!";
             // 
             // lblDeleteIntParseError
             // 
@@ -280,15 +318,15 @@
             this.lblDeleteIntParseError.TabIndex = 15;
             this.lblDeleteIntParseError.Text = "Introduce un número!";
             // 
-            // lblEmployerError
+            // lblEmployerNoExistError
             // 
-            this.lblEmployerError.AutoSize = true;
-            this.lblEmployerError.ForeColor = System.Drawing.Color.Red;
-            this.lblEmployerError.Location = new System.Drawing.Point(20, 77);
-            this.lblEmployerError.Name = "lblEmployerError";
-            this.lblEmployerError.Size = new System.Drawing.Size(150, 15);
-            this.lblEmployerError.TabIndex = 15;
-            this.lblEmployerError.Text = "Empleado inexistente!";
+            this.lblEmployerNoExistError.AutoSize = true;
+            this.lblEmployerNoExistError.ForeColor = System.Drawing.Color.Red;
+            this.lblEmployerNoExistError.Location = new System.Drawing.Point(20, 77);
+            this.lblEmployerNoExistError.Name = "lblEmployerNoExistError";
+            this.lblEmployerNoExistError.Size = new System.Drawing.Size(150, 15);
+            this.lblEmployerNoExistError.TabIndex = 15;
+            this.lblEmployerNoExistError.Text = "Empleado inexistente!";
             // 
             // btnSearch
             // 
@@ -317,7 +355,7 @@
             this.btnDeleteCancel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDeleteCancel.BackgroundImage")));
             this.btnDeleteCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnDeleteCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteCancel.Location = new System.Drawing.Point(108, 200);
+            this.btnDeleteCancel.Location = new System.Drawing.Point(108, 218);
             this.btnDeleteCancel.Name = "btnDeleteCancel";
             this.btnDeleteCancel.Size = new System.Drawing.Size(79, 113);
             this.btnDeleteCancel.TabIndex = 12;
@@ -331,7 +369,7 @@
             this.btnDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDelete.BackgroundImage")));
             this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(9, 200);
+            this.btnDelete.Location = new System.Drawing.Point(9, 218);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 113);
             this.btnDelete.TabIndex = 11;
@@ -366,6 +404,17 @@
             this.label6.Size = new System.Drawing.Size(73, 18);
             this.label6.TabIndex = 4;
             this.label6.Text = "Nombre:";
+            // 
+            // lblCreateFileNoExistError
+            // 
+            this.lblCreateFileNoExistError.AutoSize = true;
+            this.lblCreateFileNoExistError.ForeColor = System.Drawing.Color.Red;
+            this.lblCreateFileNoExistError.Location = new System.Drawing.Point(26, 198);
+            this.lblCreateFileNoExistError.Name = "lblCreateFileNoExistError";
+            this.lblCreateFileNoExistError.Size = new System.Drawing.Size(140, 15);
+            this.lblCreateFileNoExistError.TabIndex = 19;
+            this.lblCreateFileNoExistError.Text = "El archivo no existe!!";
+            this.lblCreateFileNoExistError.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // frmConfig
             // 
@@ -410,7 +459,7 @@
         private System.Windows.Forms.Button bntCreateCancel;
         private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lblEmployerError;
+        private System.Windows.Forms.Label lblEmployerNoExistError;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label lblDeleteName;
         private System.Windows.Forms.Button btnDeleteCancel;
@@ -420,5 +469,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblCreateIntParseError;
         private System.Windows.Forms.Label lblDeleteIntParseError;
+        private System.Windows.Forms.Label lblCreateExistingNumberError;
+        private System.Windows.Forms.Label lblCreateError;
+        private System.Windows.Forms.Label lblDeleteError;
+        private System.Windows.Forms.Label lblCreateFileNoExistError;
     }
 }
