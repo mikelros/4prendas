@@ -12,24 +12,27 @@ namespace CapaEntidades
         private string nombre;
         private string imagen;
         private List<SubFamilia> subFamilias;
+        private int numCodigo;
 
         public Familia()
         {
 
         }
 
-        public Familia(string codFamilia, string nombre, string imagen)
+        public Familia(string codFamilia, string nombre, string imagen, int numCod)
         {
             this.codFamilia = codFamilia;
             this.nombre = nombre;
             this.imagen = imagen;
+            this.numCodigo = numCod;
         }
 
-        public Familia(string codFamilia, string nombre, string imagen, List<SubFamilia> subFamilias) 
+        public Familia(string codFamilia, string nombre, string imagen, int numCod, List<SubFamilia> subFamilias) 
         {
             this.codFamilia = codFamilia;
             this.nombre = nombre;
             this.imagen = imagen;
+            this.numCodigo = numCod;
             this.subFamilias = subFamilias;
         }
 
@@ -78,6 +81,18 @@ namespace CapaEntidades
             set
             {
                 subFamilias = value;
+            }
+        }
+
+        public int NumCodigo
+        {
+            get
+            {
+                return numCodigo;
+            }
+            set
+            {
+                numCodigo = value;
             }
         }
     }

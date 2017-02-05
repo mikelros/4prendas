@@ -15,7 +15,7 @@ namespace CapaDatos
         public List<Familia> getFamilias()
         {
             List<Familia> familias = new List<Familia>(); // no sé si es arraylist o qué
-            string sql = "SELECT * FROM Familia";
+            string sql = "SELECT * FROM Familia f INNER JOIN SubFamilia sf ON f.CodFamilia = sf.FamiliaCod; ";
 
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
@@ -32,7 +32,10 @@ namespace CapaDatos
           
                 while (dr.Read())
                 {
-                    //familias.Add(new Familia(dr.GetString(0), dr.GetString(1), dr.GetString(2), dr.GetValue(3))); // no tengo claro el orden ni los campos (de tener familia necesita join la sql)
+                    Familia familia = new Familia((string)dr["CodFamilia"], (string)dr["Nombre"], (string)dr["Imagen"], (int)dr["NumeroCodigo"]);
+                    //List<SubFamilia>(); ME FALTA TERMINAR POR AQUI Y TENGO QUE HACER EL ADMIN
+
+                    //familias.Add()); 
                 }
 
                 return familias;

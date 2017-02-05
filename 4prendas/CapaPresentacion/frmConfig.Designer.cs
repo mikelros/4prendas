@@ -35,6 +35,7 @@
             this.rbtnClothes = new System.Windows.Forms.RadioButton();
             this.grbType = new System.Windows.Forms.GroupBox();
             this.grbNewEmployer = new System.Windows.Forms.GroupBox();
+            this.lblCreateFileNoExistError = new System.Windows.Forms.Label();
             this.lblCreateError = new System.Windows.Forms.Label();
             this.lblCreateExistingNumberError = new System.Windows.Forms.Label();
             this.lblCreateIntParseError = new System.Windows.Forms.Label();
@@ -58,7 +59,7 @@
             this.txtDeleteNumEmployer = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.lblCreateFileNoExistError = new System.Windows.Forms.Label();
+            this.btnCopy = new System.Windows.Forms.Button();
             this.grbType.SuspendLayout();
             this.grbNewEmployer.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -70,7 +71,7 @@
             this.btnExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExit.BackgroundImage")));
             this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(746, 358);
+            this.btnExit.Location = new System.Drawing.Point(746, 515);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 113);
             this.btnExit.TabIndex = 8;
@@ -85,7 +86,7 @@
             this.btnApply.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnApply.BackgroundImage")));
             this.btnApply.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnApply.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnApply.Location = new System.Drawing.Point(665, 358);
+            this.btnApply.Location = new System.Drawing.Point(665, 515);
             this.btnApply.Name = "btnApply";
             this.btnApply.Size = new System.Drawing.Size(75, 113);
             this.btnApply.TabIndex = 9;
@@ -128,7 +129,7 @@
             this.grbType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbType.Location = new System.Drawing.Point(123, 133);
             this.grbType.Name = "grbType";
-            this.grbType.Size = new System.Drawing.Size(117, 85);
+            this.grbType.Size = new System.Drawing.Size(117, 242);
             this.grbType.TabIndex = 12;
             this.grbType.TabStop = false;
             this.grbType.Text = "Tipo Tienda";
@@ -152,10 +153,21 @@
             this.grbNewEmployer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbNewEmployer.Location = new System.Drawing.Point(258, 118);
             this.grbNewEmployer.Name = "grbNewEmployer";
-            this.grbNewEmployer.Size = new System.Drawing.Size(193, 353);
+            this.grbNewEmployer.Size = new System.Drawing.Size(193, 363);
             this.grbNewEmployer.TabIndex = 13;
             this.grbNewEmployer.TabStop = false;
             this.grbNewEmployer.Text = "Nuevo Empleado";
+            // 
+            // lblCreateFileNoExistError
+            // 
+            this.lblCreateFileNoExistError.AutoSize = true;
+            this.lblCreateFileNoExistError.ForeColor = System.Drawing.Color.Red;
+            this.lblCreateFileNoExistError.Location = new System.Drawing.Point(26, 198);
+            this.lblCreateFileNoExistError.Name = "lblCreateFileNoExistError";
+            this.lblCreateFileNoExistError.Size = new System.Drawing.Size(140, 15);
+            this.lblCreateFileNoExistError.TabIndex = 19;
+            this.lblCreateFileNoExistError.Text = "El archivo no existe!!";
+            this.lblCreateFileNoExistError.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblCreateError
             // 
@@ -293,7 +305,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(466, 118);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(193, 353);
+            this.groupBox1.Size = new System.Drawing.Size(193, 363);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Eliminar Empleado";
@@ -405,22 +417,27 @@
             this.label6.TabIndex = 4;
             this.label6.Text = "Nombre:";
             // 
-            // lblCreateFileNoExistError
+            // btnCopy
             // 
-            this.lblCreateFileNoExistError.AutoSize = true;
-            this.lblCreateFileNoExistError.ForeColor = System.Drawing.Color.Red;
-            this.lblCreateFileNoExistError.Location = new System.Drawing.Point(26, 198);
-            this.lblCreateFileNoExistError.Name = "lblCreateFileNoExistError";
-            this.lblCreateFileNoExistError.Size = new System.Drawing.Size(140, 15);
-            this.lblCreateFileNoExistError.TabIndex = 19;
-            this.lblCreateFileNoExistError.Text = "El archivo no existe!!";
-            this.lblCreateFileNoExistError.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCopy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCopy.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCopy.BackgroundImage")));
+            this.btnCopy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCopy.Location = new System.Drawing.Point(574, 515);
+            this.btnCopy.Name = "btnCopy";
+            this.btnCopy.Size = new System.Drawing.Size(85, 113);
+            this.btnCopy.TabIndex = 17;
+            this.btnCopy.Text = "&CopiarBD";
+            this.btnCopy.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCopy.UseVisualStyleBackColor = true;
+            this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
             // 
             // frmConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(833, 483);
+            this.ClientSize = new System.Drawing.Size(833, 640);
+            this.Controls.Add(this.btnCopy);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grbNewEmployer);
             this.Controls.Add(this.grbType);
@@ -473,5 +490,6 @@
         private System.Windows.Forms.Label lblCreateError;
         private System.Windows.Forms.Label lblDeleteError;
         private System.Windows.Forms.Label lblCreateFileNoExistError;
+        private System.Windows.Forms.Button btnCopy;
     }
 }

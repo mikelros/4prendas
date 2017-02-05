@@ -44,37 +44,65 @@ namespace CapaPresentacion
             {
                 lblCreateError.Hide();
             }
-            if (!File.Exists(txtCreatePhoto.Text))
+            if (!txtCreatePhoto.Equals(""))
             {
-                lblCreateFileNoExistError.Show();
+                if (!File.Exists(txtCreatePhoto.Text))
+                {
+                    lblCreateFileNoExistError.Show();
+                    return;
+                }
+                else
+                {
+                    lblCreateFileNoExistError.Hide();
+                    string NombreArchivo;
+                    NombreArchivo = System.IO.Path.GetFileNameWithoutExtension(txtCreatePhoto.Text);
+                    Bitmap Picture = new Bitmap(txtCreatePhoto.Text);
+                    Picture.Save(mydocpath + @NombreArchivo + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+
+                }
+            }
+            int empNum;
+            if (!int.TryParse(txtCreateNumEmployer.Text, out empNum))
+            {
+                lblCreateIntParseError.Show();
+                return;
             }else
             {
-                lblCreateFileNoExistError.Hide();
-                string NombreArchivo;
-                NombreArchivo = System.IO.Path.GetFileNameWithoutExtension(txtCreatePhoto.Text);
-                Bitmap Picture = new Bitmap(txtCreatePhoto.Text);
-                Picture.Save(mydocpath + @NombreArchivo + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
-
+                lblCreateIntParseError.Hide();
             }
+            //employer = datos.buscarEmpleado(empNum);
+            //if(!employer = null)
+            //{
+            //    lblCreateExistingNumberError.Show();
+            //    return;
+            //}
+            //else
+            //{
+            //    lblCreateExistingNumberError.Hide();
+            //}
             //string msg = datos.crearEmpleado(txtName.text, txtNumber.text, txtPhoto.text);
             //if (msg == "")
             //{
-            //    MessageBox.Show("El empleado " + txtName.Text + " se ha creado correctamente");
+                //MessageBox.Show("El empleado " + txtCreateName.Text + " se ha creado correctamente","",MessageBoxButtons.OK,MessageBoxIcon.Information);
             //}else
             //{
-            //    MessageBox.Show(msg);
+            //    MessageBox.Show(msg,"",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
             //}
-
+            //employer = null;
         }
-        
+
         private void bntCreateCancel_Click(object sender, EventArgs e)
+        {
+            createCancel();
+        }
+        private void createCancel()
         {
             txtCreateName.Text = "";
             txtCreateNumEmployer.Text = "";
             txtCreatePhoto.Text = "";
             lblCreateIntParseError.Hide();
+            //employer = null;
         }
-
         private void btnBrowse_Click(object sender, EventArgs e)
         {
             Stream myStream = null;
@@ -109,10 +137,11 @@ namespace CapaPresentacion
         {
             //if (employer = null)
             //{
-
+            //lblDeleteError.Show();
             //}
             //else
             //{
+            //lblDeleteError.Hide();
             //    //datos.eliminarEmpleado(employer.number);
             //}
         }
@@ -132,6 +161,8 @@ namespace CapaPresentacion
             lblCreateExistingNumberError.Hide();
 
             loadShopMode();
+
+            //employer = null;
 
         }
         private void loadShopMode()
@@ -170,11 +201,7 @@ namespace CapaPresentacion
 
         private void btnDeleteCancel_Click(object sender, EventArgs e)
         {
-            txtDeleteNumEmployer.Text = "";
-            lblDeleteName.Text = "";
-            lblEmployerNoExistError.Hide();
-            lblCreateIntParseError.Hide();
-            lblDeleteIntParseError.Hide();
+            deleteCancel();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -205,15 +232,15 @@ namespace CapaPresentacion
             //datos.deleteEmployer(employer);
         }
 
-        private void btnDeleteCancel_Click_1(object sender, EventArgs e)
+        private void deleteCancel()
         {
-            lblDeleteName.Text = "";
             txtDeleteNumEmployer.Text = "";
-            txtDeleteNumEmployer.Focus();
-            lblDeleteIntParseError.Hide();
+            lblDeleteName.Text = "";
             lblEmployerNoExistError.Hide();
+            lblCreateIntParseError.Hide();
+            lblDeleteIntParseError.Hide();
+            //employer = null;
         }
-
 
         private void saveShopMode()
         {
@@ -233,6 +260,8 @@ namespace CapaPresentacion
             {
 
             }
+            deleteCancel();
+            createCancel();
         }
 
         private void btnApply_Click(object sender, EventArgs e)
@@ -243,6 +272,26 @@ namespace CapaPresentacion
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnCopy_Click(object sender, EventArgs e)
+        {
+            string FileToCopy;
+            SaveFileDialog NewCopy = new SaveFileDialog();
+            NewCopy.Filter = "Base de datos|*.accdb";
+            NewCopy.ShowDialog();
+            FileToCopy = "CUASHOP_MODA.accdb";
+            
+            if (System.IO.File.Exists(FileToCopy))
+            {
+                if (!NewCopy.FileName.Equals(""))
+                {
+                    System.IO.File.Copy(FileToCopy, NewCopy.FileName);
+                    MessageBox.Show("File Copied");
+                }
+            }
+
+
         }
     }
 }
