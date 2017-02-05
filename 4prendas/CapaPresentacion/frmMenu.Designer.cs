@@ -30,18 +30,20 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             this.pboRegistro = new System.Windows.Forms.PictureBox();
-            this.btnExit = new System.Windows.Forms.Button();
             this.pboAlmacenamiento = new System.Windows.Forms.PictureBox();
             this.pboVenta = new System.Windows.Forms.PictureBox();
             this.pboRecogida = new System.Windows.Forms.PictureBox();
             this.pbo4prendas = new System.Windows.Forms.PictureBox();
             this.pboCuatrovientos = new System.Windows.Forms.PictureBox();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.pboConfig = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pboRegistro)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboAlmacenamiento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboVenta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboRecogida)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbo4prendas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboCuatrovientos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboConfig)).BeginInit();
             this.SuspendLayout();
             // 
             // pboRegistro
@@ -56,21 +58,6 @@
             this.pboRegistro.TabIndex = 62;
             this.pboRegistro.TabStop = false;
             this.pboRegistro.Click += new System.EventHandler(this.pboRegistro_Click);
-            // 
-            // btnExit
-            // 
-            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExit.BackgroundImage")));
-            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(1225, 713);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 113);
-            this.btnExit.TabIndex = 61;
-            this.btnExit.Text = "&Salir";
-            this.btnExit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // pboAlmacenamiento
             // 
@@ -133,6 +120,34 @@
             this.pboCuatrovientos.TabIndex = 56;
             this.pboCuatrovientos.TabStop = false;
             // 
+            // btnExit
+            // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExit.BackgroundImage")));
+            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Location = new System.Drawing.Point(1207, 713);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(93, 113);
+            this.btnExit.TabIndex = 79;
+            this.btnExit.Text = "&Salir";
+            this.btnExit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // pboConfig
+            // 
+            this.pboConfig.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pboConfig.BackColor = System.Drawing.Color.Black;
+            this.pboConfig.Image = global::CapaPresentacion.Properties.Resources.admin;
+            this.pboConfig.Location = new System.Drawing.Point(1079, 713);
+            this.pboConfig.Name = "pboConfig";
+            this.pboConfig.Size = new System.Drawing.Size(111, 113);
+            this.pboConfig.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboConfig.TabIndex = 80;
+            this.pboConfig.TabStop = false;
+            this.pboConfig.Click += new System.EventHandler(this.pboConfig_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -140,8 +155,9 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1312, 838);
-            this.Controls.Add(this.pboRegistro);
+            this.Controls.Add(this.pboConfig);
             this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.pboRegistro);
             this.Controls.Add(this.pboAlmacenamiento);
             this.Controls.Add(this.pboVenta);
             this.Controls.Add(this.pboRecogida);
@@ -158,6 +174,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pboRecogida)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbo4prendas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboCuatrovientos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboConfig)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -169,7 +186,8 @@
         private System.Windows.Forms.PictureBox pboRecogida;
         private System.Windows.Forms.PictureBox pboVenta;
         private System.Windows.Forms.PictureBox pboAlmacenamiento;
-        private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.PictureBox pboRegistro;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.PictureBox pboConfig;
     }
 }
