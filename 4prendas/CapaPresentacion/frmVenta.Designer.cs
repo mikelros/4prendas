@@ -289,6 +289,7 @@
             this.dgvProducts.Name = "dgvProducts";
             this.dgvProducts.Size = new System.Drawing.Size(649, 549);
             this.dgvProducts.TabIndex = 69;
+            this.dgvProducts.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvProducts_CellMouseClick);
             // 
             // label2
             // 
@@ -461,7 +462,6 @@
             this.cmbSearch.Name = "cmbSearch";
             this.cmbSearch.Size = new System.Drawing.Size(128, 21);
             this.cmbSearch.TabIndex = 74;
-            this.cmbSearch.SelectedIndexChanged += new System.EventHandler(this.cmbSearch_SelectedIndexChanged);
             // 
             // txtSearch
             // 

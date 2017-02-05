@@ -22,6 +22,7 @@ namespace CapaPresentacion
 
         private void frmInicio_Load(object sender, EventArgs e)
         {
+            loadCmbSearch();
             dgvCarrito.Hide();
             checkStockMinimo();
             loadWorkersList();
@@ -64,22 +65,16 @@ namespace CapaPresentacion
         {
             Form frm = new frmConfig();
             frm.Show();
-
         }
-
         private void btnIRARECOGIDA_Click(object sender, EventArgs e)
         {
             Form frm = new frmRecogida();
             frm.Show();
-
         }
-
         private void btnIRAREGISTRO_Click(object sender, EventArgs e)
         {
-
             Form frm = new frmRegistro();
             frm.Show();
-
         }
 
         private void cmbEmpleado_SelectedIndexChanged(object sender, EventArgs e)
@@ -95,23 +90,25 @@ namespace CapaPresentacion
             proceso.StartInfo.Arguments = "";
             proceso.Start();
         }
-
-        private void cmbSearch_SelectedIndexChanged(object sender, EventArgs e)
+        
+        private void loadCmbSearch()
         {
-            //searchBy = selectedIndex
+            cmbSearch.Items.Add("Codigo de barras");
+            cmbSearch.Items.Add("Familia");
+            cmbSearch.Items.Add("Subfamilia");
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            switch (searchBy)
+            switch (cmbSearch.SelectedText)
             {
-                case "Barcode":
+                case "Código de barras":
                     //dgvProducts.datasource = searchByBarcode(txtSearch.text)
                     break;
-                case "Family":
+                case "Familia":
                     //dgvProducts.datasource = searchByFamily(txtSearch.text)
                     break;
-                case "SubFamily":
+                case "Subfamilia":
                     //dgvProducts.datasource = searchBySubFamily(txtSearch.text)
                     break;
                 default:
@@ -136,11 +133,8 @@ namespace CapaPresentacion
             string line;
             try
             {
-                string mydocpath =
-                Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-
-                System.IO.StreamReader file = new System.IO.StreamReader(mydocpath + @"\.config.txt");
-
+                string mydocpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments); 
+                System.IO.StreamReader file = new System.IO.StreamReader(mydocpath + @"\.config.txt"); 
                 System.Console.WriteLine(shopMode);
                 while ((line = file.ReadLine()) != null)
                 {
@@ -148,8 +142,7 @@ namespace CapaPresentacion
                     {
                         shopMode = line.Split('=')[1];
                     }
-                }
-
+                } 
                 file.Close();
             }
             catch
@@ -164,6 +157,17 @@ namespace CapaPresentacion
             Form frmMenu = new frmMenu();
             frmMenu.Show();
             this.Close();
+        }
+
+        private void dgvProducts_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            //Chequea que no se haya hecho click fuera de las columnas con datos.
+            if (e.RowIndex == -1)
+            {
+                return;
+            }
+
+            //TODO pasar a la lista de productos para comprar
         }
     }
 }
