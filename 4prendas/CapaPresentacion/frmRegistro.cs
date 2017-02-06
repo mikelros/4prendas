@@ -18,30 +18,26 @@ namespace CapaPresentacion
         public frmRegistro()
         {
             InitializeComponent();
+            dgvRegistros.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            refreshDgv();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
 
             //confirmar salida?
-
             //comprobar si se han añadido para la recogida tantos productos como hubiese en la recogida
+
+            if (MessageBox.Show("¿Seguro que deseas salir?", "Salir",
+                   MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
 
         private void frmRegistro_Load(object sender, EventArgs e)
         {
 
-        }
-
-        private void Form1_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            
-                if (MessageBox.Show("¿Seguro que deseas salir?", "Salir",
-                   MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    e.Cancel = true; 
-                }
-            
         }
 
         private void btnGenerar_Click(object sender, EventArgs e)
@@ -53,8 +49,26 @@ namespace CapaPresentacion
             producto.Medida = txtMedida.Text;
             producto.Stock = int.Parse(txtStock.Text);
             //TODO MIRAR QUE PASA SI NO ES INT // que no se pueda
-            //producto.Empleado
+            producto.EmpleadoId = int.Parse(txtEmpleado.Text);
+            //fecha de entrada es la de ahora o la de la recogida..?
+            producto.RecogidaId = int.Parse(txtNumRecogida.Text);
             productos.Add(producto);
+            refreshDgv();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            Modulo.miNegocio.InsertarProductos(productos);
+            productos.Clear();
+            refreshDgv();
+
+            //lblLOQUESEA.text = "insertado correctamente" ??
+        }
+
+        private void refreshDgv()
+        {
+            dgvRegistros.DataSource = productos.Select(p => new { p.CodigoArticulo, p.Descripcion, p.Medida, p.Stock, p.EmpleadoId, p.RecogidaId }).ToList();
+            dgvRegistros.Refresh();
         }
     }
 }
