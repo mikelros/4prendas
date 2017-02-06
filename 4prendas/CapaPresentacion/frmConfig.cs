@@ -271,6 +271,8 @@ namespace CapaPresentacion
 
         private void btnBack_Click(object sender, EventArgs e)
         {
+            Form frmMenu = new frmMenu();
+            frmMenu.Show();
             this.Close();
         }
 
