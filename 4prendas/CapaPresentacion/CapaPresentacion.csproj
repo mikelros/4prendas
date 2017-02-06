@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modulo.cs" />
     <Compile Include="frmConfig.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +158,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\admin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapaEntidades\CapaEntidades.csproj">
+      <Project>{cbc0966c-645a-4de9-be51-9a3cfa18d657}</Project>
+      <Name>CapaEntidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CapaNegocio\CapaNegocio.csproj">
+      <Project>{2fbdc3a8-0ba9-43a2-96c0-c980391aea86}</Project>
+      <Name>CapaNegocio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
