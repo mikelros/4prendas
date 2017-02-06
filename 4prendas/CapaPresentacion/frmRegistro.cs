@@ -47,11 +47,11 @@ namespace CapaPresentacion
             //producto.Coste = COSA QUE NO ESTA
             producto.Descripcion = txtDescripcion.Text;
             producto.Medida = txtMedida.Text;
-            producto.Stock = int.Parse(txtStock.Text);
+            producto.Stock = int.Parse(nudStock.Text);
             //TODO MIRAR QUE PASA SI NO ES INT // que no se pueda
-            producto.EmpleadoId = int.Parse(txtEmpleado.Text);
+            producto.EmpleadoId = int.Parse(nudEmpleado.Text);
             //fecha de entrada es la de ahora o la de la recogida..?
-            producto.RecogidaId = int.Parse(txtNumRecogida.Text);
+            producto.RecogidaId = int.Parse(nudNumRecogida.Text);
             productos.Add(producto);
             refreshDgv();
         }

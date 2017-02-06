@@ -35,9 +35,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtNumRecogida = new System.Windows.Forms.TextBox();
-            this.txtEmpleado = new System.Windows.Forms.TextBox();
-            this.txtStock = new System.Windows.Forms.TextBox();
             this.txtMedida = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.txtCodArticulo = new System.Windows.Forms.TextBox();
@@ -50,22 +47,28 @@
             this.dgvRegistros = new System.Windows.Forms.DataGridView();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.nudStock = new System.Windows.Forms.NumericUpDown();
+            this.nudEmpleado = new System.Windows.Forms.NumericUpDown();
+            this.nudNumRecogida = new System.Windows.Forms.NumericUpDown();
             this.gboRegistros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistros)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudStock)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEmpleado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudNumRecogida)).BeginInit();
             this.SuspendLayout();
             // 
             // gboRegistros
             // 
             this.gboRegistros.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.gboRegistros.BackColor = System.Drawing.Color.Transparent;
+            this.gboRegistros.Controls.Add(this.nudNumRecogida);
+            this.gboRegistros.Controls.Add(this.nudEmpleado);
+            this.gboRegistros.Controls.Add(this.nudStock);
             this.gboRegistros.Controls.Add(this.btnGenerar);
             this.gboRegistros.Controls.Add(this.label10);
             this.gboRegistros.Controls.Add(this.label9);
             this.gboRegistros.Controls.Add(this.label8);
             this.gboRegistros.Controls.Add(this.label7);
-            this.gboRegistros.Controls.Add(this.txtNumRecogida);
-            this.gboRegistros.Controls.Add(this.txtEmpleado);
-            this.gboRegistros.Controls.Add(this.txtStock);
             this.gboRegistros.Controls.Add(this.txtMedida);
             this.gboRegistros.Controls.Add(this.txtDescripcion);
             this.gboRegistros.Controls.Add(this.txtCodArticulo);
@@ -77,7 +80,7 @@
             this.gboRegistros.Controls.Add(this.label1);
             this.gboRegistros.Location = new System.Drawing.Point(315, 122);
             this.gboRegistros.Name = "gboRegistros";
-            this.gboRegistros.Size = new System.Drawing.Size(712, 95);
+            this.gboRegistros.Size = new System.Drawing.Size(690, 95);
             this.gboRegistros.TabIndex = 0;
             this.gboRegistros.TabStop = false;
             this.gboRegistros.Text = "Registro de Articulos";
@@ -88,7 +91,7 @@
             this.btnGenerar.BackgroundImage = global::CapaPresentacion.Properties.Resources.plus;
             this.btnGenerar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnGenerar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.btnGenerar.Location = new System.Drawing.Point(637, 9);
+            this.btnGenerar.Location = new System.Drawing.Point(615, 4);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(69, 86);
             this.btnGenerar.TabIndex = 18;
@@ -137,44 +140,23 @@
             this.label7.TabIndex = 14;
             this.label7.Text = "Campo obligatorio";
             // 
-            // txtNumRecogida
-            // 
-            this.txtNumRecogida.Location = new System.Drawing.Point(488, 50);
-            this.txtNumRecogida.Name = "txtNumRecogida";
-            this.txtNumRecogida.Size = new System.Drawing.Size(112, 20);
-            this.txtNumRecogida.TabIndex = 12;
-            // 
-            // txtEmpleado
-            // 
-            this.txtEmpleado.Location = new System.Drawing.Point(385, 50);
-            this.txtEmpleado.Name = "txtEmpleado";
-            this.txtEmpleado.Size = new System.Drawing.Size(97, 20);
-            this.txtEmpleado.TabIndex = 11;
-            // 
-            // txtStock
-            // 
-            this.txtStock.Location = new System.Drawing.Point(319, 50);
-            this.txtStock.Name = "txtStock";
-            this.txtStock.Size = new System.Drawing.Size(60, 20);
-            this.txtStock.TabIndex = 10;
-            // 
             // txtMedida
             // 
-            this.txtMedida.Location = new System.Drawing.Point(257, 50);
+            this.txtMedida.Location = new System.Drawing.Point(248, 50);
             this.txtMedida.Name = "txtMedida";
-            this.txtMedida.Size = new System.Drawing.Size(56, 20);
+            this.txtMedida.Size = new System.Drawing.Size(65, 20);
             this.txtMedida.TabIndex = 9;
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(143, 50);
+            this.txtDescripcion.Location = new System.Drawing.Point(134, 50);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(108, 20);
             this.txtDescripcion.TabIndex = 8;
             // 
             // txtCodArticulo
             // 
-            this.txtCodArticulo.Location = new System.Drawing.Point(15, 50);
+            this.txtCodArticulo.Location = new System.Drawing.Point(6, 50);
             this.txtCodArticulo.Name = "txtCodArticulo";
             this.txtCodArticulo.Size = new System.Drawing.Size(122, 20);
             this.txtCodArticulo.TabIndex = 4;
@@ -203,7 +185,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(153, 29);
+            this.label4.Location = new System.Drawing.Point(144, 29);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(109, 18);
             this.label4.TabIndex = 5;
@@ -213,7 +195,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(254, 29);
+            this.label3.Location = new System.Drawing.Point(250, 29);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 18);
             this.label3.TabIndex = 4;
@@ -233,7 +215,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 29);
+            this.label1.Location = new System.Drawing.Point(3, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(135, 18);
             this.label1.TabIndex = 2;
@@ -245,7 +227,7 @@
             this.dgvRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRegistros.Location = new System.Drawing.Point(315, 234);
             this.dgvRegistros.Name = "dgvRegistros";
-            this.dgvRegistros.Size = new System.Drawing.Size(712, 359);
+            this.dgvRegistros.Size = new System.Drawing.Size(690, 359);
             this.dgvRegistros.TabIndex = 19;
             // 
             // btnExit
@@ -280,6 +262,27 @@
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // nudStock
+            // 
+            this.nudStock.Location = new System.Drawing.Point(319, 50);
+            this.nudStock.Name = "nudStock";
+            this.nudStock.Size = new System.Drawing.Size(60, 20);
+            this.nudStock.TabIndex = 19;
+            // 
+            // nudEmpleado
+            // 
+            this.nudEmpleado.Location = new System.Drawing.Point(385, 51);
+            this.nudEmpleado.Name = "nudEmpleado";
+            this.nudEmpleado.Size = new System.Drawing.Size(94, 20);
+            this.nudEmpleado.TabIndex = 20;
+            // 
+            // nudNumRecogida
+            // 
+            this.nudNumRecogida.Location = new System.Drawing.Point(488, 51);
+            this.nudNumRecogida.Name = "nudNumRecogida";
+            this.nudNumRecogida.Size = new System.Drawing.Size(112, 20);
+            this.nudNumRecogida.TabIndex = 21;
+            // 
             // frmRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -298,6 +301,9 @@
             this.gboRegistros.ResumeLayout(false);
             this.gboRegistros.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistros)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudStock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEmpleado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudNumRecogida)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -311,9 +317,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtNumRecogida;
-        private System.Windows.Forms.TextBox txtEmpleado;
-        private System.Windows.Forms.TextBox txtStock;
         private System.Windows.Forms.TextBox txtMedida;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.TextBox txtCodArticulo;
@@ -325,5 +328,8 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.DataGridView dgvRegistros;
         private System.Windows.Forms.Button btnGenerar;
+        private System.Windows.Forms.NumericUpDown nudNumRecogida;
+        private System.Windows.Forms.NumericUpDown nudEmpleado;
+        private System.Windows.Forms.NumericUpDown nudStock;
     }
 }
