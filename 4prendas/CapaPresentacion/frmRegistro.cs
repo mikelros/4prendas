@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaEntidades;
 
 namespace CapaPresentacion
 {
     public partial class frmRegistro : Form
     {
+        private List<Producto> productos = new List<Producto>;
+
         public frmRegistro()
         {
             InitializeComponent();
@@ -39,6 +42,19 @@ namespace CapaPresentacion
                     e.Cancel = true; 
                 }
             
+        }
+
+        private void btnGenerar_Click(object sender, EventArgs e)
+        {
+            Producto producto = new Producto();
+            producto.CodigoArticulo = txtCodArticulo.Text;
+            //producto.Coste = COSA QUE NO ESTA
+            producto.Descripcion = txtDescripcion.Text;
+            producto.Medida = txtMedida.Text;
+            producto.Stock = int.Parse(txtStock.Text);
+            //TODO MIRAR QUE PASA SI NO ES INT // que no se pueda
+            //producto.Empleado
+            productos.Add(producto);
         }
     }
 }
