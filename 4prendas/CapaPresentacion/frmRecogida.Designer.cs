@@ -128,6 +128,7 @@
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Size = new System.Drawing.Size(153, 20);
             this.txtQuantity.TabIndex = 56;
+            this.txtQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQuantity_KeyPress);
             // 
             // lblQuantityError
             // 
@@ -158,6 +159,7 @@
             this.txtCollectionNum.Name = "txtCollectionNum";
             this.txtCollectionNum.Size = new System.Drawing.Size(153, 20);
             this.txtCollectionNum.TabIndex = 53;
+            this.txtCollectionNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQuantity_KeyPress);
             // 
             // lblCollectionNumError
             // 

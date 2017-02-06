@@ -67,6 +67,12 @@ namespace CapaPresentacion
 
         private void txtEmployer_KeyPress(object sender, KeyPressEventArgs e)
         {
+
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {                
+                e.Handled = true;
+                return;
+            }
             int employerNum;
             if ((int)e.KeyChar == (int)Keys.Enter)
             {
@@ -97,6 +103,15 @@ namespace CapaPresentacion
             Form frmMenu = new frmMenu();
             frmMenu.Show();
             this.Close();
+        }
+
+        private void txtQuantity_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+                return;
+            }
         }
     }
 }
