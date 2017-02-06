@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegistro));
             this.gboRegistros = new System.Windows.Forms.GroupBox();
+            this.nudNumRecogida = new System.Windows.Forms.NumericUpDown();
+            this.nudEmpleado = new System.Windows.Forms.NumericUpDown();
+            this.nudStock = new System.Windows.Forms.NumericUpDown();
             this.btnGenerar = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -47,14 +50,11 @@
             this.dgvRegistros = new System.Windows.Forms.DataGridView();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.nudStock = new System.Windows.Forms.NumericUpDown();
-            this.nudEmpleado = new System.Windows.Forms.NumericUpDown();
-            this.nudNumRecogida = new System.Windows.Forms.NumericUpDown();
             this.gboRegistros.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRegistros)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudStock)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudEmpleado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumRecogida)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEmpleado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudStock)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRegistros)).BeginInit();
             this.SuspendLayout();
             // 
             // gboRegistros
@@ -84,6 +84,30 @@
             this.gboRegistros.TabIndex = 0;
             this.gboRegistros.TabStop = false;
             this.gboRegistros.Text = "Registro de Articulos";
+            // 
+            // nudNumRecogida
+            // 
+            this.nudNumRecogida.Location = new System.Drawing.Point(488, 51);
+            this.nudNumRecogida.Name = "nudNumRecogida";
+            this.nudNumRecogida.Size = new System.Drawing.Size(112, 20);
+            this.nudNumRecogida.TabIndex = 21;
+            this.nudNumRecogida.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNums);
+            // 
+            // nudEmpleado
+            // 
+            this.nudEmpleado.Location = new System.Drawing.Point(385, 51);
+            this.nudEmpleado.Name = "nudEmpleado";
+            this.nudEmpleado.Size = new System.Drawing.Size(94, 20);
+            this.nudEmpleado.TabIndex = 20;
+            this.nudEmpleado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNums);
+            // 
+            // nudStock
+            // 
+            this.nudStock.Location = new System.Drawing.Point(319, 50);
+            this.nudStock.Name = "nudStock";
+            this.nudStock.Size = new System.Drawing.Size(60, 20);
+            this.nudStock.TabIndex = 19;
+            this.nudStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNums);
             // 
             // btnGenerar
             // 
@@ -262,27 +286,6 @@
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // nudStock
-            // 
-            this.nudStock.Location = new System.Drawing.Point(319, 50);
-            this.nudStock.Name = "nudStock";
-            this.nudStock.Size = new System.Drawing.Size(60, 20);
-            this.nudStock.TabIndex = 19;
-            // 
-            // nudEmpleado
-            // 
-            this.nudEmpleado.Location = new System.Drawing.Point(385, 51);
-            this.nudEmpleado.Name = "nudEmpleado";
-            this.nudEmpleado.Size = new System.Drawing.Size(94, 20);
-            this.nudEmpleado.TabIndex = 20;
-            // 
-            // nudNumRecogida
-            // 
-            this.nudNumRecogida.Location = new System.Drawing.Point(488, 51);
-            this.nudNumRecogida.Name = "nudNumRecogida";
-            this.nudNumRecogida.Size = new System.Drawing.Size(112, 20);
-            this.nudNumRecogida.TabIndex = 21;
-            // 
             // frmRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -300,10 +303,10 @@
             this.Load += new System.EventHandler(this.frmRegistro_Load);
             this.gboRegistros.ResumeLayout(false);
             this.gboRegistros.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRegistros)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudStock)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudEmpleado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumRecogida)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEmpleado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudStock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRegistros)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -266,6 +266,7 @@
             this.txtCreateNumEmployer.Name = "txtCreateNumEmployer";
             this.txtCreateNumEmployer.Size = new System.Drawing.Size(153, 21);
             this.txtCreateNumEmployer.TabIndex = 7;
+            this.txtCreateNumEmployer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNums);
             // 
             // label2
             // 
@@ -404,6 +405,7 @@
             this.txtDeleteNumEmployer.Name = "txtDeleteNumEmployer";
             this.txtDeleteNumEmployer.Size = new System.Drawing.Size(129, 21);
             this.txtDeleteNumEmployer.TabIndex = 7;
+            this.txtDeleteNumEmployer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNums);
             // 
             // label5
             // 

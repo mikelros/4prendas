@@ -70,5 +70,14 @@ namespace CapaPresentacion
             dgvRegistros.DataSource = productos.Select(p => new { p.CodigoArticulo, p.Descripcion, p.Medida, p.Stock, p.EmpleadoId, p.RecogidaId }).ToList();
             dgvRegistros.Refresh();
         }
+
+        private void onlyNums(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+                return;
+            }
+        }
     }
 }
