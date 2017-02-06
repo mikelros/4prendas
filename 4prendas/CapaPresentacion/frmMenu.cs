@@ -67,5 +67,17 @@ namespace CapaPresentacion
             frmConfig.Show();
             this.Close();
         }
+
+        private void pboAlmacenamiento_MouseLeave(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.Default;
+            pboAlmacenamiento.BorderStyle = BorderStyle.None;
+        }
+
+        private void pboAlmacenamiento_MouseEnter(object sender, EventArgs e)
+        {
+            pboAlmacenamiento.BorderStyle = BorderStyle.FixedSingle;
+            Cursor.Current = Cursors.Hand;
+        }
     }
 }
