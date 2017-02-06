@@ -50,3 +50,4 @@ C:\Users\Mikel\Documents\2ºDAM\Acceso a datos\2ª Evaluación\Ejercicios\4prend
 C:\Users\Mikel\Documents\2ºDAM\Acceso a datos\2ª Evaluación\Ejercicios\4prendas\4prendas\CapaPresentacion\bin\Debug\CapaEntidades.pdb
 C:\Users\Mikel\Documents\2ºDAM\Acceso a datos\2ª Evaluación\Ejercicios\4prendas\4prendas\CapaPresentacion\bin\Debug\CapaNegocio.pdb
 C:\Users\Mikel\Documents\2ºDAM\Acceso a datos\2ª Evaluación\Ejercicios\4prendas\4prendas\CapaPresentacion\bin\Debug\CapaDatos.pdb
+C:\Users\Asrield\Source\Repos\4prendas2\4prendas\CapaPresentacion\bin\Debug\CapaPresentacion.exe.config

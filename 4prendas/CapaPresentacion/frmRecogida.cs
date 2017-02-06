@@ -12,9 +12,91 @@ namespace CapaPresentacion
 {
     public partial class frmRecogida : Form
     {
+        //Employer employer;
         public frmRecogida()
         {
             InitializeComponent();
+
+        }
+
+        private void frmRecogida_Load(object sender, EventArgs e)
+        {
+            lblCollectionNumError.Hide();
+            lblEmployerPassError.Hide();
+            lblQuantityError.Hide();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            txtEmployer.Text = "";
+            txtCollectionNum.Text = "";
+            txtQuantity.Text = "";
+            txtGivingPerson.Text = "";
+            pboEmployer.BackgroundImage = null;
+            //employer = null;
+        }
+
+
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+            int quantity;
+            int collectionNum;
+            if (!int.TryParse(txtCollectionNum.Text, out collectionNum))
+            {
+                lblCollectionNumError.Show();
+                return;
+            }
+            else
+            {
+                lblCollectionNumError.Hide();
+            }
+            if (!int.TryParse(txtQuantity.Text, out quantity))
+            {
+                lblQuantityError.Show();
+                return;
+            }
+            else
+            {
+                lblQuantityError.Hide();
+            }
+
+            //datos.realizarRecogida(employer,collectionNum, quantity, txtGivingPerson.Text)
+
+
+        }
+
+        private void txtEmployer_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            int employerNum;
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                if (!int.TryParse(txtEmployer.Text, out employerNum))
+                {
+                    lblEmployerPassError.Show();
+                    return;
+                }
+                else
+                {
+                    lblEmployerPassError.Hide();
+                }
+                //employer = datos.getEmployer(numEmployer)
+                //if (employer = null)
+                //{
+                //    lblEmployerPassError.Show();
+                //    return;
+                //}else
+                //{
+                //    lblEmployerPassError.Hide();
+                //    pboEmployer.BackgroundImage = employer.image;
+                //}
+            }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            Form frmMenu = new frmMenu();
+            frmMenu.Show();
+            this.Close();
         }
     }
 }
