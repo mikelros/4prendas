@@ -11,7 +11,7 @@ namespace CapaEntidades
         private string codFamilia;
         private string nombre;
         private string imagen;
-        private List<SubFamilia> subFamilias;
+        private List<SubFamilia> subFamilias = new List<SubFamilia>();
         private int numCodigo;
 
         public Familia()

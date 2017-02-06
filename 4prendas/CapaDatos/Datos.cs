@@ -15,7 +15,7 @@ namespace CapaDatos
         public List<Familia> getFamilias()
         {
             List<Familia> familias = new List<Familia>(); // no sé si es arraylist o qué
-            string sql = "SELECT * FROM Familia f INNER JOIN SubFamilia sf ON f.CodFamilia = sf.FamiliaCod; ";
+            string sql = "SELECT * FROM Familia f INNER JOIN SubFamilia sf ON sf.FamiliaCod = f.CodFamilia";
 
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
@@ -24,19 +24,26 @@ namespace CapaDatos
             {
                 conTabla.Open();
                 OleDbDataReader dr = cmd.ExecuteReader();
-                if(!dr.HasRows)
+                if(!dr.Read())
                 {
                     return familias; //sale vacía
                 }
-        
-          
-                while (dr.Read())
+                bool fin = false;
+                do
                 {
-                    Familia familia = new Familia((string)dr["CodFamilia"], (string)dr["Nombre"], (string)dr["Imagen"], (int)dr["NumeroCodigo"]);
-                    //List<SubFamilia>(); ME FALTA TERMINAR POR AQUI Y TENGO QUE HACER EL ADMIN
+                    Familia familia = new Familia((string)dr["CodFamilia"], (string)dr["NombreFamilia"], (string)dr["ImagenFamilia"], (int)dr["NumeroCodigoF"]);
+                    do
+                    { //No esta puesto, porque una familia no puede no tener subfamilia... pero y si si?
+                        familia.SubFamilias.Add(new SubFamilia((string)dr["FamiliaCod"], (string)dr["CodSubFamilia"], (string)dr["Nombre"], (string)dr["Imagen"], (int)dr["IVA"], (int)dr["NumeroCodigoSF"]));
+                        if (!dr.Read())
+                        {
+                            fin = true;
+                        }
+                    } while (!fin && ((string)dr["CodFamilia"]).Equals(familia.CodFamilia));
+                    
+                    familias.Add(familia);
+                } while (!fin);
 
-                    //familias.Add()); 
-                }
 
                 return familias;
                                
@@ -49,48 +56,7 @@ namespace CapaDatos
                 conTabla.Close();
             }
         }
-
-        //si la clase familia tiene subfamilias como propiedad getFamilias ya saca las subfamilias
-
-        //public List<Subfamilia> getSubfamilias(string codFamilia)
-        //{
-        //    List<Subfamilia> subfamilias = new List<Subfamilia>(); // no sé si es arraylist o qué
-        //    string sql = "SELECT * FROM Subfamilia WHERE Subfamilia.FamiliaCod = @codfamilia";
-
-        //    OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
-        //    OleDbCommand cmd = new OleDbCommand(sql, conTabla);
-        //    cmd.Parameters.AddWithValue("@codfamilia", codFamilia);
-
-        //    try
-        //    {
-        //        conTabla.Open();
-        //        OleDbDataReader dr = cmd.ExecuteReader();
-        //        if (!dr.HasRows)
-        //        {
-        //            return subfamilias; //sale vacía
-        //        }
-
-
-        //        while (dr.Read())
-        //        {
-        //            //subfamilias.Add(new SubFamilia(dr.GetString(0), dr.GetString(1), dr.GetString(2))); // no tengo claro el orden ni los campos (de tener familia necesita join la sql)
-        //            //falta constructor y clases
-
-        //        }
-
-        //        return subfamilias;
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
-        //        return null;
-        //    }
-        //    finally
-        //    {
-        //        conTabla.Close();
-        //    }
-        //}
+       
 
         public List<Producto> getProductos(string codSubfamilia)
         {
@@ -112,11 +78,47 @@ namespace CapaDatos
 
 
                 while (dr.Read())
-                {
-                    //subfamilia.Add(new Producto(dr.GetString(0), dr.GetString(1), dr.GetString(2), dr.GetValue(3))); // no tengo claro el orden ni los campos (de tener familia, subfamilia etc necesita join la sql)
+                {//TERMINAR EL PRODUCTOS.ADD
+                    //productos.Add(new Producto(dr["CodigoArticulo"], dr["Descripcion"], dr["TallaPesoLitros"], dr["Stock"], dr["StockMinimo"], )); // no tengo claro el orden ni los campos (de tener familia, subfamilia etc necesita join la sql)
                 }
 
                 return productos;
+
+            }
+            catch (Exception ex)
+            {
+                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
+                return null;
+            }
+            finally
+            {
+                conTabla.Close();
+            }
+        }
+
+        public List<Administrador> getAdministradores()
+        {
+            List<Administrador> administradores = new List<Administrador>(); // no sé si es arraylist o qué
+            string sql = "SELECT * FROM Administrador";
+
+            OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
+            OleDbCommand cmd = new OleDbCommand(sql, conTabla);
+            try
+            {
+                conTabla.Open();
+                OleDbDataReader dr = cmd.ExecuteReader();
+                if (!dr.HasRows)
+                {
+                    return administradores; //sale vacía
+                }
+
+
+                while (dr.Read())
+                {
+                    administradores.Add(new Administrador((string)dr["Usuario"], (string)dr["Contrasena"]));
+                }
+
+                return administradores;
 
             }
             catch (Exception ex)
