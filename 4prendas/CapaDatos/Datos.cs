@@ -132,5 +132,79 @@ namespace CapaDatos
             }
         }
 
+        public List<Empleado> getEmpleados()
+        {
+            List<Empleado> empleados = new List<Empleado>(); // no sé si es arraylist o qué
+            string sql = "SELECT * FROM Empleado";
+
+            OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
+            OleDbCommand cmd = new OleDbCommand(sql, conTabla);
+            try
+            {
+                conTabla.Open();
+                OleDbDataReader dr = cmd.ExecuteReader();
+                if (!dr.HasRows)
+                {
+                    return empleados; //sale vacía
+                }
+
+
+                while (dr.Read())
+                {
+                    empleados.Add(new Empleado((string)dr["Nombre"], (string)dr["Foto"]));
+                }
+
+                return empleados;
+
+            }
+            catch (Exception ex)
+            {
+                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
+                return null;
+            }
+            finally
+            {
+                conTabla.Close();
+            }
+        }
+
+        public List<Producto> getProdsStockMinimo()
+        {
+            List<Producto> prodsStockMinimo = new List<Producto>(); // no sé si es arraylist o qué
+            string sql = "SELECT * FROM Registro WHERE Stock <= StockMinimo";
+
+            OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
+            OleDbCommand cmd = new OleDbCommand(sql, conTabla);
+            try
+            {
+                conTabla.Open();
+                OleDbDataReader dr = cmd.ExecuteReader();
+                if (!dr.HasRows)
+                {
+                    return prodsStockMinimo; //sale vacía
+                }
+
+
+                while (dr.Read())
+                {
+                    Empleado emp = new Empleado();
+                    //prodsStockMinimo.Add(new Producto(dr["CodigoArticulo"], dr["Descripcion"], dr["TallaPesoLitros"], dr["Stock"], dr["StockMinimo"], );
+                    //QUE HACEMOS CHICOS, DR["EMPLEADO"] COGEMOS EL ID O EL EMPLEADO ENTERO??
+                }
+
+                return prodsStockMinimo;
+
+            }
+            catch (Exception ex)
+            {
+                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
+                return null;
+            }
+            finally
+            {
+                conTabla.Close();
+            }
+        }
+
     }
 }
