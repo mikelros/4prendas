@@ -13,7 +13,7 @@ namespace CapaPresentacion
 {
     public partial class frmRegistro : Form
     {
-        private List<Producto> productos = new List<Producto>;
+        private List<Producto> productos = new List<Producto>();
 
         public frmRegistro()
         {
