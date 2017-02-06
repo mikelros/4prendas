@@ -36,14 +36,13 @@
             this.pbo4prendas = new System.Windows.Forms.PictureBox();
             this.pboCuatrovientos = new System.Windows.Forms.PictureBox();
             this.btnExit = new System.Windows.Forms.Button();
-            this.pboConfig = new System.Windows.Forms.PictureBox();
+            this.btnConfig = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pboRegistro)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboAlmacenamiento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboVenta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboRecogida)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbo4prendas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboCuatrovientos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pboConfig)).BeginInit();
             this.SuspendLayout();
             // 
             // pboRegistro
@@ -136,18 +135,20 @@
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // pboConfig
+            // btnConfig
             // 
-            this.pboConfig.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pboConfig.BackColor = System.Drawing.Color.Black;
-            this.pboConfig.Image = global::CapaPresentacion.Properties.Resources.admin;
-            this.pboConfig.Location = new System.Drawing.Point(1079, 713);
-            this.pboConfig.Name = "pboConfig";
-            this.pboConfig.Size = new System.Drawing.Size(111, 113);
-            this.pboConfig.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pboConfig.TabIndex = 80;
-            this.pboConfig.TabStop = false;
-            this.pboConfig.Click += new System.EventHandler(this.pboConfig_Click);
+            this.btnConfig.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnConfig.BackColor = System.Drawing.Color.White;
+            this.btnConfig.BackgroundImage = global::CapaPresentacion.Properties.Resources.admin;
+            this.btnConfig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnConfig.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfig.Location = new System.Drawing.Point(1108, 713);
+            this.btnConfig.Name = "btnConfig";
+            this.btnConfig.Size = new System.Drawing.Size(93, 113);
+            this.btnConfig.TabIndex = 81;
+            this.btnConfig.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnConfig.UseVisualStyleBackColor = false;
+            this.btnConfig.Click += new System.EventHandler(this.btnConfig_Click_1);
             // 
             // frmMenu
             // 
@@ -156,7 +157,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1312, 838);
-            this.Controls.Add(this.pboConfig);
+            this.Controls.Add(this.btnConfig);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.pboRegistro);
             this.Controls.Add(this.pboAlmacenamiento);
@@ -175,7 +176,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pboRecogida)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbo4prendas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboCuatrovientos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pboConfig)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -189,6 +189,6 @@
         private System.Windows.Forms.PictureBox pboAlmacenamiento;
         private System.Windows.Forms.PictureBox pboRegistro;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.PictureBox pboConfig;
+        private System.Windows.Forms.Button btnConfig;
     }
 }

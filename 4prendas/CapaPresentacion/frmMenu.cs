@@ -61,7 +61,7 @@ namespace CapaPresentacion
             this.Close();
         }
 
-        private void pboConfig_Click(object sender, EventArgs e)
+        private void btnConfig_Click_1(object sender, EventArgs e)
         {
             Form frmConfig = new frmConfig();
             frmConfig.Show();
