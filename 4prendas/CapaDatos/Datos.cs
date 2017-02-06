@@ -33,7 +33,7 @@ namespace CapaDatos
                 {
                     Familia familia = new Familia((string)dr["CodFamilia"], (string)dr["NombreFamilia"], (string)dr["ImagenFamilia"], (int)dr["NumeroCodigoF"]);
                     do
-                    { //No esta puesto, porque una familia no puede no tener subfamilia... pero y si si?
+                    { //Una familia no puede no tener subfamilia... pero y si si?
                         familia.SubFamilias.Add(new SubFamilia((string)dr["FamiliaCod"], (string)dr["CodSubFamilia"], (string)dr["Nombre"], (string)dr["Imagen"], (int)dr["IVA"], (int)dr["NumeroCodigoSF"]));
                         if (!dr.Read())
                         {
@@ -60,7 +60,7 @@ namespace CapaDatos
 
         public List<Producto> getProductos(string codSubfamilia)
         {
-            List<Producto> productos = new List<Producto>(); // no sé si es arraylist o qué
+            List<Producto> productos = new List<Producto>();
             string sql = "SELECT * FROM Productos WHERE Registro.CodSubFamilia = @codSubFamilia";
 
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
@@ -77,9 +77,10 @@ namespace CapaDatos
                 }
 
 
-                while (dr.Read())
-                {//TERMINAR EL PRODUCTOS.ADD
-                    //productos.Add(new Producto(dr["CodigoArticulo"], dr["Descripcion"], dr["TallaPesoLitros"], dr["Stock"], dr["StockMinimo"], )); // no tengo claro el orden ni los campos (de tener familia, subfamilia etc necesita join la sql)
+                while (dr.Read()) { 
+                    productos.Add(new Producto((string)dr["CodigoArticulo"], (string)dr["Descripcion"], (string)dr["TallaPesoLitros"], (int)dr["Stock"], 
+                        (int)dr["StockMinimo"], (int)dr["EmpleadoID"], (int)dr["LugarId"], (string)dr["CodFamilia"], (int)dr["NumeroVenta"],
+                        (int)dr["RecogidaId"], (DateTime)dr["FechaEntrada"], (int)dr["Coste"]));
                 }
 
                 return productos;
@@ -96,30 +97,28 @@ namespace CapaDatos
             }
         }
 
-        public List<Administrador> getAdministradores()
+        public Administrador getAdministrador(string user, string pass)
         {
-            List<Administrador> administradores = new List<Administrador>(); // no sé si es arraylist o qué
-            string sql = "SELECT * FROM Administrador";
+            List<Administrador> administradores = new List<Administrador>();
+            string sql = "SELECT * FROM Administrador where Usuario=@User AND Contrasena=@Pass"; ;
 
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
+            cmd.Parameters.AddWithValue("@User", user);
+            cmd.Parameters.AddWithValue("@Pass", pass);
+
             try
             {
                 conTabla.Open();
-                OleDbDataReader dr = cmd.ExecuteReader();
-                if (!dr.HasRows)
+                int result = (int)cmd.ExecuteScalar();
+                if (result > 0)
                 {
-                    return administradores; //sale vacía
+                    return new Administrador(user, pass);
                 }
-
-
-                while (dr.Read())
+                else
                 {
-                    administradores.Add(new Administrador((string)dr["Usuario"], (string)dr["Contrasena"]));
+                    return null;
                 }
-
-                return administradores;
-
             }
             catch (Exception ex)
             {
@@ -134,7 +133,7 @@ namespace CapaDatos
 
         public List<Empleado> getEmpleados()
         {
-            List<Empleado> empleados = new List<Empleado>(); // no sé si es arraylist o qué
+            List<Empleado> empleados = new List<Empleado>();
             string sql = "SELECT * FROM Empleado";
 
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
@@ -189,7 +188,7 @@ namespace CapaDatos
                 {
                     Empleado emp = new Empleado();
                     //prodsStockMinimo.Add(new Producto(dr["CodigoArticulo"], dr["Descripcion"], dr["TallaPesoLitros"], dr["Stock"], dr["StockMinimo"], );
-                    //QUE HACEMOS CHICOS, DR["EMPLEADO"] COGEMOS EL ID O EL EMPLEADO ENTERO??
+                    //Ya puedes hacer dr["EmpleadoID"], Asier ;)
                 }
 
                 return prodsStockMinimo;

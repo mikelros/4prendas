@@ -9,25 +9,18 @@ namespace CapaEntidades
     public class Devolucion
     {
         private int numDevolucion;
-        private Venta venta;
-        private Producto articulo;
-        private Empleado empleado;
+        private int ventaId;
+        private string codigoArticulo;
+        private int empleadoId;
 
         public Devolucion() { }
 
-        public Devolucion(int numDevolucion, Venta venta, Producto producto, Empleado empleado)
+        public Devolucion(int numDevolucion, int ventaId, string codigoArticulo, int empleadoId)
         {
             this.numDevolucion = numDevolucion;
-            this.venta = venta;
-            this.articulo = producto;
-            this.empleado = empleado;
-        }
-
-        public Devolucion(Venta venta, Producto producto, Empleado empleado)
-        {
-            this.venta = venta;
-            this.articulo = producto;
-            this.empleado = empleado;
+            this.ventaId = ventaId;
+            this.codigoArticulo = codigoArticulo;
+            this.empleadoId = empleadoId;
         }
 
         public int NumDevolucion
@@ -42,39 +35,39 @@ namespace CapaEntidades
             }
         }
 
-        public Venta Venta
+        public int VentaId
         {
             get
             {
-                return venta;
+                return ventaId;
             }
             set
             {
-                venta = value;
+                ventaId = value;
             }
         }
 
-        public Producto Producto
+        public string CodigoArticulo
         {
             get
             {
-                return producto;
+                return codigoArticulo;
             }
             set
             {
-                producto = value;
+                codigoArticulo = value;
             }
         }
 
-        public Empleado Empleado
+        public int EmpleadoId
         {
             get
             {
-                return empleado;
+                return empleadoId;
             }
             set
             {
-                empleado = value;
+                empleadoId = value;
             }
         }
     }

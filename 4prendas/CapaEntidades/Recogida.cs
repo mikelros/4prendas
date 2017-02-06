@@ -9,25 +9,25 @@ namespace CapaEntidades
     public class Recogida
     {
         private DateTime fechaRecogida;
-        private Empleado empleado;
+        private int empleadoId;
         private int cantidadProductos;
-        private Persona persona;
+        private int personaId;
 
         public Recogida() { }
 
-        public Recogida(DateTime fechaRecogida, Empleado empleado, int cantidadProductos)
+        public Recogida(DateTime fechaRecogida, int empleadoId, int cantidadProductos)
         {
             this.fechaRecogida = fechaRecogida;
-            this.empleado = empleado;
+            this.empleadoId = empleadoId;
             this.cantidadProductos = cantidadProductos;
         }
 
-        public Recogida(DateTime fechaRecogida, Empleado empleado, int cantidadProductos, Persona persona)
+        public Recogida(DateTime fechaRecogida, int empleadoId, int cantidadProductos, int personaId)
         {
             this.fechaRecogida = fechaRecogida;
-            this.empleado = empleado;
+            this.empleadoId = empleadoId;
             this.cantidadProductos = cantidadProductos;
-            this.persona = persona;
+            this.personaId = personaId;
         }
 
         public DateTime FechaRecogida
@@ -42,15 +42,15 @@ namespace CapaEntidades
             }
         }
 
-        public Empleado Empleado
+        public int EmpleadoId
         {
             get
             {
-                return empleado;
+                return empleadoId;
             }
             set
             {
-                empleado = value;
+                empleadoId = value;
             }
         }
 
@@ -66,15 +66,15 @@ namespace CapaEntidades
             }
         }
 
-        public Persona Persona
+        public int PersonaId
         {
             get
             {
-                return persona;
+                return personaId;
             }
             set
             {
-                persona = value;
+                personaId = value;
             }
         }
     }
