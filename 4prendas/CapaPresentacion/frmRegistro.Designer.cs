@@ -75,7 +75,7 @@
             this.gboRegistros.Controls.Add(this.label1);
             this.gboRegistros.Location = new System.Drawing.Point(315, 122);
             this.gboRegistros.Name = "gboRegistros";
-            this.gboRegistros.Size = new System.Drawing.Size(610, 95);
+            this.gboRegistros.Size = new System.Drawing.Size(712, 95);
             this.gboRegistros.TabIndex = 0;
             this.gboRegistros.TabStop = false;
             this.gboRegistros.Text = "Registro de Articulos";
@@ -235,7 +235,6 @@
             this.btnAdd.Text = "&Añadir";
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnExit
             // 
@@ -258,7 +257,7 @@
             this.dgvRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRegistros.Location = new System.Drawing.Point(315, 234);
             this.dgvRegistros.Name = "dgvRegistros";
-            this.dgvRegistros.Size = new System.Drawing.Size(610, 359);
+            this.dgvRegistros.Size = new System.Drawing.Size(712, 359);
             this.dgvRegistros.TabIndex = 19;
             // 
             // frmRegistro
