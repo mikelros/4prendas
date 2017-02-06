@@ -10,8 +10,8 @@ namespace CapaEntidades
     {
         private string nombre;
         private string foto;
-        private List<Venta> ventas;
-        private List<Devolucion> devoluciones;
+        private List<int> ventas;
+        private List<int> devoluciones;
 
         public Empleado() { }
 
@@ -21,7 +21,7 @@ namespace CapaEntidades
             this.foto = foto;
         }
 
-        public Empleado(string nombre, string foto, List<Venta> ventas, List<Devolucion> devoluciones)
+        public Empleado(string nombre, string foto, List<int> ventas, List<int> devoluciones)
         {
             this.nombre = nombre;
             this.foto = foto;
@@ -53,7 +53,7 @@ namespace CapaEntidades
             }
         }
 
-        public List<Venta> Ventas
+        public List<int> Ventas
         {
             get
             {
@@ -65,7 +65,7 @@ namespace CapaEntidades
             }
         }
 
-        public List<Devolucion> Devoluciones
+        public List<int> Devoluciones
         {
             get
             {

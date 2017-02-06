@@ -9,22 +9,22 @@ namespace CapaEntidades
     public class Venta
     {
         private DateTime fechaVenta;
-        private Empleado empleado;
+        private int empleadoId;
         private int precio;
         private int iva;
-        private bool devolucion; //Booleano o relacionado con la tabla Devolucion¿
-        private List<Producto> productos;
+        private bool devolucion;
+        private List<int> codArticulos;
 
         public Venta() { }
 
-        public Venta(DateTime fechaVenta, Empleado empleado, int precio, bool devolucion, int IVA, List<Producto> productos)
+        public Venta(DateTime fechaVenta, int empleadoId, int precio, bool devolucion, int IVA, List<int> codArticulos)
         {
             this.fechaVenta = fechaVenta;
-            this.empleado = empleado;
+            this.empleadoId = empleadoId;
             this.precio = precio;
             this.devolucion = devolucion;
             this.iva = IVA;
-            this.productos = productos;
+            this.codArticulos = codArticulos;
         }
 
         public DateTime FechaVenta
@@ -39,15 +39,15 @@ namespace CapaEntidades
             }
         }
 
-        public Empleado Empleado
+        public int EmpleadoId
         {
             get
             {
-                return empleado;
+                return empleadoId;
             }
             set
             {
-                empleado = value;
+                empleadoId = value;
             }
         }
 
@@ -87,15 +87,15 @@ namespace CapaEntidades
             }
         }
 
-        public List<Producto> Productos
+        public List<int> CodArticulos
         {
             get
             {
-                return productos;
+                return codArticulos;
             }
             set
             {
-                productos = value;
+                codArticulos = value;
             }
         }
 

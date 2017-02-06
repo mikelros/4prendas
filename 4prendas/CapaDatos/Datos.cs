@@ -15,7 +15,7 @@ namespace CapaDatos
         public List<Familia> getFamilias()
         {
             List<Familia> familias = new List<Familia>(); // no sé si es arraylist o qué
-            string sql = "SELECT * FROM Familia f INNER JOIN SubFamilia sf ON f.CodFamilia = sf.FamiliaCod; ";
+            string sql = "SELECT * FROM Familia f INNER JOIN SubFamilia sf ON sf.FamiliaCod = f.CodFamilia";
 
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
@@ -24,19 +24,26 @@ namespace CapaDatos
             {
                 conTabla.Open();
                 OleDbDataReader dr = cmd.ExecuteReader();
-                if(!dr.HasRows)
+                if(!dr.Read())
                 {
                     return familias; //sale vacía
                 }
-        
-          
-                while (dr.Read())
+                bool fin = false;
+                do
                 {
-                    Familia familia = new Familia((string)dr["CodFamilia"], (string)dr["Nombre"], (string)dr["Imagen"], (int)dr["NumeroCodigo"]);
-                    //List<SubFamilia>(); ME FALTA TERMINAR POR AQUI Y TENGO QUE HACER EL ADMIN
+                    Familia familia = new Familia((string)dr["CodFamilia"], (string)dr["NombreFamilia"], (string)dr["ImagenFamilia"], (int)dr["NumeroCodigoF"]);
+                    do
+                    { //Una familia no puede no tener subfamilia... pero y si si?
+                        familia.SubFamilias.Add(new SubFamilia((string)dr["FamiliaCod"], (string)dr["CodSubFamilia"], (string)dr["Nombre"], (string)dr["Imagen"], (int)dr["IVA"], (int)dr["NumeroCodigoSF"]));
+                        if (!dr.Read())
+                        {
+                            fin = true;
+                        }
+                    } while (!fin && ((string)dr["CodFamilia"]).Equals(familia.CodFamilia));
+                    
+                    familias.Add(familia);
+                } while (!fin);
 
-                    //familias.Add()); 
-                }
 
                 return familias;
                                
@@ -49,52 +56,11 @@ namespace CapaDatos
                 conTabla.Close();
             }
         }
-
-        //si la clase familia tiene subfamilias como propiedad getFamilias ya saca las subfamilias
-
-        //public List<Subfamilia> getSubfamilias(string codFamilia)
-        //{
-        //    List<Subfamilia> subfamilias = new List<Subfamilia>(); // no sé si es arraylist o qué
-        //    string sql = "SELECT * FROM Subfamilia WHERE Subfamilia.FamiliaCod = @codfamilia";
-
-        //    OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
-        //    OleDbCommand cmd = new OleDbCommand(sql, conTabla);
-        //    cmd.Parameters.AddWithValue("@codfamilia", codFamilia);
-
-        //    try
-        //    {
-        //        conTabla.Open();
-        //        OleDbDataReader dr = cmd.ExecuteReader();
-        //        if (!dr.HasRows)
-        //        {
-        //            return subfamilias; //sale vacía
-        //        }
-
-
-        //        while (dr.Read())
-        //        {
-        //            //subfamilias.Add(new SubFamilia(dr.GetString(0), dr.GetString(1), dr.GetString(2))); // no tengo claro el orden ni los campos (de tener familia necesita join la sql)
-        //            //falta constructor y clases
-
-        //        }
-
-        //        return subfamilias;
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
-        //        return null;
-        //    }
-        //    finally
-        //    {
-        //        conTabla.Close();
-        //    }
-        //}
+       
 
         public List<Producto> getProductos(string codSubfamilia)
         {
-            List<Producto> productos = new List<Producto>(); // no sé si es arraylist o qué
+            List<Producto> productos = new List<Producto>();
             string sql = "SELECT * FROM Productos WHERE Registro.CodSubFamilia = @codSubFamilia";
 
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
@@ -111,12 +77,121 @@ namespace CapaDatos
                 }
 
 
-                while (dr.Read())
-                {
-                    //subfamilia.Add(new Producto(dr.GetString(0), dr.GetString(1), dr.GetString(2), dr.GetValue(3))); // no tengo claro el orden ni los campos (de tener familia, subfamilia etc necesita join la sql)
+                while (dr.Read()) { 
+                    productos.Add(new Producto((string)dr["CodigoArticulo"], (string)dr["Descripcion"], (string)dr["TallaPesoLitros"], (int)dr["Stock"], 
+                        (int)dr["StockMinimo"], (int)dr["EmpleadoID"], (int)dr["LugarId"], (string)dr["CodFamilia"], (int)dr["NumeroVenta"],
+                        (int)dr["RecogidaId"], (DateTime)dr["FechaEntrada"], (int)dr["Coste"]));
                 }
 
                 return productos;
+
+            }
+            catch (Exception ex)
+            {
+                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
+                return null;
+            }
+            finally
+            {
+                conTabla.Close();
+            }
+        }
+
+        public Administrador getAdministrador(string user, string pass)
+        {
+            List<Administrador> administradores = new List<Administrador>();
+            string sql = "SELECT * FROM Administrador where Usuario=@User AND Contrasena=@Pass"; ;
+
+            OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
+            OleDbCommand cmd = new OleDbCommand(sql, conTabla);
+            cmd.Parameters.AddWithValue("@User", user);
+            cmd.Parameters.AddWithValue("@Pass", pass);
+
+            try
+            {
+                conTabla.Open();
+                int result = (int)cmd.ExecuteScalar();
+                if (result > 0)
+                {
+                    return new Administrador(user, pass);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
+                return null;
+            }
+            finally
+            {
+                conTabla.Close();
+            }
+        }
+
+        public List<Empleado> getEmpleados()
+        {
+            List<Empleado> empleados = new List<Empleado>();
+            string sql = "SELECT * FROM Empleado";
+
+            OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
+            OleDbCommand cmd = new OleDbCommand(sql, conTabla);
+            try
+            {
+                conTabla.Open();
+                OleDbDataReader dr = cmd.ExecuteReader();
+                if (!dr.HasRows)
+                {
+                    return empleados; //sale vacía
+                }
+
+
+                while (dr.Read())
+                {
+                    empleados.Add(new Empleado((string)dr["Nombre"], (string)dr["Foto"]));
+                }
+
+                return empleados;
+
+            }
+            catch (Exception ex)
+            {
+                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
+                return null;
+            }
+            finally
+            {
+                conTabla.Close();
+            }
+        }
+
+        public List<Producto> getProdsStockMinimo()
+        {
+            List<Producto> prodsStockMinimo = new List<Producto>(); // no sé si es arraylist o qué
+            string sql = "SELECT * FROM Registro WHERE Stock <= StockMinimo";
+
+            OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
+            OleDbCommand cmd = new OleDbCommand(sql, conTabla);
+            try
+            {
+                conTabla.Open();
+                OleDbDataReader dr = cmd.ExecuteReader();
+                if (!dr.HasRows)
+                {
+                    return prodsStockMinimo; //sale vacía
+                }
+
+
+                while (dr.Read())
+                {
+                    Empleado emp = new Empleado();
+                    //prodsStockMinimo.Add(new Producto(dr["CodigoArticulo"], dr["Descripcion"], dr["TallaPesoLitros"], dr["Stock"], dr["StockMinimo"], );
+                    //Ya puedes hacer dr["EmpleadoID"], Asier ;)
+                }
+
+                return prodsStockMinimo;
 
             }
             catch (Exception ex)
