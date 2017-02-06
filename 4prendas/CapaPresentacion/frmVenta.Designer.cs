@@ -143,6 +143,8 @@
             // cmbEmpleado
             // 
             this.cmbEmpleado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbEmpleado.BackColor = System.Drawing.Color.White;
+            this.cmbEmpleado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEmpleado.FormattingEnabled = true;
             this.cmbEmpleado.Location = new System.Drawing.Point(1062, 112);
             this.cmbEmpleado.Name = "cmbEmpleado";
@@ -457,6 +459,7 @@
             // cmbSearch
             // 
             this.cmbSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbSearch.BackColor = System.Drawing.Color.White;
             this.cmbSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSearch.FormattingEnabled = true;
             this.cmbSearch.Location = new System.Drawing.Point(919, 174);
