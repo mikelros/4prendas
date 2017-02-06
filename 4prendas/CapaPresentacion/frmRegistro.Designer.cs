@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegistro));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gboRegistros = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -48,34 +48,37 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.dgvRegistros = new System.Windows.Forms.DataGridView();
+            this.gboRegistros.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRegistros)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gboRegistros
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.textBox6);
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(133, 122);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(610, 93);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Registro de Articulos";
+            this.gboRegistros.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.gboRegistros.BackColor = System.Drawing.Color.Transparent;
+            this.gboRegistros.Controls.Add(this.label10);
+            this.gboRegistros.Controls.Add(this.label9);
+            this.gboRegistros.Controls.Add(this.label8);
+            this.gboRegistros.Controls.Add(this.label7);
+            this.gboRegistros.Controls.Add(this.textBox6);
+            this.gboRegistros.Controls.Add(this.textBox5);
+            this.gboRegistros.Controls.Add(this.textBox4);
+            this.gboRegistros.Controls.Add(this.textBox3);
+            this.gboRegistros.Controls.Add(this.textBox2);
+            this.gboRegistros.Controls.Add(this.textBox1);
+            this.gboRegistros.Controls.Add(this.label6);
+            this.gboRegistros.Controls.Add(this.label5);
+            this.gboRegistros.Controls.Add(this.label4);
+            this.gboRegistros.Controls.Add(this.label3);
+            this.gboRegistros.Controls.Add(this.label2);
+            this.gboRegistros.Controls.Add(this.label1);
+            this.gboRegistros.Location = new System.Drawing.Point(315, 122);
+            this.gboRegistros.Name = "gboRegistros";
+            this.gboRegistros.Size = new System.Drawing.Size(610, 95);
+            this.gboRegistros.TabIndex = 0;
+            this.gboRegistros.TabStop = false;
+            this.gboRegistros.Text = "Registro de Articulos";
             // 
             // label10
             // 
@@ -225,7 +228,7 @@
             this.btnAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAdd.BackgroundImage")));
             this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(587, 221);
+            this.btnAdd.Location = new System.Drawing.Point(952, 620);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 116);
             this.btnAdd.TabIndex = 1;
@@ -240,7 +243,7 @@
             this.btnExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExit.BackgroundImage")));
             this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(668, 221);
+            this.btnExit.Location = new System.Drawing.Point(1033, 620);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 116);
             this.btnExit.TabIndex = 18;
@@ -249,28 +252,40 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // dgvRegistros
+            // 
+            this.dgvRegistros.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.dgvRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRegistros.Location = new System.Drawing.Point(315, 234);
+            this.dgvRegistros.Name = "dgvRegistros";
+            this.dgvRegistros.Size = new System.Drawing.Size(610, 359);
+            this.dgvRegistros.TabIndex = 19;
+            // 
             // frmRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(908, 391);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1273, 790);
+            this.Controls.Add(this.dgvRegistros);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gboRegistros);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmRegistro";
             this.Text = "frmRegistro";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmRegistro_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gboRegistros.ResumeLayout(false);
+            this.gboRegistros.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRegistros)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gboRegistros;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -289,5 +304,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.DataGridView dgvRegistros;
     }
 }

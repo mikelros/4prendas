@@ -19,7 +19,7 @@ namespace CapaPresentacion
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            //add product
+            //miNegocio.
         }
 
         private void btnExit_Click(object sender, EventArgs e)
