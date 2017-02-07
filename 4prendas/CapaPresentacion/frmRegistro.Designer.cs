@@ -50,6 +50,7 @@
             this.dgvRegistros = new System.Windows.Forms.DataGridView();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.gboRegistros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumRecogida)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEmpleado)).BeginInit();
@@ -92,7 +93,6 @@
             this.nudNumRecogida.Size = new System.Drawing.Size(112, 20);
             this.nudNumRecogida.TabIndex = 21;
             this.nudNumRecogida.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNums);
-
             // 
             // nudEmpleado
             // 
@@ -109,7 +109,6 @@
             this.nudStock.Size = new System.Drawing.Size(60, 20);
             this.nudStock.TabIndex = 19;
             this.nudStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNums);
-
             // 
             // btnGenerar
             // 
@@ -288,12 +287,29 @@
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // btnBack
+            // 
+            this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBack.BackColor = System.Drawing.Color.White;
+            this.btnBack.BackgroundImage = global::CapaPresentacion.Properties.Resources.exit;
+            this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.Location = new System.Drawing.Point(1114, 623);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(75, 113);
+            this.btnBack.TabIndex = 20;
+            this.btnBack.Text = "A&trás";
+            this.btnBack.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // frmRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1273, 790);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.dgvRegistros);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnAdd);
@@ -336,5 +352,6 @@
         private System.Windows.Forms.NumericUpDown nudNumRecogida;
         private System.Windows.Forms.NumericUpDown nudEmpleado;
         private System.Windows.Forms.NumericUpDown nudStock;
+        private System.Windows.Forms.Button btnBack;
     }
 }
