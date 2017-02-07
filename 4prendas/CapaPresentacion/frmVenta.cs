@@ -8,13 +8,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaNegocio;
+using CapaEntidades;
 
 namespace CapaPresentacion
 {
     public partial class frmVenta : Form
     {
+        Negocio negocio;
         string shopMode;
         string searchBy;
+        List<Producto> ProdsStockMinimo;
         public frmVenta()
         {
             InitializeComponent();
@@ -35,7 +39,8 @@ namespace CapaPresentacion
 
         private void checkStockMinimo()
         {
-            int num = 1;//negocio.prodsStockMinimo();
+            ProdsStockMinimo = negocio.getProdsStockMinimo();
+            int num = ProdsStockMinimo.Count();
             if (num > 0){
                 btnStock.BackColor = Color.Red;
                 btnStock.Text = num.ToString();
