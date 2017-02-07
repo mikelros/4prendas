@@ -21,44 +21,16 @@ namespace CapaPresentacion
         private void frmMenu_Load(object sender, EventArgs e)
         {
             int medioY = this.Size.Height / 2;
-            pboRecogida.Location = new Point((this.Size.Width / 5) - pboRecogida.Width / 2, medioY - (pboRecogida.Height / 2));
-            pboRegistro.Location = new Point((this.Size.Width * 2 / 5) - pboRegistro.Width / 2, medioY - (pboRegistro.Height / 2));
-            pboVenta.Location = new Point((this.Size.Width * 3 / 5) - pboVenta.Width / 2, medioY - (pboVenta.Height / 2));
-            pboAlmacenamiento.Location = new Point((this.Size.Width  * 4 / 5) - pboAlmacenamiento.Width / 2, medioY - (pboAlmacenamiento.Height / 2));
+            btnRecogida.Location = new Point((this.Size.Width / 5) - btnRecogida.Width / 2, medioY - (btnRecogida.Height / 2));
+            btnRegistro.Location = new Point((this.Size.Width * 2 / 5) - btnRegistro.Width / 2, medioY - (btnRegistro.Height / 2));
+            btnVenta.Location = new Point((this.Size.Width * 3 / 5) - btnVenta.Width / 2, medioY - (btnVenta.Height / 2));
+            btnAlmacenamiento.Location = new Point((this.Size.Width  * 4 / 5) - btnAlmacenamiento.Width / 2, medioY - (btnAlmacenamiento.Height / 2));
 
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void pboRecogida_Click(object sender, EventArgs e)
-        {
-            Form frmRecogida = new frmRecogida();
-            frmRecogida.Show();
-            this.Close();
-        }
-
-        private void pboVenta_Click(object sender, EventArgs e)
-        {
-            Form frmVenta = new frmVenta();
-            frmVenta.Show();
-            this.Close();
-        }
-
-        private void pboAlmacenamiento_Click(object sender, EventArgs e)
-        {
-            //Form frmRecogida = new frmAlmacenamiento();
-            //frmRecogida.Show();
-            //this.Close();
-        }
-
-        private void pboRegistro_Click(object sender, EventArgs e)
-        {
-            Form frmRegistro = new frmRegistro();
-            frmRegistro.Show();
-            this.Close();
         }
 
         private void btnConfig_Click_1(object sender, EventArgs e)
@@ -68,16 +40,32 @@ namespace CapaPresentacion
             this.Close();
         }
 
-        private void pboAlmacenamiento_MouseLeave(object sender, EventArgs e)
+        private void btnRecogida_Click(object sender, EventArgs e)
         {
-            Cursor.Current = Cursors.Default;
-            pboAlmacenamiento.BorderStyle = BorderStyle.None;
+            Form frmRecogida = new frmRecogida();
+            frmRecogida.Show();
+            this.Close();
         }
 
-        private void pboAlmacenamiento_MouseEnter(object sender, EventArgs e)
+        private void btnRegistro_Click(object sender, EventArgs e)
         {
-            pboAlmacenamiento.BorderStyle = BorderStyle.FixedSingle;
-            Cursor.Current = Cursors.Hand;
+            Form frmRegistro = new frmRegistro();
+            frmRegistro.Show();
+            this.Close();
+        }
+
+        private void btnVenta_Click(object sender, EventArgs e)
+        {
+            Form frmVenta = new frmVenta();
+            frmVenta.Show();
+            this.Close();
+        }
+
+        private void btnAlmacenamiento_Click(object sender, EventArgs e)
+        {
+            //Form frmAlmacenamiento = new frmAlmacenamiento();
+            //frmAlmacenamiento.Show();
+            //this.Close();
         }
     }
 }
