@@ -56,7 +56,10 @@ namespace CapaNegocio
             return datos.getProdsPorCodigoArticulo(codigoArticulo);
         }
 
-
+        public void insertarProductos(List<Producto> productos)
+        {
+            datos.insertarProductos(productos);
+        }
 
     }
 
