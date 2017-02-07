@@ -91,7 +91,6 @@
             this.nudNumRecogida.Name = "nudNumRecogida";
             this.nudNumRecogida.Size = new System.Drawing.Size(112, 20);
             this.nudNumRecogida.TabIndex = 21;
-            this.nudNumRecogida.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNums);
             // 
             // nudEmpleado
             // 
@@ -99,7 +98,6 @@
             this.nudEmpleado.Name = "nudEmpleado";
             this.nudEmpleado.Size = new System.Drawing.Size(94, 20);
             this.nudEmpleado.TabIndex = 20;
-            this.nudEmpleado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNums);
             // 
             // nudStock
             // 
@@ -107,7 +105,6 @@
             this.nudStock.Name = "nudStock";
             this.nudStock.Size = new System.Drawing.Size(60, 20);
             this.nudStock.TabIndex = 19;
-            this.nudStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNums);
             // 
             // btnGenerar
             // 
