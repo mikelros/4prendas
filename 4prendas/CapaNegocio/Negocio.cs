@@ -16,11 +16,47 @@ namespace CapaNegocio
         {
             datos = new Datos();
         }
-
         public void InsertarProductos(List<Producto> productos)
         {
-            //datos.InsertarProductos(productos);
+            //return datos.InsertarProductos(productos);
         }
+
+        public List<Familia> getFamilias()
+        {
+            return datos.getFamilias();
+        }
+
+        public List<Producto> getProductos(string codSubfamilia)
+        {
+            return datos.getProductos(codSubfamilia);
+        }
+
+        public Administrador getAdministrador(string user, string pass)
+        {
+            return datos.getAdministrador(user, pass);
+        }
+
+        public List<Empleado> getEmpleados()
+        {
+            return datos.getEmpleados();
+        }
+
+        public List<Producto> getProdsStockMinimo()
+        {
+            return datos.getProdsStockMinimo();
+        }
+
+        public List<Producto> getProdsPorDescripcion(string desc)
+        {
+            return datos.getProdsPorDescripcion(desc);
+        }
+
+        public List<Producto> getProdsPorCodigoArticulo(string codigoArticulo)
+        {
+            return datos.getProdsPorCodigoArticulo(codigoArticulo);
+        }
+
+
 
     }
 

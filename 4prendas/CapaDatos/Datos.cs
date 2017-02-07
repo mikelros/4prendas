@@ -257,7 +257,7 @@ namespace CapaDatos
         }
 
         //Portductos por familia
-
+        //Productos por subfamilia ¿O es lo de arriba de getProductos?
 
     }
 }
