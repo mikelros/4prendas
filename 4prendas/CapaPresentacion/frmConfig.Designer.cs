@@ -68,7 +68,8 @@
             // btnExit
             // 
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExit.BackgroundImage")));
+            this.btnExit.BackColor = System.Drawing.Color.White;
+            this.btnExit.BackgroundImage = global::CapaPresentacion.Properties.Resources.exit;
             this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.Location = new System.Drawing.Point(746, 515);
@@ -77,12 +78,13 @@
             this.btnExit.TabIndex = 8;
             this.btnExit.Text = "A&trás";
             this.btnExit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnApply
             // 
             this.btnApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnApply.BackColor = System.Drawing.Color.White;
             this.btnApply.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnApply.BackgroundImage")));
             this.btnApply.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnApply.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -92,7 +94,7 @@
             this.btnApply.TabIndex = 9;
             this.btnApply.Text = "&Aplicar";
             this.btnApply.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnApply.UseVisualStyleBackColor = true;
+            this.btnApply.UseVisualStyleBackColor = false;
             this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
             // 
             // rbtnFood
@@ -201,6 +203,7 @@
             // 
             // bntCreateCancel
             // 
+            this.bntCreateCancel.BackColor = System.Drawing.Color.White;
             this.bntCreateCancel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bntCreateCancel.BackgroundImage")));
             this.bntCreateCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.bntCreateCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -210,11 +213,12 @@
             this.bntCreateCancel.TabIndex = 12;
             this.bntCreateCancel.Text = "C&ancelar";
             this.bntCreateCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.bntCreateCancel.UseVisualStyleBackColor = true;
+            this.bntCreateCancel.UseVisualStyleBackColor = false;
             this.bntCreateCancel.Click += new System.EventHandler(this.bntCreateCancel_Click);
             // 
             // btnCreate
             // 
+            this.btnCreate.BackColor = System.Drawing.Color.White;
             this.btnCreate.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCreate.BackgroundImage")));
             this.btnCreate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -224,18 +228,19 @@
             this.btnCreate.TabIndex = 11;
             this.btnCreate.Text = "&Crear";
             this.btnCreate.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.UseVisualStyleBackColor = false;
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // btnBrowse
             // 
+            this.btnBrowse.BackColor = System.Drawing.Color.White;
             this.btnBrowse.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBrowse.Location = new System.Drawing.Point(108, 172);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(79, 23);
             this.btnBrowse.TabIndex = 10;
             this.btnBrowse.Text = "&Examinar";
-            this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.UseVisualStyleBackColor = false;
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // txtCreatePhoto
@@ -261,6 +266,7 @@
             this.txtCreateNumEmployer.Name = "txtCreateNumEmployer";
             this.txtCreateNumEmployer.Size = new System.Drawing.Size(153, 21);
             this.txtCreateNumEmployer.TabIndex = 7;
+            this.txtCreateNumEmployer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNums);
             // 
             // label2
             // 
@@ -342,6 +348,7 @@
             // 
             // btnSearch
             // 
+            this.btnSearch.BackColor = System.Drawing.Color.White;
             this.btnSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearch.BackgroundImage")));
             this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -349,7 +356,7 @@
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(46, 41);
             this.btnSearch.TabIndex = 14;
-            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // lblDeleteName
@@ -364,6 +371,7 @@
             // 
             // btnDeleteCancel
             // 
+            this.btnDeleteCancel.BackColor = System.Drawing.Color.White;
             this.btnDeleteCancel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDeleteCancel.BackgroundImage")));
             this.btnDeleteCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnDeleteCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -373,11 +381,12 @@
             this.btnDeleteCancel.TabIndex = 12;
             this.btnDeleteCancel.Text = "C&ancelar";
             this.btnDeleteCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnDeleteCancel.UseVisualStyleBackColor = true;
+            this.btnDeleteCancel.UseVisualStyleBackColor = false;
             this.btnDeleteCancel.Click += new System.EventHandler(this.btnDeleteCancel_Click);
             // 
             // btnDelete
             // 
+            this.btnDelete.BackColor = System.Drawing.Color.White;
             this.btnDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDelete.BackgroundImage")));
             this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -387,7 +396,7 @@
             this.btnDelete.TabIndex = 11;
             this.btnDelete.Text = "E&liminar";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // txtDeleteNumEmployer
@@ -396,6 +405,7 @@
             this.txtDeleteNumEmployer.Name = "txtDeleteNumEmployer";
             this.txtDeleteNumEmployer.Size = new System.Drawing.Size(129, 21);
             this.txtDeleteNumEmployer.TabIndex = 7;
+            this.txtDeleteNumEmployer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNums);
             // 
             // label5
             // 
@@ -420,6 +430,7 @@
             // btnCopy
             // 
             this.btnCopy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCopy.BackColor = System.Drawing.Color.White;
             this.btnCopy.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCopy.BackgroundImage")));
             this.btnCopy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -429,7 +440,7 @@
             this.btnCopy.TabIndex = 17;
             this.btnCopy.Text = "&CopiarBD";
             this.btnCopy.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCopy.UseVisualStyleBackColor = true;
+            this.btnCopy.UseVisualStyleBackColor = false;
             this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
             // 
             // frmConfig

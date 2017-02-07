@@ -61,11 +61,23 @@ namespace CapaPresentacion
             this.Close();
         }
 
-        private void pboConfig_Click(object sender, EventArgs e)
+        private void btnConfig_Click_1(object sender, EventArgs e)
         {
             Form frmConfig = new frmConfig();
             frmConfig.Show();
             this.Close();
+        }
+
+        private void pboAlmacenamiento_MouseLeave(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.Default;
+            pboAlmacenamiento.BorderStyle = BorderStyle.None;
+        }
+
+        private void pboAlmacenamiento_MouseEnter(object sender, EventArgs e)
+        {
+            pboAlmacenamiento.BorderStyle = BorderStyle.FixedSingle;
+            Cursor.Current = Cursors.Hand;
         }
     }
 }

@@ -13,11 +13,11 @@ namespace CapaEntidades
         private string medida;
         private int stock;
         private int stockMinimo;
-        private Empleado empleado;
-        private Lugar lugar;
-        private Familia familia;
-        private Venta venta;
-        private Recogida recogida;
+        private int empleadoId;
+        private int lugarId;
+        private string codFamilia;
+        private int numeroVenta;
+        private int recogidaId;
         private DateTime fechaEntrada;
         private int coste;
 
@@ -28,38 +28,38 @@ namespace CapaEntidades
         }
 
         //Sin venta
-        public Producto(string codArticulo, string descripcion, string medida, int stock, int stockMinimo, Empleado empleado, Lugar lugar,
-           Familia familia, Recogida recogida, DateTime fechaEntrada, int coste)
+        public Producto(string codArticulo, string descripcion, string medida, int stock, int stockMinimo, int empleadoId, int lugarId,
+           string codFamilia, int recogidaId, DateTime fechaEntrada, int coste)
         {
             this.codigoArticulo = codArticulo;
             this.descripcion = descripcion;
             this.medida = medida;
             this.stock = stock;
             this.stockMinimo = stockMinimo;
-            this.empleado = empleado;
-            this.lugar = lugar;
-            this.familia = familia;
-            this.recogida = recogida;
+            this.empleadoId = empleadoId;
+            this.lugarId = lugarId;
+            this.codFamilia = codFamilia;
+            this.recogidaId = recogidaId;
             this.fechaEntrada = fechaEntrada;
             this.coste = coste;
         }
         
         //Todos los campos
-        public Producto(string codArticulo, string descripcion, string medida, int stock, int stockMinimo, Empleado empleado, Lugar lugar,
-            Familia familia, SubFamilia subFamilia, Venta venta, Recogida recogida, DateTime fechaEntrada, int coste)
+        public Producto(string codArticulo, string descripcion, string medida, int stock, int stockMinimo, int empleadoId, int lugarId,
+           string codFamilia, int recogidaId, int numeroVenta, DateTime fechaEntrada, int coste)
         {
             this.codigoArticulo = codArticulo;
             this.descripcion = descripcion;
             this.medida = medida;
             this.stock = stock;
             this.stockMinimo = stockMinimo;
-            this.empleado = empleado;
-            this.lugar = lugar;
-            this.familia = familia;
-            this.venta = venta;
-            this.recogida = recogida;
+            this.empleadoId = empleadoId;
+            this.lugarId = lugarId;
+            this.codFamilia = codFamilia;
+            this.recogidaId = recogidaId;
             this.fechaEntrada = fechaEntrada;
             this.coste = coste;
+            this.numeroVenta = numeroVenta;
         }
 
         public string CodigoArticulo
@@ -122,63 +122,63 @@ namespace CapaEntidades
             }
         }
 
-        public Empleado EmpleadoId
+        public int EmpleadoId
         {
             get
             {
-                return empleado;
+                return empleadoId;
             }
             set
             {
-                empleado = value;
+                empleadoId = value;
             }
         }
 
-        public Lugar Lugar
+        public int LugarId
         {
             get
             {
-                return lugar;
+                return lugarId;
             }
             set
             {
-                lugar = value;
+                lugarId = value;
             }
         }
 
-        public Familia Familia
+        public string CodFamilia
         {
             get
             {
-                return familia;
+                return codFamilia;
             }
             set
             {
-                familia = value;
+                codFamilia = value;
             }
         }
 
-        public Venta Venta
+        public int NumeroVenta
         {
             get
             {
-                return venta;
+                return numeroVenta;
             }
             set
             {
-                venta = value;
+                numeroVenta = value;
             }
         }
 
-        public Recogida Recogida
+        public int RecogidaId
         {
             get
             {
-                return recogida;
+                return recogidaId;
             }
             set
             {
-                recogida = value;
+                recogidaId = value;
             }
         }
 

@@ -271,6 +271,8 @@ namespace CapaPresentacion
 
         private void btnBack_Click(object sender, EventArgs e)
         {
+            Form frmMenu = new frmMenu();
+            frmMenu.Show();
             this.Close();
         }
 
@@ -292,6 +294,15 @@ namespace CapaPresentacion
             }
 
 
+        }
+
+        private void onlyNums(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+                return;
+            }
         }
     }
 }
