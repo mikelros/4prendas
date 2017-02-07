@@ -26,7 +26,7 @@ namespace CapaPresentacion
             dgvCarrito.Hide();
             checkStockMinimo();
             loadWorkersList();
-            //Cargar botones familia();
+            //Cargar botones familia(); 
         }
 
         //Al seleccionar familia, cargar subfamilia
