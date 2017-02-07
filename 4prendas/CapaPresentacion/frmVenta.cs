@@ -17,7 +17,6 @@ namespace CapaPresentacion
     {
         Negocio negocio;
         string shopMode;
-        string searchBy;
         List<Producto> ProdsStockMinimo;
         public frmVenta()
         {
