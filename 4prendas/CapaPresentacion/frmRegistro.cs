@@ -48,7 +48,6 @@ namespace CapaPresentacion
             producto.Descripcion = txtDescripcion.Text;
             producto.Medida = txtMedida.Text;
             producto.Stock = int.Parse(nudStock.Text);
-            //TODO MIRAR QUE PASA SI NO ES INT // que no se pueda
             producto.EmpleadoId = int.Parse(nudEmpleado.Text);
             //fecha de entrada es la de ahora o la de la recogida..?
             producto.RecogidaId = int.Parse(nudNumRecogida.Text);
@@ -71,13 +70,5 @@ namespace CapaPresentacion
             dgvRegistros.Refresh();
         }
 
-        private void onlyNums(object sender, KeyPressEventArgs e)
-        {
-            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
-            {
-                e.Handled = true;
-                return;
-            }
-        }
     }
 }
