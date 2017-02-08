@@ -29,7 +29,7 @@ namespace CapaDatos
                 bool fin = false;
                 do
                 {
-                    Familia familia = new Familia((string)dr["CodFamilia"], (string)dr["NombreFamilia"], (string)dr["ImagenFamilia"], (int)dr["NumeroCodigoF"]);
+                    Familia familia = new Familia(dr.IsDBNull(dr.GetOrdinal("CodFamilia")) ? "" : (string)dr["CodFamilia"], dr.IsDBNull(dr.GetOrdinal("NombreFamilia")) ? "" : (string)dr["NombreFamilia"], dr.IsDBNull(dr.GetOrdinal("ImagenFamilia")) ? "" : (string)dr["ImagenFamilia"], dr.IsDBNull(dr.GetOrdinal("NumeroCodigoF")) ? -1 : (int)dr["NumeroCodigoF"]);
                     do
                     { //Una familia no puede no tener subfamilia... pero y si si?
                         familia.SubFamilias.Add(new SubFamilia((string)dr["FamiliaCod"], (string)dr["CodSubFamilia"], (string)dr["Nombre"], (string)dr["Imagen"], (int)dr["IVA"], (int)dr["NumeroCodigoSF"]));
