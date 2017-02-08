@@ -45,13 +45,18 @@ namespace CapaPresentacion
             if (Modulo.miNegocio.getProdsStockMinimo() == null)
             {
                 num = 0;
-            } else {
-            num = ProdsStockMinimo.Count();
             }
-            if (num > 0){
+            else
+            {
+                num = ProdsStockMinimo.Count();
+            }
+            if (num > 0)
+            {
                 btnStock.BackColor = Color.Red;
                 btnStock.Text = num.ToString();
-            } else {
+            }
+            else
+            {
                 btnStock.BackColor = Color.Lime;
                 btnStock.Text = "0";
             }
@@ -104,7 +109,7 @@ namespace CapaPresentacion
             proceso.StartInfo.Arguments = "";
             proceso.Start();
         }
-        
+
         private void loadCmbSearch()
         {
             cmbSearch.Items.Add("Codigo de barras");
@@ -143,8 +148,8 @@ namespace CapaPresentacion
             string line;
             try
             {
-                string mydocpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments); 
-                System.IO.StreamReader file = new System.IO.StreamReader(mydocpath + @"\.config.txt"); 
+                string mydocpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                System.IO.StreamReader file = new System.IO.StreamReader(mydocpath + @"\.config.txt");
                 System.Console.WriteLine(shopMode);
                 while ((line = file.ReadLine()) != null)
                 {
@@ -152,7 +157,7 @@ namespace CapaPresentacion
                     {
                         shopMode = line.Split('=')[1];
                     }
-                } 
+                }
                 file.Close();
             }
             catch
@@ -165,32 +170,35 @@ namespace CapaPresentacion
         private void loadFamilias()
         {
             familias = Modulo.miNegocio.getFamiliasSubfamilias();
-            int cont = 0;
+            int cont = gboFamilia.Controls.Count - 1;
             foreach (Familia f in familias)
             {
                 gboFamilia.Controls[cont].Tag = f;
+                gboFamilia.Controls[cont].Text = f.CodFamilia;
                 if (!f.Imagen.Equals("") && File.Exists(f.Imagen))
                 {
                     gboFamilia.Controls[cont].BackgroundImage = Image.FromFile(f.Imagen);
                 }
                 gboFamilia.Controls[cont].Click += new EventHandler(loadSubfamilias); ;
-                cont++;
+                cont--;
             }
         }
 
         private void loadSubfamilias(object sender, EventArgs e)
         {
-            Familia f = (Familia) sender;
-            int cont = 0;
+            Button b = (Button)sender;
+            Familia f = (Familia)b.Tag;
+            int cont = gboSubfamilia.Controls.Count - 1;
             foreach (SubFamilia s in f.SubFamilias)
             {
-                gboFamilia.Controls[cont].Tag = s;
+                gboSubfamilia.Controls[cont].Tag = s;
+                gboSubfamilia.Controls[cont].Text = s.CodSubFamilia;
                 if (!s.Imagen.Equals("") && File.Exists(s.Imagen))
                 {
-                    gboFamilia.Controls[cont].BackgroundImage = Image.FromFile(s.Imagen);
+                    gboSubfamilia.Controls[cont].BackgroundImage = Image.FromFile(s.Imagen);
                 }
-                gboFamilia.Controls[cont].Click += new EventHandler(loadProductosSubfam);
-                cont++;
+                gboSubfamilia.Controls[cont].Click += new EventHandler(loadProductosSubfam);
+                cont--;
             }
         }
 
