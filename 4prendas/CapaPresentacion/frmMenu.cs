@@ -21,10 +21,9 @@ namespace CapaPresentacion
         private void frmMenu_Load(object sender, EventArgs e)
         {
             int medioY = this.Size.Height / 2;
-            btnRecogida.Location = new Point((this.Size.Width / 5) - btnRecogida.Width / 2, medioY - (btnRecogida.Height / 2));
-            btnRegistro.Location = new Point((this.Size.Width * 2 / 5) - btnRegistro.Width / 2, medioY - (btnRegistro.Height / 2));
-            btnVenta.Location = new Point((this.Size.Width * 3 / 5) - btnVenta.Width / 2, medioY - (btnVenta.Height / 2));
-            btnAlmacenamiento.Location = new Point((this.Size.Width  * 4 / 5) - btnAlmacenamiento.Width / 2, medioY - (btnAlmacenamiento.Height / 2));
+            btnRecogida.Location = new Point((this.Size.Width / 4) - btnRecogida.Width / 2, medioY - (btnRecogida.Height / 2));
+            btnRegistro.Location = new Point((this.Size.Width * 2 / 4) - btnRegistro.Width / 2, medioY - (btnRegistro.Height / 2));
+            btnVenta.Location = new Point((this.Size.Width * 3 / 4) - btnVenta.Width / 2, medioY - (btnVenta.Height / 2));
 
         }
 
@@ -61,11 +60,5 @@ namespace CapaPresentacion
             this.Close();
         }
 
-        private void btnAlmacenamiento_Click(object sender, EventArgs e)
-        {
-            Form frmAlmacenamiento = new frmAlmacenamiento();
-            frmAlmacenamiento.Show();
-            this.Close();
-        }
     }
 }

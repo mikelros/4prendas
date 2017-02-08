@@ -33,7 +33,6 @@
             this.pboCuatrovientos = new System.Windows.Forms.PictureBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnConfig = new System.Windows.Forms.Button();
-            this.btnAlmacenamiento = new System.Windows.Forms.Button();
             this.btnVenta = new System.Windows.Forms.Button();
             this.btnRegistro = new System.Windows.Forms.Button();
             this.btnRecogida = new System.Windows.Forms.Button();
@@ -94,20 +93,6 @@
             this.btnConfig.UseVisualStyleBackColor = false;
             this.btnConfig.Click += new System.EventHandler(this.btnConfig_Click_1);
             // 
-            // btnAlmacenamiento
-            // 
-            this.btnAlmacenamiento.BackgroundImage = global::CapaPresentacion.Properties.Resources.almacenamiento;
-            this.btnAlmacenamiento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAlmacenamiento.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnAlmacenamiento.FlatAppearance.BorderSize = 0;
-            this.btnAlmacenamiento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAlmacenamiento.Location = new System.Drawing.Point(1036, 343);
-            this.btnAlmacenamiento.Name = "btnAlmacenamiento";
-            this.btnAlmacenamiento.Size = new System.Drawing.Size(165, 186);
-            this.btnAlmacenamiento.TabIndex = 82;
-            this.btnAlmacenamiento.UseVisualStyleBackColor = true;
-            this.btnAlmacenamiento.Click += new System.EventHandler(this.btnAlmacenamiento_Click);
-            // 
             // btnVenta
             // 
             this.btnVenta.BackgroundImage = global::CapaPresentacion.Properties.Resources.cesta;
@@ -115,7 +100,7 @@
             this.btnVenta.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnVenta.FlatAppearance.BorderSize = 0;
             this.btnVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVenta.Location = new System.Drawing.Point(714, 343);
+            this.btnVenta.Location = new System.Drawing.Point(896, 343);
             this.btnVenta.Name = "btnVenta";
             this.btnVenta.Size = new System.Drawing.Size(165, 186);
             this.btnVenta.TabIndex = 83;
@@ -129,7 +114,7 @@
             this.btnRegistro.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnRegistro.FlatAppearance.BorderSize = 0;
             this.btnRegistro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistro.Location = new System.Drawing.Point(408, 343);
+            this.btnRegistro.Location = new System.Drawing.Point(590, 343);
             this.btnRegistro.Name = "btnRegistro";
             this.btnRegistro.Size = new System.Drawing.Size(165, 186);
             this.btnRegistro.TabIndex = 84;
@@ -143,7 +128,7 @@
             this.btnRecogida.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnRecogida.FlatAppearance.BorderSize = 0;
             this.btnRecogida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRecogida.Location = new System.Drawing.Point(103, 343);
+            this.btnRecogida.Location = new System.Drawing.Point(285, 343);
             this.btnRecogida.Name = "btnRecogida";
             this.btnRecogida.Size = new System.Drawing.Size(165, 186);
             this.btnRecogida.TabIndex = 85;
@@ -160,7 +145,6 @@
             this.Controls.Add(this.btnRecogida);
             this.Controls.Add(this.btnRegistro);
             this.Controls.Add(this.btnVenta);
-            this.Controls.Add(this.btnAlmacenamiento);
             this.Controls.Add(this.btnConfig);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.pbo4prendas);
@@ -182,7 +166,6 @@
         private System.Windows.Forms.PictureBox pboCuatrovientos;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnConfig;
-        private System.Windows.Forms.Button btnAlmacenamiento;
         private System.Windows.Forms.Button btnVenta;
         private System.Windows.Forms.Button btnRegistro;
         private System.Windows.Forms.Button btnRecogida;
