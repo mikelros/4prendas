@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAlmacenamiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAlmacenamiento.Designer.cs">
+      <DependentUpon>frmAlmacenamiento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modulo.cs" />
     <Compile Include="frmConfig.cs">
       <SubType>Form</SubType>
