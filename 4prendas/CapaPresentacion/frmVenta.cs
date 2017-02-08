@@ -169,7 +169,10 @@ namespace CapaPresentacion
             foreach (Familia f in familias)
             {
                 gboFamilia.Controls[cont].Tag = f;
-                gboFamilia.Controls[cont].BackgroundImage = Image.FromFile(f.Imagen); //creo QUE PUEDE FALLAR
+                if (!f.Imagen.Equals("") && File.Exists(f.Imagen))
+                {
+                    gboFamilia.Controls[cont].BackgroundImage = Image.FromFile(f.Imagen);
+                }
                 gboFamilia.Controls[cont].Click += new EventHandler(loadSubfamilias); ;
                 cont++;
             }
@@ -182,7 +185,10 @@ namespace CapaPresentacion
             foreach (SubFamilia s in f.SubFamilias)
             {
                 gboFamilia.Controls[cont].Tag = s;
-                gboFamilia.Controls[cont].BackgroundImage = Image.FromFile(s.Imagen); //creo QUE PUEDE FALLAR
+                if (!s.Imagen.Equals("") && File.Exists(s.Imagen))
+                {
+                    gboFamilia.Controls[cont].BackgroundImage = Image.FromFile(s.Imagen);
+                }
                 gboFamilia.Controls[cont].Click += new EventHandler(loadProductosSubfam);
                 cont++;
             }

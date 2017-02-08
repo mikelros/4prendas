@@ -32,7 +32,7 @@ namespace CapaDatos
                     Familia familia = new Familia(dr.IsDBNull(dr.GetOrdinal("CodFamilia")) ? "" : (string)dr["CodFamilia"], dr.IsDBNull(dr.GetOrdinal("NombreFamilia")) ? "" : (string)dr["NombreFamilia"], dr.IsDBNull(dr.GetOrdinal("ImagenFamilia")) ? "" : (string)dr["ImagenFamilia"], dr.IsDBNull(dr.GetOrdinal("NumeroCodigoF")) ? -1 : (int)dr["NumeroCodigoF"]);
                     do
                     { //Una familia no puede no tener subfamilia... pero y si si?
-                        familia.SubFamilias.Add(new SubFamilia((string)dr["FamiliaCod"], (string)dr["CodSubFamilia"], (string)dr["Nombre"], (string)dr["Imagen"], (int)dr["IVA"], (int)dr["NumeroCodigoSF"]));
+                        familia.SubFamilias.Add(new SubFamilia(dr.IsDBNull(dr.GetOrdinal("FamiliaCod")) ? "" : (string)dr["FamiliaCod"], dr.IsDBNull(dr.GetOrdinal("CodSubFamilia")) ? "" : (string)dr["CodSubFamilia"], dr.IsDBNull(dr.GetOrdinal("Nombre")) ? "" : (string)dr["Nombre"], dr.IsDBNull(dr.GetOrdinal("Imagen")) ? "" : (string)dr["Imagen"], dr.IsDBNull(dr.GetOrdinal("IVA")) ? -1 : (int)dr["IVA"], dr.IsDBNull(dr.GetOrdinal("NumeroCodigoSF")) ? -1 : (int)dr["NumeroCodigoSF"]));
                         if (!dr.Read())
                         {
                             fin = true;
