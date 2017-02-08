@@ -314,6 +314,7 @@
             this.btnStock.TabIndex = 71;
             this.btnStock.Text = "0";
             this.btnStock.UseVisualStyleBackColor = false;
+            this.btnStock.Click += new System.EventHandler(this.btnStock_Click);
             // 
             // groupBox2
             // 
