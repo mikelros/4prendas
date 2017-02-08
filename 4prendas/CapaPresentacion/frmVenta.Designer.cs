@@ -32,7 +32,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cmbEmpleado = new System.Windows.Forms.ComboBox();
             this.lblWorkerName = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gboFamilia = new System.Windows.Forms.GroupBox();
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -46,7 +46,7 @@
             this.dgvProducts = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.btnStock = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gboSubfamilia = new System.Windows.Forms.GroupBox();
             this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
@@ -69,9 +69,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnFinVenta = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.gboFamilia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
-            this.groupBox2.SuspendLayout();
+            this.gboSubfamilia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrito)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgWorker)).BeginInit();
@@ -112,24 +112,24 @@
             this.lblWorkerName.TabIndex = 53;
             this.lblWorkerName.Text = "Nombre Empleado";
             // 
-            // groupBox1
+            // gboFamilia
             // 
-            this.groupBox1.Controls.Add(this.button10);
-            this.groupBox1.Controls.Add(this.button9);
-            this.groupBox1.Controls.Add(this.button7);
-            this.groupBox1.Controls.Add(this.button8);
-            this.groupBox1.Controls.Add(this.button5);
-            this.groupBox1.Controls.Add(this.button6);
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 157);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(187, 602);
-            this.groupBox1.TabIndex = 57;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Familia";
+            this.gboFamilia.Controls.Add(this.button10);
+            this.gboFamilia.Controls.Add(this.button9);
+            this.gboFamilia.Controls.Add(this.button7);
+            this.gboFamilia.Controls.Add(this.button8);
+            this.gboFamilia.Controls.Add(this.button5);
+            this.gboFamilia.Controls.Add(this.button6);
+            this.gboFamilia.Controls.Add(this.button3);
+            this.gboFamilia.Controls.Add(this.button4);
+            this.gboFamilia.Controls.Add(this.button2);
+            this.gboFamilia.Controls.Add(this.button1);
+            this.gboFamilia.Location = new System.Drawing.Point(12, 157);
+            this.gboFamilia.Name = "gboFamilia";
+            this.gboFamilia.Size = new System.Drawing.Size(187, 602);
+            this.gboFamilia.TabIndex = 57;
+            this.gboFamilia.TabStop = false;
+            this.gboFamilia.Text = "Familia";
             // 
             // button10
             // 
@@ -275,24 +275,24 @@
             this.btnStock.UseVisualStyleBackColor = false;
             this.btnStock.Click += new System.EventHandler(this.btnStock_Click);
             // 
-            // groupBox2
+            // gboSubfamilia
             // 
-            this.groupBox2.Controls.Add(this.button11);
-            this.groupBox2.Controls.Add(this.button12);
-            this.groupBox2.Controls.Add(this.button13);
-            this.groupBox2.Controls.Add(this.button14);
-            this.groupBox2.Controls.Add(this.button15);
-            this.groupBox2.Controls.Add(this.button16);
-            this.groupBox2.Controls.Add(this.button17);
-            this.groupBox2.Controls.Add(this.button18);
-            this.groupBox2.Controls.Add(this.button19);
-            this.groupBox2.Controls.Add(this.button20);
-            this.groupBox2.Location = new System.Drawing.Point(205, 157);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(187, 602);
-            this.groupBox2.TabIndex = 68;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Subfamilia";
+            this.gboSubfamilia.Controls.Add(this.button11);
+            this.gboSubfamilia.Controls.Add(this.button12);
+            this.gboSubfamilia.Controls.Add(this.button13);
+            this.gboSubfamilia.Controls.Add(this.button14);
+            this.gboSubfamilia.Controls.Add(this.button15);
+            this.gboSubfamilia.Controls.Add(this.button16);
+            this.gboSubfamilia.Controls.Add(this.button17);
+            this.gboSubfamilia.Controls.Add(this.button18);
+            this.gboSubfamilia.Controls.Add(this.button19);
+            this.gboSubfamilia.Controls.Add(this.button20);
+            this.gboSubfamilia.Location = new System.Drawing.Point(205, 157);
+            this.gboSubfamilia.Name = "gboSubfamilia";
+            this.gboSubfamilia.Size = new System.Drawing.Size(187, 602);
+            this.gboSubfamilia.TabIndex = 68;
+            this.gboSubfamilia.TabStop = false;
+            this.gboSubfamilia.Text = "Subfamilia";
             // 
             // button11
             // 
@@ -571,11 +571,11 @@
             this.Controls.Add(this.cmbSearch);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.gboSubfamilia);
             this.Controls.Add(this.btnStock);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dgvProducts);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gboFamilia);
             this.Controls.Add(this.btnCalculator);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.imgWorker);
@@ -588,9 +588,9 @@
             this.Text = "4Tiendas";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmInicio_Load);
-            this.groupBox1.ResumeLayout(false);
+            this.gboFamilia.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
-            this.groupBox2.ResumeLayout(false);
+            this.gboSubfamilia.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrito)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgWorker)).EndInit();
@@ -608,7 +608,7 @@
         private System.Windows.Forms.PictureBox imgWorker;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button btnCalculator;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gboFamilia;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dgvProducts;
         private System.Windows.Forms.Label label2;
@@ -622,7 +622,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gboSubfamilia;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button13;
