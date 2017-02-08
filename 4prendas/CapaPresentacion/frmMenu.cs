@@ -35,8 +35,8 @@ namespace CapaPresentacion
 
         private void btnConfig_Click_1(object sender, EventArgs e)
         {
-            Form frmConfig = new frmConfig();
-            frmConfig.Show();
+            Form frmLoginAdmin = new frmLoginAdmin();
+            frmLoginAdmin.Show();
             this.Close();
         }
 
@@ -63,9 +63,9 @@ namespace CapaPresentacion
 
         private void btnAlmacenamiento_Click(object sender, EventArgs e)
         {
-            //Form frmAlmacenamiento = new frmAlmacenamiento();
-            //frmAlmacenamiento.Show();
-            //this.Close();
+            Form frmAlmacenamiento = new frmAlmacenamiento();
+            frmAlmacenamiento.Show();
+            this.Close();
         }
     }
 }

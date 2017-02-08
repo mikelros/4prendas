@@ -76,3 +76,22 @@ C:\Users\Asgarth\Source\Repos\4prendas2\4prendas\CapaPresentacion\bin\Debug\Capa
 C:\Users\Asgarth\Source\Repos\4prendas2\4prendas\CapaPresentacion\bin\Debug\CapaEntidades.pdb
 C:\Users\Asgarth\Source\Repos\4prendas2\4prendas\CapaPresentacion\bin\Debug\CapaNegocio.pdb
 C:\Users\Asgarth\Source\Repos\4prendas2\4prendas\CapaPresentacion\bin\Debug\CapaDatos.pdb
+D:\DAM\Acceso Datos\4prendas\4prendas\CapaPresentacion\bin\Debug\CapaPresentacion.exe
+D:\DAM\Acceso Datos\4prendas\4prendas\CapaPresentacion\bin\Debug\CapaPresentacion.pdb
+D:\DAM\Acceso Datos\4prendas\4prendas\CapaPresentacion\bin\Debug\CapaEntidades.dll
+D:\DAM\Acceso Datos\4prendas\4prendas\CapaPresentacion\bin\Debug\CapaNegocio.dll
+D:\DAM\Acceso Datos\4prendas\4prendas\CapaPresentacion\bin\Debug\CapaDatos.dll
+D:\DAM\Acceso Datos\4prendas\4prendas\CapaPresentacion\bin\Debug\CapaEntidades.pdb
+D:\DAM\Acceso Datos\4prendas\4prendas\CapaPresentacion\bin\Debug\CapaNegocio.pdb
+D:\DAM\Acceso Datos\4prendas\4prendas\CapaPresentacion\bin\Debug\CapaDatos.pdb
+D:\DAM\Acceso Datos\4prendas\4prendas\CapaPresentacion\obj\Debug\CapaPresentacion.csprojResolveAssemblyReference.cache
+D:\DAM\Acceso Datos\4prendas\4prendas\CapaPresentacion\obj\Debug\CapaPresentacion.frmConfig.resources
+D:\DAM\Acceso Datos\4prendas\4prendas\CapaPresentacion\obj\Debug\CapaPresentacion.frmVenta.resources
+D:\DAM\Acceso Datos\4prendas\4prendas\CapaPresentacion\obj\Debug\CapaPresentacion.frmLoginAdmin.resources
+D:\DAM\Acceso Datos\4prendas\4prendas\CapaPresentacion\obj\Debug\CapaPresentacion.frmMenu.resources
+D:\DAM\Acceso Datos\4prendas\4prendas\CapaPresentacion\obj\Debug\CapaPresentacion.frmRecogida.resources
+D:\DAM\Acceso Datos\4prendas\4prendas\CapaPresentacion\obj\Debug\CapaPresentacion.frmRegistro.resources
+D:\DAM\Acceso Datos\4prendas\4prendas\CapaPresentacion\obj\Debug\CapaPresentacion.Properties.Resources.resources
+D:\DAM\Acceso Datos\4prendas\4prendas\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.GenerateResource.Cache
+D:\DAM\Acceso Datos\4prendas\4prendas\CapaPresentacion\obj\Debug\CapaPresentacion.exe
+D:\DAM\Acceso Datos\4prendas\4prendas\CapaPresentacion\obj\Debug\CapaPresentacion.pdb

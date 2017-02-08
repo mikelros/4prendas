@@ -89,6 +89,40 @@ namespace CapaDatos
             }
         }
 
+        public List<Producto> getProductosFamilia(string codFamilia)
+        {
+            List<Producto> productos = new List<Producto>();
+            string sql = "SELECT Registro.CodigoArticulo, Registro.Descripcion, Registro.TallaPesoLitros, Registro.Stock, Registro.StockMinima, Registro.EmpleadoId, Registro.LugarId, Registro.CodFamilia, Registro.CodSubFamilia, Registro.NumeroVenta, Registro.RecogidaId, Registro.FechaEntrada, Registro.Coste FROM (Familia INNER JOIN SubFamilia ON Familia.CodFamilia = SubFamilia.FamiliaCod) INNER JOIN Registro ON SubFamilia.FamiliaCod = Registro.CodFamilia AND SubFamilia.CodSubFamilia = Registro.CodSubFamilia WHERE Familia.CodFamilia = @codFamilia";
+            OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
+            OleDbCommand cmd = new OleDbCommand(sql, conTabla);
+            cmd.Parameters.AddWithValue("@codFamilia", codFamilia);
+            try
+            {
+                conTabla.Open();
+                OleDbDataReader dr = cmd.ExecuteReader();
+                if (!dr.HasRows)
+                {
+                    return productos; //sale vacía
+                }
+                while (dr.Read())
+                {
+                    productos.Add(new Producto((string)dr["CodigoArticulo"], (string)dr["Descripcion"], (string)dr["TallaPesoLitros"], (int)dr["Stock"],
+                        (int)dr["StockMinimo"], (int)dr["EmpleadoID"], (int)dr["LugarId"], (string)dr["CodFamilia"], (int)dr["NumeroVenta"],
+                        (int)dr["RecogidaId"], (DateTime)dr["FechaEntrada"], (int)dr["Coste"]));
+                }
+                return productos;
+            }
+            catch (Exception ex)
+            {
+                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
+                return null;
+            }
+            finally
+            {
+                conTabla.Close();
+            }
+        }
+
         public Administrador getAdministrador(string user, string pass)
         {
             List<Administrador> administradores = new List<Administrador>();

@@ -70,7 +70,7 @@
             this.btnExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExit.BackgroundImage")));
             this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(1207, 713);
+            this.btnExit.Location = new System.Drawing.Point(1207, 655);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(93, 113);
             this.btnExit.TabIndex = 79;
@@ -86,7 +86,7 @@
             this.btnConfig.BackgroundImage = global::CapaPresentacion.Properties.Resources.admin;
             this.btnConfig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnConfig.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfig.Location = new System.Drawing.Point(1108, 713);
+            this.btnConfig.Location = new System.Drawing.Point(1108, 655);
             this.btnConfig.Name = "btnConfig";
             this.btnConfig.Size = new System.Drawing.Size(93, 113);
             this.btnConfig.TabIndex = 81;
@@ -156,7 +156,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1312, 838);
+            this.ClientSize = new System.Drawing.Size(1312, 780);
             this.Controls.Add(this.btnRecogida);
             this.Controls.Add(this.btnRegistro);
             this.Controls.Add(this.btnVenta);

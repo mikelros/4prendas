@@ -32,12 +32,11 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lblUserError = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtUser = new System.Windows.Forms.TextBox();
+            this.txtPass = new System.Windows.Forms.TextBox();
             this.lblPassError = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.btnTestNext = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnLogin
@@ -54,6 +53,7 @@
             this.btnLogin.Text = "&Entrar";
             this.btnLogin.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // label1
             // 
@@ -77,21 +77,21 @@
             this.lblUserError.TabIndex = 2;
             this.lblUserError.Text = "Usuario inexistente!";
             // 
-            // textBox1
+            // txtUser
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.textBox1.Location = new System.Drawing.Point(309, 155);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(153, 20);
-            this.textBox1.TabIndex = 3;
+            this.txtUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtUser.Location = new System.Drawing.Point(309, 155);
+            this.txtUser.Name = "txtUser";
+            this.txtUser.Size = new System.Drawing.Size(153, 20);
+            this.txtUser.TabIndex = 3;
             // 
-            // textBox2
+            // txtPass
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.textBox2.Location = new System.Drawing.Point(309, 200);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(153, 20);
-            this.textBox2.TabIndex = 6;
+            this.txtPass.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtPass.Location = new System.Drawing.Point(309, 200);
+            this.txtPass.Name = "txtPass";
+            this.txtPass.Size = new System.Drawing.Size(153, 20);
+            this.txtPass.TabIndex = 6;
             // 
             // lblPassError
             // 
@@ -129,31 +129,18 @@
             this.btnCancel.Text = "&Cancelar";
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCancel.UseVisualStyleBackColor = false;
-            // 
-            // btnTestNext
-            // 
-            this.btnTestNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTestNext.BackColor = System.Drawing.Color.Coral;
-            this.btnTestNext.Location = new System.Drawing.Point(548, 132);
-            this.btnTestNext.Name = "btnTestNext";
-            this.btnTestNext.Size = new System.Drawing.Size(75, 86);
-            this.btnTestNext.TabIndex = 9;
-            this.btnTestNext.Text = "FormPalante";
-            this.btnTestNext.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnTestNext.UseVisualStyleBackColor = false;
-            this.btnTestNext.Click += new System.EventHandler(this.btnTestNext_Click);
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // frmLoginAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(686, 413);
-            this.Controls.Add(this.btnTestNext);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtPass);
             this.Controls.Add(this.lblPassError);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtUser);
             this.Controls.Add(this.lblUserError);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnLogin);
@@ -172,11 +159,10 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblUserError;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtUser;
+        private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.Label lblPassError;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnTestNext;
     }
 }
