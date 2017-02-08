@@ -485,7 +485,7 @@
             this.btnCalculator.BackColor = System.Drawing.Color.White;
             this.btnCalculator.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
             this.btnCalculator.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCalculator.Location = new System.Drawing.Point(1062, 296);
+            this.btnCalculator.Location = new System.Drawing.Point(1062, 314);
             this.btnCalculator.Name = "btnCalculator";
             this.btnCalculator.Size = new System.Drawing.Size(92, 101);
             this.btnCalculator.TabIndex = 56;
