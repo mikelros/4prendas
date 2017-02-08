@@ -18,6 +18,7 @@ namespace CapaPresentacion
         string shopMode;
         List<Producto> ProdsStockMinimo;
         List<Empleado> Empleados;
+        private List<Familia> familias;
         public frmVenta()
         {
             InitializeComponent();
@@ -29,6 +30,7 @@ namespace CapaPresentacion
             dgvCarrito.Hide();
             checkStockMinimo();
             loadWorkersList();
+            loadFamilias();
             //Cargar botones familia(); 
         }
 
@@ -158,6 +160,38 @@ namespace CapaPresentacion
                 MessageBox.Show("Error al cargar el archivo de configuración!!! " + "" + "Se cargara la configuración por defecto", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 shopMode = "food";
             }
+        }
+
+        private void loadFamilias()
+        {
+            familias = Modulo.miNegocio.getFamiliasSubfamilias();
+            int cont = 0;
+            foreach (Familia f in familias)
+            {
+                gboFamilia.Controls[cont].Tag = f;
+                gboFamilia.Controls[cont].BackgroundImage = Image.FromFile(f.Imagen); //creo QUE PUEDE FALLAR
+                gboFamilia.Controls[cont].Click += new EventHandler(loadSubfamilias); ;
+                cont++;
+            }
+        }
+
+        private void loadSubfamilias(object sender, EventArgs e)
+        {
+            Familia f = (Familia) sender;
+            int cont = 0;
+            foreach (SubFamilia s in f.SubFamilias)
+            {
+                gboFamilia.Controls[cont].Tag = s;
+                gboFamilia.Controls[cont].BackgroundImage = Image.FromFile(s.Imagen); //creo QUE PUEDE FALLAR
+                gboFamilia.Controls[cont].Click += new EventHandler(loadProductosSubfam);
+                cont++;
+            }
+        }
+
+        private void loadProductosSubfam(object sender, EventArgs e)
+        {
+            //SubFamilia s = (SubFamilia) sender;
+            //List<Producto> productos = Modulo.miNegocio.getProductos(s.CodFamilia, s.CodSubFamilia); //por los cambios de bdd de LArris habrá que hacer algo con esto
         }
 
         private void btnExit_Click(object sender, EventArgs e)
