@@ -259,5 +259,36 @@ namespace CapaDatos
         //Portductos por familia
         //Productos por subfamilia ¿O es lo de arriba de getProductos?
 
+
+        public void insertarProductos(List<Producto> productos)
+        {
+            string sql = "INSERT INTO Registro(CodigoArticulo, Descripcion, TallaPesoLitro, Stock, EmpleadoId, RecogidaId) VALUES (@codArt, @desc, @medida, @stock, @empleadoid, @recogidaid)";
+            OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
+            OleDbCommand cmd = new OleDbCommand(sql, conTabla);
+            try
+            {
+               conTabla.Open();
+
+               foreach(Producto p in productos)
+               {
+                    cmd.Parameters.AddWithValue("@codArt", p.CodigoArticulo);
+                    cmd.Parameters.AddWithValue("@desc", p.Descripcion);
+                    cmd.Parameters.AddWithValue("@medida", p.Medida);
+                    cmd.Parameters.AddWithValue("@stock", p.Stock);
+                    cmd.Parameters.AddWithValue("@empleadoid", p.EmpleadoId);
+                    cmd.Parameters.AddWithValue("@recogidaid", p.RecogidaId);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
+            }
+            finally
+            {
+                conTabla.Close();
+            }
+        }
+
     }
 }

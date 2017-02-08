@@ -29,76 +29,17 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
-            this.pboRegistro = new System.Windows.Forms.PictureBox();
-            this.pboAlmacenamiento = new System.Windows.Forms.PictureBox();
-            this.pboVenta = new System.Windows.Forms.PictureBox();
-            this.pboRecogida = new System.Windows.Forms.PictureBox();
             this.pbo4prendas = new System.Windows.Forms.PictureBox();
             this.pboCuatrovientos = new System.Windows.Forms.PictureBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnConfig = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pboRegistro)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pboAlmacenamiento)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pboVenta)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pboRecogida)).BeginInit();
+            this.btnAlmacenamiento = new System.Windows.Forms.Button();
+            this.btnVenta = new System.Windows.Forms.Button();
+            this.btnRegistro = new System.Windows.Forms.Button();
+            this.btnRecogida = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbo4prendas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboCuatrovientos)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pboRegistro
-            // 
-            this.pboRegistro.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pboRegistro.BackColor = System.Drawing.Color.Black;
-            this.pboRegistro.Image = global::CapaPresentacion.Properties.Resources.registro;
-            this.pboRegistro.Location = new System.Drawing.Point(402, 343);
-            this.pboRegistro.Name = "pboRegistro";
-            this.pboRegistro.Size = new System.Drawing.Size(165, 186);
-            this.pboRegistro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pboRegistro.TabIndex = 62;
-            this.pboRegistro.TabStop = false;
-            this.pboRegistro.Click += new System.EventHandler(this.pboRegistro_Click);
-            // 
-            // pboAlmacenamiento
-            // 
-            this.pboAlmacenamiento.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pboAlmacenamiento.BackColor = System.Drawing.Color.Black;
-            this.pboAlmacenamiento.Image = global::CapaPresentacion.Properties.Resources.almacenamiento;
-            this.pboAlmacenamiento.Location = new System.Drawing.Point(1036, 343);
-            this.pboAlmacenamiento.Name = "pboAlmacenamiento";
-            this.pboAlmacenamiento.Size = new System.Drawing.Size(165, 186);
-            this.pboAlmacenamiento.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pboAlmacenamiento.TabIndex = 60;
-            this.pboAlmacenamiento.TabStop = false;
-            this.pboAlmacenamiento.Click += new System.EventHandler(this.pboAlmacenamiento_Click);
-            this.pboAlmacenamiento.MouseEnter += new System.EventHandler(this.pboAlmacenamiento_MouseEnter);
-            this.pboAlmacenamiento.MouseLeave += new System.EventHandler(this.pboAlmacenamiento_MouseLeave);
-            // 
-            // pboVenta
-            // 
-            this.pboVenta.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pboVenta.BackColor = System.Drawing.Color.Black;
-            this.pboVenta.Image = global::CapaPresentacion.Properties.Resources.cesta;
-            this.pboVenta.Location = new System.Drawing.Point(710, 343);
-            this.pboVenta.Name = "pboVenta";
-            this.pboVenta.Size = new System.Drawing.Size(165, 186);
-            this.pboVenta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pboVenta.TabIndex = 59;
-            this.pboVenta.TabStop = false;
-            this.pboVenta.Click += new System.EventHandler(this.pboVenta_Click);
-            // 
-            // pboRecogida
-            // 
-            this.pboRecogida.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pboRecogida.BackColor = System.Drawing.Color.Black;
-            this.pboRecogida.Image = ((System.Drawing.Image)(resources.GetObject("pboRecogida.Image")));
-            this.pboRecogida.Location = new System.Drawing.Point(112, 343);
-            this.pboRecogida.Name = "pboRecogida";
-            this.pboRecogida.Size = new System.Drawing.Size(165, 186);
-            this.pboRecogida.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pboRecogida.TabIndex = 58;
-            this.pboRecogida.TabStop = false;
-            this.pboRecogida.Click += new System.EventHandler(this.pboRecogida_Click);
             // 
             // pbo4prendas
             // 
@@ -153,18 +94,61 @@
             this.btnConfig.UseVisualStyleBackColor = false;
             this.btnConfig.Click += new System.EventHandler(this.btnConfig_Click_1);
             // 
-            // button1
+            // btnAlmacenamiento
             // 
-            this.button1.BackgroundImage = global::CapaPresentacion.Properties.Resources.almacenamiento;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(1027, 434);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(136, 128);
-            this.button1.TabIndex = 82;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAlmacenamiento.BackgroundImage = global::CapaPresentacion.Properties.Resources.almacenamiento;
+            this.btnAlmacenamiento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAlmacenamiento.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnAlmacenamiento.FlatAppearance.BorderSize = 0;
+            this.btnAlmacenamiento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAlmacenamiento.Location = new System.Drawing.Point(1036, 343);
+            this.btnAlmacenamiento.Name = "btnAlmacenamiento";
+            this.btnAlmacenamiento.Size = new System.Drawing.Size(165, 186);
+            this.btnAlmacenamiento.TabIndex = 82;
+            this.btnAlmacenamiento.UseVisualStyleBackColor = true;
+            this.btnAlmacenamiento.Click += new System.EventHandler(this.btnAlmacenamiento_Click);
+            // 
+            // btnVenta
+            // 
+            this.btnVenta.BackgroundImage = global::CapaPresentacion.Properties.Resources.cesta;
+            this.btnVenta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnVenta.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnVenta.FlatAppearance.BorderSize = 0;
+            this.btnVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVenta.Location = new System.Drawing.Point(714, 343);
+            this.btnVenta.Name = "btnVenta";
+            this.btnVenta.Size = new System.Drawing.Size(165, 186);
+            this.btnVenta.TabIndex = 83;
+            this.btnVenta.UseVisualStyleBackColor = true;
+            this.btnVenta.Click += new System.EventHandler(this.btnVenta_Click);
+            // 
+            // btnRegistro
+            // 
+            this.btnRegistro.BackgroundImage = global::CapaPresentacion.Properties.Resources.registro;
+            this.btnRegistro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnRegistro.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnRegistro.FlatAppearance.BorderSize = 0;
+            this.btnRegistro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistro.Location = new System.Drawing.Point(408, 343);
+            this.btnRegistro.Name = "btnRegistro";
+            this.btnRegistro.Size = new System.Drawing.Size(165, 186);
+            this.btnRegistro.TabIndex = 84;
+            this.btnRegistro.UseVisualStyleBackColor = true;
+            this.btnRegistro.Click += new System.EventHandler(this.btnRegistro_Click);
+            // 
+            // btnRecogida
+            // 
+            this.btnRecogida.BackgroundImage = global::CapaPresentacion.Properties.Resources.bolsa;
+            this.btnRecogida.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnRecogida.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnRecogida.FlatAppearance.BorderSize = 0;
+            this.btnRecogida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRecogida.Location = new System.Drawing.Point(103, 343);
+            this.btnRecogida.Name = "btnRecogida";
+            this.btnRecogida.Size = new System.Drawing.Size(165, 186);
+            this.btnRecogida.TabIndex = 85;
+            this.btnRecogida.UseVisualStyleBackColor = true;
+            this.btnRecogida.Click += new System.EventHandler(this.btnRecogida_Click);
             // 
             // frmMenu
             // 
@@ -173,13 +157,12 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1312, 838);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnRecogida);
+            this.Controls.Add(this.btnRegistro);
+            this.Controls.Add(this.btnVenta);
+            this.Controls.Add(this.btnAlmacenamiento);
             this.Controls.Add(this.btnConfig);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.pboRegistro);
-            this.Controls.Add(this.pboAlmacenamiento);
-            this.Controls.Add(this.pboVenta);
-            this.Controls.Add(this.pboRecogida);
             this.Controls.Add(this.pbo4prendas);
             this.Controls.Add(this.pboCuatrovientos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -187,10 +170,6 @@
             this.Text = "frmMenu";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMenu_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pboRegistro)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pboAlmacenamiento)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pboVenta)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pboRecogida)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbo4prendas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboCuatrovientos)).EndInit();
             this.ResumeLayout(false);
@@ -201,12 +180,11 @@
 
         private System.Windows.Forms.PictureBox pbo4prendas;
         private System.Windows.Forms.PictureBox pboCuatrovientos;
-        private System.Windows.Forms.PictureBox pboRecogida;
-        private System.Windows.Forms.PictureBox pboVenta;
-        private System.Windows.Forms.PictureBox pboAlmacenamiento;
-        private System.Windows.Forms.PictureBox pboRegistro;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnConfig;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAlmacenamiento;
+        private System.Windows.Forms.Button btnVenta;
+        private System.Windows.Forms.Button btnRegistro;
+        private System.Windows.Forms.Button btnRecogida;
     }
 }

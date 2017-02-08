@@ -48,7 +48,6 @@ namespace CapaPresentacion
             producto.Descripcion = txtDescripcion.Text;
             producto.Medida = txtMedida.Text;
             producto.Stock = int.Parse(nudStock.Text);
-            //TODO MIRAR QUE PASA SI NO ES INT // que no se pueda
             producto.EmpleadoId = int.Parse(nudEmpleado.Text);
             //fecha de entrada es la de ahora o la de la recogida..?
             producto.RecogidaId = int.Parse(nudNumRecogida.Text);
@@ -78,6 +77,13 @@ namespace CapaPresentacion
                 e.Handled = true;
                 return;
             }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            Form frmMenu = new frmMenu();
+            frmMenu.Show();
+            this.Close();
         }
     }
 }
