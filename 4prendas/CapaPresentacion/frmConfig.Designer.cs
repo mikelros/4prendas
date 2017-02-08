@@ -29,73 +29,73 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConfig));
-            this.btnExit = new System.Windows.Forms.Button();
-            this.btnApply = new System.Windows.Forms.Button();
             this.rbtnFood = new System.Windows.Forms.RadioButton();
             this.rbtnClothes = new System.Windows.Forms.RadioButton();
             this.grbType = new System.Windows.Forms.GroupBox();
             this.grbNewEmployer = new System.Windows.Forms.GroupBox();
+            this.nudCreateNumEmployee = new System.Windows.Forms.NumericUpDown();
             this.lblCreateFileNoExistError = new System.Windows.Forms.Label();
             this.lblCreateError = new System.Windows.Forms.Label();
             this.lblCreateExistingNumberError = new System.Windows.Forms.Label();
-            this.lblCreateIntParseError = new System.Windows.Forms.Label();
             this.bntCreateCancel = new System.Windows.Forms.Button();
             this.btnCreate = new System.Windows.Forms.Button();
             this.btnBrowse = new System.Windows.Forms.Button();
             this.txtCreatePhoto = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtCreateNumEmployer = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCreateName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grbDeleteEmployer = new System.Windows.Forms.GroupBox();
+            this.nudDeleteNumEmployee = new System.Windows.Forms.NumericUpDown();
             this.lblDeleteError = new System.Windows.Forms.Label();
-            this.lblDeleteIntParseError = new System.Windows.Forms.Label();
-            this.lblEmployerNoExistError = new System.Windows.Forms.Label();
+            this.lblEmployeeNoExistError = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.lblDeleteName = new System.Windows.Forms.Label();
             this.btnDeleteCancel = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.txtDeleteNumEmployer = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.grbEditProduct = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.nudEditProductCost = new System.Windows.Forms.NumericUpDown();
+            this.nudEditProductStock = new System.Windows.Forms.NumericUpDown();
+            this.nudEditProductMinStock = new System.Windows.Forms.NumericUpDown();
+            this.nudEditProductEmployerId = new System.Windows.Forms.NumericUpDown();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.lblCoste = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtEditProductPlaceId = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtEditProductCollectionId = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtEditProductDescription = new System.Windows.Forms.TextBox();
+            this.txtEditProductFamilyCode = new System.Windows.Forms.TextBox();
+            this.Medida = new System.Windows.Forms.Label();
+            this.txtEditProductSize = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.lblCodeNotFoundMinStockError = new System.Windows.Forms.Label();
+            this.btnUpdateCancel = new System.Windows.Forms.Button();
+            this.btnUpdatePorduct = new System.Windows.Forms.Button();
+            this.txtEditProductCode = new System.Windows.Forms.TextBox();
             this.btnCopy = new System.Windows.Forms.Button();
+            this.btnApply = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.grbType.SuspendLayout();
             this.grbNewEmployer.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCreateNumEmployee)).BeginInit();
+            this.grbDeleteEmployer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDeleteNumEmployee)).BeginInit();
+            this.grbEditProduct.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEditProductCost)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEditProductStock)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEditProductMinStock)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEditProductEmployerId)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnExit
-            // 
-            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.BackColor = System.Drawing.Color.White;
-            this.btnExit.BackgroundImage = global::CapaPresentacion.Properties.Resources.exit;
-            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(746, 515);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 113);
-            this.btnExit.TabIndex = 8;
-            this.btnExit.Text = "A&trás";
-            this.btnExit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // btnApply
-            // 
-            this.btnApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnApply.BackColor = System.Drawing.Color.White;
-            this.btnApply.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnApply.BackgroundImage")));
-            this.btnApply.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnApply.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnApply.Location = new System.Drawing.Point(665, 515);
-            this.btnApply.Name = "btnApply";
-            this.btnApply.Size = new System.Drawing.Size(75, 113);
-            this.btnApply.TabIndex = 9;
-            this.btnApply.Text = "&Aplicar";
-            this.btnApply.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnApply.UseVisualStyleBackColor = false;
-            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
             // 
             // rbtnFood
             // 
@@ -129,9 +129,9 @@
             this.grbType.Controls.Add(this.rbtnFood);
             this.grbType.Controls.Add(this.rbtnClothes);
             this.grbType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbType.Location = new System.Drawing.Point(123, 133);
+            this.grbType.Location = new System.Drawing.Point(135, 139);
             this.grbType.Name = "grbType";
-            this.grbType.Size = new System.Drawing.Size(117, 242);
+            this.grbType.Size = new System.Drawing.Size(203, 242);
             this.grbType.TabIndex = 12;
             this.grbType.TabStop = false;
             this.grbType.Text = "Tipo Tienda";
@@ -139,26 +139,33 @@
             // grbNewEmployer
             // 
             this.grbNewEmployer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.grbNewEmployer.Controls.Add(this.nudCreateNumEmployee);
             this.grbNewEmployer.Controls.Add(this.lblCreateFileNoExistError);
             this.grbNewEmployer.Controls.Add(this.lblCreateError);
             this.grbNewEmployer.Controls.Add(this.lblCreateExistingNumberError);
-            this.grbNewEmployer.Controls.Add(this.lblCreateIntParseError);
             this.grbNewEmployer.Controls.Add(this.bntCreateCancel);
             this.grbNewEmployer.Controls.Add(this.btnCreate);
             this.grbNewEmployer.Controls.Add(this.btnBrowse);
             this.grbNewEmployer.Controls.Add(this.txtCreatePhoto);
             this.grbNewEmployer.Controls.Add(this.label3);
-            this.grbNewEmployer.Controls.Add(this.txtCreateNumEmployer);
             this.grbNewEmployer.Controls.Add(this.label2);
             this.grbNewEmployer.Controls.Add(this.txtCreateName);
             this.grbNewEmployer.Controls.Add(this.label1);
             this.grbNewEmployer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbNewEmployer.Location = new System.Drawing.Point(258, 118);
+            this.grbNewEmployer.Location = new System.Drawing.Point(270, 124);
             this.grbNewEmployer.Name = "grbNewEmployer";
-            this.grbNewEmployer.Size = new System.Drawing.Size(193, 363);
+            this.grbNewEmployer.Size = new System.Drawing.Size(279, 363);
             this.grbNewEmployer.TabIndex = 13;
             this.grbNewEmployer.TabStop = false;
             this.grbNewEmployer.Text = "Nuevo Empleado";
+            // 
+            // nudCreateNumEmployee
+            // 
+            this.nudCreateNumEmployee.Location = new System.Drawing.Point(6, 104);
+            this.nudCreateNumEmployee.Name = "nudCreateNumEmployee";
+            this.nudCreateNumEmployee.Size = new System.Drawing.Size(153, 21);
+            this.nudCreateNumEmployee.TabIndex = 20;
+            this.nudCreateNumEmployee.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNums);
             // 
             // lblCreateFileNoExistError
             // 
@@ -185,21 +192,11 @@
             // 
             this.lblCreateExistingNumberError.AutoSize = true;
             this.lblCreateExistingNumberError.ForeColor = System.Drawing.Color.Red;
-            this.lblCreateExistingNumberError.Location = new System.Drawing.Point(26, 132);
+            this.lblCreateExistingNumberError.Location = new System.Drawing.Point(13, 128);
             this.lblCreateExistingNumberError.Name = "lblCreateExistingNumberError";
             this.lblCreateExistingNumberError.Size = new System.Drawing.Size(153, 15);
             this.lblCreateExistingNumberError.TabIndex = 17;
             this.lblCreateExistingNumberError.Text = "Número ya registrado!!";
-            // 
-            // lblCreateIntParseError
-            // 
-            this.lblCreateIntParseError.AutoSize = true;
-            this.lblCreateIntParseError.ForeColor = System.Drawing.Color.Red;
-            this.lblCreateIntParseError.Location = new System.Drawing.Point(26, 128);
-            this.lblCreateIntParseError.Name = "lblCreateIntParseError";
-            this.lblCreateIntParseError.Size = new System.Drawing.Size(144, 15);
-            this.lblCreateIntParseError.TabIndex = 16;
-            this.lblCreateIntParseError.Text = "Introduce un número!";
             // 
             // bntCreateCancel
             // 
@@ -260,14 +257,6 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Foto:";
             // 
-            // txtCreateNumEmployer
-            // 
-            this.txtCreateNumEmployer.Location = new System.Drawing.Point(6, 104);
-            this.txtCreateNumEmployer.Name = "txtCreateNumEmployer";
-            this.txtCreateNumEmployer.Size = new System.Drawing.Size(153, 21);
-            this.txtCreateNumEmployer.TabIndex = 7;
-            this.txtCreateNumEmployer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNums);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -295,26 +284,33 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Nombre:";
             // 
-            // groupBox1
+            // grbDeleteEmployer
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.groupBox1.Controls.Add(this.lblDeleteError);
-            this.groupBox1.Controls.Add(this.lblDeleteIntParseError);
-            this.groupBox1.Controls.Add(this.lblEmployerNoExistError);
-            this.groupBox1.Controls.Add(this.btnSearch);
-            this.groupBox1.Controls.Add(this.lblDeleteName);
-            this.groupBox1.Controls.Add(this.btnDeleteCancel);
-            this.groupBox1.Controls.Add(this.btnDelete);
-            this.groupBox1.Controls.Add(this.txtDeleteNumEmployer);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(466, 118);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(193, 363);
-            this.groupBox1.TabIndex = 16;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Eliminar Empleado";
+            this.grbDeleteEmployer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.grbDeleteEmployer.Controls.Add(this.nudDeleteNumEmployee);
+            this.grbDeleteEmployer.Controls.Add(this.lblDeleteError);
+            this.grbDeleteEmployer.Controls.Add(this.lblEmployeeNoExistError);
+            this.grbDeleteEmployer.Controls.Add(this.btnSearch);
+            this.grbDeleteEmployer.Controls.Add(this.lblDeleteName);
+            this.grbDeleteEmployer.Controls.Add(this.btnDeleteCancel);
+            this.grbDeleteEmployer.Controls.Add(this.btnDelete);
+            this.grbDeleteEmployer.Controls.Add(this.label5);
+            this.grbDeleteEmployer.Controls.Add(this.label6);
+            this.grbDeleteEmployer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbDeleteEmployer.Location = new System.Drawing.Point(478, 124);
+            this.grbDeleteEmployer.Name = "grbDeleteEmployer";
+            this.grbDeleteEmployer.Size = new System.Drawing.Size(279, 363);
+            this.grbDeleteEmployer.TabIndex = 16;
+            this.grbDeleteEmployer.TabStop = false;
+            this.grbDeleteEmployer.Text = "Eliminar Empleado";
+            // 
+            // nudDeleteNumEmployee
+            // 
+            this.nudDeleteNumEmployee.Location = new System.Drawing.Point(9, 53);
+            this.nudDeleteNumEmployee.Name = "nudDeleteNumEmployee";
+            this.nudDeleteNumEmployee.Size = new System.Drawing.Size(126, 21);
+            this.nudDeleteNumEmployee.TabIndex = 20;
+            this.nudDeleteNumEmployee.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNums);
             // 
             // lblDeleteError
             // 
@@ -326,25 +322,15 @@
             this.lblDeleteError.TabIndex = 17;
             this.lblDeleteError.Text = "Seleciona un empleado!!";
             // 
-            // lblDeleteIntParseError
+            // lblEmployeeNoExistError
             // 
-            this.lblDeleteIntParseError.AutoSize = true;
-            this.lblDeleteIntParseError.ForeColor = System.Drawing.Color.Red;
-            this.lblDeleteIntParseError.Location = new System.Drawing.Point(26, 77);
-            this.lblDeleteIntParseError.Name = "lblDeleteIntParseError";
-            this.lblDeleteIntParseError.Size = new System.Drawing.Size(144, 15);
-            this.lblDeleteIntParseError.TabIndex = 15;
-            this.lblDeleteIntParseError.Text = "Introduce un número!";
-            // 
-            // lblEmployerNoExistError
-            // 
-            this.lblEmployerNoExistError.AutoSize = true;
-            this.lblEmployerNoExistError.ForeColor = System.Drawing.Color.Red;
-            this.lblEmployerNoExistError.Location = new System.Drawing.Point(20, 77);
-            this.lblEmployerNoExistError.Name = "lblEmployerNoExistError";
-            this.lblEmployerNoExistError.Size = new System.Drawing.Size(150, 15);
-            this.lblEmployerNoExistError.TabIndex = 15;
-            this.lblEmployerNoExistError.Text = "Empleado inexistente!";
+            this.lblEmployeeNoExistError.AutoSize = true;
+            this.lblEmployeeNoExistError.ForeColor = System.Drawing.Color.Red;
+            this.lblEmployeeNoExistError.Location = new System.Drawing.Point(20, 77);
+            this.lblEmployeeNoExistError.Name = "lblEmployeeNoExistError";
+            this.lblEmployeeNoExistError.Size = new System.Drawing.Size(150, 15);
+            this.lblEmployeeNoExistError.TabIndex = 15;
+            this.lblEmployeeNoExistError.Text = "Empleado inexistente!";
             // 
             // btnSearch
             // 
@@ -399,14 +385,6 @@
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // txtDeleteNumEmployer
-            // 
-            this.txtDeleteNumEmployer.Location = new System.Drawing.Point(6, 53);
-            this.txtDeleteNumEmployer.Name = "txtDeleteNumEmployer";
-            this.txtDeleteNumEmployer.Size = new System.Drawing.Size(129, 21);
-            this.txtDeleteNumEmployer.TabIndex = 7;
-            this.txtDeleteNumEmployer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNums);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -427,6 +405,286 @@
             this.label6.TabIndex = 4;
             this.label6.Text = "Nombre:";
             // 
+            // grbEditProduct
+            // 
+            this.grbEditProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.grbEditProduct.Controls.Add(this.label15);
+            this.grbEditProduct.Controls.Add(this.nudEditProductCost);
+            this.grbEditProduct.Controls.Add(this.nudEditProductStock);
+            this.grbEditProduct.Controls.Add(this.nudEditProductMinStock);
+            this.grbEditProduct.Controls.Add(this.nudEditProductEmployerId);
+            this.grbEditProduct.Controls.Add(this.dateTimePicker1);
+            this.grbEditProduct.Controls.Add(this.lblCoste);
+            this.grbEditProduct.Controls.Add(this.label8);
+            this.grbEditProduct.Controls.Add(this.label11);
+            this.grbEditProduct.Controls.Add(this.txtEditProductPlaceId);
+            this.grbEditProduct.Controls.Add(this.label9);
+            this.grbEditProduct.Controls.Add(this.txtEditProductCollectionId);
+            this.grbEditProduct.Controls.Add(this.label4);
+            this.grbEditProduct.Controls.Add(this.label14);
+            this.grbEditProduct.Controls.Add(this.label7);
+            this.grbEditProduct.Controls.Add(this.label10);
+            this.grbEditProduct.Controls.Add(this.txtEditProductDescription);
+            this.grbEditProduct.Controls.Add(this.txtEditProductFamilyCode);
+            this.grbEditProduct.Controls.Add(this.Medida);
+            this.grbEditProduct.Controls.Add(this.txtEditProductSize);
+            this.grbEditProduct.Controls.Add(this.label13);
+            this.grbEditProduct.Controls.Add(this.label12);
+            this.grbEditProduct.Controls.Add(this.lblCodeNotFoundMinStockError);
+            this.grbEditProduct.Controls.Add(this.btnUpdateCancel);
+            this.grbEditProduct.Controls.Add(this.btnUpdatePorduct);
+            this.grbEditProduct.Controls.Add(this.txtEditProductCode);
+            this.grbEditProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbEditProduct.Location = new System.Drawing.Point(677, 124);
+            this.grbEditProduct.Name = "grbEditProduct";
+            this.grbEditProduct.Size = new System.Drawing.Size(356, 363);
+            this.grbEditProduct.TabIndex = 18;
+            this.grbEditProduct.TabStop = false;
+            this.grbEditProduct.Text = "Editar Producto";
+            // 
+            // label15
+            // 
+            this.label15.Location = new System.Drawing.Point(6, 230);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(141, 58);
+            this.label15.TabIndex = 27;
+            this.label15.Text = "Los campos vacíos no serán modificados";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // nudEditProductCost
+            // 
+            this.nudEditProductCost.Location = new System.Drawing.Point(268, 38);
+            this.nudEditProductCost.Name = "nudEditProductCost";
+            this.nudEditProductCost.Size = new System.Drawing.Size(73, 21);
+            this.nudEditProductCost.TabIndex = 26;
+            this.nudEditProductCost.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNums);
+            // 
+            // nudEditProductStock
+            // 
+            this.nudEditProductStock.Location = new System.Drawing.Point(189, 38);
+            this.nudEditProductStock.Name = "nudEditProductStock";
+            this.nudEditProductStock.Size = new System.Drawing.Size(73, 21);
+            this.nudEditProductStock.TabIndex = 26;
+            this.nudEditProductStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNums);
+            // 
+            // nudEditProductMinStock
+            // 
+            this.nudEditProductMinStock.Location = new System.Drawing.Point(110, 38);
+            this.nudEditProductMinStock.Name = "nudEditProductMinStock";
+            this.nudEditProductMinStock.Size = new System.Drawing.Size(73, 21);
+            this.nudEditProductMinStock.TabIndex = 26;
+            this.nudEditProductMinStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNums);
+            // 
+            // nudEditProductEmployerId
+            // 
+            this.nudEditProductEmployerId.Location = new System.Drawing.Point(134, 143);
+            this.nudEditProductEmployerId.Name = "nudEditProductEmployerId";
+            this.nudEditProductEmployerId.Size = new System.Drawing.Size(98, 21);
+            this.nudEditProductEmployerId.TabIndex = 26;
+            this.nudEditProductEmployerId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNums);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(214, 98);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(118, 21);
+            this.dateTimePicker1.TabIndex = 25;
+            // 
+            // lblCoste
+            // 
+            this.lblCoste.AutoSize = true;
+            this.lblCoste.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCoste.Location = new System.Drawing.Point(278, 17);
+            this.lblCoste.Name = "lblCoste";
+            this.lblCoste.Size = new System.Drawing.Size(53, 18);
+            this.lblCoste.TabIndex = 24;
+            this.lblCoste.Text = "Coste";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(235, 122);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(68, 18);
+            this.label8.TabIndex = 24;
+            this.label8.Text = "Id Lugar";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(74, 167);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(97, 18);
+            this.label11.TabIndex = 22;
+            this.label11.Text = "Id Recogida";
+            // 
+            // txtEditProductPlaceId
+            // 
+            this.txtEditProductPlaceId.Location = new System.Drawing.Point(237, 143);
+            this.txtEditProductPlaceId.Name = "txtEditProductPlaceId";
+            this.txtEditProductPlaceId.Size = new System.Drawing.Size(95, 21);
+            this.txtEditProductPlaceId.TabIndex = 23;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(131, 122);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(101, 18);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "Id Empleado";
+            // 
+            // txtEditProductCollectionId
+            // 
+            this.txtEditProductCollectionId.Location = new System.Drawing.Point(76, 188);
+            this.txtEditProductCollectionId.Name = "txtEditProductCollectionId";
+            this.txtEditProductCollectionId.Size = new System.Drawing.Size(95, 21);
+            this.txtEditProductCollectionId.TabIndex = 21;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(187, 17);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(52, 18);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Stock";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(214, 77);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(117, 18);
+            this.label14.TabIndex = 20;
+            this.label14.Text = "Fecha Entrada";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(6, 77);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(98, 18);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "Descripción";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(6, 122);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(98, 18);
+            this.label10.TabIndex = 20;
+            this.label10.Text = "Cod.Familia";
+            // 
+            // txtEditProductDescription
+            // 
+            this.txtEditProductDescription.Location = new System.Drawing.Point(8, 98);
+            this.txtEditProductDescription.Name = "txtEditProductDescription";
+            this.txtEditProductDescription.Size = new System.Drawing.Size(199, 21);
+            this.txtEditProductDescription.TabIndex = 19;
+            // 
+            // txtEditProductFamilyCode
+            // 
+            this.txtEditProductFamilyCode.Location = new System.Drawing.Point(8, 143);
+            this.txtEditProductFamilyCode.Name = "txtEditProductFamilyCode";
+            this.txtEditProductFamilyCode.Size = new System.Drawing.Size(119, 21);
+            this.txtEditProductFamilyCode.TabIndex = 19;
+            // 
+            // Medida
+            // 
+            this.Medida.AutoSize = true;
+            this.Medida.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Medida.Location = new System.Drawing.Point(6, 167);
+            this.Medida.Name = "Medida";
+            this.Medida.Size = new System.Drawing.Size(62, 18);
+            this.Medida.TabIndex = 20;
+            this.Medida.Text = "Medida";
+            // 
+            // txtEditProductSize
+            // 
+            this.txtEditProductSize.Location = new System.Drawing.Point(8, 188);
+            this.txtEditProductSize.Name = "txtEditProductSize";
+            this.txtEditProductSize.Size = new System.Drawing.Size(60, 21);
+            this.txtEditProductSize.TabIndex = 19;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(105, 17);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(84, 18);
+            this.label13.TabIndex = 20;
+            this.label13.Text = "Stock Min";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(6, 17);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(62, 18);
+            this.label12.TabIndex = 18;
+            this.label12.Text = "Código";
+            // 
+            // lblCodeNotFoundMinStockError
+            // 
+            this.lblCodeNotFoundMinStockError.AutoSize = true;
+            this.lblCodeNotFoundMinStockError.ForeColor = System.Drawing.Color.Red;
+            this.lblCodeNotFoundMinStockError.Location = new System.Drawing.Point(3, 60);
+            this.lblCodeNotFoundMinStockError.Name = "lblCodeNotFoundMinStockError";
+            this.lblCodeNotFoundMinStockError.Size = new System.Drawing.Size(152, 15);
+            this.lblCodeNotFoundMinStockError.TabIndex = 15;
+            this.lblCodeNotFoundMinStockError.Text = "Codigo no encontrado!";
+            // 
+            // btnUpdateCancel
+            // 
+            this.btnUpdateCancel.BackColor = System.Drawing.Color.White;
+            this.btnUpdateCancel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnUpdateCancel.BackgroundImage")));
+            this.btnUpdateCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnUpdateCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateCancel.Location = new System.Drawing.Point(252, 218);
+            this.btnUpdateCancel.Name = "btnUpdateCancel";
+            this.btnUpdateCancel.Size = new System.Drawing.Size(79, 113);
+            this.btnUpdateCancel.TabIndex = 12;
+            this.btnUpdateCancel.Text = "C&ancelar";
+            this.btnUpdateCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnUpdateCancel.UseVisualStyleBackColor = false;
+            this.btnUpdateCancel.Click += new System.EventHandler(this.btnUpdateCancel_Click);
+            // 
+            // btnUpdatePorduct
+            // 
+            this.btnUpdatePorduct.BackColor = System.Drawing.Color.White;
+            this.btnUpdatePorduct.BackgroundImage = global::CapaPresentacion.Properties.Resources.refresh_arrows;
+            this.btnUpdatePorduct.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnUpdatePorduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdatePorduct.Location = new System.Drawing.Point(153, 218);
+            this.btnUpdatePorduct.Name = "btnUpdatePorduct";
+            this.btnUpdatePorduct.Size = new System.Drawing.Size(79, 113);
+            this.btnUpdatePorduct.TabIndex = 11;
+            this.btnUpdatePorduct.Text = "Act&ualizar";
+            this.btnUpdatePorduct.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnUpdatePorduct.UseVisualStyleBackColor = false;
+            this.btnUpdatePorduct.Click += new System.EventHandler(this.btnUpdatePorduct_Click);
+            // 
+            // txtEditProductCode
+            // 
+            this.txtEditProductCode.Location = new System.Drawing.Point(9, 38);
+            this.txtEditProductCode.Name = "txtEditProductCode";
+            this.txtEditProductCode.Size = new System.Drawing.Size(97, 21);
+            this.txtEditProductCode.TabIndex = 7;
+            this.txtEditProductCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEditProductCode_KeyPress);
+            this.txtEditProductCode.Leave += new System.EventHandler(this.searchProduct);
+            // 
             // btnCopy
             // 
             this.btnCopy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -434,7 +692,7 @@
             this.btnCopy.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCopy.BackgroundImage")));
             this.btnCopy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCopy.Location = new System.Drawing.Point(574, 515);
+            this.btnCopy.Location = new System.Drawing.Point(867, 515);
             this.btnCopy.Name = "btnCopy";
             this.btnCopy.Size = new System.Drawing.Size(85, 113);
             this.btnCopy.TabIndex = 17;
@@ -443,13 +701,46 @@
             this.btnCopy.UseVisualStyleBackColor = false;
             this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
             // 
+            // btnApply
+            // 
+            this.btnApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnApply.BackColor = System.Drawing.Color.White;
+            this.btnApply.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnApply.BackgroundImage")));
+            this.btnApply.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnApply.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnApply.Location = new System.Drawing.Point(958, 515);
+            this.btnApply.Name = "btnApply";
+            this.btnApply.Size = new System.Drawing.Size(75, 113);
+            this.btnApply.TabIndex = 9;
+            this.btnApply.Text = "&Aplicar";
+            this.btnApply.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnApply.UseVisualStyleBackColor = false;
+            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExit.BackColor = System.Drawing.Color.White;
+            this.btnExit.BackgroundImage = global::CapaPresentacion.Properties.Resources.exit;
+            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Location = new System.Drawing.Point(1039, 515);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(75, 113);
+            this.btnExit.TabIndex = 8;
+            this.btnExit.Text = "A&trás";
+            this.btnExit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // frmConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(833, 640);
+            this.ClientSize = new System.Drawing.Size(1126, 640);
+            this.Controls.Add(this.grbEditProduct);
             this.Controls.Add(this.btnCopy);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.grbDeleteEmployer);
             this.Controls.Add(this.grbNewEmployer);
             this.Controls.Add(this.grbType);
             this.Controls.Add(this.btnApply);
@@ -463,8 +754,16 @@
             this.grbType.PerformLayout();
             this.grbNewEmployer.ResumeLayout(false);
             this.grbNewEmployer.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCreateNumEmployee)).EndInit();
+            this.grbDeleteEmployer.ResumeLayout(false);
+            this.grbDeleteEmployer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDeleteNumEmployee)).EndInit();
+            this.grbEditProduct.ResumeLayout(false);
+            this.grbEditProduct.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEditProductCost)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEditProductStock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEditProductMinStock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEditProductEmployerId)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -480,27 +779,52 @@
         private System.Windows.Forms.Button btnBrowse;
         private System.Windows.Forms.TextBox txtCreatePhoto;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtCreateNumEmployer;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtCreateName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button bntCreateCancel;
         private System.Windows.Forms.Button btnCreate;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lblEmployerNoExistError;
+        private System.Windows.Forms.GroupBox grbDeleteEmployer;
+        private System.Windows.Forms.Label lblEmployeeNoExistError;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label lblDeleteName;
         private System.Windows.Forms.Button btnDeleteCancel;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.TextBox txtDeleteNumEmployer;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label lblCreateIntParseError;
-        private System.Windows.Forms.Label lblDeleteIntParseError;
         private System.Windows.Forms.Label lblCreateExistingNumberError;
         private System.Windows.Forms.Label lblCreateError;
         private System.Windows.Forms.Label lblDeleteError;
         private System.Windows.Forms.Label lblCreateFileNoExistError;
         private System.Windows.Forms.Button btnCopy;
+        private System.Windows.Forms.GroupBox grbEditProduct;
+        private System.Windows.Forms.Label lblCodeNotFoundMinStockError;
+        private System.Windows.Forms.Button btnUpdateCancel;
+        private System.Windows.Forms.Button btnUpdatePorduct;
+        private System.Windows.Forms.TextBox txtEditProductCode;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtEditProductDescription;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label Medida;
+        private System.Windows.Forms.TextBox txtEditProductSize;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtEditProductPlaceId;
+        private System.Windows.Forms.Label lblCoste;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtEditProductCollectionId;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtEditProductFamilyCode;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.NumericUpDown nudCreateNumEmployee;
+        private System.Windows.Forms.NumericUpDown nudDeleteNumEmployee;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.NumericUpDown nudEditProductCost;
+        private System.Windows.Forms.NumericUpDown nudEditProductStock;
+        private System.Windows.Forms.NumericUpDown nudEditProductMinStock;
+        private System.Windows.Forms.NumericUpDown nudEditProductEmployerId;
     }
 }
