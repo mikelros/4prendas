@@ -121,7 +121,7 @@
             // 
             this.btnIRALOGINADMIN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnIRALOGINADMIN.BackColor = System.Drawing.Color.Coral;
-            this.btnIRALOGINADMIN.Location = new System.Drawing.Point(1062, 474);
+            this.btnIRALOGINADMIN.Location = new System.Drawing.Point(1062, 462);
             this.btnIRALOGINADMIN.Name = "btnIRALOGINADMIN";
             this.btnIRALOGINADMIN.Size = new System.Drawing.Size(92, 30);
             this.btnIRALOGINADMIN.TabIndex = 15;
