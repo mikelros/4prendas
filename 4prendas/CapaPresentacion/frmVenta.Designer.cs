@@ -483,7 +483,7 @@
             this.dgvCarrito.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             this.dgvCarrito.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCarrito.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dgvCarrito.Location = new System.Drawing.Point(407, 174);
+            this.dgvCarrito.Location = new System.Drawing.Point(402, 172);
             this.dgvCarrito.Margin = new System.Windows.Forms.Padding(2);
             this.dgvCarrito.Name = "dgvCarrito";
             this.dgvCarrito.ReadOnly = true;
