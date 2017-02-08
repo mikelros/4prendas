@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVenta));
-            this.btnIRAREGISTRO = new System.Windows.Forms.Button();
-            this.btnIRARECOGIDA = new System.Windows.Forms.Button();
-            this.btnIRACONFIG = new System.Windows.Forms.Button();
-            this.btnIRALOGINADMIN = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbEmpleado = new System.Windows.Forms.ComboBox();
             this.lblWorkerName = new System.Windows.Forms.Label();
@@ -72,6 +68,7 @@
             this.imgWorker = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnExit = new System.Windows.Forms.Button();
+            this.btnFinVenta = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -80,54 +77,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgWorker)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnIRAREGISTRO
-            // 
-            this.btnIRAREGISTRO.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnIRAREGISTRO.BackColor = System.Drawing.Color.Coral;
-            this.btnIRAREGISTRO.Location = new System.Drawing.Point(1062, 584);
-            this.btnIRAREGISTRO.Name = "btnIRAREGISTRO";
-            this.btnIRAREGISTRO.Size = new System.Drawing.Size(92, 29);
-            this.btnIRAREGISTRO.TabIndex = 12;
-            this.btnIRAREGISTRO.Text = "Registro";
-            this.btnIRAREGISTRO.UseVisualStyleBackColor = false;
-            this.btnIRAREGISTRO.Click += new System.EventHandler(this.btnIRAREGISTRO_Click);
-            // 
-            // btnIRARECOGIDA
-            // 
-            this.btnIRARECOGIDA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnIRARECOGIDA.BackColor = System.Drawing.Color.Coral;
-            this.btnIRARECOGIDA.Location = new System.Drawing.Point(1062, 546);
-            this.btnIRARECOGIDA.Name = "btnIRARECOGIDA";
-            this.btnIRARECOGIDA.Size = new System.Drawing.Size(92, 32);
-            this.btnIRARECOGIDA.TabIndex = 13;
-            this.btnIRARECOGIDA.Text = "Recogida";
-            this.btnIRARECOGIDA.UseVisualStyleBackColor = false;
-            this.btnIRARECOGIDA.Click += new System.EventHandler(this.btnIRARECOGIDA_Click);
-            // 
-            // btnIRACONFIG
-            // 
-            this.btnIRACONFIG.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnIRACONFIG.BackColor = System.Drawing.Color.Coral;
-            this.btnIRACONFIG.Location = new System.Drawing.Point(1062, 510);
-            this.btnIRACONFIG.Name = "btnIRACONFIG";
-            this.btnIRACONFIG.Size = new System.Drawing.Size(92, 30);
-            this.btnIRACONFIG.TabIndex = 14;
-            this.btnIRACONFIG.Text = "Config";
-            this.btnIRACONFIG.UseVisualStyleBackColor = false;
-            this.btnIRACONFIG.Click += new System.EventHandler(this.btnIRACONFIG_Click);
-            // 
-            // btnIRALOGINADMIN
-            // 
-            this.btnIRALOGINADMIN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnIRALOGINADMIN.BackColor = System.Drawing.Color.Coral;
-            this.btnIRALOGINADMIN.Location = new System.Drawing.Point(1062, 462);
-            this.btnIRALOGINADMIN.Name = "btnIRALOGINADMIN";
-            this.btnIRALOGINADMIN.Size = new System.Drawing.Size(92, 30);
-            this.btnIRALOGINADMIN.TabIndex = 15;
-            this.btnIRALOGINADMIN.Text = "LoginAdmin";
-            this.btnIRALOGINADMIN.UseVisualStyleBackColor = false;
-            this.btnIRALOGINADMIN.Click += new System.EventHandler(this.btnIRALOGINADMIN_Click);
             // 
             // label3
             // 
@@ -184,103 +133,113 @@
             // 
             // button10
             // 
+            this.button10.BackColor = System.Drawing.Color.White;
             this.button10.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
             this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button10.Location = new System.Drawing.Point(96, 480);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(84, 112);
             this.button10.TabIndex = 67;
-            this.button10.UseVisualStyleBackColor = true;
+            this.button10.UseVisualStyleBackColor = false;
             // 
             // button9
             // 
+            this.button9.BackColor = System.Drawing.Color.White;
             this.button9.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
             this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button9.Location = new System.Drawing.Point(6, 482);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(84, 112);
             this.button9.TabIndex = 66;
-            this.button9.UseVisualStyleBackColor = true;
+            this.button9.UseVisualStyleBackColor = false;
             // 
             // button7
             // 
+            this.button7.BackColor = System.Drawing.Color.White;
             this.button7.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
             this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button7.Location = new System.Drawing.Point(96, 364);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(84, 112);
             this.button7.TabIndex = 65;
-            this.button7.UseVisualStyleBackColor = true;
+            this.button7.UseVisualStyleBackColor = false;
             // 
             // button8
             // 
+            this.button8.BackColor = System.Drawing.Color.White;
             this.button8.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
             this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button8.Location = new System.Drawing.Point(6, 364);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(84, 112);
             this.button8.TabIndex = 64;
-            this.button8.UseVisualStyleBackColor = true;
+            this.button8.UseVisualStyleBackColor = false;
             // 
             // button5
             // 
+            this.button5.BackColor = System.Drawing.Color.White;
             this.button5.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
             this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button5.Location = new System.Drawing.Point(96, 248);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(84, 112);
             this.button5.TabIndex = 63;
-            this.button5.UseVisualStyleBackColor = true;
+            this.button5.UseVisualStyleBackColor = false;
             // 
             // button6
             // 
+            this.button6.BackColor = System.Drawing.Color.White;
             this.button6.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
             this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button6.Location = new System.Drawing.Point(6, 248);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(84, 112);
             this.button6.TabIndex = 62;
-            this.button6.UseVisualStyleBackColor = true;
+            this.button6.UseVisualStyleBackColor = false;
             // 
             // button3
             // 
+            this.button3.BackColor = System.Drawing.Color.White;
             this.button3.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button3.Location = new System.Drawing.Point(96, 133);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(84, 112);
             this.button3.TabIndex = 61;
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             // 
             // button4
             // 
+            this.button4.BackColor = System.Drawing.Color.White;
             this.button4.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
             this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button4.Location = new System.Drawing.Point(6, 133);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(84, 112);
             this.button4.TabIndex = 60;
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseVisualStyleBackColor = false;
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.White;
             this.button2.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button2.Location = new System.Drawing.Point(96, 17);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(84, 112);
             this.button2.TabIndex = 59;
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.White;
             this.button1.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.Location = new System.Drawing.Point(6, 17);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(84, 112);
             this.button1.TabIndex = 58;
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // dgvProducts
             // 
@@ -337,103 +296,113 @@
             // 
             // button11
             // 
+            this.button11.BackColor = System.Drawing.Color.White;
             this.button11.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
             this.button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button11.Location = new System.Drawing.Point(96, 480);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(84, 112);
             this.button11.TabIndex = 67;
-            this.button11.UseVisualStyleBackColor = true;
+            this.button11.UseVisualStyleBackColor = false;
             // 
             // button12
             // 
+            this.button12.BackColor = System.Drawing.Color.White;
             this.button12.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
             this.button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button12.Location = new System.Drawing.Point(6, 482);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(84, 112);
             this.button12.TabIndex = 66;
-            this.button12.UseVisualStyleBackColor = true;
+            this.button12.UseVisualStyleBackColor = false;
             // 
             // button13
             // 
+            this.button13.BackColor = System.Drawing.Color.White;
             this.button13.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
             this.button13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button13.Location = new System.Drawing.Point(96, 364);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(84, 112);
             this.button13.TabIndex = 65;
-            this.button13.UseVisualStyleBackColor = true;
+            this.button13.UseVisualStyleBackColor = false;
             // 
             // button14
             // 
+            this.button14.BackColor = System.Drawing.Color.White;
             this.button14.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
             this.button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button14.Location = new System.Drawing.Point(6, 364);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(84, 112);
             this.button14.TabIndex = 64;
-            this.button14.UseVisualStyleBackColor = true;
+            this.button14.UseVisualStyleBackColor = false;
             // 
             // button15
             // 
+            this.button15.BackColor = System.Drawing.Color.White;
             this.button15.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
             this.button15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button15.Location = new System.Drawing.Point(96, 248);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(84, 112);
             this.button15.TabIndex = 63;
-            this.button15.UseVisualStyleBackColor = true;
+            this.button15.UseVisualStyleBackColor = false;
             // 
             // button16
             // 
+            this.button16.BackColor = System.Drawing.Color.White;
             this.button16.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
             this.button16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button16.Location = new System.Drawing.Point(6, 248);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(84, 112);
             this.button16.TabIndex = 62;
-            this.button16.UseVisualStyleBackColor = true;
+            this.button16.UseVisualStyleBackColor = false;
             // 
             // button17
             // 
+            this.button17.BackColor = System.Drawing.Color.White;
             this.button17.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
             this.button17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button17.Location = new System.Drawing.Point(96, 133);
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(84, 112);
             this.button17.TabIndex = 61;
-            this.button17.UseVisualStyleBackColor = true;
+            this.button17.UseVisualStyleBackColor = false;
             // 
             // button18
             // 
+            this.button18.BackColor = System.Drawing.Color.White;
             this.button18.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
             this.button18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button18.Location = new System.Drawing.Point(6, 133);
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(84, 112);
             this.button18.TabIndex = 60;
-            this.button18.UseVisualStyleBackColor = true;
+            this.button18.UseVisualStyleBackColor = false;
             // 
             // button19
             // 
+            this.button19.BackColor = System.Drawing.Color.White;
             this.button19.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
             this.button19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button19.Location = new System.Drawing.Point(96, 17);
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(84, 112);
             this.button19.TabIndex = 59;
-            this.button19.UseVisualStyleBackColor = true;
+            this.button19.UseVisualStyleBackColor = false;
             // 
             // button20
             // 
+            this.button20.BackColor = System.Drawing.Color.White;
             this.button20.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
             this.button20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button20.Location = new System.Drawing.Point(6, 17);
             this.button20.Name = "button20";
             this.button20.Size = new System.Drawing.Size(84, 112);
             this.button20.TabIndex = 58;
-            this.button20.UseVisualStyleBackColor = true;
+            this.button20.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -513,13 +482,14 @@
             // btnCalculator
             // 
             this.btnCalculator.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCalculator.BackColor = System.Drawing.Color.White;
             this.btnCalculator.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
             this.btnCalculator.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCalculator.Location = new System.Drawing.Point(1062, 296);
             this.btnCalculator.Name = "btnCalculator";
             this.btnCalculator.Size = new System.Drawing.Size(92, 101);
             this.btnCalculator.TabIndex = 56;
-            this.btnCalculator.UseVisualStyleBackColor = true;
+            this.btnCalculator.UseVisualStyleBackColor = false;
             this.btnCalculator.Click += new System.EventHandler(this.btnCalculator_Click);
             // 
             // pictureBox3
@@ -562,14 +532,29 @@
             this.btnExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExit.BackgroundImage")));
             this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(1079, 639);
+            this.btnExit.Location = new System.Drawing.Point(1134, 636);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 113);
             this.btnExit.TabIndex = 78;
-            this.btnExit.Text = "A&trás";
+            this.btnExit.Text = "&Atrás";
             this.btnExit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // btnFinVenta
+            // 
+            this.btnFinVenta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFinVenta.BackColor = System.Drawing.Color.White;
+            this.btnFinVenta.BackgroundImage = global::CapaPresentacion.Properties.Resources.cesta;
+            this.btnFinVenta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnFinVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFinVenta.Location = new System.Drawing.Point(1053, 636);
+            this.btnFinVenta.Name = "btnFinVenta";
+            this.btnFinVenta.Size = new System.Drawing.Size(75, 113);
+            this.btnFinVenta.TabIndex = 79;
+            this.btnFinVenta.Text = "&Fin venta";
+            this.btnFinVenta.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnFinVenta.UseVisualStyleBackColor = false;
             // 
             // frmVenta
             // 
@@ -578,6 +563,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1219, 771);
+            this.Controls.Add(this.btnFinVenta);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.dgvCarrito);
             this.Controls.Add(this.btnCarrito);
@@ -597,10 +583,6 @@
             this.Controls.Add(this.cmbEmpleado);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.btnIRALOGINADMIN);
-            this.Controls.Add(this.btnIRACONFIG);
-            this.Controls.Add(this.btnIRARECOGIDA);
-            this.Controls.Add(this.btnIRAREGISTRO);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmVenta";
             this.Text = "4Tiendas";
@@ -619,11 +601,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnIRAREGISTRO;
-        private System.Windows.Forms.Button btnIRARECOGIDA;
-        private System.Windows.Forms.Button btnIRACONFIG;
-        private System.Windows.Forms.Button btnIRALOGINADMIN;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox cmbEmpleado;
@@ -663,6 +640,7 @@
         internal System.Windows.Forms.Button btnCarrito;
         internal System.Windows.Forms.DataGridView dgvCarrito;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnFinVenta;
     }
 }
 
