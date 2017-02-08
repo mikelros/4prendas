@@ -16,10 +16,11 @@ namespace CapaEntidades
         private int empleadoId;
         private int lugarId;
         private string codFamilia;
+        private string codSubFamilia;
         private int numeroVenta;
         private int recogidaId;
         private DateTime fechaEntrada;
-        private int coste;
+        private float coste;
 
 
         public Producto()
@@ -29,7 +30,7 @@ namespace CapaEntidades
 
         //Sin venta
         public Producto(string codArticulo, string descripcion, string medida, int stock, int stockMinimo, int empleadoId, int lugarId,
-           string codFamilia, int recogidaId, DateTime fechaEntrada, int coste)
+           string codSubFamilia, string codFamilia, int recogidaId, DateTime fechaEntrada, float coste)
         {
             this.codigoArticulo = codArticulo;
             this.descripcion = descripcion;
@@ -42,6 +43,7 @@ namespace CapaEntidades
             this.recogidaId = recogidaId;
             this.fechaEntrada = fechaEntrada;
             this.coste = coste;
+            this.codSubFamilia = codSubFamilia;
         }
         
         //Todos los campos
@@ -158,6 +160,18 @@ namespace CapaEntidades
             }
         }
 
+        public string CodSubFamilia
+        {
+            get
+            {
+                return codSubFamilia;
+            }
+            set
+            {
+                codSubFamilia = value;
+            }
+        }
+
         public int NumeroVenta
         {
             get
@@ -194,7 +208,7 @@ namespace CapaEntidades
             }
         }
 
-        public int Coste
+        public float Coste
         {
             get
             {

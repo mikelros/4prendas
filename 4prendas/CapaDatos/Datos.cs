@@ -125,7 +125,6 @@ namespace CapaDatos
 
         public Administrador getAdministrador(string user, string pass)
         {
-            List<Administrador> administradores = new List<Administrador>();
             string sql = "SELECT * FROM Administrador where Usuario=@User AND Contrasena=@Pass";
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);

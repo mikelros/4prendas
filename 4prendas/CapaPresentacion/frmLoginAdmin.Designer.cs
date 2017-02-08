@@ -90,6 +90,7 @@
             this.txtPass.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtPass.Location = new System.Drawing.Point(309, 200);
             this.txtPass.Name = "txtPass";
+            this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(153, 20);
             this.txtPass.TabIndex = 6;
             // 

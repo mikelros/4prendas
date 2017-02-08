@@ -8,10 +8,9 @@ namespace CapaEntidades
 {
     public class Empleado
     {
+        private int empleadoId;
         private string nombre;
         private string foto;
-        private List<int> ventas;
-        private List<int> devoluciones;
 
         public Empleado() { }
 
@@ -21,12 +20,11 @@ namespace CapaEntidades
             this.foto = foto;
         }
 
-        public Empleado(string nombre, string foto, List<int> ventas, List<int> devoluciones)
+        public Empleado(int empleadoId, string nombre, string foto)
         {
+            this.empleadoId = empleadoId;
             this.nombre = nombre;
             this.foto = foto;
-            this.ventas = ventas;
-            this.devoluciones = devoluciones;
         }
 
         public string Nombre
@@ -53,27 +51,15 @@ namespace CapaEntidades
             }
         }
 
-        public List<int> Ventas
+        public int EmpleadoId
         {
             get
             {
-                return ventas;
+                return empleadoId;
             }
             set
             {
-                ventas = value;
-            }
-        }
-
-        public List<int> Devoluciones
-        {
-            get
-            {
-                return devoluciones;
-            }
-            set
-            {
-                devoluciones = value;
+                empleadoId = value;
             }
         }
     }
