@@ -76,3 +76,4 @@ C:\Users\Asgarth\Source\Repos\4prendas2\4prendas\CapaPresentacion\bin\Debug\Capa
 C:\Users\Asgarth\Source\Repos\4prendas2\4prendas\CapaPresentacion\bin\Debug\CapaEntidades.pdb
 C:\Users\Asgarth\Source\Repos\4prendas2\4prendas\CapaPresentacion\bin\Debug\CapaNegocio.pdb
 C:\Users\Asgarth\Source\Repos\4prendas2\4prendas\CapaPresentacion\bin\Debug\CapaDatos.pdb
+C:\Users\Asrield\Source\Repos\4prendas3\4prendas\CapaPresentacion\bin\Debug\CapaPresentacion.exe.config

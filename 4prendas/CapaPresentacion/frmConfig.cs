@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CapaEntidades;
+using CapaNegocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +15,8 @@ namespace CapaPresentacion
 {
     public partial class frmConfig : Form
     {
-        //Employer employer;
+        Empleado employee;
+        Negocio negocio = new Negocio();
 
         string mydocpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         string shopMode;
@@ -36,7 +39,7 @@ namespace CapaPresentacion
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            if (txtCreateName.Text.Equals("") || txtCreateNumEmployer.Text.Equals("") || txtCreatePhoto.Text.Equals(""))
+            if (txtCreateName.Text.Equals("") || nudCreateNumEmployee.Text.Equals("") || txtCreatePhoto.Text.Equals(""))
             {
                 lblCreateError.Show();
                 return;
@@ -61,34 +64,26 @@ namespace CapaPresentacion
 
                 }
             }
-            int empNum;
-            if (!int.TryParse(txtCreateNumEmployer.Text, out empNum))
+            //employee = negocio.getEmpleado(nudCreateNumEmployee);
+            if (employee == null)
             {
-                lblCreateIntParseError.Show();
+                lblCreateExistingNumberError.Show();
                 return;
-            }else
-            {
-                lblCreateIntParseError.Hide();
             }
-            //employer = datos.buscarEmpleado(empNum);
-            //if(!employer = null)
+            else
+            {
+                lblCreateExistingNumberError.Hide();
+            }
+            //string msg = negocio.createEmployee(txtCreateName.Text, nudCreateNumEmployee, txtCreatePhoto.Text);
+            //if (msg == "")
             //{
-            //    lblCreateExistingNumberError.Show();
-            //    return;
+            //    MessageBox.Show("El empleado " + txtCreateName.Text + " se ha creado correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             //}
             //else
             //{
-            //    lblCreateExistingNumberError.Hide();
+            //    MessageBox.Show(msg, "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             //}
-            //string msg = datos.crearEmpleado(txtName.text, txtNumber.text, txtPhoto.text);
-            //if (msg == "")
-            //{
-                //MessageBox.Show("El empleado " + txtCreateName.Text + " se ha creado correctamente","",MessageBoxButtons.OK,MessageBoxIcon.Information);
-            //}else
-            //{
-            //    MessageBox.Show(msg,"",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
-            //}
-            //employer = null;
+            employee = null;
         }
 
         private void bntCreateCancel_Click(object sender, EventArgs e)
@@ -98,10 +93,8 @@ namespace CapaPresentacion
         private void createCancel()
         {
             txtCreateName.Text = "";
-            txtCreateNumEmployer.Text = "";
             txtCreatePhoto.Text = "";
-            lblCreateIntParseError.Hide();
-            //employer = null;
+            employee = null;
         }
         private void btnBrowse_Click(object sender, EventArgs e)
         {
@@ -135,25 +128,23 @@ namespace CapaPresentacion
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            //if (employer = null)
-            //{
-            //lblDeleteError.Show();
-            //}
-            //else
-            //{
-            //lblDeleteError.Hide();
-            //    //datos.eliminarEmpleado(employer.number);
-            //}
+            if (employee == null)
+            {
+                lblDeleteError.Show();
+            }
+            else
+            {
+                lblDeleteError.Hide();
+                //negocio.deleteEmployee(employee.Id);
+            }
         }
 
         private void frmConfig_Load(object sender, EventArgs e)
         {
-            lblEmployerNoExistError.Hide();
+            lblEmployeeNoExistError.Hide();
 
             lblCreateFileNoExistError.Hide();
-
-            lblDeleteIntParseError.Hide();
-            lblCreateIntParseError.Hide();
+            
 
             lblDeleteError.Hide();
             lblCreateError.Hide();
@@ -162,7 +153,7 @@ namespace CapaPresentacion
 
             loadShopMode();
 
-            //employer = null;
+            employee = null;
 
         }
         private void loadShopMode()
@@ -207,39 +198,28 @@ namespace CapaPresentacion
         private void btnSearch_Click(object sender, EventArgs e)
         {
 
-            int i;
-            if (int.TryParse(txtDeleteNumEmployer.Text, out i))
+
+            //employee = negocio.getEmpleado(nudDeleteNumEmployee);
+            if (employee == null)
             {
-                lblDeleteIntParseError.Hide();
-                //employer = datos.buscarEmpleado(i);
-                //if (employer == null)
-                //{
-                //    lblEmployerError.show();
-                //}else
-                //{
-                //    lblEmployerError.Hide();
-                //    lblDeleteName.Text = employer.name;
-                //}
+                lblEmployeeNoExistError.Show();
             }
             else
             {
-                lblDeleteIntParseError.Show();
+                lblEmployeeNoExistError.Hide();
+                lblDeleteName.Text = employee.Nombre;
             }
+
         }
 
-        private void btnDelete_Click_1(object sender, EventArgs e)
-        {
-            //datos.deleteEmployer(employer);
-        }
+        
 
         private void deleteCancel()
         {
-            txtDeleteNumEmployer.Text = "";
+            nudDeleteNumEmployee.Text = "";
             lblDeleteName.Text = "";
-            lblEmployerNoExistError.Hide();
-            lblCreateIntParseError.Hide();
-            lblDeleteIntParseError.Hide();
-            //employer = null;
+            lblEmployeeNoExistError.Hide();
+            employee = null;
         }
 
         private void saveShopMode()
@@ -303,6 +283,26 @@ namespace CapaPresentacion
                 e.Handled = true;
                 return;
             }
+        }
+
+        private void btnUpdatePorduct_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUpdateCancel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchProduct(object sender, EventArgs e)
+        {
+            //Producto product = negocio.getProdsPorCodigoArticulo(txtEditProductCode.Text);
+        }
+
+        private void txtEditProductCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
         }
     }
 }
