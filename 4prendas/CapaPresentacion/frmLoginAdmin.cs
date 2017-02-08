@@ -24,9 +24,22 @@ namespace CapaPresentacion
 
         }
 
-        private void btnTestNext_Click(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
-            (new frmConfig()).Show();
+            if (Modulo.miNegocio.getAdministrador(txtUser.Text, txtPass.Text) != null)
+            {
+                (new frmConfig()).Show();
+            }
+            else
+            {
+                MessageBox.Show("Usuario o contraseña incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            (new frmMenu()).Show();
+            this.Close();
         }
     }
 }

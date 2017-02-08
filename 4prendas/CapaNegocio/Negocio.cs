@@ -21,9 +21,9 @@ namespace CapaNegocio
             //return datos.InsertarProductos(productos);
         }
 
-        public List<Familia> getFamilias()
+        public List<Familia> getFamiliasSubfamilias()
         {
-            return datos.getFamilias();
+            return datos.getFamiliasSubfamilias();
         }
 
         public List<Producto> getProductos(string codSubfamilia)
