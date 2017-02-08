@@ -314,6 +314,7 @@
             this.btnStock.TabIndex = 71;
             this.btnStock.Text = "0";
             this.btnStock.UseVisualStyleBackColor = false;
+            this.btnStock.Click += new System.EventHandler(this.btnStock_Click);
             // 
             // groupBox2
             // 
@@ -483,7 +484,7 @@
             this.dgvCarrito.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             this.dgvCarrito.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCarrito.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dgvCarrito.Location = new System.Drawing.Point(407, 174);
+            this.dgvCarrito.Location = new System.Drawing.Point(402, 172);
             this.dgvCarrito.Margin = new System.Windows.Forms.Padding(2);
             this.dgvCarrito.Name = "dgvCarrito";
             this.dgvCarrito.ReadOnly = true;

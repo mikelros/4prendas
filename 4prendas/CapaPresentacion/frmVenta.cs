@@ -15,9 +15,9 @@ namespace CapaPresentacion
 {
     public partial class frmVenta : Form
     {
-        Negocio negocio;
         string shopMode;
         List<Producto> ProdsStockMinimo;
+        List<Empleado> Empleados;
         public frmVenta()
         {
             InitializeComponent();
@@ -38,8 +38,14 @@ namespace CapaPresentacion
 
         private void checkStockMinimo()
         {
-            ProdsStockMinimo = negocio.getProdsStockMinimo();
-            int num = ProdsStockMinimo.Count();
+            ProdsStockMinimo = Modulo.miNegocio.getProdsStockMinimo();
+            int num;
+            if (Modulo.miNegocio.getProdsStockMinimo() == null)
+            {
+                num = 0;
+            } else {
+            num = ProdsStockMinimo.Count();
+            }
             if (num > 0){
                 btnStock.BackColor = Color.Red;
                 btnStock.Text = num.ToString();
@@ -51,7 +57,9 @@ namespace CapaPresentacion
 
         private void loadWorkersList()
         {
-            //cmbEmpleado.DataSource = listWorkersID();
+            Empleados = Modulo.miNegocio.getEmpleados();
+            cmbEmpleado.DataSource = Empleados;
+            cmbEmpleado.DisplayMember = "empleadoId";
         }
 
         private void btnTestNext_Click(object sender, EventArgs e)
@@ -98,8 +106,7 @@ namespace CapaPresentacion
         private void loadCmbSearch()
         {
             cmbSearch.Items.Add("Codigo de barras");
-            cmbSearch.Items.Add("Familia");
-            cmbSearch.Items.Add("Subfamilia");
+            cmbSearch.Items.Add("Descripcion");
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -107,13 +114,10 @@ namespace CapaPresentacion
             switch (cmbSearch.SelectedText)
             {
                 case "Código de barras":
-                    //dgvProducts.datasource = searchByBarcode(txtSearch.text)
+                    dgvProducts.DataSource = Modulo.miNegocio.getProdsPorCodigoArticulo(txtSearch.Text);
                     break;
-                case "Familia":
-                    //dgvProducts.datasource = searchByFamily(txtSearch.text)
-                    break;
-                case "Subfamilia":
-                    //dgvProducts.datasource = searchBySubFamily(txtSearch.text)
+                case "Descripcion":
+                    dgvProducts.DataSource = Modulo.miNegocio.getProdsPorDescripcion(txtSearch.Text);
                     break;
                 default:
                     break;
@@ -173,6 +177,12 @@ namespace CapaPresentacion
 
             //TODO pasar a la lista de productos para comprar
         }
-        
+
+        private void btnStock_Click(object sender, EventArgs e)
+        {
+            checkStockMinimo();
+            dgvProducts.DataSource = ProdsStockMinimo;
+            dgvProducts.Refresh();
+        }
     }
 }

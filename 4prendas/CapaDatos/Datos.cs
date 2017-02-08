@@ -12,8 +12,7 @@ namespace CapaDatos
     {
         private static string cadenaConexion = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=4prendas.accdb";
 
-        public List<Familia> getFamilias() //Qué narices saca esto? todas las familias y subfamilias? para sacar sólo las fams
-                                           //no bastaria un "select * from familias"?
+        public List<Familia> getFamiliasSubfamilias()
         {
             List<Familia> familias = new List<Familia>(); // no sé si es arraylist o qué
             string sql = "SELECT * FROM Familia f INNER JOIN SubFamilia sf ON sf.FamiliaCod = f.CodFamilia";
@@ -56,10 +55,10 @@ namespace CapaDatos
         }
 
 
-        public List<Producto> getProductos(string codSubfamilia) //getProductos o getProdsPorSubFamilia
+        public List<Producto> getProductos(string codSubfamilia)
         {
             List<Producto> productos = new List<Producto>();
-            string sql = "SELECT * FROM Productos WHERE Registro.CodSubFamilia = @codSubFamilia";//WTF ¿Registro??????
+            string sql = "SELECT * FROM Registro WHERE Registro.CodSubFamilia = @codSubFamilia";//WTF ¿Registro??????
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
             cmd.Parameters.AddWithValue("@codSubFamilia", codSubfamilia);
@@ -93,7 +92,7 @@ namespace CapaDatos
         public Administrador getAdministrador(string user, string pass)
         {
             List<Administrador> administradores = new List<Administrador>();
-            string sql = "SELECT * FROM Administrador where Usuario=@User AND Contrasena=@Pass"; ;//;;? no lo borro por si las moscas, pero ta mal, no?
+            string sql = "SELECT * FROM Administrador where Usuario=@User AND Contrasena=@Pass";
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
             cmd.Parameters.AddWithValue("@User", user);
@@ -171,7 +170,9 @@ namespace CapaDatos
                 while (dr.Read())
                 {
                     Empleado emp = new Empleado();
-                    //prodsStockMinimo.Add(new Producto(dr["CodigoArticulo"], dr["Descripcion"], dr["TallaPesoLitros"], dr["Stock"], dr["StockMinimo"], dr["EmpleadoId"],  dr["LugarId"], dr["CodFamilia"], dr["NumeroVenta"], dr["RecogidaId"], dr["FechaEntrada"], dr["Coste"]);
+                    prodsStockMinimo.Add(new Producto((string)dr["CodigoArticulo"], (string)dr["Descripcion"], (string)dr["TallaPesoLitros"], (int)dr["Stock"],
+                        (int)dr["StockMinimo"], (int)dr["EmpleadoID"], (int)dr["LugarId"], (string)dr["CodFamilia"], (int)dr["NumeroVenta"],
+                        (int)dr["RecogidaId"], (DateTime)dr["FechaEntrada"], (int)dr["Coste"]));
                 }
                 return prodsStockMinimo;
             }
@@ -190,7 +191,7 @@ namespace CapaDatos
         public List<Producto> getProdsPorDescripcion(string desc)
         {
             List<Producto> productos = new List<Producto>();
-            string sql = "SELECT * FROM Productos WHERE Registro.Descripcion = @desc"; //WTF ¿Registro??????
+            string sql = "SELECT * FROM Registro WHERE Registro.Descripcion = @desc"; //WTF ¿Registro??????
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
             cmd.Parameters.AddWithValue("@desc", desc);
@@ -221,11 +222,12 @@ namespace CapaDatos
                 conTabla.Close();
             }
         }
+
         //Porductos por codigoArticulo
         public List<Producto> getProdsPorCodigoArticulo(string codigoArticulo)
         {
             List<Producto> productos = new List<Producto>();
-            string sql = "SELECT * FROM Productos WHERE Registro.CodigoArticulo = @codigoArticulo"; //WTF ¿Registro??????
+            string sql = "SELECT * FROM Registro WHERE Registro.CodigoArticulo = @codigoArticulo"; //WTF ¿Registro??????
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
             cmd.Parameters.AddWithValue("@codigoArticulo", codigoArticulo);

@@ -44,13 +44,15 @@ namespace CapaPresentacion
         {
             Producto producto = new Producto();
             producto.CodigoArticulo = txtCodArticulo.Text;
-            //producto.Coste = COSA QUE NO ESTA
+            producto.Coste = int.Parse(nupCoste.Text);
             producto.Descripcion = txtDescripcion.Text;
             producto.Medida = txtMedida.Text;
             producto.Stock = int.Parse(nudStock.Text);
             producto.EmpleadoId = int.Parse(nudEmpleado.Text);
-            //fecha de entrada es la de ahora o la de la recogida..?
+            producto.FechaEntrada = DateTime.Now;
             producto.RecogidaId = int.Parse(nudNumRecogida.Text);
+            string codsubfamilia = producto.CodigoArticulo.Substring(8, 10);
+            producto.CodFamilia = codsubfamilia;
             productos.Add(producto);
             refreshDgv();
         }
@@ -66,7 +68,7 @@ namespace CapaPresentacion
 
         private void refreshDgv()
         {
-            dgvRegistros.DataSource = productos.Select(p => new { p.CodigoArticulo, p.Descripcion, p.Medida, p.Stock, p.EmpleadoId, p.RecogidaId }).ToList();
+            dgvRegistros.DataSource = productos.Select(p => new { p.CodigoArticulo, p.Descripcion, p.Medida, p.Stock, p.EmpleadoId, p.RecogidaId, p.FechaEntrada, p.Coste }).ToList();
             dgvRegistros.Refresh();
         }
 
