@@ -120,6 +120,7 @@
             this.txtEmployer.Size = new System.Drawing.Size(153, 20);
             this.txtEmployer.TabIndex = 57;
             this.txtEmployer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmployer_KeyPress);
+            this.txtEmployer.Leave += new System.EventHandler(this.chargeEmployer);
             // 
             // txtQuantity
             // 
