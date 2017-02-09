@@ -170,8 +170,17 @@ namespace CapaPresentacion
 
             lblDeleteError.Hide();
             lblCreateError.Hide();
+            lblEmployeeNoExistError.Hide();
 
             lblCreateExistingNumberError.Hide();
+
+
+            nudEditProductStock.Maximum  = int.MaxValue;
+            nudEditProductMinStock.Maximum = int.MaxValue;
+            nudEditProductCost.Maximum = int.MaxValue;
+            nudEditProductEmployerId.Maximum = int.MaxValue;
+            nudEditProductPlaceId.Maximum = int.MaxValue;
+            nudEditProductCollectionId.Maximum = int.MaxValue;
 
             loadShopMode();
 
