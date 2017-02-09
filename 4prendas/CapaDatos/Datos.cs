@@ -29,10 +29,10 @@ namespace CapaDatos
                 bool fin = false;
                 do
                 {
-                    Familia familia = new Familia((string)dr["CodFamilia"], (string)dr["NombreFamilia"], (string)dr["ImagenFamilia"], (int)dr["NumeroCodigoF"]);
+                    Familia familia = new Familia(dr.IsDBNull(dr.GetOrdinal("CodFamilia")) ? "" : (string)dr["CodFamilia"], dr.IsDBNull(dr.GetOrdinal("NombreFamilia")) ? "" : (string)dr["NombreFamilia"], dr.IsDBNull(dr.GetOrdinal("ImagenFamilia")) ? "" : (string)dr["ImagenFamilia"], dr.IsDBNull(dr.GetOrdinal("NumeroCodigoF")) ? -1 : (int)dr["NumeroCodigoF"]);
                     do
                     { //Una familia no puede no tener subfamilia... pero y si si?
-                        familia.SubFamilias.Add(new SubFamilia((string)dr["FamiliaCod"], (string)dr["CodSubFamilia"], (string)dr["Nombre"], (string)dr["Imagen"], (int)dr["IVA"], (int)dr["NumeroCodigoSF"]));
+                        familia.SubFamilias.Add(new SubFamilia(dr.IsDBNull(dr.GetOrdinal("FamiliaCod")) ? "" : (string)dr["FamiliaCod"], dr.IsDBNull(dr.GetOrdinal("CodSubFamilia")) ? "" : (string)dr["CodSubFamilia"], dr.IsDBNull(dr.GetOrdinal("Nombre")) ? "" : (string)dr["Nombre"], dr.IsDBNull(dr.GetOrdinal("Imagen")) ? "" : (string)dr["Imagen"], dr.IsDBNull(dr.GetOrdinal("IVA")) ? -1 : (int)dr["IVA"], dr.IsDBNull(dr.GetOrdinal("NumeroCodigoSF")) ? -1 : (int)dr["NumeroCodigoSF"]));
                         if (!dr.Read())
                         {
                             fin = true;
@@ -55,12 +55,14 @@ namespace CapaDatos
         }
 
 
-        public List<Producto> getProductos(string codSubfamilia)
+        public List<Producto> getProductos(string codFamilia, string codSubfamilia)
         {
             List<Producto> productos = new List<Producto>();
-            string sql = "SELECT * FROM Registro WHERE Registro.CodSubFamilia = @codSubFamilia";//WTF ¿Registro??????
+            string sql = "SELECT * FROM Registro WHERE Registro.CodFamilia = @codFamilia AND Registro.CodSubFamilia = @codSubFamilia";
+
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
+            cmd.Parameters.AddWithValue("@codFamilia", codFamilia);
             cmd.Parameters.AddWithValue("@codSubFamilia", codSubfamilia);
             try
             {
@@ -92,7 +94,7 @@ namespace CapaDatos
         public List<Producto> getProductosFamilia(string codFamilia)
         {
             List<Producto> productos = new List<Producto>();
-            string sql = "SELECT Registro.CodigoArticulo, Registro.Descripcion, Registro.TallaPesoLitros, Registro.Stock, Registro.StockMinima, Registro.EmpleadoId, Registro.LugarId, Registro.CodFamilia, Registro.CodSubFamilia, Registro.NumeroVenta, Registro.RecogidaId, Registro.FechaEntrada, Registro.Coste FROM (Familia INNER JOIN SubFamilia ON Familia.CodFamilia = SubFamilia.FamiliaCod) INNER JOIN Registro ON SubFamilia.FamiliaCod = Registro.CodFamilia AND SubFamilia.CodSubFamilia = Registro.CodSubFamilia WHERE Familia.CodFamilia = @codFamilia";
+            string sql = "SELECT Registro.CodigoArticulo, Registro.Descripcion, Registro.TallaPesoLitros, Registro.Stock, Registro.StockMinima, Registro.EmpleadoId, Registro.LugarId, Registro.CodFamilia, Registro.CodSubFamilia, Registro.NumeroVenta, Registro.RecogidaId, Registro.FechaEntrada, Registro.Coste FROM Registro WHERE Registro.CodFamilia = @codFamilia";
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
             cmd.Parameters.AddWithValue("@codFamilia", codFamilia);
@@ -224,7 +226,7 @@ namespace CapaDatos
         public List<Producto> getProdsPorDescripcion(string desc)
         {
             List<Producto> productos = new List<Producto>();
-            string sql = "SELECT * FROM Registro WHERE Registro.Descripcion = @desc"; //WTF ¿Registro??????
+            string sql = "SELECT * FROM Registro WHERE Registro.Descripcion = @desc";
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
             cmd.Parameters.AddWithValue("@desc", desc);
@@ -297,21 +299,28 @@ namespace CapaDatos
 
         public void insertarProductos(List<Producto> productos)
         {
-            string sql = "INSERT INTO Registro(CodigoArticulo, Descripcion, TallaPesoLitro, Stock, EmpleadoId, RecogidaId) VALUES (@codArt, @desc, @medida, @stock, @empleadoid, @recogidaid)";
+            string sql = "INSERT INTO Registro(CodigoArticulo, Descripcion, TallaPesoLitro, Stock, EmpleadoId, RecogidaId, Coste, FechaEntrada, CodFamilia, CodSubFamilia) VALUES (@codArt, @desc, @medida, @stock, @empleadoid, @recogidaid, @coste, @fechaentrada, @codfam, @codsubfam)";
+
+            //faltan los datos de lugar porque no está hecho el form y eso
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
             try
             {
-               conTabla.Open();
+                conTabla.Open();
 
-               foreach(Producto p in productos)
-               {
+                foreach (Producto p in productos)
+                {
                     cmd.Parameters.AddWithValue("@codArt", p.CodigoArticulo);
                     cmd.Parameters.AddWithValue("@desc", p.Descripcion);
                     cmd.Parameters.AddWithValue("@medida", p.Medida);
                     cmd.Parameters.AddWithValue("@stock", p.Stock);
                     cmd.Parameters.AddWithValue("@empleadoid", p.EmpleadoId);
                     cmd.Parameters.AddWithValue("@recogidaid", p.RecogidaId);
+                    cmd.Parameters.AddWithValue("@coste", p.Coste);
+                    cmd.Parameters.AddWithValue("@fechaentrada", p.FechaEntrada);
+                    cmd.Parameters.AddWithValue("@codfam", p.CodFamilia);
+                    cmd.Parameters.AddWithValue("@codsubfam", p.CodSubFamilia);
+
                     cmd.ExecuteNonQuery();
                 }
             }

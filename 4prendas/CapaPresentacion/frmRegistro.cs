@@ -51,8 +51,10 @@ namespace CapaPresentacion
             producto.EmpleadoId = int.Parse(nudEmpleado.Text);
             producto.FechaEntrada = DateTime.Now;
             producto.RecogidaId = int.Parse(nudNumRecogida.Text);
-            string codsubfamilia = producto.CodigoArticulo.Substring(8, 10);
-            producto.CodFamilia = codsubfamilia;
+            string codfamilia = producto.CodigoArticulo.Substring(8, 10);
+            producto.CodFamilia = codfamilia;
+            string codsubfamilia = producto.CodigoArticulo.Substring(10, 12);
+            producto.CodSubFamilia = codsubfamilia;
             productos.Add(producto);
             refreshDgv();
         }
