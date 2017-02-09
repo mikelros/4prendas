@@ -65,7 +65,7 @@ namespace CapaPresentacion
 
                 }
             }
-            //employee = negocio.getEmpleado(nudCreateNumEmployee);
+            employee = negocio.getEmployee(nudCreateNumEmployee);
             if (employee == null)
             {
                 lblCreateExistingNumberError.Show();

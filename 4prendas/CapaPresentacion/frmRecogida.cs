@@ -73,9 +73,15 @@ namespace CapaPresentacion
                 e.Handled = true;
                 return;
             }
-            int employerNum;
             if ((int)e.KeyChar == (int)Keys.Enter)
             {
+                chargeEmployer();
+            }
+        }
+
+        private void chargeEmployer()
+        {
+            int employerNum;
                 if (!int.TryParse(txtEmployer.Text, out employerNum))
                 {
                     lblEmployerPassError.Show();
@@ -95,7 +101,7 @@ namespace CapaPresentacion
                 //    lblEmployerPassError.Hide();
                 //    pboEmployer.BackgroundImage = employer.image;
                 //}
-            }
+            
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -112,6 +118,11 @@ namespace CapaPresentacion
                 e.Handled = true;
                 return;
             }
+        }
+
+        private void chargeEmployer(object sender, EventArgs e)
+        {
+            chargeEmployer();
         }
     }
 }

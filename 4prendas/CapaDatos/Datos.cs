@@ -54,6 +54,41 @@ namespace CapaDatos
             }
         }
 
+        public Empleado getEmpleados(int employeeNum)
+        {
+            Empleado empleado = new Empleado();
+            //AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+            //Hay que poner bien la sentencia SQL, justo   AQUI No se si es ese campo, Empleado.numero digo, Luego lo miro.
+            //                                              ||
+            //                                              \/
+            string sql = "SELECT * FROM Empleado where Empleado.numero = @numEmployee";
+            OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
+            OleDbCommand cmd = new OleDbCommand(sql, conTabla);
+            cmd.Parameters.AddWithValue("@numEmployee", employeeNum);
+            try
+            {
+                conTabla.Open();
+                OleDbDataReader dr = cmd.ExecuteReader();
+                if (!dr.HasRows)
+                {
+                    return empleado; //sale vacía
+                }
+                while (dr.Read())
+                {
+                    empleado = (new Empleado(dr.IsDBNull(dr.GetOrdinal("Nombre")) ? "" : (string)dr["Nombre"], dr.IsDBNull(dr.GetOrdinal("Foto")) ? "" : (string)dr["Foto"]));
+                }
+                return empleado;
+            }
+            catch (Exception ex)
+            {
+                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
+                return null;
+            }
+            finally
+            {
+                conTabla.Close();
+            }
+        }
 
         public List<Producto> getProductos(string codFamilia, string codSubfamilia)
         {
