@@ -54,6 +54,14 @@ namespace CapaDatos
             }
         }
 
+        public void updateProduct(Producto product)
+        {
+            List<Producto> productos = new List<Producto>();
+            productos.Add(product);
+            eliminarProducto(product);
+            insertarProductos(productos);
+        }
+
         public Empleado getEmpleados(int employeeNum)
         {
             Empleado empleado = new Empleado();
@@ -354,6 +362,32 @@ namespace CapaDatos
 
                     cmd.ExecuteNonQuery();
                 }
+            }
+            catch (Exception ex)
+            {
+                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
+            }
+            finally
+            {
+                conTabla.Close();
+            }
+        }
+
+        public void eliminarProducto(Producto producto)
+        {
+            string sql = "Delete * FROM Registro where registro.CodigoArticulo = @codArt";
+
+            //faltan los datos de lugar porque no está hecho el form y eso
+            OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
+            OleDbCommand cmd = new OleDbCommand(sql, conTabla);
+            try
+            {
+                conTabla.Open();
+                
+                    cmd.Parameters.AddWithValue("@codArt", producto.CodigoArticulo);
+
+                    cmd.ExecuteNonQuery();
+                
             }
             catch (Exception ex)
             {

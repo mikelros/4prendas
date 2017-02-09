@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CapaEntidades;
+using CapaNegocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +14,9 @@ namespace CapaPresentacion
 {
     public partial class frmRecogida : Form
     {
-        //Employer employer;
+        string mydocpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        Empleado employee;
+        Negocio negocio = new Negocio();
         public frmRecogida()
         {
             InitializeComponent();
@@ -21,46 +25,23 @@ namespace CapaPresentacion
 
         private void frmRecogida_Load(object sender, EventArgs e)
         {
-            lblCollectionNumError.Hide();
-            lblEmployerPassError.Hide();
-            lblQuantityError.Hide();
+            lblEmployeePassError.Hide();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            txtEmployer.Text = "";
-            txtCollectionNum.Text = "";
-            txtQuantity.Text = "";
             txtGivingPerson.Text = "";
-            pboEmployer.BackgroundImage = null;
-            //employer = null;
+            pboEmployee.BackgroundImage = null;
+            lblEmployeePassError.Hide();
+            employee = null;
         }
 
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            int quantity;
-            int collectionNum;
-            if (!int.TryParse(txtCollectionNum.Text, out collectionNum))
-            {
-                lblCollectionNumError.Show();
-                return;
-            }
-            else
-            {
-                lblCollectionNumError.Hide();
-            }
-            if (!int.TryParse(txtQuantity.Text, out quantity))
-            {
-                lblQuantityError.Show();
-                return;
-            }
-            else
-            {
-                lblQuantityError.Hide();
-            }
 
-            //datos.realizarRecogida(employer,collectionNum, quantity, txtGivingPerson.Text)
+            //Recogida recogida = new Recogida(new DateTime(), nudEmployee.Value, nudQuantity.Value, txtGivingPerson.Text);
+            //negocio.realizarRecogida(recogida);
 
 
         }
@@ -82,26 +63,31 @@ namespace CapaPresentacion
         private void chargeEmployer()
         {
             int employerNum;
-                if (!int.TryParse(txtEmployer.Text, out employerNum))
+                if (!int.TryParse(nudEmployee.Text, out employerNum))
                 {
-                    lblEmployerPassError.Show();
+                    lblEmployeePassError.Show();
                     return;
                 }
                 else
                 {
-                    lblEmployerPassError.Hide();
+                    lblEmployeePassError.Hide();
                 }
-                //employer = datos.getEmployer(numEmployer)
-                //if (employer = null)
-                //{
-                //    lblEmployerPassError.Show();
-                //    return;
-                //}else
-                //{
-                //    lblEmployerPassError.Hide();
-                //    pboEmployer.BackgroundImage = employer.image;
-                //}
-            
+            employee = negocio.getEmployee(int.Parse(nudEmployee.Value.ToString()));
+                if (employee.Nombre == null)
+            {
+                lblEmployeePassError.Text = "Empleado no encontrado!!";
+                lblEmployeePassError.Show();
+                return;
+            }
+            else
+            {
+                lblEmployeePassError.Hide();
+                if (System.IO.File.Exists(mydocpath + employee.Foto))
+                {
+                    pboEmployee.Image = new System.Drawing.Bitmap(mydocpath + employee.Foto);
+                }
+            }
+
         }
 
         private void btnBack_Click(object sender, EventArgs e)

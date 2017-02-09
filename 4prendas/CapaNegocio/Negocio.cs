@@ -18,7 +18,7 @@ namespace CapaNegocio
         }
         public void InsertarProductos(List<Producto> productos)
         {
-            //return datos.InsertarProductos(productos);
+            datos.insertarProductos(productos);
         }
 
         public List<Familia> getFamiliasSubfamilias()
@@ -74,6 +74,11 @@ namespace CapaNegocio
         public Empleado getEmployee(int employeeNum)
         {
             return datos.getEmpleados(employeeNum);
+        }
+
+        public void updateProduct(Producto product)
+        {
+            datos.updateProduct(product);
         }
     }
 

@@ -336,7 +336,7 @@ namespace CapaPresentacion
 
            
                 product.Medida = txtEditProductSize.Text;
-            //negocio.updateProduct(product);
+            negocio.updateProduct(product);
 
         }
 
