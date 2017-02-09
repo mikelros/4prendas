@@ -75,15 +75,15 @@ namespace CapaPresentacion
             {
                 lblCreateExistingNumberError.Hide();
             }
-            //string msg = negocio.createEmployee(txtCreateName.Text, nudCreateNumEmployee, txtCreatePhoto.Text);
-            //if (msg == "")
-            //{
-            //    MessageBox.Show("El empleado " + txtCreateName.Text + " se ha creado correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //}
-            //else
-            //{
-            //    MessageBox.Show(msg, "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            //}
+            string msg = negocio.createEmployee(txtCreateName.Text, txtCreatePhoto.Text); //No he puesto el numero de Id, se supone que es autonumerico...
+            if (msg == "")
+            {
+                MessageBox.Show("El empleado " + txtCreateName.Text + " se ha creado correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show(msg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
             employee = null;
         }
 

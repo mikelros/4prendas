@@ -369,5 +369,31 @@ namespace CapaDatos
             }
         }
 
+        public string createEmployee(string name, string photo) //Id autonumerico...
+        {
+            string sql = "INSERT INTO Empleado(Nombre, Foto) VALUES (@name, @photo)";
+
+            OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
+            OleDbCommand cmd = new OleDbCommand(sql, conTabla);
+            cmd.Parameters.AddWithValue("@name", name);
+            cmd.Parameters.AddWithValue("@photo", photo);
+            try
+            {
+                conTabla.Open();
+                cmd.ExecuteNonQuery();
+                return "";
+
+            }
+            catch (Exception ex)
+            {
+                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
+                return "Database error: " + ex.Message;
+            }
+            finally
+            {
+                conTabla.Close();
+            }
+        }
+
     }
 }

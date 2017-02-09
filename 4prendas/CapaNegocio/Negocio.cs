@@ -61,6 +61,11 @@ namespace CapaNegocio
             datos.insertarProductos(productos);
         }
 
+        public String createEmployee(string name, string photo) //Id autonumerico...
+        {
+            return datos.createEmployee(name, photo);
+        }
+
         public Empleado getEmployee(int employeeNum)
         {
             return datos.getEmpleados(employeeNum);
