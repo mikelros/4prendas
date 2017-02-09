@@ -61,6 +61,10 @@ namespace CapaNegocio
             datos.insertarProductos(productos);
         }
 
+        public Empleado getEmployee(int employeeNum)
+        {
+            return datos.getEmpleados(employeeNum);
+        }
     }
 
 }
