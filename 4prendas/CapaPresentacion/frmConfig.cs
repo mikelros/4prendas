@@ -137,6 +137,27 @@ namespace CapaPresentacion
             {
                 lblDeleteError.Hide();
                 negocio.deleteEmployee(employee.EmpleadoId);
+                deleteEmployeePhoto(employee.Foto);
+            }
+        }
+
+        private void deleteEmployeePhoto(string photo)
+        {
+            // Delete a file by using File class static method...
+            if (System.IO.File.Exists(mydocpath + photo))
+            {
+                // Use a try block to catch IOExceptions, to
+                // handle the case of the file already being
+                // opened by another process.
+                try
+                {
+                    System.IO.File.Delete(mydocpath + photo);
+                }
+                catch (System.IO.IOException e)
+                {
+                    Console.WriteLine(e.Message);
+                    return;
+                }
             }
         }
 

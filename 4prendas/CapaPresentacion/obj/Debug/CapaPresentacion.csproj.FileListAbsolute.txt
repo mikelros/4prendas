@@ -116,3 +116,4 @@ D:\Davo\4prendas\4prendas\CapaPresentacion\obj\Debug\CapaPresentacion.Properties
 D:\Davo\4prendas\4prendas\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.GenerateResource.Cache
 D:\Davo\4prendas\4prendas\CapaPresentacion\obj\Debug\CapaPresentacion.exe
 D:\Davo\4prendas\4prendas\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
+C:\Users\Asrield\Source\Repos\4prendas5\4prendas\CapaPresentacion\bin\Debug\CapaPresentacion.exe.config
