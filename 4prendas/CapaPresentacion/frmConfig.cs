@@ -38,7 +38,7 @@ namespace CapaPresentacion
             shopMode = "clothes";
         }
 
-        private void btnCreate_Click(object sender, EventArgs e)
+        private void btnCreate_Click(object sender, EventArgs e) //Probar
         {
             if (txtCreateName.Text.Equals("") || nudCreateNumEmployee.Text.Equals("") || txtCreatePhoto.Text.Equals(""))
             {
@@ -127,7 +127,7 @@ namespace CapaPresentacion
 
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void btnDelete_Click(object sender, EventArgs e) //Probar
         {
             if (employee == null)
             {
@@ -136,7 +136,7 @@ namespace CapaPresentacion
             else
             {
                 lblDeleteError.Hide();
-                //negocio.deleteEmployee(employee.Id);
+                negocio.deleteEmployee(employee.EmpleadoId);
             }
         }
 
@@ -196,11 +196,10 @@ namespace CapaPresentacion
             deleteCancel();
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e) //Probarlo
         {
-
-
-            //employee = negocio.getEmpleado(nudDeleteNumEmployee);
+            
+            employee = negocio.getEmployee((int)nudDeleteNumEmployee.Value);
             if (employee == null)
             {
                 lblEmployeeNoExistError.Show();

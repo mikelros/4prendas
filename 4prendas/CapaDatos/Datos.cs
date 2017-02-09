@@ -57,11 +57,7 @@ namespace CapaDatos
         public Empleado getEmpleados(int employeeNum)
         {
             Empleado empleado = new Empleado();
-            //AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
-            //Hay que poner bien la sentencia SQL, justo   AQUI No se si es ese campo, Empleado.numero digo, Luego lo miro.
-            //                                              ||
-            //                                              \/
-            string sql = "SELECT * FROM Empleado where Empleado.numero = @numEmployee";
+            string sql = "SELECT * FROM Empleado WHERE IdEmpleado = @numEmployee";
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
             cmd.Parameters.AddWithValue("@numEmployee", employeeNum);
@@ -388,6 +384,29 @@ namespace CapaDatos
             {
                 //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
                 return "Database error: " + ex.Message;
+            }
+            finally
+            {
+                conTabla.Close();
+            }
+        }
+
+        public void deleteEmployee(int id)
+        {
+            string sql = "DELETE FROM Empleado WHERE IdEmpledo = @id";
+
+            OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
+            OleDbCommand cmd = new OleDbCommand(sql, conTabla);
+            cmd.Parameters.AddWithValue("@id", id);
+            try
+            {
+                conTabla.Open();
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
             }
             finally
             {
