@@ -17,6 +17,7 @@ namespace CapaPresentacion
     {
         Empleado employee;
         Negocio negocio = new Negocio();
+        Producto product;
 
         string mydocpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         string shopMode;
@@ -287,22 +288,88 @@ namespace CapaPresentacion
 
         private void btnUpdatePorduct_Click(object sender, EventArgs e)
         {
+            
+            
+                product.Stock = int.Parse(nudEditProductStock.Value.ToString());
+
+             
+                product.StockMinimo = int.Parse(nudEditProductMinStock.Value.ToString());
+
+            
+
+                product.Coste = float.Parse(nudEditProductCost.Value.ToString());
+
+
+            product.EmpleadoId = int.Parse(nudEditProductEmployerId.Value.ToString()) ;
+        
+             
+                product.Descripcion = txtEditProductDescription.Text;
+
+             
+                product.CodFamilia = txtEditProductFamilyCode.Text;
+
+            
+                product.LugarId = int.Parse(nudEditProductPlaceId.Value.ToString());
+
+             
+                product.RecogidaId = int.Parse(nudEditProductCollectionId.Value.ToString());
+
+           
+                product.Medida = txtEditProductSize.Text;
+            //negocio.updateProduct(product);
 
         }
 
         private void btnUpdateCancel_Click(object sender, EventArgs e)
         {
+            txtEditProductCode.Text = "";
+            nudEditProductStock.Value = 0;
+            nudEditProductMinStock.Value = 0;
+            nudEditProductCost.Value = 0;
+            nudEditProductEmployerId.Value = 0;
+            txtEditProductDescription.Text = "";
+            txtEditProductFamilyCode.Text = "";
+            nudEditProductPlaceId.Text = "";
+            nudEditProductCollectionId.Text = "";
+            txtEditProductSize.Text = "";
+            product = null;
 
         }
 
         private void searchProduct(object sender, EventArgs e)
         {
-            //Producto product = negocio.getProdsPorCodigoArticulo(txtEditProductCode.Text);
+            searchProduct();
+        }
+        private void searchProduct()
+        {
+
+            product = negocio.getProdsPorCodigoArticulo(txtEditProductCode.Text).First<Producto>();
+            if (product == null)
+            {
+                lblCodeNotFoundMinStockError.Show();
+            }
+            else
+            {
+                lblCodeNotFoundMinStockError.Hide();
+                nudEditProductStock.Value = product.Stock;
+                nudEditProductMinStock.Value = product.StockMinimo;
+                nudEditProductCost.Value = int.Parse(product.Coste.ToString());
+                nudEditProductEmployerId.Value = product.EmpleadoId;
+                txtEditProductDescription.Text = product.Descripcion;
+                txtEditProductFamilyCode.Text = product.CodFamilia;
+                nudEditProductPlaceId.Value = product.LugarId;
+                nudEditProductCollectionId.Value = product.RecogidaId;
+                txtEditProductSize.Text = product.Medida;
+
+            }
         }
 
         private void txtEditProductCode_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                searchProduct();
+            }
         }
     }
 }

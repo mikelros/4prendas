@@ -65,9 +65,7 @@
             this.lblCoste = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtEditProductPlaceId = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtEditProductCollectionId = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -85,6 +83,8 @@
             this.btnCopy = new System.Windows.Forms.Button();
             this.btnApply = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.nudEditProductCollectionId = new System.Windows.Forms.NumericUpDown();
+            this.nudEditProductPlaceId = new System.Windows.Forms.NumericUpDown();
             this.grbType.SuspendLayout();
             this.grbNewEmployer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCreateNumEmployee)).BeginInit();
@@ -95,6 +95,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudEditProductStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEditProductMinStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEditProductEmployerId)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEditProductCollectionId)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEditProductPlaceId)).BeginInit();
             this.SuspendLayout();
             // 
             // rbtnFood
@@ -131,7 +133,7 @@
             this.grbType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbType.Location = new System.Drawing.Point(135, 139);
             this.grbType.Name = "grbType";
-            this.grbType.Size = new System.Drawing.Size(203, 242);
+            this.grbType.Size = new System.Drawing.Size(129, 242);
             this.grbType.TabIndex = 12;
             this.grbType.TabStop = false;
             this.grbType.Text = "Tipo Tienda";
@@ -408,6 +410,8 @@
             // grbEditProduct
             // 
             this.grbEditProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.grbEditProduct.Controls.Add(this.nudEditProductPlaceId);
+            this.grbEditProduct.Controls.Add(this.nudEditProductCollectionId);
             this.grbEditProduct.Controls.Add(this.label15);
             this.grbEditProduct.Controls.Add(this.nudEditProductCost);
             this.grbEditProduct.Controls.Add(this.nudEditProductStock);
@@ -417,9 +421,7 @@
             this.grbEditProduct.Controls.Add(this.lblCoste);
             this.grbEditProduct.Controls.Add(this.label8);
             this.grbEditProduct.Controls.Add(this.label11);
-            this.grbEditProduct.Controls.Add(this.txtEditProductPlaceId);
             this.grbEditProduct.Controls.Add(this.label9);
-            this.grbEditProduct.Controls.Add(this.txtEditProductCollectionId);
             this.grbEditProduct.Controls.Add(this.label4);
             this.grbEditProduct.Controls.Add(this.label14);
             this.grbEditProduct.Controls.Add(this.label7);
@@ -521,13 +523,6 @@
             this.label11.TabIndex = 22;
             this.label11.Text = "Id Recogida";
             // 
-            // txtEditProductPlaceId
-            // 
-            this.txtEditProductPlaceId.Location = new System.Drawing.Point(237, 143);
-            this.txtEditProductPlaceId.Name = "txtEditProductPlaceId";
-            this.txtEditProductPlaceId.Size = new System.Drawing.Size(95, 21);
-            this.txtEditProductPlaceId.TabIndex = 23;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -537,13 +532,6 @@
             this.label9.Size = new System.Drawing.Size(101, 18);
             this.label9.TabIndex = 22;
             this.label9.Text = "Id Empleado";
-            // 
-            // txtEditProductCollectionId
-            // 
-            this.txtEditProductCollectionId.Location = new System.Drawing.Point(76, 188);
-            this.txtEditProductCollectionId.Name = "txtEditProductCollectionId";
-            this.txtEditProductCollectionId.Size = new System.Drawing.Size(95, 21);
-            this.txtEditProductCollectionId.TabIndex = 21;
             // 
             // label4
             // 
@@ -733,6 +721,20 @@
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // nudEditProductCollectionId
+            // 
+            this.nudEditProductCollectionId.Location = new System.Drawing.Point(74, 188);
+            this.nudEditProductCollectionId.Name = "nudEditProductCollectionId";
+            this.nudEditProductCollectionId.Size = new System.Drawing.Size(98, 21);
+            this.nudEditProductCollectionId.TabIndex = 28;
+            // 
+            // nudEditProductPlaceId
+            // 
+            this.nudEditProductPlaceId.Location = new System.Drawing.Point(238, 143);
+            this.nudEditProductPlaceId.Name = "nudEditProductPlaceId";
+            this.nudEditProductPlaceId.Size = new System.Drawing.Size(98, 21);
+            this.nudEditProductPlaceId.TabIndex = 29;
+            // 
             // frmConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -764,6 +766,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudEditProductStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEditProductMinStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEditProductEmployerId)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEditProductCollectionId)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEditProductPlaceId)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -811,10 +815,8 @@
         private System.Windows.Forms.Label Medida;
         private System.Windows.Forms.TextBox txtEditProductSize;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtEditProductPlaceId;
         private System.Windows.Forms.Label lblCoste;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtEditProductCollectionId;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtEditProductFamilyCode;
@@ -826,5 +828,7 @@
         private System.Windows.Forms.NumericUpDown nudEditProductStock;
         private System.Windows.Forms.NumericUpDown nudEditProductMinStock;
         private System.Windows.Forms.NumericUpDown nudEditProductEmployerId;
+        private System.Windows.Forms.NumericUpDown nudEditProductPlaceId;
+        private System.Windows.Forms.NumericUpDown nudEditProductCollectionId;
     }
 }
