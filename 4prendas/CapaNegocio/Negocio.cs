@@ -26,10 +26,10 @@ namespace CapaNegocio
             return datos.getFamiliasSubfamilias();
         }
 
-        public List<Producto> getProductos(string codSubfamilia)
-        {
-            return datos.getProductos(codSubfamilia);
-        }
+        //public List<Producto> getProductos(string codSubfamilia)
+        //{
+        //    return datos.getProductos(codSubfamilia);
+        //}
 
         public Administrador getAdministrador(string user, string pass)
         {
