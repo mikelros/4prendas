@@ -21,6 +21,7 @@ namespace CapaPresentacion
 
         string mydocpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         string shopMode;
+        bool changes;
 
         public frmConfig()
         {
@@ -31,16 +32,18 @@ namespace CapaPresentacion
         private void rbtnFood_CheckedChanged(object sender, EventArgs e)
         {
             shopMode = "food";
+            changes = true;
         }
 
         private void rbtnClothes_CheckedChanged(object sender, EventArgs e)
         {
             shopMode = "clothes";
+            changes = true;
         }
 
         private void btnCreate_Click(object sender, EventArgs e) //Probar
         {
-            if (txtCreateName.Text.Equals("") || nudCreateNumEmployee.Text.Equals("") || txtCreatePhoto.Text.Equals(""))
+            if (txtCreateName.Text.Equals("")  || txtCreatePhoto.Text.Equals(""))
             {
                 lblCreateError.Show();
                 return;
@@ -64,16 +67,6 @@ namespace CapaPresentacion
                     Picture.Save(NombreArchivo + ".jpeg", System.Drawing.Imaging.ImageFormat.Jpeg);
 
                 }
-            }
-            employee = negocio.getEmployee((int)nudCreateNumEmployee.Value);
-            if (employee == null)
-            {
-                lblCreateExistingNumberError.Show();
-                return;
-            }
-            else
-            {
-                lblCreateExistingNumberError.Hide();
             }
             string msg = negocio.createEmployee(txtCreateName.Text, txtCreatePhoto.Text); //No he puesto el numero de Id, se supone que es autonumerico...
             if (msg == "")
@@ -145,14 +138,14 @@ namespace CapaPresentacion
         private void deleteEmployeePhoto(string photo)
         {
             // Delete a file by using File class static method...
-            if (System.IO.File.Exists(mydocpath + photo))
+            if (System.IO.File.Exists(photo))
             {
                 // Use a try block to catch IOExceptions, to
                 // handle the case of the file already being
                 // opened by another process.
                 try
                 {
-                    System.IO.File.Delete(mydocpath + photo);
+                    System.IO.File.Delete(photo);
                 }
                 catch (System.IO.IOException e)
                 {
@@ -172,8 +165,7 @@ namespace CapaPresentacion
             lblDeleteError.Hide();
             lblCreateError.Hide();
             lblEmployeeNoExistError.Hide();
-
-            lblCreateExistingNumberError.Hide();
+            
 
 
             nudEditProductStock.Maximum  = int.MaxValue;
@@ -211,6 +203,7 @@ namespace CapaPresentacion
             {
                 MessageBox.Show("Error al cargar el archivo de configuración!!! " + "" + "Se cargara la configuración por defecto", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 shopMode = "food";
+                saveShopMode();
             }
             if (shopMode == "food")
             {
@@ -285,6 +278,17 @@ namespace CapaPresentacion
             Form frmMenu = new frmMenu();
             frmMenu.Show();
             this.Close();
+            if (changes)
+            {
+                DialogResult result = MessageBox.Show("As realizado cambios " + "\n" + "¿Desea guardar los cambios?", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    saveShopMode();
+                }else if(result == DialogResult.Cancel)
+                {
+                    return;
+                }
+            }
         }
 
         private void btnCopy_Click(object sender, EventArgs e)
