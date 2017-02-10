@@ -75,6 +75,7 @@ namespace CapaNegocio
         {
             datos.updateProduct(product);
         }
+
     }
 
 }
