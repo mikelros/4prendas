@@ -72,33 +72,6 @@ namespace CapaPresentacion
             cmbEmpleado.DisplayMember = "empleadoId";
         }
 
-        private void btnTestNext_Click(object sender, EventArgs e)
-        {
-            (new frmLoginAdmin()).Show();
-        }
-
-        private void btnIRALOGINADMIN_Click(object sender, EventArgs e)
-        {
-            Form frm = new frmLoginAdmin();
-            frm.Show();
-        }
-
-        private void btnIRACONFIG_Click(object sender, EventArgs e)
-        {
-            Form frm = new frmConfig();
-            frm.Show();
-        }
-        private void btnIRARECOGIDA_Click(object sender, EventArgs e)
-        {
-            Form frm = new frmRecogida();
-            frm.Show();
-        }
-        private void btnIRAREGISTRO_Click(object sender, EventArgs e)
-        {
-            Form frm = new frmRegistro();
-            frm.Show();
-        }
-
         private void cmbEmpleado_SelectedIndexChanged(object sender, EventArgs e)
         {
             lblWorkerName.Text = ((Empleado)cmbEmpleado.SelectedItem).Nombre;
