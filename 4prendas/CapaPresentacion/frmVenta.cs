@@ -101,8 +101,14 @@ namespace CapaPresentacion
 
         private void cmbEmpleado_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //lblWorkerName = Negocio.getWorkerName();
-            //imgWorker.Image = Negocio.getWorkerImage();
+            lblWorkerName.Text = ((Empleado)cmbEmpleado.SelectedItem).Nombre;
+            if (System.IO.File.Exists(((Empleado)cmbEmpleado.SelectedItem).Foto))
+            {
+                imgWorker.Image = new System.Drawing.Bitmap(((Empleado)cmbEmpleado.SelectedItem).Foto);
+            }else
+            {
+                imgWorker.Image = CapaPresentacion.Properties.Resources.newsle_empty_icon;
+            }
         }
 
         private void btnCalculator_Click(object sender, EventArgs e)

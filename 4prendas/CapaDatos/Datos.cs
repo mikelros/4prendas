@@ -211,7 +211,8 @@ namespace CapaDatos
                 }
                 while (dr.Read())
                 {
-                    empleados.Add(new Empleado(dr.IsDBNull(dr.GetOrdinal("Nombre")) ? "" : (string)dr["Nombre"], dr.IsDBNull(dr.GetOrdinal("Foto")) ? "" : (string)dr["Foto"]));
+                    empleados.Add(new Empleado(dr.GetInt32(0),dr.IsDBNull(dr.GetOrdinal("Nombre")) ? "" : (string)dr["Nombre"], dr.IsDBNull(dr.GetOrdinal("Foto")) ? "" : (string)dr["Foto"]));
+                    
                 }
                 return empleados;
             }
