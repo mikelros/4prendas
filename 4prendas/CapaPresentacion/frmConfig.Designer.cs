@@ -46,7 +46,6 @@
             this.nudDeleteNumEmployee = new System.Windows.Forms.NumericUpDown();
             this.lblDeleteError = new System.Windows.Forms.Label();
             this.lblEmployeeNoExistError = new System.Windows.Forms.Label();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.lblDeleteName = new System.Windows.Forms.Label();
             this.btnDeleteCancel = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -171,9 +170,9 @@
             this.lblCreateError.ForeColor = System.Drawing.Color.Red;
             this.lblCreateError.Location = new System.Drawing.Point(6, 334);
             this.lblCreateError.Name = "lblCreateError";
-            this.lblCreateError.Size = new System.Drawing.Size(181, 15);
+            this.lblCreateError.Size = new System.Drawing.Size(170, 15);
             this.lblCreateError.TabIndex = 18;
-            this.lblCreateError.Text = "Rellena todos los campos!!";
+            this.lblCreateError.Text = "Debes poner un nombre!!";
             // 
             // bntCreateCancel
             // 
@@ -257,7 +256,6 @@
             this.grbDeleteEmployer.Controls.Add(this.nudDeleteNumEmployee);
             this.grbDeleteEmployer.Controls.Add(this.lblDeleteError);
             this.grbDeleteEmployer.Controls.Add(this.lblEmployeeNoExistError);
-            this.grbDeleteEmployer.Controls.Add(this.btnSearch);
             this.grbDeleteEmployer.Controls.Add(this.lblDeleteName);
             this.grbDeleteEmployer.Controls.Add(this.btnDeleteCancel);
             this.grbDeleteEmployer.Controls.Add(this.btnDelete);
@@ -275,8 +273,9 @@
             // 
             this.nudDeleteNumEmployee.Location = new System.Drawing.Point(9, 53);
             this.nudDeleteNumEmployee.Name = "nudDeleteNumEmployee";
-            this.nudDeleteNumEmployee.Size = new System.Drawing.Size(126, 21);
+            this.nudDeleteNumEmployee.Size = new System.Drawing.Size(161, 21);
             this.nudDeleteNumEmployee.TabIndex = 20;
+            this.nudDeleteNumEmployee.ValueChanged += new System.EventHandler(this.chargeEmployee);
             this.nudDeleteNumEmployee.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNums);
             // 
             // lblDeleteError
@@ -298,19 +297,6 @@
             this.lblEmployeeNoExistError.Size = new System.Drawing.Size(150, 15);
             this.lblEmployeeNoExistError.TabIndex = 15;
             this.lblEmployeeNoExistError.Text = "Empleado inexistente!";
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.Color.White;
-            this.btnSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearch.BackgroundImage")));
-            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(141, 33);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(46, 41);
-            this.btnSearch.TabIndex = 14;
-            this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // lblDeleteName
             // 
@@ -649,8 +635,8 @@
             this.txtEditProductCode.Name = "txtEditProductCode";
             this.txtEditProductCode.Size = new System.Drawing.Size(97, 21);
             this.txtEditProductCode.TabIndex = 7;
+            this.txtEditProductCode.TextChanged += new System.EventHandler(this.txtEditProductCode_TextChanged);
             this.txtEditProductCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEditProductCode_KeyPress);
-            this.txtEditProductCode.Leave += new System.EventHandler(this.searchProduct);
             // 
             // btnCopy
             // 
@@ -753,7 +739,6 @@
         private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.GroupBox grbDeleteEmployer;
         private System.Windows.Forms.Label lblEmployeeNoExistError;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label lblDeleteName;
         private System.Windows.Forms.Button btnDeleteCancel;
         private System.Windows.Forms.Button btnDelete;
