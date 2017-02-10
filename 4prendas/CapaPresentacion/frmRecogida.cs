@@ -14,7 +14,6 @@ namespace CapaPresentacion
 {
     public partial class frmRecogida : Form
     {
-        string mydocpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         Empleado employee;
         Negocio negocio = new Negocio();
         public frmRecogida()
@@ -34,6 +33,8 @@ namespace CapaPresentacion
             pboEmployee.BackgroundImage = null;
             lblEmployeePassError.Hide();
             employee = null;
+            lblEmployeeName.Text = "";
+            pboEmployee.BackgroundImage = null;
         }
 
 
@@ -56,17 +57,19 @@ namespace CapaPresentacion
             }
             if ((int)e.KeyChar == (int)Keys.Enter)
             {
-                chargeEmployer();
+                chargeEmployee();
             }
         }
 
-        private void chargeEmployer()
+        private void chargeEmployee()
         {
             int employerNum;
                 if (!int.TryParse(nudEmployee.Text, out employerNum))
                 {
                     lblEmployeePassError.Show();
-                    return;
+                lblEmployeeName.Text = "";
+                pboEmployee.BackgroundImage = null;
+                return;
                 }
                 else
                 {
@@ -77,14 +80,18 @@ namespace CapaPresentacion
             {
                 lblEmployeePassError.Text = "Empleado no encontrado!!";
                 lblEmployeePassError.Show();
+                lblEmployeeName.Text = "";
+                pboEmployee.BackgroundImage = null;
                 return;
             }
             else
             {
                 lblEmployeePassError.Hide();
-                if (System.IO.File.Exists(mydocpath + employee.Foto))
+                lblEmployeeName.Text = employee.Nombre;
+                if (System.IO.File.Exists(employee.Foto))
                 {
-                    pboEmployee.Image = new System.Drawing.Bitmap(mydocpath + employee.Foto);
+                    pboEmployee.BackgroundImage = new System.Drawing.Bitmap(employee.Foto);
+                    pboEmployee.BackgroundImageLayout = ImageLayout.Stretch;
                 }
             }
 
@@ -108,7 +115,15 @@ namespace CapaPresentacion
 
         private void chargeEmployer(object sender, EventArgs e)
         {
-            chargeEmployer();
+            chargeEmployee();
+        }
+
+        private void ifEnterSearchEmployee(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                chargeEmployee();
+            }
         }
     }
 }

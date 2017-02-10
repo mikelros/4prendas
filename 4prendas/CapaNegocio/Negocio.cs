@@ -56,11 +56,6 @@ namespace CapaNegocio
             return datos.getProdsPorCodigoArticulo(codigoArticulo);
         }
 
-        public void insertarProductos(List<Producto> productos)
-        {
-            datos.insertarProductos(productos);
-        }
-
         public string createEmployee(string name, string photo) //Id autonumerico...
         {
             return datos.createEmployee(name, photo);

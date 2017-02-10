@@ -46,6 +46,7 @@
             this.lblEmployeePassError = new System.Windows.Forms.Label();
             this.nudEmployee = new System.Windows.Forms.NumericUpDown();
             this.gbRecogida = new System.Windows.Forms.GroupBox();
+            this.lblEmployeeName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pboEmployee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCollectionNum)).BeginInit();
@@ -134,6 +135,7 @@
             // 
             // pboEmployee
             // 
+            this.pboEmployee.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pboEmployee.Location = new System.Drawing.Point(413, 100);
             this.pboEmployee.Name = "pboEmployee";
             this.pboEmployee.Size = new System.Drawing.Size(71, 88);
@@ -213,11 +215,13 @@
             this.nudEmployee.Name = "nudEmployee";
             this.nudEmployee.Size = new System.Drawing.Size(152, 20);
             this.nudEmployee.TabIndex = 64;
+            this.nudEmployee.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ifEnterSearchEmployee);
             this.nudEmployee.Leave += new System.EventHandler(this.chargeEmployer);
             // 
             // gbRecogida
             // 
             this.gbRecogida.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.gbRecogida.Controls.Add(this.lblEmployeeName);
             this.gbRecogida.Controls.Add(this.nudEmployee);
             this.gbRecogida.Controls.Add(this.nudCollectionNum);
             this.gbRecogida.Controls.Add(this.nudQuantity);
@@ -236,6 +240,15 @@
             this.gbRecogida.Size = new System.Drawing.Size(532, 381);
             this.gbRecogida.TabIndex = 65;
             this.gbRecogida.TabStop = false;
+            // 
+            // lblEmployeeName
+            // 
+            this.lblEmployeeName.AutoSize = true;
+            this.lblEmployeeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmployeeName.Location = new System.Drawing.Point(237, 116);
+            this.lblEmployeeName.Name = "lblEmployeeName";
+            this.lblEmployeeName.Size = new System.Drawing.Size(0, 18);
+            this.lblEmployeeName.TabIndex = 65;
             // 
             // frmRecogida
             // 
@@ -280,5 +293,6 @@
         private System.Windows.Forms.Label lblEmployeePassError;
         private System.Windows.Forms.NumericUpDown nudEmployee;
         private System.Windows.Forms.GroupBox gbRecogida;
+        private System.Windows.Forms.Label lblEmployeeName;
     }
 }

@@ -61,7 +61,7 @@ namespace CapaPresentacion
                     string NombreArchivo;
                     NombreArchivo = System.IO.Path.GetFileNameWithoutExtension(txtCreatePhoto.Text);
                     Bitmap Picture = new Bitmap(txtCreatePhoto.Text);
-                    Picture.Save(mydocpath + @NombreArchivo + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                    Picture.Save(NombreArchivo + ".jpeg", System.Drawing.Imaging.ImageFormat.Jpeg);
 
                 }
             }
@@ -84,6 +84,7 @@ namespace CapaPresentacion
             {
                 MessageBox.Show(msg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+            createCancel();
             employee = null;
         }
 
@@ -115,7 +116,7 @@ namespace CapaPresentacion
                     {
                         using (myStream)
                         {
-                            txtCreatePhoto.Text = myStream.ToString();
+                            txtCreatePhoto.Text = openFileDialog1.FileName;
                         }
                     }
                 }
