@@ -34,6 +34,7 @@ namespace CapaPresentacion
             {
                 MessageBox.Show("Usuario o contraseña incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+                (new frmConfig()).Show();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

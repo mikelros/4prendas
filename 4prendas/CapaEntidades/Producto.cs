@@ -45,7 +45,25 @@ namespace CapaEntidades
             this.coste = coste;
             this.codSubFamilia = codSubFamilia;
         }
-        
+
+        public Producto(string codArticulo, string descripcion, string medida, int stock, int stockMinimo, int empleadoId, int lugarId,
+           string codSubFamilia, string codFamilia, int recogidaId, int numeroVenta, DateTime fechaEntrada, float coste)
+        {
+            this.codigoArticulo = codArticulo;
+            this.descripcion = descripcion;
+            this.medida = medida;
+            this.stock = stock;
+            this.stockMinimo = stockMinimo;
+            this.empleadoId = empleadoId;
+            this.lugarId = lugarId;
+            this.codFamilia = codFamilia;
+            this.recogidaId = recogidaId;
+            this.numeroVenta = numeroVenta;
+            this.fechaEntrada = fechaEntrada;
+            this.coste = coste;
+            this.codSubFamilia = codSubFamilia;
+        }
+
         //Todos los campos
         public Producto(string codArticulo, string descripcion, string medida, int stock, int stockMinimo, int empleadoId, int lugarId,
            string codFamilia, int recogidaId, int numeroVenta, DateTime fechaEntrada, int coste)

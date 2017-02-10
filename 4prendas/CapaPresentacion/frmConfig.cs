@@ -17,6 +17,7 @@ namespace CapaPresentacion
     {
         Empleado employee;
         Negocio negocio = new Negocio();
+        Producto product;
 
         string mydocpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         string shopMode;
@@ -37,7 +38,7 @@ namespace CapaPresentacion
             shopMode = "clothes";
         }
 
-        private void btnCreate_Click(object sender, EventArgs e)
+        private void btnCreate_Click(object sender, EventArgs e) //Probar
         {
             if (txtCreateName.Text.Equals("") || nudCreateNumEmployee.Text.Equals("") || txtCreatePhoto.Text.Equals(""))
             {
@@ -60,11 +61,11 @@ namespace CapaPresentacion
                     string NombreArchivo;
                     NombreArchivo = System.IO.Path.GetFileNameWithoutExtension(txtCreatePhoto.Text);
                     Bitmap Picture = new Bitmap(txtCreatePhoto.Text);
-                    Picture.Save(mydocpath + @NombreArchivo + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                    Picture.Save(NombreArchivo + ".jpeg", System.Drawing.Imaging.ImageFormat.Jpeg);
 
                 }
             }
-            //employee = negocio.getEmpleado(nudCreateNumEmployee);
+            employee = negocio.getEmployee((int)nudCreateNumEmployee.Value);
             if (employee == null)
             {
                 lblCreateExistingNumberError.Show();
@@ -74,15 +75,16 @@ namespace CapaPresentacion
             {
                 lblCreateExistingNumberError.Hide();
             }
-            //string msg = negocio.createEmployee(txtCreateName.Text, nudCreateNumEmployee, txtCreatePhoto.Text);
-            //if (msg == "")
-            //{
-            //    MessageBox.Show("El empleado " + txtCreateName.Text + " se ha creado correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //}
-            //else
-            //{
-            //    MessageBox.Show(msg, "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            //}
+            string msg = negocio.createEmployee(txtCreateName.Text, txtCreatePhoto.Text); //No he puesto el numero de Id, se supone que es autonumerico...
+            if (msg == "")
+            {
+                MessageBox.Show("El empleado " + txtCreateName.Text + " se ha creado correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show(msg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            createCancel();
             employee = null;
         }
 
@@ -114,7 +116,7 @@ namespace CapaPresentacion
                     {
                         using (myStream)
                         {
-                            txtCreatePhoto.Text = myStream.ToString();
+                            txtCreatePhoto.Text = openFileDialog1.FileName;
                         }
                     }
                 }
@@ -126,7 +128,7 @@ namespace CapaPresentacion
 
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void btnDelete_Click(object sender, EventArgs e) //Probar
         {
             if (employee == null)
             {
@@ -135,7 +137,28 @@ namespace CapaPresentacion
             else
             {
                 lblDeleteError.Hide();
-                //negocio.deleteEmployee(employee.Id);
+                negocio.deleteEmployee(employee.EmpleadoId);
+                deleteEmployeePhoto(employee.Foto);
+            }
+        }
+
+        private void deleteEmployeePhoto(string photo)
+        {
+            // Delete a file by using File class static method...
+            if (System.IO.File.Exists(mydocpath + photo))
+            {
+                // Use a try block to catch IOExceptions, to
+                // handle the case of the file already being
+                // opened by another process.
+                try
+                {
+                    System.IO.File.Delete(mydocpath + photo);
+                }
+                catch (System.IO.IOException e)
+                {
+                    Console.WriteLine(e.Message);
+                    return;
+                }
             }
         }
 
@@ -148,8 +171,17 @@ namespace CapaPresentacion
 
             lblDeleteError.Hide();
             lblCreateError.Hide();
+            lblEmployeeNoExistError.Hide();
 
             lblCreateExistingNumberError.Hide();
+
+
+            nudEditProductStock.Maximum  = int.MaxValue;
+            nudEditProductMinStock.Maximum = int.MaxValue;
+            nudEditProductCost.Maximum = int.MaxValue;
+            nudEditProductEmployerId.Maximum = int.MaxValue;
+            nudEditProductPlaceId.Maximum = int.MaxValue;
+            nudEditProductCollectionId.Maximum = int.MaxValue;
 
             loadShopMode();
 
@@ -195,11 +227,10 @@ namespace CapaPresentacion
             deleteCancel();
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e) //Probarlo
         {
-
-
-            //employee = negocio.getEmpleado(nudDeleteNumEmployee);
+            
+            employee = negocio.getEmployee((int)nudDeleteNumEmployee.Value);
             if (employee == null)
             {
                 lblEmployeeNoExistError.Show();
@@ -287,22 +318,88 @@ namespace CapaPresentacion
 
         private void btnUpdatePorduct_Click(object sender, EventArgs e)
         {
+            
+            
+                product.Stock = int.Parse(nudEditProductStock.Value.ToString());
+
+             
+                product.StockMinimo = int.Parse(nudEditProductMinStock.Value.ToString());
+
+            
+
+                product.Coste = float.Parse(nudEditProductCost.Value.ToString());
+
+
+            product.EmpleadoId = int.Parse(nudEditProductEmployerId.Value.ToString()) ;
+        
+             
+                product.Descripcion = txtEditProductDescription.Text;
+
+             
+                product.CodFamilia = txtEditProductFamilyCode.Text;
+
+            
+                product.LugarId = int.Parse(nudEditProductPlaceId.Value.ToString());
+
+             
+                product.RecogidaId = int.Parse(nudEditProductCollectionId.Value.ToString());
+
+           
+                product.Medida = txtEditProductSize.Text;
+            negocio.updateProduct(product);
 
         }
 
         private void btnUpdateCancel_Click(object sender, EventArgs e)
         {
+            txtEditProductCode.Text = "";
+            nudEditProductStock.Value = 0;
+            nudEditProductMinStock.Value = 0;
+            nudEditProductCost.Value = 0;
+            nudEditProductEmployerId.Value = 0;
+            txtEditProductDescription.Text = "";
+            txtEditProductFamilyCode.Text = "";
+            nudEditProductPlaceId.Text = "";
+            nudEditProductCollectionId.Text = "";
+            txtEditProductSize.Text = "";
+            product = null;
 
         }
 
         private void searchProduct(object sender, EventArgs e)
         {
-            //Producto product = negocio.getProdsPorCodigoArticulo(txtEditProductCode.Text);
+            searchProduct();
+        }
+        private void searchProduct()
+        {
+
+            product = negocio.getProdsPorCodigoArticulo(txtEditProductCode.Text).First<Producto>();
+            if (product == null)
+            {
+                lblCodeNotFoundMinStockError.Show();
+            }
+            else
+            {
+                lblCodeNotFoundMinStockError.Hide();
+                nudEditProductStock.Value = product.Stock;
+                nudEditProductMinStock.Value = product.StockMinimo;
+                nudEditProductCost.Value = int.Parse(product.Coste.ToString());
+                nudEditProductEmployerId.Value = product.EmpleadoId;
+                txtEditProductDescription.Text = product.Descripcion;
+                txtEditProductFamilyCode.Text = product.CodFamilia;
+                nudEditProductPlaceId.Value = product.LugarId;
+                nudEditProductCollectionId.Value = product.RecogidaId;
+                txtEditProductSize.Text = product.Medida;
+
+            }
         }
 
         private void txtEditProductCode_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                searchProduct();
+            }
         }
     }
 }

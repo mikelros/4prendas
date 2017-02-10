@@ -18,7 +18,7 @@ namespace CapaNegocio
         }
         public void InsertarProductos(List<Producto> productos)
         {
-            //return datos.InsertarProductos(productos);
+            datos.insertarProductos(productos);
         }
 
         public List<Familia> getFamiliasSubfamilias()
@@ -26,9 +26,9 @@ namespace CapaNegocio
             return datos.getFamiliasSubfamilias();
         }
 
-        public List<Producto> getProductos(string codSubfamilia)
+        public List<Producto> getProductos(string codFamilia, string codSubFamilia)
         {
-            return datos.getProductos(codSubfamilia);
+            return datos.getProductos(codFamilia, codSubFamilia);
         }
 
         public Administrador getAdministrador(string user, string pass)
@@ -56,11 +56,25 @@ namespace CapaNegocio
             return datos.getProdsPorCodigoArticulo(codigoArticulo);
         }
 
-        public void insertarProductos(List<Producto> productos)
+        public string createEmployee(string name, string photo) //Id autonumerico...
         {
-            datos.insertarProductos(productos);
+            return datos.createEmployee(name, photo);
         }
 
+        public void deleteEmployee(int id)
+        {
+            datos.deleteEmployee(id);
+        }
+
+        public Empleado getEmployee(int employeeNum)
+        {
+            return datos.getEmpleados(employeeNum);
+        }
+
+        public void updateProduct(Producto product)
+        {
+            datos.updateProduct(product);
+        }
     }
 
 }

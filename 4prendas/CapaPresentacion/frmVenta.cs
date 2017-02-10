@@ -19,6 +19,7 @@ namespace CapaPresentacion
         List<Producto> ProdsStockMinimo;
         List<Empleado> Empleados;
         private List<Familia> familias;
+        private List<Producto> productos;
         public frmVenta()
         {
             InitializeComponent();
@@ -31,7 +32,9 @@ namespace CapaPresentacion
             checkStockMinimo();
             loadWorkersList();
             loadFamilias();
-            //Cargar botones familia(); 
+            makeGboSubFamInvisible();
+            dgvProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
         }
 
         //Al seleccionar familia, cargar subfamilia
@@ -98,8 +101,14 @@ namespace CapaPresentacion
 
         private void cmbEmpleado_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //lblWorkerName = Negocio.getWorkerName();
-            //imgWorker.Image = Negocio.getWorkerImage();
+            lblWorkerName.Text = ((Empleado)cmbEmpleado.SelectedItem).Nombre;
+            if (System.IO.File.Exists(((Empleado)cmbEmpleado.SelectedItem).Foto))
+            {
+                imgWorker.Image = new System.Drawing.Bitmap(((Empleado)cmbEmpleado.SelectedItem).Foto);
+            }else
+            {
+                imgWorker.Image = CapaPresentacion.Properties.Resources.newsle_empty_icon;
+            }
         }
 
         private void btnCalculator_Click(object sender, EventArgs e)
@@ -170,17 +179,23 @@ namespace CapaPresentacion
         private void loadFamilias()
         {
             familias = Modulo.miNegocio.getFamiliasSubfamilias();
-            int cont = gboFamilia.Controls.Count - 1;
-            foreach (Familia f in familias)
+            
+            for(int i = gboFamilia.Controls.Count - 1, j = 0; i >= 0 ; i--, j++)
             {
-                gboFamilia.Controls[cont].Tag = f;
-                gboFamilia.Controls[cont].Text = f.CodFamilia;
-                if (!f.Imagen.Equals("") && File.Exists(f.Imagen))
+                if(j <= familias.Count -1)
                 {
-                    gboFamilia.Controls[cont].BackgroundImage = Image.FromFile(f.Imagen);
+                    Familia f = familias[j];
+                    gboFamilia.Controls[i].Tag = f;
+                    gboFamilia.Controls[i].BackgroundImage = !f.Imagen.Equals("") && File.Exists(f.Imagen) ? Image.FromFile(f.Imagen) : null;
+                    gboFamilia.Controls[i].Text = f.CodFamilia;
+                    gboFamilia.Controls[i].Click += new EventHandler(loadSubfamilias);
+
                 }
-                gboFamilia.Controls[cont].Click += new EventHandler(loadSubfamilias); ;
-                cont--;
+                else
+                {
+                    gboFamilia.Controls[i].Visible = false;
+                }
+                
             }
         }
 
@@ -188,24 +203,38 @@ namespace CapaPresentacion
         {
             Button b = (Button)sender;
             Familia f = (Familia)b.Tag;
-            int cont = gboSubfamilia.Controls.Count - 1;
-            foreach (SubFamilia s in f.SubFamilias)
+
+            for (int i = gboSubfamilia.Controls.Count - 1, j = 0; i >= 0; i--, j++)
             {
-                gboSubfamilia.Controls[cont].Tag = s;
-                gboSubfamilia.Controls[cont].Text = s.CodSubFamilia;
-                if (!s.Imagen.Equals("") && File.Exists(s.Imagen))
+                gboSubfamilia.Controls[i].Visible = false;
+                if (j <= f.SubFamilias.Count - 1)
                 {
-                    gboSubfamilia.Controls[cont].BackgroundImage = Image.FromFile(s.Imagen);
+                    SubFamilia s = f.SubFamilias[j];
+                    gboSubfamilia.Controls[i].Tag = s;
+                    gboSubfamilia.Controls[i].BackgroundImage = !s.Imagen.Equals("") && File.Exists(s.Imagen) ? Image.FromFile(s.Imagen) : null;
+                    gboSubfamilia.Controls[i].Text = s.CodSubFamilia;
+                    gboSubfamilia.Controls[i].Click += new EventHandler(loadProductosSubfam);
+                    gboSubfamilia.Controls[i].Visible = true;
+
                 }
-                gboSubfamilia.Controls[cont].Click += new EventHandler(loadProductosSubfam);
-                cont--;
+
             }
+
         }
 
         private void loadProductosSubfam(object sender, EventArgs e)
         {
-            //SubFamilia s = (SubFamilia) sender;
-            //List<Producto> productos = Modulo.miNegocio.getProductos(s.CodFamilia, s.CodSubFamilia); //por los cambios de bdd de LArris habrá que hacer algo con esto
+            Button b = (Button)sender;
+            SubFamilia s = (SubFamilia)b.Tag;
+            
+            productos = Modulo.miNegocio.getProductos(s.CodFamilia, s.CodSubFamilia);
+            if (productos != null)
+            {
+                dgvProducts.DataSource = productos;
+            } else
+            {
+                //TODO CONTROLAR ERROR
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -231,6 +260,14 @@ namespace CapaPresentacion
             checkStockMinimo();
             dgvProducts.DataSource = ProdsStockMinimo;
             dgvProducts.Refresh();
+        }
+
+        private void makeGboSubFamInvisible()
+        {
+            foreach (Control c in gboSubfamilia.Controls)
+            {
+                c.Visible = false;
+            }
         }
     }
 }
