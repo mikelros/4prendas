@@ -434,7 +434,10 @@ namespace CapaPresentacion
 
         private void txtEditProductCode_TextChanged(object sender, EventArgs e)
         {
-
+            if (txtEditProductCode.TextLength == 9)
+            {
+                searchProduct();
+            }
         }
     }
 }
