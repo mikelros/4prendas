@@ -14,7 +14,6 @@ namespace CapaPresentacion
 {
     public partial class frmRecogida : Form
     {
-        Empleado employee;
         public frmRecogida()
         {
             InitializeComponent();
@@ -28,10 +27,10 @@ namespace CapaPresentacion
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            txtGivingPerson.Text = "";
+            //txtGivingPerson.Text = "";
             pboEmployee.BackgroundImage = null;
             lblEmployeePassError.Hide();
-            employee = null;
+            //employee = null;
             lblEmployeeName.Text = "";
             pboEmployee.BackgroundImage = null;
         }
@@ -50,7 +49,7 @@ namespace CapaPresentacion
         {
 
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
-            {                
+            {
                 e.Handled = true;
                 return;
             }
@@ -63,19 +62,19 @@ namespace CapaPresentacion
         private void chargeEmployee()
         {
             int employerNum;
-                if (!int.TryParse(nudEmployee.Text, out employerNum))
-                {
-                    lblEmployeePassError.Show();
+            if (!int.TryParse(nudEmployee.Text, out employerNum))
+            {
+                lblEmployeePassError.Show();
                 lblEmployeeName.Text = "";
                 pboEmployee.BackgroundImage = null;
                 return;
-                }
-                else
-                {
-                    lblEmployeePassError.Hide();
-                }
-            employee = Modulo.miNegocio.getEmployee(int.Parse(nudEmployee.Value.ToString()));
-                if (employee.Nombre == null)
+            }
+            else
+            {
+                lblEmployeePassError.Hide();
+            }
+            Modulo.empleado = Modulo.miNegocio.getEmployee(int.Parse(nudEmployee.Value.ToString()));
+            if (Modulo.empleado.Nombre == null)
             {
                 lblEmployeePassError.Text = "Empleado no encontrado!!";
                 lblEmployeePassError.Show();
@@ -86,10 +85,10 @@ namespace CapaPresentacion
             else
             {
                 lblEmployeePassError.Hide();
-                lblEmployeeName.Text = employee.Nombre;
-                if (System.IO.File.Exists(employee.Foto))
+                lblEmployeeName.Text = Modulo.empleado.Nombre;
+                if (System.IO.File.Exists(Modulo.empleado.Foto))
                 {
-                    pboEmployee.BackgroundImage = new System.Drawing.Bitmap(employee.Foto);
+                    pboEmployee.BackgroundImage = new System.Drawing.Bitmap(Modulo.empleado.Foto);
                     pboEmployee.BackgroundImageLayout = ImageLayout.Stretch;
                 }
             }
