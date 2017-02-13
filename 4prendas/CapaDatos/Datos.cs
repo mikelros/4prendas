@@ -114,8 +114,8 @@ namespace CapaDatos
                 while (dr.Read())
                 {
                     productos.Add(new Producto((string)dr["CodigoArticulo"], dr.IsDBNull(dr.GetOrdinal("Descripcion")) ? "" : (string)dr["Descripcion"], dr.IsDBNull(dr.GetOrdinal("TallaPesoLitros")) ? "" : (string)dr["TallaPesoLitros"], dr.IsDBNull(dr.GetOrdinal("Stock")) ? -1 : (int)dr["Stock"],
-                        dr.IsDBNull(dr.GetOrdinal("StockMinimo")) ? -1 : (int)dr["StockMinimo"], (int)dr["EmpleadoID"], (int)dr["LugarId"], (string)dr["CodSubFamilia"], (string)dr["CodFamilia"],
-                        (int)dr["RecogidaId"], dr.IsDBNull(dr.GetOrdinal("NumeroVenta")) ? -1 : (int)dr["NumeroVenta"], dr.IsDBNull(dr.GetOrdinal("FechaEntrada")) ? default(DateTime) : (DateTime)dr["FechaEntrada"], dr.IsDBNull(dr.GetOrdinal("Coste")) ? -1 : (int)dr["Coste"]));
+                        dr.IsDBNull(dr.GetOrdinal("StockMinimo")) ? -1 : (int)dr["StockMinimo"], (int)dr["EmpleadoID"], (int)dr["LugarId"],  (string)dr["CodFamilia"], (string)dr["CodSubFamilia"],
+                        (int)dr["RecogidaId"], dr.IsDBNull(dr.GetOrdinal("FechaEntrada")) ? default(DateTime) : (DateTime)dr["FechaEntrada"], dr.IsDBNull(dr.GetOrdinal("Coste")) ? -1 : (int)dr["Coste"]));
                 }
                 return productos;
             }
@@ -148,7 +148,7 @@ namespace CapaDatos
                 while (dr.Read())
                 {
                     productos.Add(new Producto((string)dr["CodigoArticulo"], dr.IsDBNull(dr.GetOrdinal("Descripcion")) ? "" : (string)dr["Descripcion"], dr.IsDBNull(dr.GetOrdinal("TallaPesoLitros")) ? "" : (string)dr["TallaPesoLitros"], dr.IsDBNull(dr.GetOrdinal("Stock")) ? -1 : (int)dr["Stock"],
-                        dr.IsDBNull(dr.GetOrdinal("StockMinimo")) ? -1 : (int)dr["StockMinimo"], (int)dr["EmpleadoID"], (int)dr["LugarId"], (string)dr["CodSubFamilia"], (string)dr["CodFamilia"], dr.IsDBNull(dr.GetOrdinal("NumeroVenta")) ? -1 : (int)dr["NumeroVenta"],
+                        dr.IsDBNull(dr.GetOrdinal("StockMinimo")) ? -1 : (int)dr["StockMinimo"], (int)dr["EmpleadoID"], (int)dr["LugarId"], (string)dr["CodFamilia"], (string)dr["CodSubFamilia"],
                         (int)dr["RecogidaId"], dr.IsDBNull(dr.GetOrdinal("FechaEntrada")) ? default(DateTime) : (DateTime)dr["FechaEntrada"], dr.IsDBNull(dr.GetOrdinal("Coste")) ? -1 : (int)dr["Coste"]));
                 }
                 return productos;
@@ -214,7 +214,7 @@ namespace CapaDatos
                 {
                     Empleado emp = new Empleado();
                     prodsStockMinimo.Add(new Producto((string)dr["CodigoArticulo"], dr.IsDBNull(dr.GetOrdinal("Descripcion")) ? "" : (string)dr["Descripcion"], dr.IsDBNull(dr.GetOrdinal("TallaPesoLitros")) ? "" : (string)dr["TallaPesoLitros"], dr.IsDBNull(dr.GetOrdinal("Stock")) ? -1 : (int)dr["Stock"],
-                        dr.IsDBNull(dr.GetOrdinal("StockMinimo")) ? -1 : (int)dr["StockMinimo"], (int)dr["EmpleadoID"], (int)dr["LugarId"], (string)dr["CodSubFamilia"], (string)dr["CodFamilia"], dr.IsDBNull(dr.GetOrdinal("NumeroVenta")) ? -1 : (int)dr["NumeroVenta"],
+                        dr.IsDBNull(dr.GetOrdinal("StockMinimo")) ? -1 : (int)dr["StockMinimo"], (int)dr["EmpleadoID"], (int)dr["LugarId"], (string)dr["CodFamilia"], (string)dr["CodSubFamilia"],
                         (int)dr["RecogidaId"], dr.IsDBNull(dr.GetOrdinal("FechaEntrada")) ? default(DateTime) : (DateTime)dr["FechaEntrada"], dr.IsDBNull(dr.GetOrdinal("Coste")) ? -1 : (int)dr["Coste"]));
                 }
                 return prodsStockMinimo;
@@ -249,7 +249,7 @@ namespace CapaDatos
                 while (dr.Read())
                 {
                     productos.Add(new Producto((string)dr["CodigoArticulo"], dr.IsDBNull(dr.GetOrdinal("Descripcion")) ? "" : (string)dr["Descripcion"], dr.IsDBNull(dr.GetOrdinal("TallaPesoLitros")) ? "" : (string)dr["TallaPesoLitros"], dr.IsDBNull(dr.GetOrdinal("Stock")) ? -1 : (int)dr["Stock"],
-                        dr.IsDBNull(dr.GetOrdinal("StockMinimo")) ? -1 : (int)dr["StockMinimo"], (int)dr["EmpleadoID"], (int)dr["LugarId"], (string)dr["CodSubFamilia"], (string)dr["CodFamilia"], dr.IsDBNull(dr.GetOrdinal("NumeroVenta")) ? -1 : (int)dr["NumeroVenta"],
+                        dr.IsDBNull(dr.GetOrdinal("StockMinimo")) ? -1 : (int)dr["StockMinimo"], (int)dr["EmpleadoID"], (int)dr["LugarId"], (string)dr["CodFamilia"], (string)dr["CodSubFamilia"],
                         (int)dr["RecogidaId"], dr.IsDBNull(dr.GetOrdinal("FechaEntrada")) ? default(DateTime) : (DateTime)dr["FechaEntrada"], dr.IsDBNull(dr.GetOrdinal("Coste")) ? -1 : (int)dr["Coste"]));
                 }
 
@@ -285,7 +285,7 @@ namespace CapaDatos
                 while (dr.Read())
                 {
                     productos.Add(new Producto((string)dr["CodigoArticulo"], dr.IsDBNull(dr.GetOrdinal("Descripcion")) ? "" : (string)dr["Descripcion"], dr.IsDBNull(dr.GetOrdinal("TallaPesoLitros")) ? "" : (string)dr["TallaPesoLitros"], dr.IsDBNull(dr.GetOrdinal("Stock")) ? -1 : (int)dr["Stock"],
-                        dr.IsDBNull(dr.GetOrdinal("StockMinimo")) ? -1 : (int)dr["StockMinimo"], (int)dr["EmpleadoID"], (int)dr["LugarId"], (string)dr["CodSubFamilia"], (string)dr["CodFamilia"], dr.IsDBNull(dr.GetOrdinal("NumeroVenta")) ? -1 : (int)dr["NumeroVenta"],
+                        dr.IsDBNull(dr.GetOrdinal("StockMinimo")) ? -1 : (int)dr["StockMinimo"], (int)dr["EmpleadoID"], (int)dr["LugarId"], (string)dr["CodFamilia"], (string)dr["CodSubFamilia"],
                         (int)dr["RecogidaId"], dr.IsDBNull(dr.GetOrdinal("FechaEntrada")) ? default(DateTime) : (DateTime)dr["FechaEntrada"], dr.IsDBNull(dr.GetOrdinal("Coste")) ? -1 : (int)dr["Coste"]));
                 }
                 return productos;

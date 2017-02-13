@@ -29,7 +29,7 @@ namespace CapaEntidades
 
         //Todos los campos
         public Producto(string codArticulo, string descripcion, string medida, int stock, int stockMinimo, int empleadoId, int lugarId,
-           string codFamilia, int recogidaId, int numeroVenta, DateTime fechaEntrada, int coste)
+           string codFamilia, string codSubFamilia, int recogidaId, DateTime fechaEntrada, int coste)
         {
             this.codigoArticulo = codArticulo;
             this.descripcion = descripcion;
@@ -39,6 +39,7 @@ namespace CapaEntidades
             this.empleadoId = empleadoId;
             this.lugarId = lugarId;
             this.codFamilia = codFamilia;
+            this.codSubFamilia = codSubFamilia;
             this.recogidaId = recogidaId;
             this.fechaEntrada = fechaEntrada;
             this.coste = coste; }
