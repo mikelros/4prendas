@@ -256,10 +256,10 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(977, 23);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(940, 22);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(126, 18);
+            this.label2.Size = new System.Drawing.Size(154, 24);
             this.label2.TabIndex = 70;
             this.label2.Text = "Alerta de stock:";
             // 
@@ -267,9 +267,10 @@
             // 
             this.btnStock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnStock.BackColor = System.Drawing.Color.Lime;
-            this.btnStock.Location = new System.Drawing.Point(1100, 22);
+            this.btnStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStock.Location = new System.Drawing.Point(1100, 17);
             this.btnStock.Name = "btnStock";
-            this.btnStock.Size = new System.Drawing.Size(47, 23);
+            this.btnStock.Size = new System.Drawing.Size(67, 36);
             this.btnStock.TabIndex = 71;
             this.btnStock.Text = "0";
             this.btnStock.UseVisualStyleBackColor = false;
