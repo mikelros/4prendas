@@ -15,12 +15,16 @@ namespace CapaPresentacion
 {
     public partial class frmConfig : Form
     {
-        Empleado employee;
+        Empleado deleteEmployee;
+        List<Empleado> employees = new List<Empleado>();
+        List<Empleado> createdEmployees = new List<Empleado>();
+        List<Empleado> deletedEmployees = new List<Empleado>();
         Negocio negocio = new Negocio();
         Producto product;
 
         string mydocpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         string shopMode;
+        bool changes;
 
         public frmConfig()
         {
@@ -31,16 +35,18 @@ namespace CapaPresentacion
         private void rbtnFood_CheckedChanged(object sender, EventArgs e)
         {
             shopMode = "food";
+            changes = true;
         }
 
         private void rbtnClothes_CheckedChanged(object sender, EventArgs e)
         {
             shopMode = "clothes";
+            changes = true;
         }
 
         private void btnCreate_Click(object sender, EventArgs e) //Probar
         {
-            if (txtCreateName.Text.Equals("") || nudCreateNumEmployee.Text.Equals("") || txtCreatePhoto.Text.Equals(""))
+            if (txtCreateName.Text.Equals("") )
             {
                 lblCreateError.Show();
                 return;
@@ -65,27 +71,20 @@ namespace CapaPresentacion
 
                 }
             }
-            employee = negocio.getEmployee((int)nudCreateNumEmployee.Value);
-            if (employee == null)
-            {
-                lblCreateExistingNumberError.Show();
-                return;
-            }
-            else
-            {
-                lblCreateExistingNumberError.Hide();
-            }
-            string msg = negocio.createEmployee(txtCreateName.Text, txtCreatePhoto.Text); //No he puesto el numero de Id, se supone que es autonumerico...
-            if (msg == "")
-            {
-                MessageBox.Show("El empleado " + txtCreateName.Text + " se ha creado correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show(msg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+            Empleado emp = new Empleado(txtCreateName.Text, txtCreatePhoto.Text);
+            employees.Add(emp);
+            createdEmployees.Add(emp);
+            changes = true;
+            //string msg = negocio.createEmployee(txtCreateName.Text, txtCreatePhoto.Text); 
+            //if (msg == "")
+            //{
+            //    MessageBox.Show("El empleado " + txtCreateName.Text + " se ha creado correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
+            //else
+            //{
+            //    MessageBox.Show(msg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //}
             createCancel();
-            employee = null;
         }
 
         private void bntCreateCancel_Click(object sender, EventArgs e)
@@ -96,7 +95,6 @@ namespace CapaPresentacion
         {
             txtCreateName.Text = "";
             txtCreatePhoto.Text = "";
-            employee = null;
         }
         private void btnBrowse_Click(object sender, EventArgs e)
         {
@@ -130,29 +128,34 @@ namespace CapaPresentacion
 
         private void btnDelete_Click(object sender, EventArgs e) //Probar
         {
-            if (employee == null)
+            if (deleteEmployee.Nombre == null)
             {
                 lblDeleteError.Show();
             }
             else
             {
                 lblDeleteError.Hide();
-                negocio.deleteEmployee(employee.EmpleadoId);
-                deleteEmployeePhoto(employee.Foto);
+                employees.Remove(deleteEmployee);
+                if (!createdEmployees.Contains(deleteEmployee))
+                {
+                deletedEmployees.Add(deleteEmployee);
+                }
+                changes = true;
+                
             }
         }
 
         private void deleteEmployeePhoto(string photo)
         {
             // Delete a file by using File class static method...
-            if (System.IO.File.Exists(mydocpath + photo))
+            if (System.IO.File.Exists(photo))
             {
                 // Use a try block to catch IOExceptions, to
                 // handle the case of the file already being
                 // opened by another process.
                 try
                 {
-                    System.IO.File.Delete(mydocpath + photo);
+                    System.IO.File.Delete(photo);
                 }
                 catch (System.IO.IOException e)
                 {
@@ -172,8 +175,7 @@ namespace CapaPresentacion
             lblDeleteError.Hide();
             lblCreateError.Hide();
             lblEmployeeNoExistError.Hide();
-
-            lblCreateExistingNumberError.Hide();
+            
 
 
             nudEditProductStock.Maximum  = int.MaxValue;
@@ -183,10 +185,16 @@ namespace CapaPresentacion
             nudEditProductPlaceId.Maximum = int.MaxValue;
             nudEditProductCollectionId.Maximum = int.MaxValue;
 
+            loadEmployees();
+
             loadShopMode();
 
-            employee = null;
+            deleteEmployee = null;
 
+        }
+        private void loadEmployees()
+        {
+            employees = negocio.getEmpleados();
         }
         private void loadShopMode()
         {
@@ -211,6 +219,7 @@ namespace CapaPresentacion
             {
                 MessageBox.Show("Error al cargar el archivo de configuración!!! " + "" + "Se cargara la configuración por defecto", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 shopMode = "food";
+                saveShopMode();
             }
             if (shopMode == "food")
             {
@@ -227,21 +236,7 @@ namespace CapaPresentacion
             deleteCancel();
         }
 
-        private void btnSearch_Click(object sender, EventArgs e) //Probarlo
-        {
-            
-            employee = negocio.getEmployee((int)nudDeleteNumEmployee.Value);
-            if (employee == null)
-            {
-                lblEmployeeNoExistError.Show();
-            }
-            else
-            {
-                lblEmployeeNoExistError.Hide();
-                lblDeleteName.Text = employee.Nombre;
-            }
-
-        }
+        
 
         
 
@@ -250,7 +245,7 @@ namespace CapaPresentacion
             nudDeleteNumEmployee.Text = "";
             lblDeleteName.Text = "";
             lblEmployeeNoExistError.Hide();
-            employee = null;
+            deleteEmployee = null;
         }
 
         private void saveShopMode()
@@ -278,10 +273,36 @@ namespace CapaPresentacion
         private void btnApply_Click(object sender, EventArgs e)
         {
             saveShopMode();
+            saveEmployeesChanges();
+        }
+        private void saveEmployeesChanges()
+        {
+            
+            foreach (Empleado crtEmp in createdEmployees)
+            {
+                negocio.createEmployee(crtEmp.Nombre, crtEmp.Foto);
+            }
+            foreach (Empleado dltEmp in deletedEmployees)
+            {
+                negocio.deleteEmployee(dltEmp.EmpleadoId);
+                deleteEmployeePhoto(dltEmp.Foto);
+            }
+
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
+            if (changes)
+            {
+                DialogResult result = MessageBox.Show("As realizado cambios " + "\n" + "¿Desea guardar los cambios?", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    saveShopMode();
+                }else if(result == DialogResult.Cancel)
+                {
+                    return;
+                }
+            }
             Form frmMenu = new frmMenu();
             frmMenu.Show();
             this.Close();
@@ -366,10 +387,7 @@ namespace CapaPresentacion
 
         }
 
-        private void searchProduct(object sender, EventArgs e)
-        {
-            searchProduct();
-        }
+       
         private void searchProduct()
         {
 
@@ -396,7 +414,27 @@ namespace CapaPresentacion
 
         private void txtEditProductCode_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((int)e.KeyChar == (int)Keys.Enter)
+            if (txtEditProductCode.TextLength == 9)
+            {
+                searchProduct();
+            }
+        }
+
+        private void chargeEmployee(object sender, EventArgs e)
+        {
+            foreach (Empleado employ in employees)
+            {
+                if (employ.EmpleadoId == nudDeleteNumEmployee.Value)
+                {
+                    lblDeleteName.Text = employ.Nombre;
+                    deleteEmployee = employ;
+                }
+            }
+        }
+
+        private void txtEditProductCode_TextChanged(object sender, EventArgs e)
+        {
+            if (txtEditProductCode.TextLength == 9)
             {
                 searchProduct();
             }

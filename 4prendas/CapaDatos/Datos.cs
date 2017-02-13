@@ -195,38 +195,6 @@ namespace CapaDatos
             }
         }
 
-        public List<Empleado> getEmpleados()
-        {
-            List<Empleado> empleados = new List<Empleado>();
-            string sql = "SELECT * FROM Empleado";
-            OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
-            OleDbCommand cmd = new OleDbCommand(sql, conTabla);
-            try
-            {
-                conTabla.Open();
-                OleDbDataReader dr = cmd.ExecuteReader();
-                if (!dr.HasRows)
-                {
-                    return empleados; //sale vacía
-                }
-                while (dr.Read())
-                {
-                    empleados.Add(new Empleado(dr.GetInt32(0),dr.IsDBNull(dr.GetOrdinal("Nombre")) ? "" : (string)dr["Nombre"], dr.IsDBNull(dr.GetOrdinal("Foto")) ? "" : (string)dr["Foto"]));
-                    
-                }
-                return empleados;
-            }
-            catch (Exception ex)
-            {
-                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
-                return null;
-            }
-            finally
-            {
-                conTabla.Close();
-            }
-        }
-
         //Productos en stock minimo
         public List<Producto> getProdsStockMinimo()
         {
@@ -384,11 +352,11 @@ namespace CapaDatos
             try
             {
                 conTabla.Open();
-                
-                    cmd.Parameters.AddWithValue("@codArt", producto.CodigoArticulo);
 
-                    cmd.ExecuteNonQuery();
-                
+                cmd.Parameters.AddWithValue("@codArt", producto.CodigoArticulo);
+
+                cmd.ExecuteNonQuery();
+
             }
             catch (Exception ex)
             {
@@ -449,5 +417,36 @@ namespace CapaDatos
             }
         }
 
+        public List<Empleado> getEmpleados()
+        {
+            List<Empleado> empleados = new List<Empleado>();
+            string sql = "SELECT * FROM Empleado";
+
+            OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
+            OleDbCommand cmd = new OleDbCommand(sql, conTabla);
+            try
+            {
+                conTabla.Open();
+                OleDbDataReader dr = cmd.ExecuteReader();
+                if (!dr.HasRows)
+                {
+                    return empleados; //sale vacía
+                }
+                while (dr.Read())
+                {
+                    empleados.Add(new Empleado((int)dr["IdEmpleado"], dr.IsDBNull(dr.GetOrdinal("Nombre")) ? "" : (string)dr["Nombre"], dr.IsDBNull(dr.GetOrdinal("Foto")) ? "" : (string)dr["Foto"]));
+                }
+                return empleados;
+            }
+            catch (Exception ex)
+            {
+                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
+                return null;
+            }
+            finally
+            {
+                conTabla.Close();
+            }
+        }
     }
 }
