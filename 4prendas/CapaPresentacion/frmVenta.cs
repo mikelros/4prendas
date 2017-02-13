@@ -127,9 +127,9 @@ namespace CapaPresentacion
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            switch (cmbSearch.SelectedText)
+            switch (cmbSearch.SelectedItem.ToString())
             {
-                case "Código de barras":
+                case "Codigo de barras":
                     dgvProducts.DataSource = Modulo.miNegocio.getProdsPorCodigoArticulo(txtSearch.Text);
                     break;
                 case "Descripcion":
