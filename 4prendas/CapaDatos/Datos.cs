@@ -448,5 +448,32 @@ namespace CapaDatos
                 conTabla.Close();
             }
         }
+
+        public void realizarRecogida(Recogida recogida)
+        {
+            string sql = "INSERT INTO Recogida(FechaRecogida, EmpleadoId, CantidadProductos, PersonaId) VALUES (@FechaRecogida, @EmpleadoId, @CantProd, @PersonaId)";
+
+            OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
+            OleDbCommand cmd = new OleDbCommand(sql, conTabla);
+            try
+            {
+                conTabla.Open();
+             
+                cmd.Parameters.AddWithValue("@FechaRecogida", recogida.FechaRecogida);
+                cmd.Parameters.AddWithValue("@EmpleadoId", recogida.EmpleadoId);
+                cmd.Parameters.AddWithValue("@CantProd", recogida.CantidadProductos);
+                cmd.Parameters.AddWithValue("@PersonaId", recogida.PersonaId);
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
+            }
+            finally
+            {
+                conTabla.Close();
+            }
+        }
     }
 }
