@@ -15,7 +15,6 @@ namespace CapaPresentacion
     public partial class frmRecogida : Form
     {
         Empleado employee;
-        Negocio negocio = new Negocio();
         public frmRecogida()
         {
             InitializeComponent();
@@ -41,8 +40,8 @@ namespace CapaPresentacion
         private void btnInsert_Click(object sender, EventArgs e)
         {
 
-            //Recogida recogida = new Recogida(new DateTime(), nudEmployee.Value, nudQuantity.Value, txtGivingPerson.Text);
-            //negocio.realizarRecogida(recogida);
+            //Recogida recogida = new Recogida(new DateTime(), Convert.ToInt32(Math.Round(nudEmployee.Value, 0)), Convert.ToInt32(Math.Round(nudQuantity.Value, 0)), txtGivingPerson.Text);
+            //Modulo.miNegocio.realizarRecogida(recogida);
 
 
         }
@@ -75,7 +74,7 @@ namespace CapaPresentacion
                 {
                     lblEmployeePassError.Hide();
                 }
-            employee = negocio.getEmployee(int.Parse(nudEmployee.Value.ToString()));
+            employee = Modulo.miNegocio.getEmployee(int.Parse(nudEmployee.Value.ToString()));
                 if (employee.Nombre == null)
             {
                 lblEmployeePassError.Text = "Empleado no encontrado!!";
