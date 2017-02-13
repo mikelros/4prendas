@@ -242,5 +242,14 @@ namespace CapaPresentacion
                 c.Visible = false;
             }
         }
+
+        private void dgvProducts_DataSourceChanged(object sender, EventArgs e)
+        {
+            this.dgvProducts.Columns["StockMinimo"].Visible = false;
+            this.dgvProducts.Columns["EmpleadoId"].Visible = false;
+            this.dgvProducts.Columns["NumeroVenta"].Visible = false;
+            this.dgvProducts.Columns["RecogidaId"].Visible = false;
+            this.dgvProducts.Columns["FechaEntrada"].Visible = false;
+        }
     }
 }

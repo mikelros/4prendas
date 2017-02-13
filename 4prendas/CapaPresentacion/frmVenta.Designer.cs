@@ -250,6 +250,7 @@
             this.dgvProducts.Name = "dgvProducts";
             this.dgvProducts.Size = new System.Drawing.Size(649, 549);
             this.dgvProducts.TabIndex = 69;
+            this.dgvProducts.DataSourceChanged += new System.EventHandler(this.dgvProducts_DataSourceChanged);
             this.dgvProducts.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvProducts_CellMouseClick);
             // 
             // label2
