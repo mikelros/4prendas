@@ -32,8 +32,6 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnInsert = new System.Windows.Forms.Button();
-            this.txtGivingPerson = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.pboEmployee = new System.Windows.Forms.PictureBox();
@@ -47,6 +45,8 @@
             this.nudEmployee = new System.Windows.Forms.NumericUpDown();
             this.gbRecogida = new System.Windows.Forms.GroupBox();
             this.lblEmployeeName = new System.Windows.Forms.Label();
+            this.txtGivingPerson = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pboEmployee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCollectionNum)).BeginInit();
@@ -95,23 +95,6 @@
             this.btnInsert.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnInsert.UseVisualStyleBackColor = false;
             this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
-            // 
-            // txtGivingPerson
-            // 
-            this.txtGivingPerson.Location = new System.Drawing.Point(239, 313);
-            this.txtGivingPerson.Name = "txtGivingPerson";
-            this.txtGivingPerson.Size = new System.Drawing.Size(153, 20);
-            this.txtGivingPerson.TabIndex = 59;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(69, 312);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(164, 18);
-            this.label7.TabIndex = 58;
-            this.label7.Text = "Persona que entrega";
             // 
             // label4
             // 
@@ -213,10 +196,9 @@
             // 
             this.nudEmployee.Location = new System.Drawing.Point(240, 137);
             this.nudEmployee.Name = "nudEmployee";
-            this.nudEmployee.Size = new System.Drawing.Size(152, 20);
+            this.nudEmployee.Size = new System.Drawing.Size(58, 20);
             this.nudEmployee.TabIndex = 64;
-            this.nudEmployee.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ifEnterSearchEmployee);
-            this.nudEmployee.Leave += new System.EventHandler(this.chargeEmployer);
+            this.nudEmployee.Leave += new System.EventHandler(this.nudEmployee_Leave);
             // 
             // gbRecogida
             // 
@@ -245,10 +227,27 @@
             // 
             this.lblEmployeeName.AutoSize = true;
             this.lblEmployeeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmployeeName.Location = new System.Drawing.Point(237, 116);
+            this.lblEmployeeName.Location = new System.Drawing.Point(304, 139);
             this.lblEmployeeName.Name = "lblEmployeeName";
             this.lblEmployeeName.Size = new System.Drawing.Size(0, 18);
             this.lblEmployeeName.TabIndex = 65;
+            // 
+            // txtGivingPerson
+            // 
+            this.txtGivingPerson.Location = new System.Drawing.Point(239, 313);
+            this.txtGivingPerson.Name = "txtGivingPerson";
+            this.txtGivingPerson.Size = new System.Drawing.Size(153, 20);
+            this.txtGivingPerson.TabIndex = 59;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(69, 312);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(164, 18);
+            this.label7.TabIndex = 58;
+            this.label7.Text = "Persona que entrega";
             // 
             // frmRecogida
             // 
@@ -280,8 +279,6 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnInsert;
-        private System.Windows.Forms.TextBox txtGivingPerson;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pboEmployee;
@@ -295,5 +292,7 @@
         private System.Windows.Forms.NumericUpDown nudEmployee;
         private System.Windows.Forms.GroupBox gbRecogida;
         private System.Windows.Forms.Label lblEmployeeName;
+        private System.Windows.Forms.TextBox txtGivingPerson;
+        private System.Windows.Forms.Label label7;
     }
 }

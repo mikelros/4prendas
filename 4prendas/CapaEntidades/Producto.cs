@@ -17,7 +17,6 @@ namespace CapaEntidades
         private int lugarId;
         private string codFamilia;
         private string codSubFamilia;
-        private int numeroVenta;
         private int recogidaId;
         private DateTime fechaEntrada;
         private float coste;
@@ -28,45 +27,9 @@ namespace CapaEntidades
 
         }
 
-        //Sin venta
-        public Producto(string codArticulo, string descripcion, string medida, int stock, int stockMinimo, int empleadoId, int lugarId,
-           string codSubFamilia, string codFamilia, int recogidaId, DateTime fechaEntrada, float coste)
-        {
-            this.codigoArticulo = codArticulo;
-            this.descripcion = descripcion;
-            this.medida = medida;
-            this.stock = stock;
-            this.stockMinimo = stockMinimo;
-            this.empleadoId = empleadoId;
-            this.lugarId = lugarId;
-            this.codFamilia = codFamilia;
-            this.recogidaId = recogidaId;
-            this.fechaEntrada = fechaEntrada;
-            this.coste = coste;
-            this.codSubFamilia = codSubFamilia;
-        }
-
-        public Producto(string codArticulo, string descripcion, string medida, int stock, int stockMinimo, int empleadoId, int lugarId,
-           string codSubFamilia, string codFamilia, int recogidaId, int numeroVenta, DateTime fechaEntrada, float coste)
-        {
-            this.codigoArticulo = codArticulo;
-            this.descripcion = descripcion;
-            this.medida = medida;
-            this.stock = stock;
-            this.stockMinimo = stockMinimo;
-            this.empleadoId = empleadoId;
-            this.lugarId = lugarId;
-            this.codFamilia = codFamilia;
-            this.recogidaId = recogidaId;
-            this.numeroVenta = numeroVenta;
-            this.fechaEntrada = fechaEntrada;
-            this.coste = coste;
-            this.codSubFamilia = codSubFamilia;
-        }
-
         //Todos los campos
         public Producto(string codArticulo, string descripcion, string medida, int stock, int stockMinimo, int empleadoId, int lugarId,
-           string codFamilia, int recogidaId, int numeroVenta, DateTime fechaEntrada, int coste)
+           string codFamilia, string codSubFamilia, int recogidaId, DateTime fechaEntrada, int coste)
         {
             this.codigoArticulo = codArticulo;
             this.descripcion = descripcion;
@@ -76,11 +39,10 @@ namespace CapaEntidades
             this.empleadoId = empleadoId;
             this.lugarId = lugarId;
             this.codFamilia = codFamilia;
+            this.codSubFamilia = codSubFamilia;
             this.recogidaId = recogidaId;
             this.fechaEntrada = fechaEntrada;
-            this.coste = coste;
-            this.numeroVenta = numeroVenta;
-        }
+            this.coste = coste; }
 
         public string CodigoArticulo
         {
@@ -187,18 +149,6 @@ namespace CapaEntidades
             set
             {
                 codSubFamilia = value;
-            }
-        }
-
-        public int NumeroVenta
-        {
-            get
-            {
-                return numeroVenta;
-            }
-            set
-            {
-                numeroVenta = value;
             }
         }
 

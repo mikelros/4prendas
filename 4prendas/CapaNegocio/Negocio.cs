@@ -76,6 +76,11 @@ namespace CapaNegocio
             datos.updateProduct(product);
         }
 
+        public void realizarRecogida(Recogida recogida)
+        {
+            datos.realizarRecogida(recogida);
+        }
+
     }
 
 }
