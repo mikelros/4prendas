@@ -11,6 +11,7 @@ namespace CapaPresentacion
     public class Modulo
     {
         public static Negocio miNegocio = new Negocio();
-        public static Empleado empleado;
+        public static Empleado empleadoActual;
+        public static List<Empleado> empleados = miNegocio.getEmpleados();
     }
 }

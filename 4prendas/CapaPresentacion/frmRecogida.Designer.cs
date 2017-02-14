@@ -45,8 +45,8 @@
             this.nudEmployee = new System.Windows.Forms.NumericUpDown();
             this.gbRecogida = new System.Windows.Forms.GroupBox();
             this.lblEmployeeName = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.txtGivingPerson = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pboEmployee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCollectionNum)).BeginInit();
@@ -198,8 +198,7 @@
             this.nudEmployee.Name = "nudEmployee";
             this.nudEmployee.Size = new System.Drawing.Size(58, 20);
             this.nudEmployee.TabIndex = 64;
-            this.nudEmployee.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ifEnterSearchEmployee);
-            this.nudEmployee.Leave += new System.EventHandler(this.chargeEmployer);
+            this.nudEmployee.Leave += new System.EventHandler(this.nudEmployee_Leave);
             // 
             // gbRecogida
             // 
@@ -233,6 +232,13 @@
             this.lblEmployeeName.Size = new System.Drawing.Size(0, 18);
             this.lblEmployeeName.TabIndex = 65;
             // 
+            // txtGivingPerson
+            // 
+            this.txtGivingPerson.Location = new System.Drawing.Point(239, 313);
+            this.txtGivingPerson.Name = "txtGivingPerson";
+            this.txtGivingPerson.Size = new System.Drawing.Size(153, 20);
+            this.txtGivingPerson.TabIndex = 59;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -242,13 +248,6 @@
             this.label7.Size = new System.Drawing.Size(164, 18);
             this.label7.TabIndex = 58;
             this.label7.Text = "Persona que entrega";
-            // 
-            // txtGivingPerson
-            // 
-            this.txtGivingPerson.Location = new System.Drawing.Point(239, 313);
-            this.txtGivingPerson.Name = "txtGivingPerson";
-            this.txtGivingPerson.Size = new System.Drawing.Size(153, 20);
-            this.txtGivingPerson.TabIndex = 59;
             // 
             // frmRecogida
             // 

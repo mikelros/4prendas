@@ -30,7 +30,7 @@ namespace CapaPresentacion
             //txtGivingPerson.Text = "";
             pboEmployee.BackgroundImage = null;
             lblEmployeePassError.Hide();
-            //employee = null;
+            Modulo.empleadoActual = null;
             lblEmployeeName.Text = "";
             pboEmployee.BackgroundImage = null;
         }
@@ -42,56 +42,6 @@ namespace CapaPresentacion
             //Recogida recogida = new Recogida(new DateTime(), Convert.ToInt32(Math.Round(nudEmployee.Value, 0)), Convert.ToInt32(Math.Round(nudQuantity.Value, 0)), txtGivingPerson.Text);
             //Modulo.miNegocio.realizarRecogida(recogida);
 
-
-        }
-
-        private void txtEmployer_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
-            {
-                e.Handled = true;
-                return;
-            }
-            if ((int)e.KeyChar == (int)Keys.Enter)
-            {
-                chargeEmployee();
-            }
-        }
-
-        private void chargeEmployee()
-        {
-            int employerNum;
-            if (!int.TryParse(nudEmployee.Text, out employerNum))
-            {
-                lblEmployeePassError.Show();
-                lblEmployeeName.Text = "";
-                pboEmployee.BackgroundImage = null;
-                return;
-            }
-            else
-            {
-                lblEmployeePassError.Hide();
-            }
-            Modulo.empleado = Modulo.miNegocio.getEmployee(int.Parse(nudEmployee.Value.ToString()));
-            if (Modulo.empleado.Nombre == null)
-            {
-                lblEmployeePassError.Text = "Empleado no encontrado!!";
-                lblEmployeePassError.Show();
-                lblEmployeeName.Text = "";
-                pboEmployee.BackgroundImage = null;
-                return;
-            }
-            else
-            {
-                lblEmployeePassError.Hide();
-                lblEmployeeName.Text = Modulo.empleado.Nombre;
-                if (System.IO.File.Exists(Modulo.empleado.Foto))
-                {
-                    pboEmployee.BackgroundImage = new System.Drawing.Bitmap(Modulo.empleado.Foto);
-                    pboEmployee.BackgroundImageLayout = ImageLayout.Stretch;
-                }
-            }
 
         }
 
@@ -111,17 +61,31 @@ namespace CapaPresentacion
             }
         }
 
-        private void chargeEmployer(object sender, EventArgs e)
+        private void nudEmployee_Leave(object sender, EventArgs e)
         {
-            chargeEmployee();
-        }
 
-        private void ifEnterSearchEmployee(object sender, KeyPressEventArgs e)
-        {
-            if ((int)e.KeyChar == (int)Keys.Enter)
+            Empleado empleado = Modulo.empleados.Where((em) => em.EmpleadoId == Convert.ToInt32(Math.Round(nudEmployee.Value, 0))).SingleOrDefault();
+            if (empleado == null)
             {
-                chargeEmployee();
+                pboEmployee.BackgroundImage = null;
+                lblEmployeeName.Text = "";
+                return;
+
+            }
+
+            Modulo.empleadoActual = empleado;
+            lblEmployeeName.Text = empleado.Nombre;
+            if (System.IO.File.Exists(empleado.Foto))
+            {
+                //preguntar a María donde van a estar las fotos de los empleados? cambiar desde config?
+                pboEmployee.BackgroundImage = Image.FromFile(empleado.Foto);
+                pboEmployee.BackgroundImageLayout = ImageLayout.Stretch;
+            }
+            else
+            {
+                pboEmployee.BackgroundImage = null;
             }
         }
+
     }
 }
