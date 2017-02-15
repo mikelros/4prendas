@@ -44,6 +44,7 @@ namespace CapaPresentacion
         {
             Producto producto = new Producto();
             Lugar lugar = new Lugar(txtEstanteria.Text, int.Parse(nudEstante.Value.ToString()), int.Parse(nudAltura.Value.ToString()));
+            
             producto.CodigoArticulo = txtCodArticulo.Text;
             producto.Coste = int.Parse(nupCoste.Text);
             producto.Descripcion = txtDescripcion.Text;
@@ -56,7 +57,7 @@ namespace CapaPresentacion
             producto.CodFamilia = codfamilia;
             string codsubfamilia = producto.CodigoArticulo.Substring(10, 12);
             producto.CodSubFamilia = codsubfamilia;
-            //producto.LugarId = lugar.
+            //producto.LugarId = Modulo.miNegocio.comprobarLugar(lugar);
             productos.Add(producto);
             refreshDgv();
         }
