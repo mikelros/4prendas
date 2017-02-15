@@ -54,12 +54,20 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtEstanteria = new System.Windows.Forms.TextBox();
+            this.nudEstante = new System.Windows.Forms.NumericUpDown();
+            this.nudAltura = new System.Windows.Forms.NumericUpDown();
             this.gboRegistros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nupCoste)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumRecogida)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEmpleado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistros)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEstante)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAltura)).BeginInit();
             this.SuspendLayout();
             // 
             // gboRegistros
@@ -70,25 +78,31 @@
             this.gboRegistros.Controls.Add(this.lblErrorCoste);
             this.gboRegistros.Controls.Add(this.label12);
             this.gboRegistros.Controls.Add(this.nudNumRecogida);
+            this.gboRegistros.Controls.Add(this.nudAltura);
             this.gboRegistros.Controls.Add(this.nudEmpleado);
+            this.gboRegistros.Controls.Add(this.nudEstante);
             this.gboRegistros.Controls.Add(this.nudStock);
             this.gboRegistros.Controls.Add(this.btnGenerar);
             this.gboRegistros.Controls.Add(this.lblErrorNumRecogida);
             this.gboRegistros.Controls.Add(this.lblErrorEmpleado);
             this.gboRegistros.Controls.Add(this.lblErrorStock);
             this.gboRegistros.Controls.Add(this.lblErrorCodArticulo);
+            this.gboRegistros.Controls.Add(this.txtEstanteria);
             this.gboRegistros.Controls.Add(this.txtMedida);
             this.gboRegistros.Controls.Add(this.txtDescripcion);
             this.gboRegistros.Controls.Add(this.txtCodArticulo);
+            this.gboRegistros.Controls.Add(this.label9);
             this.gboRegistros.Controls.Add(this.label6);
             this.gboRegistros.Controls.Add(this.label5);
+            this.gboRegistros.Controls.Add(this.label8);
             this.gboRegistros.Controls.Add(this.label4);
+            this.gboRegistros.Controls.Add(this.label7);
             this.gboRegistros.Controls.Add(this.label3);
             this.gboRegistros.Controls.Add(this.label2);
             this.gboRegistros.Controls.Add(this.label1);
             this.gboRegistros.Location = new System.Drawing.Point(12, 33);
             this.gboRegistros.Name = "gboRegistros";
-            this.gboRegistros.Size = new System.Drawing.Size(260, 453);
+            this.gboRegistros.Size = new System.Drawing.Size(260, 619);
             this.gboRegistros.TabIndex = 0;
             this.gboRegistros.TabStop = false;
             this.gboRegistros.Text = "Registro de Articulos";
@@ -150,7 +164,7 @@
             this.btnGenerar.BackgroundImage = global::CapaPresentacion.Properties.Resources.plus;
             this.btnGenerar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnGenerar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.btnGenerar.Location = new System.Drawing.Point(185, 361);
+            this.btnGenerar.Location = new System.Drawing.Point(185, 527);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(69, 86);
             this.btnGenerar.TabIndex = 18;
@@ -337,6 +351,59 @@
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(6, 385);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(65, 18);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Estante";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(6, 345);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(84, 18);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Estantería";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(6, 436);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(51, 18);
+            this.label9.TabIndex = 6;
+            this.label9.Text = "Altura";
+            // 
+            // txtEstanteria
+            // 
+            this.txtEstanteria.Location = new System.Drawing.Point(130, 346);
+            this.txtEstanteria.Name = "txtEstanteria";
+            this.txtEstanteria.Size = new System.Drawing.Size(124, 20);
+            this.txtEstanteria.TabIndex = 9;
+            // 
+            // nudEstante
+            // 
+            this.nudEstante.Location = new System.Drawing.Point(130, 387);
+            this.nudEstante.Name = "nudEstante";
+            this.nudEstante.Size = new System.Drawing.Size(124, 20);
+            this.nudEstante.TabIndex = 19;
+            this.nudEstante.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNums);
+            // 
+            // nudAltura
+            // 
+            this.nudAltura.Location = new System.Drawing.Point(130, 438);
+            this.nudAltura.Name = "nudAltura";
+            this.nudAltura.Size = new System.Drawing.Size(124, 20);
+            this.nudAltura.TabIndex = 20;
+            this.nudAltura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNums);
+            // 
             // frmRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -360,6 +427,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudEmpleado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistros)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEstante)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAltura)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -391,5 +460,11 @@
         private System.Windows.Forms.NumericUpDown nupCoste;
         private System.Windows.Forms.Label lblErrorCoste;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.NumericUpDown nudAltura;
+        private System.Windows.Forms.NumericUpDown nudEstante;
+        private System.Windows.Forms.TextBox txtEstanteria;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
     }
 }
