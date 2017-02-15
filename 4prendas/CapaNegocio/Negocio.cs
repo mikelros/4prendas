@@ -90,6 +90,11 @@ namespace CapaNegocio
         {
             return datos.getLastNRecogida();
         }
+
+        public List<Recogida> getRecogidasSinRegistros()
+        {
+            return datos.getRecogidasSinRegistros();
+        }
     }
 
 }
