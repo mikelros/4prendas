@@ -33,6 +33,8 @@
             this.rbtnClothes = new System.Windows.Forms.RadioButton();
             this.grbType = new System.Windows.Forms.GroupBox();
             this.grbNewEmployer = new System.Windows.Forms.GroupBox();
+            this.btnCreateSearchPhoto = new System.Windows.Forms.Button();
+            this.pboEmployeePhoto = new System.Windows.Forms.PictureBox();
             this.lblCreateFileNoExistError = new System.Windows.Forms.Label();
             this.lblCreateError = new System.Windows.Forms.Label();
             this.bntCreateCancel = new System.Windows.Forms.Button();
@@ -54,7 +56,6 @@
             this.grbEditProduct = new System.Windows.Forms.GroupBox();
             this.nudEditProductPlaceId = new System.Windows.Forms.NumericUpDown();
             this.nudEditProductCollectionId = new System.Windows.Forms.NumericUpDown();
-            this.label15 = new System.Windows.Forms.Label();
             this.nudEditProductCost = new System.Windows.Forms.NumericUpDown();
             this.nudEditProductStock = new System.Windows.Forms.NumericUpDown();
             this.nudEditProductMinStock = new System.Windows.Forms.NumericUpDown();
@@ -78,11 +79,15 @@
             this.btnUpdateCancel = new System.Windows.Forms.Button();
             this.btnUpdatePorduct = new System.Windows.Forms.Button();
             this.txtEditProductCode = new System.Windows.Forms.TextBox();
+            this.btnRestoreDataBase = new System.Windows.Forms.Button();
             this.btnCopy = new System.Windows.Forms.Button();
             this.btnApply = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.txtEditProductSubFamilyCode = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.grbType.SuspendLayout();
             this.grbNewEmployer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pboEmployeePhoto)).BeginInit();
             this.grbDeleteEmployer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDeleteNumEmployee)).BeginInit();
             this.grbEditProduct.SuspendLayout();
@@ -126,9 +131,9 @@
             this.grbType.Controls.Add(this.rbtnFood);
             this.grbType.Controls.Add(this.rbtnClothes);
             this.grbType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbType.Location = new System.Drawing.Point(135, 139);
+            this.grbType.Location = new System.Drawing.Point(12, 106);
             this.grbType.Name = "grbType";
-            this.grbType.Size = new System.Drawing.Size(129, 242);
+            this.grbType.Size = new System.Drawing.Size(108, 242);
             this.grbType.TabIndex = 12;
             this.grbType.TabStop = false;
             this.grbType.Text = "Tipo Tienda";
@@ -136,6 +141,8 @@
             // grbNewEmployer
             // 
             this.grbNewEmployer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.grbNewEmployer.Controls.Add(this.btnCreateSearchPhoto);
+            this.grbNewEmployer.Controls.Add(this.pboEmployeePhoto);
             this.grbNewEmployer.Controls.Add(this.lblCreateFileNoExistError);
             this.grbNewEmployer.Controls.Add(this.lblCreateError);
             this.grbNewEmployer.Controls.Add(this.bntCreateCancel);
@@ -146,12 +153,31 @@
             this.grbNewEmployer.Controls.Add(this.txtCreateName);
             this.grbNewEmployer.Controls.Add(this.label1);
             this.grbNewEmployer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbNewEmployer.Location = new System.Drawing.Point(270, 124);
+            this.grbNewEmployer.Location = new System.Drawing.Point(126, 106);
             this.grbNewEmployer.Name = "grbNewEmployer";
-            this.grbNewEmployer.Size = new System.Drawing.Size(279, 363);
+            this.grbNewEmployer.Size = new System.Drawing.Size(413, 363);
             this.grbNewEmployer.TabIndex = 13;
             this.grbNewEmployer.TabStop = false;
             this.grbNewEmployer.Text = "Nuevo Empleado";
+            // 
+            // btnCreateSearchPhoto
+            // 
+            this.btnCreateSearchPhoto.BackgroundImage = global::CapaPresentacion.Properties.Resources.check;
+            this.btnCreateSearchPhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCreateSearchPhoto.Location = new System.Drawing.Point(369, 101);
+            this.btnCreateSearchPhoto.Name = "btnCreateSearchPhoto";
+            this.btnCreateSearchPhoto.Size = new System.Drawing.Size(38, 27);
+            this.btnCreateSearchPhoto.TabIndex = 21;
+            this.btnCreateSearchPhoto.UseVisualStyleBackColor = true;
+            this.btnCreateSearchPhoto.Click += new System.EventHandler(this.btnCreateSearchPhoto_Click);
+            // 
+            // pboEmployeePhoto
+            // 
+            this.pboEmployeePhoto.Location = new System.Drawing.Point(311, 131);
+            this.pboEmployeePhoto.Name = "pboEmployeePhoto";
+            this.pboEmployeePhoto.Size = new System.Drawing.Size(96, 139);
+            this.pboEmployeePhoto.TabIndex = 20;
+            this.pboEmployeePhoto.TabStop = false;
             // 
             // lblCreateFileNoExistError
             // 
@@ -220,7 +246,7 @@
             // 
             this.txtCreatePhoto.Location = new System.Drawing.Point(6, 104);
             this.txtCreatePhoto.Name = "txtCreatePhoto";
-            this.txtCreatePhoto.Size = new System.Drawing.Size(186, 21);
+            this.txtCreatePhoto.Size = new System.Drawing.Size(359, 21);
             this.txtCreatePhoto.TabIndex = 9;
             // 
             // label3
@@ -262,9 +288,9 @@
             this.grbDeleteEmployer.Controls.Add(this.label5);
             this.grbDeleteEmployer.Controls.Add(this.label6);
             this.grbDeleteEmployer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbDeleteEmployer.Location = new System.Drawing.Point(478, 124);
+            this.grbDeleteEmployer.Location = new System.Drawing.Point(545, 106);
             this.grbDeleteEmployer.Name = "grbDeleteEmployer";
-            this.grbDeleteEmployer.Size = new System.Drawing.Size(279, 363);
+            this.grbDeleteEmployer.Size = new System.Drawing.Size(207, 363);
             this.grbDeleteEmployer.TabIndex = 16;
             this.grbDeleteEmployer.TabStop = false;
             this.grbDeleteEmployer.Text = "Eliminar Empleado";
@@ -363,7 +389,6 @@
             this.grbEditProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.grbEditProduct.Controls.Add(this.nudEditProductPlaceId);
             this.grbEditProduct.Controls.Add(this.nudEditProductCollectionId);
-            this.grbEditProduct.Controls.Add(this.label15);
             this.grbEditProduct.Controls.Add(this.nudEditProductCost);
             this.grbEditProduct.Controls.Add(this.nudEditProductStock);
             this.grbEditProduct.Controls.Add(this.nudEditProductMinStock);
@@ -376,7 +401,9 @@
             this.grbEditProduct.Controls.Add(this.label4);
             this.grbEditProduct.Controls.Add(this.label14);
             this.grbEditProduct.Controls.Add(this.label7);
+            this.grbEditProduct.Controls.Add(this.label2);
             this.grbEditProduct.Controls.Add(this.label10);
+            this.grbEditProduct.Controls.Add(this.txtEditProductSubFamilyCode);
             this.grbEditProduct.Controls.Add(this.txtEditProductDescription);
             this.grbEditProduct.Controls.Add(this.txtEditProductFamilyCode);
             this.grbEditProduct.Controls.Add(this.Medida);
@@ -388,7 +415,7 @@
             this.grbEditProduct.Controls.Add(this.btnUpdatePorduct);
             this.grbEditProduct.Controls.Add(this.txtEditProductCode);
             this.grbEditProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbEditProduct.Location = new System.Drawing.Point(677, 124);
+            this.grbEditProduct.Location = new System.Drawing.Point(758, 106);
             this.grbEditProduct.Name = "grbEditProduct";
             this.grbEditProduct.Size = new System.Drawing.Size(356, 363);
             this.grbEditProduct.TabIndex = 18;
@@ -404,19 +431,10 @@
             // 
             // nudEditProductCollectionId
             // 
-            this.nudEditProductCollectionId.Location = new System.Drawing.Point(74, 188);
+            this.nudEditProductCollectionId.Location = new System.Drawing.Point(212, 188);
             this.nudEditProductCollectionId.Name = "nudEditProductCollectionId";
             this.nudEditProductCollectionId.Size = new System.Drawing.Size(98, 21);
             this.nudEditProductCollectionId.TabIndex = 28;
-            // 
-            // label15
-            // 
-            this.label15.Location = new System.Drawing.Point(6, 230);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(141, 58);
-            this.label15.TabIndex = 27;
-            this.label15.Text = "Los campos vacíos no serán modificados";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // nudEditProductCost
             // 
@@ -482,7 +500,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(74, 167);
+            this.label11.Location = new System.Drawing.Point(212, 167);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(97, 18);
             this.label11.TabIndex = 22;
@@ -556,7 +574,7 @@
             // 
             this.Medida.AutoSize = true;
             this.Medida.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Medida.Location = new System.Drawing.Point(6, 167);
+            this.Medida.Location = new System.Drawing.Point(144, 167);
             this.Medida.Name = "Medida";
             this.Medida.Size = new System.Drawing.Size(62, 18);
             this.Medida.TabIndex = 20;
@@ -564,7 +582,7 @@
             // 
             // txtEditProductSize
             // 
-            this.txtEditProductSize.Location = new System.Drawing.Point(8, 188);
+            this.txtEditProductSize.Location = new System.Drawing.Point(146, 188);
             this.txtEditProductSize.Name = "txtEditProductSize";
             this.txtEditProductSize.Size = new System.Drawing.Size(60, 21);
             this.txtEditProductSize.TabIndex = 19;
@@ -638,6 +656,22 @@
             this.txtEditProductCode.TextChanged += new System.EventHandler(this.txtEditProductCode_TextChanged);
             this.txtEditProductCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEditProductCode_KeyPress);
             // 
+            // btnRestoreDataBase
+            // 
+            this.btnRestoreDataBase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRestoreDataBase.BackColor = System.Drawing.Color.White;
+            this.btnRestoreDataBase.BackgroundImage = global::CapaPresentacion.Properties.Resources.backup;
+            this.btnRestoreDataBase.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnRestoreDataBase.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRestoreDataBase.Location = new System.Drawing.Point(779, 475);
+            this.btnRestoreDataBase.Name = "btnRestoreDataBase";
+            this.btnRestoreDataBase.Size = new System.Drawing.Size(85, 153);
+            this.btnRestoreDataBase.TabIndex = 17;
+            this.btnRestoreDataBase.Text = "&RestaurarBD";
+            this.btnRestoreDataBase.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnRestoreDataBase.UseVisualStyleBackColor = false;
+            this.btnRestoreDataBase.Click += new System.EventHandler(this.btnRestoreDataBase_Click);
+            // 
             // btnCopy
             // 
             this.btnCopy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -645,9 +679,9 @@
             this.btnCopy.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCopy.BackgroundImage")));
             this.btnCopy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCopy.Location = new System.Drawing.Point(867, 515);
+            this.btnCopy.Location = new System.Drawing.Point(867, 475);
             this.btnCopy.Name = "btnCopy";
-            this.btnCopy.Size = new System.Drawing.Size(85, 113);
+            this.btnCopy.Size = new System.Drawing.Size(85, 153);
             this.btnCopy.TabIndex = 17;
             this.btnCopy.Text = "&CopiarBD";
             this.btnCopy.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -661,9 +695,9 @@
             this.btnApply.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnApply.BackgroundImage")));
             this.btnApply.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnApply.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnApply.Location = new System.Drawing.Point(958, 515);
+            this.btnApply.Location = new System.Drawing.Point(958, 475);
             this.btnApply.Name = "btnApply";
-            this.btnApply.Size = new System.Drawing.Size(75, 113);
+            this.btnApply.Size = new System.Drawing.Size(75, 153);
             this.btnApply.TabIndex = 9;
             this.btnApply.Text = "&Aplicar";
             this.btnApply.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -677,14 +711,31 @@
             this.btnExit.BackgroundImage = global::CapaPresentacion.Properties.Resources.exit;
             this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(1039, 515);
+            this.btnExit.Location = new System.Drawing.Point(1039, 475);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 113);
+            this.btnExit.Size = new System.Drawing.Size(75, 153);
             this.btnExit.TabIndex = 8;
             this.btnExit.Text = "A&trás";
             this.btnExit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // txtEditProductSubFamilyCode
+            // 
+            this.txtEditProductSubFamilyCode.Location = new System.Drawing.Point(8, 188);
+            this.txtEditProductSubFamilyCode.Name = "txtEditProductSubFamilyCode";
+            this.txtEditProductSubFamilyCode.Size = new System.Drawing.Size(130, 21);
+            this.txtEditProductSubFamilyCode.TabIndex = 19;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(6, 167);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(132, 18);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Cod.Sub.Familia";
             // 
             // frmConfig
             // 
@@ -692,6 +743,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1126, 640);
             this.Controls.Add(this.grbEditProduct);
+            this.Controls.Add(this.btnRestoreDataBase);
             this.Controls.Add(this.btnCopy);
             this.Controls.Add(this.grbDeleteEmployer);
             this.Controls.Add(this.grbNewEmployer);
@@ -707,6 +759,7 @@
             this.grbType.PerformLayout();
             this.grbNewEmployer.ResumeLayout(false);
             this.grbNewEmployer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pboEmployeePhoto)).EndInit();
             this.grbDeleteEmployer.ResumeLayout(false);
             this.grbDeleteEmployer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDeleteNumEmployee)).EndInit();
@@ -769,12 +822,16 @@
         private System.Windows.Forms.TextBox txtEditProductFamilyCode;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.NumericUpDown nudDeleteNumEmployee;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.NumericUpDown nudEditProductCost;
         private System.Windows.Forms.NumericUpDown nudEditProductStock;
         private System.Windows.Forms.NumericUpDown nudEditProductMinStock;
         private System.Windows.Forms.NumericUpDown nudEditProductEmployerId;
         private System.Windows.Forms.NumericUpDown nudEditProductPlaceId;
         private System.Windows.Forms.NumericUpDown nudEditProductCollectionId;
+        private System.Windows.Forms.PictureBox pboEmployeePhoto;
+        private System.Windows.Forms.Button btnCreateSearchPhoto;
+        private System.Windows.Forms.Button btnRestoreDataBase;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtEditProductSubFamilyCode;
     }
 }
