@@ -28,10 +28,11 @@ namespace CapaPresentacion
             InitializeComponent();
         }
 
-        private void frmInicio_Load(object sender, EventArgs e)
+        private void frmVenta_Load(object sender, EventArgs e)
         {
             loadCmbSearch();
             dgvCarrito.Hide();
+            dgvCarrito.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             checkStockMinimo();
             loadWorkersList();
             loadFamilias();
@@ -48,7 +49,7 @@ namespace CapaPresentacion
         {
             ProdsStockMinimo = Modulo.miNegocio.getProdsStockMinimo();
             int num;
-            if (Modulo.miNegocio.getProdsStockMinimo() == null)
+            if (ProdsStockMinimo == null)
             {
                 num = 0;
             }
@@ -126,17 +127,9 @@ namespace CapaPresentacion
         private void btnCarrito_Click(object sender, EventArgs e)
         {
             dgvCarrito.DataSource = null;
-            dgvCarrito.DataSource = productosCarrito;
+            dgvCarrito.DataSource = (from p in productosCarrito
+                                     select new{CodigoArticulo = p.CodigoArticulo, Descripcion = p.Descripcion, Coste = p.Coste, Unidades = p.Unidades }).ToList();
             dgvCarrito.Refresh();
-            this.dgvCarrito.Columns["StockMinimo"].Visible = false;
-            this.dgvCarrito.Columns["Stock"].Visible = false;
-            this.dgvCarrito.Columns["EmpleadoId"].Visible = false;
-            this.dgvCarrito.Columns["RecogidaId"].Visible = false;
-            this.dgvCarrito.Columns["FechaEntrada"].Visible = false;
-            this.dgvCarrito.Columns["Medida"].Visible = false;
-            this.dgvCarrito.Columns["LugarId"].Visible = false;
-            this.dgvCarrito.Columns["CodFamilia"].Visible = false;
-            this.dgvCarrito.Columns["CodSubFamilia"].Visible = false;
             dgvCarrito.Show();
         }
 
@@ -279,9 +272,20 @@ namespace CapaPresentacion
             {
                 return;
             }
+
+            Producto producto = productos.ElementAt(e.RowIndex);
+
             dgvCarrito.DataSource = null;
-            productosCarrito.Add(productos.ElementAt(e.RowIndex));
-            dgvCarrito.DataSource = productosCarrito;
+
+            if (!productosCarrito.Contains(producto))
+            {
+                productosCarrito.Add(productos.ElementAt(e.RowIndex));
+            }
+            productosCarrito.Where((p) => p.Equals(producto)).SingleOrDefault().Unidades++;
+
+            dgvCarrito.DataSource = (from p in productosCarrito
+                                     select new { CodigoArticulo = p.CodigoArticulo, Descripcion = p.Descripcion, Coste = p.Coste, Unidades = p.Unidades }).ToList();
+
             dgvCarrito.Refresh();
             numProdsCarrito += 1;
             btnCarrito.Text = numProdsCarrito.ToString();
@@ -293,9 +297,22 @@ namespace CapaPresentacion
             {
                 return;
             }
+
+            Producto producto = productosCarrito.ElementAt(e.RowIndex);
+
             dgvCarrito.DataSource = null;
-            productosCarrito.Remove(productosCarrito.ElementAt(e.RowIndex));
-            dgvCarrito.DataSource = productosCarrito;
+
+            if (productosCarrito.Where((p) => p.Equals(producto)).SingleOrDefault().Unidades == 1)
+            {
+                productosCarrito.Remove(producto);
+            } else
+            {
+                productosCarrito.Where((p) => p.Equals(producto)).SingleOrDefault().Unidades--;
+            }
+
+
+            dgvCarrito.DataSource = (from p in productosCarrito
+                                     select new { CodigoArticulo = p.CodigoArticulo, Descripcion = p.Descripcion, Coste = p.Coste, Unidades = p.Unidades }).ToList();
             dgvCarrito.Refresh();
             numProdsCarrito -= 1;
             btnCarrito.Text = numProdsCarrito.ToString();

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaEntidades
 {
-    public class Producto
+    public class Producto : IEquatable<Producto>
     {
         private string codigoArticulo;
         private string descripcion;
@@ -20,6 +20,7 @@ namespace CapaEntidades
         private int recogidaId;
         private DateTime fechaEntrada;
         private float coste;
+        private int unidades;
 
 
         public Producto()
@@ -43,6 +44,24 @@ namespace CapaEntidades
             this.recogidaId = recogidaId;
             this.fechaEntrada = fechaEntrada;
             this.coste = coste; }
+
+        public Producto(string codArticulo, string descripcion, string medida, int stock, int stockMinimo, int empleadoId, int lugarId,
+          string codFamilia, string codSubFamilia, int recogidaId, DateTime fechaEntrada, int coste, int unidades)
+        {
+            this.codigoArticulo = codArticulo;
+            this.descripcion = descripcion;
+            this.medida = medida;
+            this.stock = stock;
+            this.stockMinimo = stockMinimo;
+            this.empleadoId = empleadoId;
+            this.lugarId = lugarId;
+            this.codFamilia = codFamilia;
+            this.codSubFamilia = codSubFamilia;
+            this.recogidaId = recogidaId;
+            this.fechaEntrada = fechaEntrada;
+            this.coste = coste;
+            this.unidades = unidades;
+        }
 
         public string CodigoArticulo
         {
@@ -186,6 +205,23 @@ namespace CapaEntidades
             {
                 coste = value;
             }
+        }
+
+        public int Unidades
+        {
+            get
+            {
+                return unidades;
+            }
+            set
+            {
+                unidades = value;
+            }
+        }
+
+        public bool Equals(Producto other)
+        {
+            return this.codigoArticulo.ToLower() == other.codigoArticulo.ToLower();
         }
     }
 }

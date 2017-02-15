@@ -592,7 +592,7 @@
             this.Name = "frmVenta";
             this.Text = "4Tiendas";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.frmInicio_Load);
+            this.Load += new System.EventHandler(this.frmVenta_Load);
             this.gboFamilia.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             this.gboSubfamilia.ResumeLayout(false);
