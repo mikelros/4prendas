@@ -17,6 +17,7 @@ namespace CapaPresentacion
         string shopMode;
         string mydocpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
+        List<Empleado> Empleados;
         public frmMenu()
         {
             InitializeComponent();
@@ -29,8 +30,18 @@ namespace CapaPresentacion
             btnRegistro.Location = new Point((this.Size.Width * 2 / 4) - btnRegistro.Width / 2, medioY - (btnRegistro.Height / 2));
             btnVenta.Location = new Point((this.Size.Width * 3 / 4) - btnVenta.Width / 2, medioY - (btnVenta.Height / 2));
             loadShopMode();
-
+            loadWorkersList();
         }
+
+        private void loadWorkersList()
+        {
+            Empleados = Modulo.miNegocio.getEmpleados();
+            cmbEmpleado.DataSource = Empleados;
+            cmbEmpleado.DisplayMember = "empleadoId";
+            cmbEmpleado.SelectedItem = Modulo.empleadoActual;
+        }
+
+
 
         private void cmbEmpleado_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -109,28 +120,28 @@ namespace CapaPresentacion
         {
             Form frmLoginAdmin = new frmLoginAdmin();
             frmLoginAdmin.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void btnRecogida_Click(object sender, EventArgs e)
         {
             Form frmRecogida = new frmRecogida();
             frmRecogida.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void btnRegistro_Click(object sender, EventArgs e)
         {
             Form frmRegistro = new frmRegistro();
             frmRegistro.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void btnVenta_Click(object sender, EventArgs e)
         {
             Form frmVenta = new frmVenta();
             frmVenta.Show();
-            this.Close();
+            this.Hide();
         }
 
     }

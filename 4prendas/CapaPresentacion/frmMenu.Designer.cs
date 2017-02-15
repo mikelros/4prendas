@@ -144,7 +144,7 @@
             // 
             this.imgWorker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.imgWorker.Image = global::CapaPresentacion.Properties.Resources.newsle_empty_icon;
-            this.imgWorker.Location = new System.Drawing.Point(1135, 123);
+            this.imgWorker.Location = new System.Drawing.Point(1065, 185);
             this.imgWorker.Name = "imgWorker";
             this.imgWorker.Size = new System.Drawing.Size(100, 129);
             this.imgWorker.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -156,7 +156,7 @@
             this.lblWorkerName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblWorkerName.AutoSize = true;
             this.lblWorkerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWorkerName.Location = new System.Drawing.Point(1132, 102);
+            this.lblWorkerName.Location = new System.Drawing.Point(1062, 164);
             this.lblWorkerName.Name = "lblWorkerName";
             this.lblWorkerName.Size = new System.Drawing.Size(148, 18);
             this.lblWorkerName.TabIndex = 88;
@@ -168,7 +168,7 @@
             this.cmbEmpleado.BackColor = System.Drawing.Color.White;
             this.cmbEmpleado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEmpleado.FormattingEnabled = true;
-            this.cmbEmpleado.Location = new System.Drawing.Point(1135, 78);
+            this.cmbEmpleado.Location = new System.Drawing.Point(1065, 140);
             this.cmbEmpleado.Name = "cmbEmpleado";
             this.cmbEmpleado.Size = new System.Drawing.Size(121, 21);
             this.cmbEmpleado.TabIndex = 87;
@@ -178,7 +178,7 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(1132, 57);
+            this.label3.Location = new System.Drawing.Point(1062, 119);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 18);
             this.label3.TabIndex = 86;
