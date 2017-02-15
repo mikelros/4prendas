@@ -532,19 +532,12 @@ namespace CapaDatos
             try
             {
                 conTabla.Open();
-                OleDbDataReader dr = cmd.ExecuteReader();
-                if (!dr.HasRows)
-                {
-                    return 0; //sale vacía
-                }
-
-                dr.Read();
-                return (int)dr["IdRecogida"];
+                return (int)cmd.ExecuteScalar();
             }
             catch (Exception ex)
             {
                 //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
-                return -1;
+                return 0;
             }
             finally
             {
