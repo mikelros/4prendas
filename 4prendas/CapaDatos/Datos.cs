@@ -521,7 +521,35 @@ namespace CapaDatos
             }
 
             return -1;
+        }
 
+        public int getLastNRecogida()
+        {
+            string sql = "SELECT MAX(IdRecogida) FROM Recogida";
+
+            OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
+            OleDbCommand cmd = new OleDbCommand(sql, conTabla);
+            try
+            {
+                conTabla.Open();
+                OleDbDataReader dr = cmd.ExecuteReader();
+                if (!dr.HasRows)
+                {
+                    return 0; //sale vacía
+                }
+
+                dr.Read();
+                return (int)dr["IdRecogida"];
+            }
+            catch (Exception ex)
+            {
+                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
+                return -1;
+            }
+            finally
+            {
+                conTabla.Close();
+            }
         }
     }
 }
