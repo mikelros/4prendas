@@ -39,7 +39,8 @@ namespace CapaPresentacion
         private void btnInsert_Click(object sender, EventArgs e)
         {
             int id = Modulo.miNegocio.comprobarPersona(txtGivingPerson.Text);
-            Recogida recogida = new Recogida(new DateTime(), Convert.ToInt32(Math.Round(nudEmployee.Value, 0)), Convert.ToInt32(Math.Round(nudQuantity.Value, 0)), id);
+            DateTime dtm = new DateTime(dtpCollectionDate.Value.Year, dtpCollectionDate.Value.Month, dtpCollectionDate.Value.Day, dtpCollectionDate.Value.Hour, dtpCollectionDate.Value.Minute, dtpCollectionDate.Value.Second);
+            Recogida recogida = new Recogida(dtm, Convert.ToInt32(Math.Round(nudEmployee.Value, 0)), Convert.ToInt32(Math.Round(nudQuantity.Value, 0)), id);
             Modulo.miNegocio.realizarRecogida(recogida);
         }
 
