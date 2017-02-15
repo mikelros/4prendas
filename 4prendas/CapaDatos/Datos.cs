@@ -562,7 +562,7 @@ namespace CapaDatos
                 }
                 while (dr.Read())
                 {
-                    recogidas.Add(new Recogida(dr.IsDBNull(dr.GetOrdinal("FechaRecogida")) ? default(DateTime) : (DateTime)dr["FechaRecogida"], dr.IsDBNull(dr.GetOrdinal("EmpleadoId")) ? -1 : (int)dr["EmpleadoId"], dr.IsDBNull(dr.GetOrdinal("CantidadProductos")) ? 0 : (int)dr["CantidadProductos"], dr.IsDBNull(dr.GetOrdinal("PersonaId")) ? -1 : (int)dr["PersonaId"]));
+                    recogidas.Add(new Recogida((int)dr["IdRecogida"], dr.IsDBNull(dr.GetOrdinal("FechaRecogida")) ? default(DateTime) : (DateTime)dr["FechaRecogida"], dr.IsDBNull(dr.GetOrdinal("EmpleadoId")) ? -1 : (int)dr["EmpleadoId"], dr.IsDBNull(dr.GetOrdinal("CantidadProductos")) ? 0 : (int)dr["CantidadProductos"], dr.IsDBNull(dr.GetOrdinal("PersonaId")) ? -1 : (int)dr["PersonaId"]));
                 }
                 return recogidas;
             }

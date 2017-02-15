@@ -31,22 +31,26 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegistro));
             this.gboRegistros = new System.Windows.Forms.GroupBox();
             this.nupCoste = new System.Windows.Forms.NumericUpDown();
-            this.lblErrorCoste = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.nudNumRecogida = new System.Windows.Forms.NumericUpDown();
+            this.nudAltura = new System.Windows.Forms.NumericUpDown();
             this.nudEmpleado = new System.Windows.Forms.NumericUpDown();
+            this.nudEstante = new System.Windows.Forms.NumericUpDown();
             this.nudStock = new System.Windows.Forms.NumericUpDown();
             this.btnGenerar = new System.Windows.Forms.Button();
             this.lblErrorNumRecogida = new System.Windows.Forms.Label();
             this.lblErrorEmpleado = new System.Windows.Forms.Label();
             this.lblErrorStock = new System.Windows.Forms.Label();
             this.lblErrorCodArticulo = new System.Windows.Forms.Label();
+            this.txtEstanteria = new System.Windows.Forms.TextBox();
             this.txtMedida = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.txtCodArticulo = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -54,30 +58,23 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtEstanteria = new System.Windows.Forms.TextBox();
-            this.nudEstante = new System.Windows.Forms.NumericUpDown();
-            this.nudAltura = new System.Windows.Forms.NumericUpDown();
+            this.cboRecogida = new System.Windows.Forms.ComboBox();
             this.gboRegistros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nupCoste)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudNumRecogida)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAltura)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEmpleado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEstante)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistros)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudEstante)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudAltura)).BeginInit();
             this.SuspendLayout();
             // 
             // gboRegistros
             // 
             this.gboRegistros.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.gboRegistros.BackColor = System.Drawing.Color.Transparent;
+            this.gboRegistros.Controls.Add(this.cboRecogida);
             this.gboRegistros.Controls.Add(this.nupCoste);
-            this.gboRegistros.Controls.Add(this.lblErrorCoste);
             this.gboRegistros.Controls.Add(this.label12);
-            this.gboRegistros.Controls.Add(this.nudNumRecogida);
             this.gboRegistros.Controls.Add(this.nudAltura);
             this.gboRegistros.Controls.Add(this.nudEmpleado);
             this.gboRegistros.Controls.Add(this.nudEstante);
@@ -114,16 +111,6 @@
             this.nupCoste.Size = new System.Drawing.Size(124, 20);
             this.nupCoste.TabIndex = 24;
             // 
-            // lblErrorCoste
-            // 
-            this.lblErrorCoste.AutoSize = true;
-            this.lblErrorCoste.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorCoste.Location = new System.Drawing.Point(147, 330);
-            this.lblErrorCoste.Name = "lblErrorCoste";
-            this.lblErrorCoste.Size = new System.Drawing.Size(91, 13);
-            this.lblErrorCoste.TabIndex = 23;
-            this.lblErrorCoste.Text = "Campo obligatorio";
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -134,13 +121,13 @@
             this.label12.TabIndex = 22;
             this.label12.Text = "Coste";
             // 
-            // nudNumRecogida
+            // nudAltura
             // 
-            this.nudNumRecogida.Location = new System.Drawing.Point(130, 255);
-            this.nudNumRecogida.Name = "nudNumRecogida";
-            this.nudNumRecogida.Size = new System.Drawing.Size(124, 20);
-            this.nudNumRecogida.TabIndex = 21;
-            this.nudNumRecogida.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNums);
+            this.nudAltura.Location = new System.Drawing.Point(130, 438);
+            this.nudAltura.Name = "nudAltura";
+            this.nudAltura.Size = new System.Drawing.Size(124, 20);
+            this.nudAltura.TabIndex = 20;
+            this.nudAltura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNums);
             // 
             // nudEmpleado
             // 
@@ -149,6 +136,14 @@
             this.nudEmpleado.Size = new System.Drawing.Size(124, 20);
             this.nudEmpleado.TabIndex = 20;
             this.nudEmpleado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNums);
+            // 
+            // nudEstante
+            // 
+            this.nudEstante.Location = new System.Drawing.Point(130, 387);
+            this.nudEstante.Name = "nudEstante";
+            this.nudEstante.Size = new System.Drawing.Size(124, 20);
+            this.nudEstante.TabIndex = 19;
+            this.nudEstante.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNums);
             // 
             // nudStock
             // 
@@ -213,6 +208,13 @@
             this.lblErrorCodArticulo.TabIndex = 14;
             this.lblErrorCodArticulo.Text = "Campo obligatorio";
             // 
+            // txtEstanteria
+            // 
+            this.txtEstanteria.Location = new System.Drawing.Point(130, 346);
+            this.txtEstanteria.Name = "txtEstanteria";
+            this.txtEstanteria.Size = new System.Drawing.Size(124, 20);
+            this.txtEstanteria.TabIndex = 9;
+            // 
             // txtMedida
             // 
             this.txtMedida.Location = new System.Drawing.Point(130, 110);
@@ -234,6 +236,16 @@
             this.txtCodArticulo.Size = new System.Drawing.Size(124, 20);
             this.txtCodArticulo.TabIndex = 4;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(6, 436);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(51, 18);
+            this.label9.TabIndex = 6;
+            this.label9.Text = "Altura";
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -254,6 +266,16 @@
             this.label5.TabIndex = 6;
             this.label5.Text = "Empleado";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(6, 345);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(84, 18);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Estantería";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -263,6 +285,16 @@
             this.label4.Size = new System.Drawing.Size(98, 18);
             this.label4.TabIndex = 5;
             this.label4.Text = "Descripción";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(6, 385);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(65, 18);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Estante";
             // 
             // label3
             // 
@@ -276,13 +308,12 @@
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(6, 149);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 18);
+            this.label2.Size = new System.Drawing.Size(102, 38);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Stock";
+            this.label2.Text = "Unidades a introducir";
             // 
             // label1
             // 
@@ -351,58 +382,15 @@
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // label7
+            // cboRecogida
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 385);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 18);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "Estante";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(6, 345);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(84, 18);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "Estantería";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(6, 436);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(51, 18);
-            this.label9.TabIndex = 6;
-            this.label9.Text = "Altura";
-            // 
-            // txtEstanteria
-            // 
-            this.txtEstanteria.Location = new System.Drawing.Point(130, 346);
-            this.txtEstanteria.Name = "txtEstanteria";
-            this.txtEstanteria.Size = new System.Drawing.Size(124, 20);
-            this.txtEstanteria.TabIndex = 9;
-            // 
-            // nudEstante
-            // 
-            this.nudEstante.Location = new System.Drawing.Point(130, 387);
-            this.nudEstante.Name = "nudEstante";
-            this.nudEstante.Size = new System.Drawing.Size(124, 20);
-            this.nudEstante.TabIndex = 19;
-            this.nudEstante.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNums);
-            // 
-            // nudAltura
-            // 
-            this.nudAltura.Location = new System.Drawing.Point(130, 438);
-            this.nudAltura.Name = "nudAltura";
-            this.nudAltura.Size = new System.Drawing.Size(124, 20);
-            this.nudAltura.TabIndex = 20;
-            this.nudAltura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNums);
+            this.cboRecogida.BackColor = System.Drawing.SystemColors.Window;
+            this.cboRecogida.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboRecogida.FormattingEnabled = true;
+            this.cboRecogida.Location = new System.Drawing.Point(130, 254);
+            this.cboRecogida.Name = "cboRecogida";
+            this.cboRecogida.Size = new System.Drawing.Size(121, 21);
+            this.cboRecogida.TabIndex = 25;
             // 
             // frmRegistro
             // 
@@ -419,16 +407,14 @@
             this.Name = "frmRegistro";
             this.Text = "frmRegistro";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.frmRegistro_Load);
             this.gboRegistros.ResumeLayout(false);
             this.gboRegistros.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nupCoste)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudNumRecogida)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAltura)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEmpleado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEstante)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistros)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudEstante)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudAltura)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -453,12 +439,10 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.DataGridView dgvRegistros;
         private System.Windows.Forms.Button btnGenerar;
-        private System.Windows.Forms.NumericUpDown nudNumRecogida;
         private System.Windows.Forms.NumericUpDown nudEmpleado;
         private System.Windows.Forms.NumericUpDown nudStock;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.NumericUpDown nupCoste;
-        private System.Windows.Forms.Label lblErrorCoste;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.NumericUpDown nudAltura;
         private System.Windows.Forms.NumericUpDown nudEstante;
@@ -466,5 +450,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cboRecogida;
     }
 }
