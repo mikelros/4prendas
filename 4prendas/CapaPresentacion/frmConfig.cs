@@ -19,8 +19,8 @@ namespace CapaPresentacion
         List<Empleado> employees = new List<Empleado>();
         List<Empleado> createdEmployees = new List<Empleado>();
         List<Empleado> deletedEmployees = new List<Empleado>();
-        Negocio negocio = new Negocio();
         Producto product;
+        string previousShopMode;
 
         string mydocpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         string shopMode;
@@ -36,12 +36,21 @@ namespace CapaPresentacion
         {
             shopMode = "food";
             changes = true;
+            if (shopMode == previousShopMode)
+            {
+                changes = false;
+            }
+
         }
 
         private void rbtnClothes_CheckedChanged(object sender, EventArgs e)
         {
             shopMode = "clothes";
             changes = true;
+            if (shopMode == previousShopMode)
+            {
+                changes = false;
+            }
         }
 
         private void btnCreate_Click(object sender, EventArgs e) //Probar
@@ -114,7 +123,11 @@ namespace CapaPresentacion
                     {
                         using (myStream)
                         {
+                            lblCreateFileNoExistError.Hide();
                             txtCreatePhoto.Text = openFileDialog1.FileName;
+                            Bitmap Picture = new Bitmap(txtCreatePhoto.Text);
+                            pboEmployeePhoto.BackgroundImage = Picture;
+                            pboEmployeePhoto.BackgroundImageLayout = ImageLayout.Stretch;
                         }
                     }
                 }
@@ -139,6 +152,7 @@ namespace CapaPresentacion
                 if (!createdEmployees.Contains(deleteEmployee))
                 {
                 deletedEmployees.Add(deleteEmployee);
+                    deleteEmployeePhoto(deleteEmployee.Foto);
                 }
                 changes = true;
                 
@@ -194,7 +208,7 @@ namespace CapaPresentacion
         }
         private void loadEmployees()
         {
-            employees = negocio.getEmpleados();
+            employees = Modulo.miNegocio.getEmpleados();
         }
         private void loadShopMode()
         {
@@ -210,6 +224,7 @@ namespace CapaPresentacion
                     if (line.StartsWith("ShopMode="))
                     {
                         shopMode = line.Split('=')[1];
+                        previousShopMode = shopMode;
                     }
                 }
 
@@ -280,11 +295,11 @@ namespace CapaPresentacion
             
             foreach (Empleado crtEmp in createdEmployees)
             {
-                negocio.createEmployee(crtEmp.Nombre, crtEmp.Foto);
+                Modulo.miNegocio.createEmployee(crtEmp.Nombre, crtEmp.Foto);
             }
             foreach (Empleado dltEmp in deletedEmployees)
             {
-                negocio.deleteEmployee(dltEmp.EmpleadoId);
+                Modulo.miNegocio.deleteEmployee(dltEmp.EmpleadoId);
                 deleteEmployeePhoto(dltEmp.Foto);
             }
 
@@ -367,7 +382,7 @@ namespace CapaPresentacion
 
            
                 product.Medida = txtEditProductSize.Text;
-            negocio.updateProduct(product);
+            Modulo.miNegocio.updateProduct(product);
 
         }
 
@@ -391,7 +406,7 @@ namespace CapaPresentacion
         private void searchProduct()
         {
 
-            product = negocio.getProdsPorCodigoArticulo(txtEditProductCode.Text).First<Producto>();
+            product = Modulo.miNegocio.getProdsPorCodigoArticulo(txtEditProductCode.Text).First<Producto>();
             if (product == null)
             {
                 lblCodeNotFoundMinStockError.Show();
@@ -408,6 +423,7 @@ namespace CapaPresentacion
                 nudEditProductPlaceId.Value = product.LugarId;
                 nudEditProductCollectionId.Value = product.RecogidaId;
                 txtEditProductSize.Text = product.Medida;
+                txtEditProductSubFamilyCode.Text = product.CodSubFamilia;
 
             }
         }
@@ -437,6 +453,57 @@ namespace CapaPresentacion
             if (txtEditProductCode.TextLength == 9)
             {
                 searchProduct();
+            }
+        }
+
+        private void btnCreateSearchPhoto_Click(object sender, EventArgs e)
+        {
+            if (!File.Exists(txtCreatePhoto.Text))
+            {
+                lblCreateFileNoExistError.Show();
+                return;
+            }else
+            {
+                lblCreateFileNoExistError.Hide();
+                Bitmap Picture = new Bitmap(txtCreatePhoto.Text);
+                pboEmployeePhoto.BackgroundImage = Picture;
+                pboEmployeePhoto.BackgroundImageLayout = ImageLayout.Stretch;
+            }
+        }
+
+        private void btnRestoreDataBase_Click(object sender, EventArgs e)
+        {
+            Stream myStream = null;
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+            openFileDialog1.InitialDirectory = "c:\\";
+            openFileDialog1.Filter = "Acces Data Base Files|*.accdb|All files (*.*)|*.*";
+            openFileDialog1.FilterIndex = 1;
+            openFileDialog1.RestoreDirectory = true;
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    if ((myStream = openFileDialog1.OpenFile()) != null)
+                    {
+                        using (myStream)
+                        {
+                            DialogResult result = MessageBox.Show("¿ESTÁ SEGURO DE QUERER SOBRESCRIBIR LA BASE DE DATOS ACTUAL POR EL ARCHIVO SELECCIONADO? RECUERDE QUE ESTE CAMBIO NO SE PODRÁ DESACER", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+                            if (result == DialogResult.Yes)
+                            {
+                            File.Copy(openFileDialog1.FileName, "4Prendas.accdb", true);
+                            }
+                                return;
+                            
+
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
+                }
             }
         }
     }

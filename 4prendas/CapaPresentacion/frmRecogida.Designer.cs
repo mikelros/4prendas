@@ -40,16 +40,15 @@
             this.lblCollectionDate = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
             this.nudQuantity = new System.Windows.Forms.NumericUpDown();
-            this.nudCollectionNum = new System.Windows.Forms.NumericUpDown();
             this.lblEmployeePassError = new System.Windows.Forms.Label();
             this.nudEmployee = new System.Windows.Forms.NumericUpDown();
             this.gbRecogida = new System.Windows.Forms.GroupBox();
             this.lblEmployeeName = new System.Windows.Forms.Label();
             this.txtGivingPerson = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.lblNRecogida = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pboEmployee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCollectionNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEmployee)).BeginInit();
             this.gbRecogida.SuspendLayout();
             this.SuspendLayout();
@@ -175,13 +174,6 @@
             this.nudQuantity.Size = new System.Drawing.Size(152, 20);
             this.nudQuantity.TabIndex = 64;
             // 
-            // nudCollectionNum
-            // 
-            this.nudCollectionNum.Location = new System.Drawing.Point(239, 200);
-            this.nudCollectionNum.Name = "nudCollectionNum";
-            this.nudCollectionNum.Size = new System.Drawing.Size(152, 20);
-            this.nudCollectionNum.TabIndex = 64;
-            // 
             // lblEmployeePassError
             // 
             this.lblEmployeePassError.AutoSize = true;
@@ -208,9 +200,9 @@
             // gbRecogida
             // 
             this.gbRecogida.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.gbRecogida.Controls.Add(this.lblNRecogida);
             this.gbRecogida.Controls.Add(this.lblEmployeeName);
             this.gbRecogida.Controls.Add(this.nudEmployee);
-            this.gbRecogida.Controls.Add(this.nudCollectionNum);
             this.gbRecogida.Controls.Add(this.nudQuantity);
             this.gbRecogida.Controls.Add(this.lblTitle);
             this.gbRecogida.Controls.Add(this.txtGivingPerson);
@@ -254,6 +246,15 @@
             this.label7.TabIndex = 58;
             this.label7.Text = "Persona que entrega";
             // 
+            // lblNRecogida
+            // 
+            this.lblNRecogida.AutoSize = true;
+            this.lblNRecogida.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNRecogida.Location = new System.Drawing.Point(248, 198);
+            this.lblNRecogida.Name = "lblNRecogida";
+            this.lblNRecogida.Size = new System.Drawing.Size(0, 18);
+            this.lblNRecogida.TabIndex = 66;
+            // 
             // frmRecogida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -271,7 +272,6 @@
             this.Load += new System.EventHandler(this.frmRecogida_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pboEmployee)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCollectionNum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEmployee)).EndInit();
             this.gbRecogida.ResumeLayout(false);
             this.gbRecogida.PerformLayout();
@@ -292,12 +292,12 @@
         private System.Windows.Forms.Label lblCollectionDate;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.NumericUpDown nudQuantity;
-        private System.Windows.Forms.NumericUpDown nudCollectionNum;
         private System.Windows.Forms.Label lblEmployeePassError;
         private System.Windows.Forms.NumericUpDown nudEmployee;
         private System.Windows.Forms.GroupBox gbRecogida;
         private System.Windows.Forms.Label lblEmployeeName;
         private System.Windows.Forms.TextBox txtGivingPerson;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblNRecogida;
     }
 }

@@ -86,6 +86,10 @@ namespace CapaNegocio
             return datos.comprobarPersona(nombre);
         }
 
+        public int getLastNRecogida()
+        {
+            return datos.getLastNRecogida();
+        }
     }
 
 }
