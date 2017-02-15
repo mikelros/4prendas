@@ -478,7 +478,8 @@ namespace CapaDatos
 
         public int comprobarPersona(string nombre)
         {
-            string sql = "SELECT IdPersona FROM Persona WHERE Persona.Nombre = @nombre";
+            nombre = nombre.ToLower();
+            string sql = "SELECT IdPersona FROM Persona WHERE LCase(Persona.Nombre) = @nombre";
 
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
@@ -493,10 +494,12 @@ namespace CapaDatos
                 if (!dr.HasRows)
                 {
                     sql = "INSERT INTO Persona(Nombre) VALUES(@nombre)";
+                    cmd = new OleDbCommand(sql, conTabla);
                     cmd.Parameters.AddWithValue("@nombre", nombre);
                     cmd.ExecuteNonQuery();
 
-                    sql = "SELECT IdPersona FROM Persona WHERE Nombre = @nombre";
+                    sql = "SELECT IdPersona FROM Persona WHERE LCase(Nombre) = @nombre";
+                    cmd = new OleDbCommand(sql, conTabla);
                     cmd.Parameters.AddWithValue("@nombre", nombre);
 
                     return (int)cmd.ExecuteScalar();
