@@ -81,6 +81,11 @@ namespace CapaNegocio
             datos.realizarRecogida(recogida);
         }
 
+        public int comprobarPersona(string nombre)
+        {
+            return datos.comprobarPersona(nombre);
+        }
+
     }
 
 }

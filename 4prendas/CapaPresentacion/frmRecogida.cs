@@ -27,7 +27,7 @@ namespace CapaPresentacion
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            //txtGivingPerson.Text = "";
+            txtGivingPerson.Text = "";
             pboEmployee.BackgroundImage = null;
             lblEmployeePassError.Hide();
             Modulo.empleadoActual = null;
@@ -38,11 +38,9 @@ namespace CapaPresentacion
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-
-            //Recogida recogida = new Recogida(new DateTime(), Convert.ToInt32(Math.Round(nudEmployee.Value, 0)), Convert.ToInt32(Math.Round(nudQuantity.Value, 0)), txtGivingPerson.Text);
-            //Modulo.miNegocio.realizarRecogida(recogida);
-
-
+            int id = Modulo.miNegocio.comprobarPersona(txtGivingPerson.Text);
+            Recogida recogida = new Recogida(new DateTime(), Convert.ToInt32(Math.Round(nudEmployee.Value, 0)), Convert.ToInt32(Math.Round(nudQuantity.Value, 0)), id);
+            Modulo.miNegocio.realizarRecogida(recogida);
         }
 
         private void btnBack_Click(object sender, EventArgs e)
