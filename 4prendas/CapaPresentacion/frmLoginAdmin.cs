@@ -19,6 +19,7 @@ namespace CapaPresentacion
 
         private void frmLoginAdmin_Load(object sender, EventArgs e)
         {
+            txtUser.Focus();
             lblPassError.Hide();
             lblUserError.Hide();
 
@@ -29,12 +30,12 @@ namespace CapaPresentacion
             if (Modulo.miNegocio.getAdministrador(txtUser.Text, txtPass.Text) != null)
             {
                 (new frmConfig()).Show();
+                this.Close();
             }
             else
             {
                 MessageBox.Show("Usuario o contraseña incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-                (new frmConfig()).Show();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
