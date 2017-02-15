@@ -69,7 +69,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnFinVenta = new System.Windows.Forms.Button();
-            this.lblPruebas = new System.Windows.Forms.TextBox();
             this.gboFamilia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.gboSubfamilia.SuspendLayout();
@@ -463,8 +462,9 @@
             this.dgvCarrito.Name = "dgvCarrito";
             this.dgvCarrito.ReadOnly = true;
             this.dgvCarrito.RowTemplate.Height = 24;
-            this.dgvCarrito.Size = new System.Drawing.Size(134, 284);
+            this.dgvCarrito.Size = new System.Drawing.Size(347, 345);
             this.dgvCarrito.TabIndex = 77;
+            this.dgvCarrito.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCarrito_CellClick);
             this.dgvCarrito.MouseLeave += new System.EventHandler(this.dgvCarrito_MouseLeave);
             // 
             // btnCarrito
@@ -561,14 +561,6 @@
             this.btnFinVenta.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnFinVenta.UseVisualStyleBackColor = false;
             // 
-            // lblPruebas
-            // 
-            this.lblPruebas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPruebas.Location = new System.Drawing.Point(903, 65);
-            this.lblPruebas.Name = "lblPruebas";
-            this.lblPruebas.Size = new System.Drawing.Size(129, 20);
-            this.lblPruebas.TabIndex = 80;
-            // 
             // frmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -576,7 +568,6 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1219, 771);
-            this.Controls.Add(this.lblPruebas);
             this.Controls.Add(this.btnFinVenta);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.dgvCarrito);
@@ -655,7 +646,6 @@
         internal System.Windows.Forms.DataGridView dgvCarrito;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnFinVenta;
-        private System.Windows.Forms.TextBox lblPruebas;
     }
 }
 

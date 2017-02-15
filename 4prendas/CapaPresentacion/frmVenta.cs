@@ -20,7 +20,9 @@ namespace CapaPresentacion
         List<Empleado> Empleados;
         private List<Familia> familias;
         private List<Producto> productos;
-        private List<Producto> productosCarrito;
+        private List<Producto> productosCarrito = new List<Producto>();
+        private int numProdsCarrito = 0;
+
         public frmVenta()
         {
             InitializeComponent();
@@ -71,10 +73,12 @@ namespace CapaPresentacion
             Empleados = Modulo.miNegocio.getEmpleados();
             cmbEmpleado.DataSource = Empleados;
             cmbEmpleado.DisplayMember = "empleadoId";
+            cmbEmpleado.SelectedItem = Modulo.empleadoActual;
         }
 
         private void cmbEmpleado_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Modulo.empleadoActual = (Empleado)cmbEmpleado.SelectedItem;
             lblWorkerName.Text = ((Empleado)cmbEmpleado.SelectedItem).Nombre;
             if (System.IO.File.Exists(((Empleado)cmbEmpleado.SelectedItem).Foto))
             {
@@ -105,10 +109,12 @@ namespace CapaPresentacion
             switch (cmbSearch.SelectedItem.ToString())
             {
                 case "Codigo de barras":
-                    dgvProducts.DataSource = Modulo.miNegocio.getProdsPorCodigoArticulo(txtSearch.Text);
+                    productos = Modulo.miNegocio.getProdsPorCodigoArticulo(txtSearch.Text);
+                    dgvProducts.DataSource = productos;
                     break;
                 case "Descripcion":
-                    dgvProducts.DataSource = Modulo.miNegocio.getProdsPorDescripcion(txtSearch.Text);
+                    productos = Modulo.miNegocio.getProdsPorDescripcion(txtSearch.Text);
+                    dgvProducts.DataSource = productos;
                     break;
                 default:
                     break;
@@ -119,6 +125,18 @@ namespace CapaPresentacion
 
         private void btnCarrito_Click(object sender, EventArgs e)
         {
+            dgvCarrito.DataSource = null;
+            dgvCarrito.DataSource = productosCarrito;
+            dgvCarrito.Refresh();
+            this.dgvCarrito.Columns["StockMinimo"].Visible = false;
+            this.dgvCarrito.Columns["Stock"].Visible = false;
+            this.dgvCarrito.Columns["EmpleadoId"].Visible = false;
+            this.dgvCarrito.Columns["RecogidaId"].Visible = false;
+            this.dgvCarrito.Columns["FechaEntrada"].Visible = false;
+            this.dgvCarrito.Columns["Medida"].Visible = false;
+            this.dgvCarrito.Columns["LugarId"].Visible = false;
+            this.dgvCarrito.Columns["CodFamilia"].Visible = false;
+            this.dgvCarrito.Columns["CodSubFamilia"].Visible = false;
             dgvCarrito.Show();
         }
 
@@ -233,6 +251,7 @@ namespace CapaPresentacion
         private void btnStock_Click(object sender, EventArgs e)
         {
             checkStockMinimo();
+            productos = ProdsStockMinimo;
             dgvProducts.DataSource = ProdsStockMinimo;
             dgvProducts.Refresh();
         }
@@ -253,14 +272,33 @@ namespace CapaPresentacion
             this.dgvProducts.Columns["FechaEntrada"].Visible = false;
         }
 
+      
         private void dgvProducts_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex == -1)
             {
                 return;
             }
+            dgvCarrito.DataSource = null;
             productosCarrito.Add(productos.ElementAt(e.RowIndex));
             dgvCarrito.DataSource = productosCarrito;
+            dgvCarrito.Refresh();
+            numProdsCarrito += 1;
+            btnCarrito.Text = numProdsCarrito.ToString();
+        }
+
+        private void dgvCarrito_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1)
+            {
+                return;
+            }
+            dgvCarrito.DataSource = null;
+            productosCarrito.Remove(productosCarrito.ElementAt(e.RowIndex));
+            dgvCarrito.DataSource = productosCarrito;
+            dgvCarrito.Refresh();
+            numProdsCarrito -= 1;
+            btnCarrito.Text = numProdsCarrito.ToString();
         }
     }
 }

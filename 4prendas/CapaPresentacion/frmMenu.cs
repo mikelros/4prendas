@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaEntidades;
 
 namespace CapaPresentacion
 {
@@ -30,6 +31,21 @@ namespace CapaPresentacion
             loadShopMode();
 
         }
+
+        private void cmbEmpleado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Modulo.empleadoActual = (Empleado)cmbEmpleado.SelectedItem;
+            lblWorkerName.Text = ((Empleado)cmbEmpleado.SelectedItem).Nombre;
+            if (System.IO.File.Exists(((Empleado)cmbEmpleado.SelectedItem).Foto))
+            {
+                imgWorker.Image = new System.Drawing.Bitmap(((Empleado)cmbEmpleado.SelectedItem).Foto);
+            }
+            else
+            {
+                imgWorker.Image = CapaPresentacion.Properties.Resources.newsle_empty_icon;
+            }
+        }
+
         private void loadShopMode()
         {
             string line;

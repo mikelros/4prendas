@@ -114,7 +114,7 @@ namespace CapaDatos
                 while (dr.Read())
                 {
                     productos.Add(new Producto((string)dr["CodigoArticulo"], dr.IsDBNull(dr.GetOrdinal("Descripcion")) ? "" : (string)dr["Descripcion"], dr.IsDBNull(dr.GetOrdinal("TallaPesoLitros")) ? "" : (string)dr["TallaPesoLitros"], dr.IsDBNull(dr.GetOrdinal("Stock")) ? -1 : (int)dr["Stock"],
-                        dr.IsDBNull(dr.GetOrdinal("StockMinimo")) ? -1 : (int)dr["StockMinimo"], (int)dr["EmpleadoID"], (int)dr["LugarId"],  (string)dr["CodFamilia"], (string)dr["CodSubFamilia"],
+                        dr.IsDBNull(dr.GetOrdinal("StockMinimo")) ? -1 : (int)dr["StockMinimo"], (int)dr["EmpleadoID"], (int)dr["LugarId"], (string)dr["CodFamilia"], (string)dr["CodSubFamilia"],
                         (int)dr["RecogidaId"], dr.IsDBNull(dr.GetOrdinal("FechaEntrada")) ? default(DateTime) : (DateTime)dr["FechaEntrada"], dr.IsDBNull(dr.GetOrdinal("Coste")) ? -1 : (int)dr["Coste"]));
                 }
                 return productos;
@@ -458,7 +458,7 @@ namespace CapaDatos
             try
             {
                 conTabla.Open();
-             
+
                 cmd.Parameters.AddWithValue("@FechaRecogida", recogida.FechaRecogida);
                 cmd.Parameters.AddWithValue("@EmpleadoId", recogida.EmpleadoId);
                 cmd.Parameters.AddWithValue("@CantProd", recogida.CantidadProductos);
@@ -474,6 +474,54 @@ namespace CapaDatos
             {
                 conTabla.Close();
             }
+        }
+
+        public int comprobarPersona(string nombre)
+        {
+            nombre = nombre.ToLower();
+            string sql = "SELECT IdPersona FROM Persona WHERE LCase(Persona.Nombre) = @nombre";
+
+            OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
+            OleDbCommand cmd = new OleDbCommand(sql, conTabla);
+            try
+            {
+                conTabla.Open();
+
+                cmd.Parameters.AddWithValue("@nombre", nombre);
+
+                OleDbDataReader dr = cmd.ExecuteReader();
+
+                if (!dr.HasRows)
+                {
+                    sql = "INSERT INTO Persona(Nombre) VALUES(@nombre)";
+                    cmd = new OleDbCommand(sql, conTabla);
+                    cmd.Parameters.AddWithValue("@nombre", nombre);
+                    cmd.ExecuteNonQuery();
+
+                    sql = "SELECT IdPersona FROM Persona WHERE LCase(Nombre) = @nombre";
+                    cmd = new OleDbCommand(sql, conTabla);
+                    cmd.Parameters.AddWithValue("@nombre", nombre);
+
+                    return (int)cmd.ExecuteScalar();
+
+                }
+
+                dr.Read();
+                return (int)dr["IdPersona"];
+
+
+            }
+            catch (Exception ex)
+            {
+                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
+            }
+            finally
+            {
+                conTabla.Close();
+            }
+
+            return -1;
+
         }
     }
 }
