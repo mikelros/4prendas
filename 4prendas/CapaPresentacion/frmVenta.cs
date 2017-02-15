@@ -73,10 +73,12 @@ namespace CapaPresentacion
             Empleados = Modulo.miNegocio.getEmpleados();
             cmbEmpleado.DataSource = Empleados;
             cmbEmpleado.DisplayMember = "empleadoId";
+            cmbEmpleado.SelectedItem = Modulo.empleadoActual;
         }
 
         private void cmbEmpleado_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Modulo.empleadoActual = (Empleado)cmbEmpleado.SelectedItem;
             lblWorkerName.Text = ((Empleado)cmbEmpleado.SelectedItem).Nombre;
             if (System.IO.File.Exists(((Empleado)cmbEmpleado.SelectedItem).Foto))
             {
