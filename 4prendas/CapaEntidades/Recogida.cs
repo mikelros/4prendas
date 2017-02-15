@@ -8,6 +8,7 @@ namespace CapaEntidades
 {
     public class Recogida
     {
+        private int idRecogida;
         private DateTime fechaRecogida;
         private int empleadoId;
         private int cantidadProductos;
@@ -28,6 +29,27 @@ namespace CapaEntidades
             this.empleadoId = empleadoId;
             this.cantidadProductos = cantidadProductos;
             this.personaId = personaId;
+        }
+
+        public Recogida(int id, DateTime fechaRecogida, int empleadoId, int cantidadProductos, int personaId)
+        {
+            this.idRecogida = id;
+            this.fechaRecogida = fechaRecogida;
+            this.empleadoId = empleadoId;
+            this.cantidadProductos = cantidadProductos;
+            this.personaId = personaId;
+        }
+
+        public int IdRecogida
+        {
+            get
+            {
+                return idRecogida;
+            }
+            set
+            {
+                idRecogida = value;
+            }
         }
 
         public DateTime FechaRecogida

@@ -14,10 +14,14 @@ namespace CapaPresentacion
     public partial class frmRegistro : Form
     {
         private List<Producto> productos = new List<Producto>();
+        private List<Recogida> recogidas;
 
         public frmRegistro()
         {
             InitializeComponent();
+            recogidas = Modulo.miNegocio.getRecogidasSinRegistros();
+            cboRecogida.DataSource = recogidas;
+            cboRecogida.DisplayMember = "IdRecogida";
             dgvRegistros.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             refreshDgv();
         }
@@ -35,30 +39,54 @@ namespace CapaPresentacion
             }
         }
 
-        private void frmRegistro_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnGenerar_Click(object sender, EventArgs e)
         {
+
+            if(hayErrores())
+            {
+                MessageBox.Show("Los campos obligatorios deben ser introducidos.", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             Producto producto = new Producto();
             Lugar lugar = new Lugar(txtEstanteria.Text, int.Parse(nudEstante.Value.ToString()), int.Parse(nudAltura.Value.ToString()));
+            
             producto.CodigoArticulo = txtCodArticulo.Text;
-            producto.Coste = int.Parse(nupCoste.Text);
+            if (!String.IsNullOrWhiteSpace(nupCoste.Text))
+            {
+                producto.Coste = int.Parse(nupCoste.Text);
+            }
             producto.Descripcion = txtDescripcion.Text;
             producto.Medida = txtMedida.Text;
             producto.Stock = int.Parse(nudStock.Text);
             producto.EmpleadoId = int.Parse(nudEmpleado.Text);
             producto.FechaEntrada = DateTime.Now;
-            producto.RecogidaId = int.Parse(nudNumRecogida.Text);
+            producto.RecogidaId = ((Recogida)cboRecogida.SelectedItem).IdRecogida;
             string codfamilia = producto.CodigoArticulo.Substring(8, 10);
             producto.CodFamilia = codfamilia;
             string codsubfamilia = producto.CodigoArticulo.Substring(10, 12);
             producto.CodSubFamilia = codsubfamilia;
-            //producto.LugarId = lugar.
+            //producto.LugarId = Modulo.miNegocio.comprobarLugar(lugar);
             productos.Add(producto);
             refreshDgv();
+        }
+
+        private bool hayErrores()
+        {
+            if (String.IsNullOrWhiteSpace(txtCodArticulo.Text))
+            {
+                txtCodArticulo.Text = "";
+                txtCodArticulo.Focus();
+                return true;
+            }
+
+            if(cboRecogida.SelectedItem == null)
+            {
+                cboRecogida.Focus();
+                return true;
+            }
+
+            return false;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

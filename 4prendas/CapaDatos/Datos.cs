@@ -544,5 +544,38 @@ namespace CapaDatos
                 conTabla.Close();
             }
         }
+
+        public List<Recogida> getRecogidasSinRegistros()
+        {
+            List<Recogida> recogidas = new List<Recogida>();
+            string sql = "SELECT Recogida.* FROM Recogida LEFT JOIN Registro ON Recogida.IdRecogida = Registro.RecogidaId WHERE Registro.CodigoArticulo Is Null;";
+
+            OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
+            OleDbCommand cmd = new OleDbCommand(sql, conTabla);
+            try
+            {
+                conTabla.Open();
+                OleDbDataReader dr = cmd.ExecuteReader();
+                if (!dr.HasRows)
+                {
+                    return recogidas;
+                }
+                while (dr.Read())
+                {
+                    recogidas.Add(new Recogida((int)dr["IdRecogida"], dr.IsDBNull(dr.GetOrdinal("FechaRecogida")) ? default(DateTime) : (DateTime)dr["FechaRecogida"], dr.IsDBNull(dr.GetOrdinal("EmpleadoId")) ? -1 : (int)dr["EmpleadoId"], dr.IsDBNull(dr.GetOrdinal("CantidadProductos")) ? 0 : (int)dr["CantidadProductos"], dr.IsDBNull(dr.GetOrdinal("PersonaId")) ? -1 : (int)dr["PersonaId"]));
+                }
+                return recogidas;
+            }
+            catch (Exception ex)
+            {
+                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
+                return null;
+            }
+            finally
+            {
+                conTabla.Close();
+            }
+
+        }
     }
 }
