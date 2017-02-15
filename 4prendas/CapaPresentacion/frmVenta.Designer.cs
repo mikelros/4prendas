@@ -69,6 +69,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnFinVenta = new System.Windows.Forms.Button();
+            this.lblPruebas = new System.Windows.Forms.TextBox();
             this.gboFamilia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.gboSubfamilia.SuspendLayout();
@@ -248,8 +249,11 @@
             this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProducts.Location = new System.Drawing.Point(398, 202);
             this.dgvProducts.Name = "dgvProducts";
+            this.dgvProducts.ReadOnly = true;
             this.dgvProducts.Size = new System.Drawing.Size(649, 549);
             this.dgvProducts.TabIndex = 69;
+            this.dgvProducts.DataSourceChanged += new System.EventHandler(this.dgvProducts_DataSourceChanged);
+            this.dgvProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducts_CellClick);
             this.dgvProducts.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvProducts_CellMouseClick);
             // 
             // label2
@@ -557,6 +561,14 @@
             this.btnFinVenta.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnFinVenta.UseVisualStyleBackColor = false;
             // 
+            // lblPruebas
+            // 
+            this.lblPruebas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblPruebas.Location = new System.Drawing.Point(903, 65);
+            this.lblPruebas.Name = "lblPruebas";
+            this.lblPruebas.Size = new System.Drawing.Size(129, 20);
+            this.lblPruebas.TabIndex = 80;
+            // 
             // frmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -564,6 +576,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1219, 771);
+            this.Controls.Add(this.lblPruebas);
             this.Controls.Add(this.btnFinVenta);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.dgvCarrito);
@@ -642,6 +655,7 @@
         internal System.Windows.Forms.DataGridView dgvCarrito;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnFinVenta;
+        private System.Windows.Forms.TextBox lblPruebas;
     }
 }
 

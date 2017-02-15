@@ -20,6 +20,7 @@ namespace CapaPresentacion
         List<Empleado> Empleados;
         private List<Familia> familias;
         private List<Producto> productos;
+        private List<Producto> productosCarrito;
         public frmVenta()
         {
             InitializeComponent();
@@ -96,6 +97,7 @@ namespace CapaPresentacion
         {
             cmbSearch.Items.Add("Codigo de barras");
             cmbSearch.Items.Add("Descripcion");
+            cmbSearch.SelectedIndex = 0;
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -241,6 +243,24 @@ namespace CapaPresentacion
             {
                 c.Visible = false;
             }
+        }
+
+        private void dgvProducts_DataSourceChanged(object sender, EventArgs e)
+        {
+            this.dgvProducts.Columns["StockMinimo"].Visible = false;
+            this.dgvProducts.Columns["EmpleadoId"].Visible = false;
+            this.dgvProducts.Columns["RecogidaId"].Visible = false;
+            this.dgvProducts.Columns["FechaEntrada"].Visible = false;
+        }
+
+        private void dgvProducts_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1)
+            {
+                return;
+            }
+            productosCarrito.Add(productos.ElementAt(e.RowIndex));
+            dgvCarrito.DataSource = productosCarrito;
         }
     }
 }
