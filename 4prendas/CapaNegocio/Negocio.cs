@@ -91,9 +91,9 @@ namespace CapaNegocio
             return datos.getLastNRecogida();
         }
 
-        public List<Recogida> getRecogidasSinRegistros()
+        public List<Recogida> getRecogidasSinTodosRegistros()
         {
-            return datos.getRecogidasSinRegistros();
+            return datos.getRecogidasSinTodosRegistros();
         }
     }
 

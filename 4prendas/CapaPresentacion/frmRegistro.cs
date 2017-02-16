@@ -19,7 +19,7 @@ namespace CapaPresentacion
         public frmRegistro()
         {
             InitializeComponent();
-            recogidas = Modulo.miNegocio.getRecogidasSinRegistros();
+            recogidas = Modulo.miNegocio.getRecogidasSinTodosRegistros();
             cboRecogida.DataSource = recogidas;
             cboRecogida.DisplayMember = "IdRecogida";
             dgvRegistros.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;

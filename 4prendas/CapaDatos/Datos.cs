@@ -545,10 +545,10 @@ namespace CapaDatos
             }
         }
 
-        public List<Recogida> getRecogidasSinRegistros()
+        public List<Recogida> getRecogidasSinTodosRegistros()
         {
             List<Recogida> recogidas = new List<Recogida>();
-            string sql = "SELECT Recogida.* FROM Recogida LEFT JOIN Registro ON Recogida.IdRecogida = Registro.RecogidaId WHERE Registro.CodigoArticulo Is Null;";
+            string sql = "SELECT Recogida.IdRecogida, Recogida.FechaRecogida, Recogida.CantidadProductos, Recogida.EmpleadoId, Recogida.PersonaId FROM Recogida LEFT JOIN Registro ON Recogida.IdRecogida = Registro.RecogidaId GROUP BY Recogida.CantidadProductos, Recogida.IdRecogida, Recogida.FechaRecogida, Recogida.EmpleadoId, Recogida.PersonaId , Registro.RecogidaId HAVING Registro.RecogidaId Is Null OR Recogida.CantidadProductos > (SELECT Count(Registro.CodigoArticulo) FROM Recogida INNER JOIN Registro ON Recogida.IdRecogida = Registro.RecogidaId) ORDER BY Recogida.IdRecogida;";
 
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
