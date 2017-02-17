@@ -156,3 +156,4 @@ C:\Users\Asrield\Source\Repos\4prendas6\4prendas\CapaPresentacion\obj\Debug\Capa
 C:\Users\Asrield\Source\Repos\4prendas6\4prendas\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.GenerateResource.Cache
 C:\Users\Asrield\Source\Repos\4prendas6\4prendas\CapaPresentacion\obj\Debug\CapaPresentacion.exe
 C:\Users\Asrield\Source\Repos\4prendas6\4prendas\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
+C:\Users\Asrield\Source\Repos\4prendas7\4prendas\CapaPresentacion\bin\Debug\CapaPresentacion.exe.config
