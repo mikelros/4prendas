@@ -35,15 +35,9 @@ namespace CapaPresentacion
 
         private void loadWorkersList()
         {
-            //Empleados = Modulo.miNegocio.getEmpleados();
-            //cmbEmpleado.DataSource = Empleados;
-            //cmbEmpleado.DisplayMember = "empleadoId";
-            //cmbEmpleado.SelectedItem = Modulo.empleadoActual;
-
-            this.cmbEmpleado.SelectedIndexChanged -= new EventHandler(cmbEmpleado_SelectedIndexChanged);
-            cmbEmpleado.DataSource = Modulo.empleados;
-            this.cmbEmpleado.SelectedIndexChanged += new EventHandler(cmbEmpleado_SelectedIndexChanged);
-            cmbEmpleado.DisplayMember = "nombre";
+            Empleados = Modulo.miNegocio.getEmpleados();
+            cmbEmpleado.DataSource = Empleados;
+            cmbEmpleado.DisplayMember = "empleadoId";
             cmbEmpleado.SelectedItem = Modulo.empleadoActual;
         }
 
@@ -51,18 +45,15 @@ namespace CapaPresentacion
 
         private void cmbEmpleado_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbEmpleado.SelectedItem != null)
+            Modulo.empleadoActual = (Empleado)cmbEmpleado.SelectedItem;
+            lblWorkerName.Text = ((Empleado)cmbEmpleado.SelectedItem).Nombre;
+            if (System.IO.File.Exists(((Empleado)cmbEmpleado.SelectedItem).Foto))
             {
-                Modulo.empleadoActual = (Empleado)cmbEmpleado.SelectedItem;
-                lblWorkerName.Text = ((Empleado)cmbEmpleado.SelectedItem).Nombre;
-                if (System.IO.File.Exists(((Empleado)cmbEmpleado.SelectedItem).Foto))
-                {
-                    imgWorker.Image = new System.Drawing.Bitmap(((Empleado)cmbEmpleado.SelectedItem).Foto);
-                }
-                else
-                {
-                    imgWorker.Image = CapaPresentacion.Properties.Resources.newsle_empty_icon;
-                }
+                imgWorker.Image = new System.Drawing.Bitmap(((Empleado)cmbEmpleado.SelectedItem).Foto);
+            }
+            else
+            {
+                imgWorker.Image = CapaPresentacion.Properties.Resources.newsle_empty_icon;
             }
         }
 
