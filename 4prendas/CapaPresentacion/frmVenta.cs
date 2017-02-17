@@ -15,13 +15,9 @@ namespace CapaPresentacion
 {
     public partial class frmVenta : Form
     {
-        //Almacena la configuración de la tienda para saber con que tipode datos estamos trabajando.
         string shopMode;
-        //Almacena una lista de productos cuyo stock se encuentra por debajo del stockMininimo
         List<Producto> ProdsStockMinimo;
-        //Almacena la lista de los empleados diponibles en la BDD
         List<Empleado> Empleados;
-
 
         private List<Familia> familias;
         private List<Producto> productos;
