@@ -234,7 +234,7 @@ namespace CapaDatos
         public List<Producto> getProdsPorDescripcion(string desc)
         {
             List<Producto> productos = new List<Producto>();
-            string sql = "SELECT * FROM Registro WHERE Registro.Descripcion = @desc";
+            string sql = "SELECT * FROM Registro WHERE Registro.Descripcion LIKE %@desc%";
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
             cmd.Parameters.AddWithValue("@desc", desc);
@@ -576,6 +576,41 @@ namespace CapaDatos
                 conTabla.Close();
             }
 
+        }
+
+        public int getSiguienteIDProd(string codFamilia, string codSubfamilia)
+        {
+            string producto;
+            int num = 0;
+            string sql = "SELECT TOP 1 CodigoArticulo FROM Registro WHERE Registro.CodFamilia = @codFamilia AND Registro.CodSubFamilia = @codSubFamilia ORDER BY CodigoArticulo DESC";
+
+            OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
+            OleDbCommand cmd = new OleDbCommand(sql, conTabla);
+            cmd.Parameters.AddWithValue("@codFamilia", codFamilia);
+            cmd.Parameters.AddWithValue("@codSubFamilia", codSubfamilia);
+            try
+            {
+                conTabla.Open();
+                OleDbDataReader dr = cmd.ExecuteReader();
+                if (!dr.HasRows)
+                {
+                    return 0; //No hay ids
+                }
+                dr.Read();
+                producto = (string)dr["CodigoArticulo"];
+                int.TryParse(producto.Substring(producto.Length - 3, 3), out num);
+                
+                return num+1;
+            }
+            catch (Exception ex)
+            {
+                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
+                return 0;
+            }
+            finally
+            {
+                conTabla.Close();
+            }
         }
     }
 }
