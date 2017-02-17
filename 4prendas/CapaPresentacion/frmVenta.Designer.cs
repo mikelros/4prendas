@@ -156,7 +156,6 @@
             // button7
             // 
             this.button7.BackColor = System.Drawing.Color.White;
-            this.button7.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
             this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button7.Location = new System.Drawing.Point(96, 364);
             this.button7.Name = "button7";
@@ -167,7 +166,6 @@
             // button8
             // 
             this.button8.BackColor = System.Drawing.Color.White;
-            this.button8.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
             this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button8.Location = new System.Drawing.Point(6, 364);
             this.button8.Name = "button8";
@@ -178,7 +176,6 @@
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.White;
-            this.button5.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
             this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button5.Location = new System.Drawing.Point(96, 248);
             this.button5.Name = "button5";
@@ -189,7 +186,6 @@
             // button6
             // 
             this.button6.BackColor = System.Drawing.Color.White;
-            this.button6.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
             this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button6.Location = new System.Drawing.Point(6, 248);
             this.button6.Name = "button6";
@@ -200,7 +196,6 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.White;
-            this.button3.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button3.Location = new System.Drawing.Point(96, 133);
             this.button3.Name = "button3";
@@ -211,7 +206,6 @@
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
             this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button4.Location = new System.Drawing.Point(6, 133);
             this.button4.Name = "button4";
@@ -222,7 +216,6 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button2.Location = new System.Drawing.Point(96, 17);
             this.button2.Name = "button2";
@@ -233,7 +226,6 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.Location = new System.Drawing.Point(6, 17);
             this.button1.Name = "button1";
@@ -323,7 +315,6 @@
             // button13
             // 
             this.button13.BackColor = System.Drawing.Color.White;
-            this.button13.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
             this.button13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button13.Location = new System.Drawing.Point(96, 364);
             this.button13.Name = "button13";
@@ -334,7 +325,6 @@
             // button14
             // 
             this.button14.BackColor = System.Drawing.Color.White;
-            this.button14.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
             this.button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button14.Location = new System.Drawing.Point(6, 364);
             this.button14.Name = "button14";
@@ -345,7 +335,6 @@
             // button15
             // 
             this.button15.BackColor = System.Drawing.Color.White;
-            this.button15.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
             this.button15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button15.Location = new System.Drawing.Point(96, 248);
             this.button15.Name = "button15";
@@ -356,7 +345,6 @@
             // button16
             // 
             this.button16.BackColor = System.Drawing.Color.White;
-            this.button16.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
             this.button16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button16.Location = new System.Drawing.Point(6, 248);
             this.button16.Name = "button16";
@@ -367,7 +355,6 @@
             // button17
             // 
             this.button17.BackColor = System.Drawing.Color.White;
-            this.button17.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
             this.button17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button17.Location = new System.Drawing.Point(96, 133);
             this.button17.Name = "button17";
@@ -378,7 +365,6 @@
             // button18
             // 
             this.button18.BackColor = System.Drawing.Color.White;
-            this.button18.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
             this.button18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button18.Location = new System.Drawing.Point(6, 133);
             this.button18.Name = "button18";
@@ -389,7 +375,6 @@
             // button19
             // 
             this.button19.BackColor = System.Drawing.Color.White;
-            this.button19.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
             this.button19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button19.Location = new System.Drawing.Point(96, 17);
             this.button19.Name = "button19";
@@ -400,7 +385,6 @@
             // button20
             // 
             this.button20.BackColor = System.Drawing.Color.White;
-            this.button20.BackgroundImage = global::CapaPresentacion.Properties.Resources.Calculator;
             this.button20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button20.Location = new System.Drawing.Point(6, 17);
             this.button20.Name = "button20";
