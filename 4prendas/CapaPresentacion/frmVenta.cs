@@ -18,6 +18,7 @@ namespace CapaPresentacion
         string shopMode;
         List<Producto> ProdsStockMinimo;
         List<Empleado> Empleados;
+
         private List<Familia> familias;
         private List<Producto> productos;
         private List<Producto> productosCarrito = new List<Producto>();
@@ -71,22 +72,32 @@ namespace CapaPresentacion
 
         private void loadWorkersList()
         {
-            Empleados = Modulo.miNegocio.getEmpleados();
-            cmbEmpleado.DataSource = Empleados;
-            cmbEmpleado.DisplayMember = "empleadoId";
+            //Empleados = Modulo.miNegocio.getEmpleados();
+            //cmbEmpleado.DataSource = Empleados;
+            //cmbEmpleado.DisplayMember = "empleadoId";
+            //cmbEmpleado.SelectedItem = Modulo.empleadoActual;
+
+            this.cmbEmpleado.SelectedIndexChanged -= new EventHandler(cmbEmpleado_SelectedIndexChanged);
+            cmbEmpleado.DataSource = Modulo.empleados;
+            this.cmbEmpleado.SelectedIndexChanged += new EventHandler(cmbEmpleado_SelectedIndexChanged);
+            cmbEmpleado.DisplayMember = "nombre";
             cmbEmpleado.SelectedItem = Modulo.empleadoActual;
         }
 
         private void cmbEmpleado_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Modulo.empleadoActual = (Empleado)cmbEmpleado.SelectedItem;
-            lblWorkerName.Text = ((Empleado)cmbEmpleado.SelectedItem).Nombre;
-            if (System.IO.File.Exists(((Empleado)cmbEmpleado.SelectedItem).Foto))
+            if (cmbEmpleado.SelectedItem != null)
             {
-                imgWorker.Image = new System.Drawing.Bitmap(((Empleado)cmbEmpleado.SelectedItem).Foto);
-            }else
-            {
-                imgWorker.Image = CapaPresentacion.Properties.Resources.newsle_empty_icon;
+                Modulo.empleadoActual = (Empleado)cmbEmpleado.SelectedItem;
+                lblWorkerName.Text = ((Empleado)cmbEmpleado.SelectedItem).Nombre;
+                if (System.IO.File.Exists(((Empleado)cmbEmpleado.SelectedItem).Foto))
+                {
+                    imgWorker.Image = new System.Drawing.Bitmap(((Empleado)cmbEmpleado.SelectedItem).Foto);
+                }
+                else
+                {
+                    imgWorker.Image = CapaPresentacion.Properties.Resources.newsle_empty_icon;
+                }
             }
         }
 
@@ -100,8 +111,9 @@ namespace CapaPresentacion
 
         private void loadCmbSearch()
         {
-            cmbSearch.Items.Add("Codigo de barras");
-            cmbSearch.Items.Add("Descripcion");
+            cmbSearch.Items.Add("Código de barras");
+            cmbSearch.Items.Add("Código de artículo");
+            cmbSearch.Items.Add("Descripción");
             cmbSearch.SelectedIndex = 0;
         }
 
@@ -109,11 +121,15 @@ namespace CapaPresentacion
         {
             switch (cmbSearch.SelectedItem.ToString())
             {
-                case "Codigo de barras":
+                case "Código de barras":
                     productos = Modulo.miNegocio.getProdsPorCodigoArticulo(txtSearch.Text);
                     dgvProducts.DataSource = productos;
                     break;
-                case "Descripcion":
+                case "Código de ártículo":
+                    productos = Modulo.miNegocio.getProdsPorCodigoArticulo(txtSearch.Text);
+                    dgvProducts.DataSource = productos;
+                    break;
+                case "Descripción":
                     productos = Modulo.miNegocio.getProdsPorDescripcion(txtSearch.Text);
                     dgvProducts.DataSource = productos;
                     break;
@@ -157,7 +173,7 @@ namespace CapaPresentacion
             }
             catch
             {
-                MessageBox.Show("Error al cargar el archivo de configuración!!! " + "" + "Se cargara la configuración por defecto", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error al cargar el archivo de configuración! " + "" + "Se cargara la configuración por defecto.", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 shopMode = "food";
             }
         }
