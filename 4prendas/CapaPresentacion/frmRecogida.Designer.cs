@@ -43,10 +43,10 @@
             this.lblEmployeePassError = new System.Windows.Forms.Label();
             this.nudEmployee = new System.Windows.Forms.NumericUpDown();
             this.gbRecogida = new System.Windows.Forms.GroupBox();
+            this.lblNRecogida = new System.Windows.Forms.Label();
             this.lblEmployeeName = new System.Windows.Forms.Label();
             this.txtGivingPerson = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.lblNRecogida = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pboEmployee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEmployee)).BeginInit();
@@ -155,7 +155,7 @@
             // 
             this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBack.BackColor = System.Drawing.Color.White;
-            this.btnBack.BackgroundImage = global::CapaPresentacion.Properties.Resources.exit;
+            this.btnBack.BackgroundImage = global::CapaPresentacion.Properties.Resources.back_arrow;
             this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.Location = new System.Drawing.Point(632, 487);
@@ -220,6 +220,15 @@
             this.gbRecogida.TabIndex = 65;
             this.gbRecogida.TabStop = false;
             // 
+            // lblNRecogida
+            // 
+            this.lblNRecogida.AutoSize = true;
+            this.lblNRecogida.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNRecogida.Location = new System.Drawing.Point(248, 198);
+            this.lblNRecogida.Name = "lblNRecogida";
+            this.lblNRecogida.Size = new System.Drawing.Size(0, 18);
+            this.lblNRecogida.TabIndex = 66;
+            // 
             // lblEmployeeName
             // 
             this.lblEmployeeName.AutoSize = true;
@@ -245,15 +254,6 @@
             this.label7.Size = new System.Drawing.Size(164, 18);
             this.label7.TabIndex = 58;
             this.label7.Text = "Persona que entrega";
-            // 
-            // lblNRecogida
-            // 
-            this.lblNRecogida.AutoSize = true;
-            this.lblNRecogida.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNRecogida.Location = new System.Drawing.Point(248, 198);
-            this.lblNRecogida.Name = "lblNRecogida";
-            this.lblNRecogida.Size = new System.Drawing.Size(0, 18);
-            this.lblNRecogida.TabIndex = 66;
             // 
             // frmRecogida
             // 
