@@ -15,9 +15,14 @@ namespace CapaPresentacion
 {
     public partial class frmVenta : Form
     {
+        //Almacena la configuración de la tienda para saber con que tipode datos estamos trabajando.
         string shopMode;
+        //Almacena una lista de productos cuyo stock se encuentra por debajo del stockMininimo
         List<Producto> ProdsStockMinimo;
+        //Almacena la lista de los empleados diponibles en la BDD
         List<Empleado> Empleados;
+
+
         private List<Familia> familias;
         private List<Producto> productos;
         private List<Producto> productosCarrito = new List<Producto>();
@@ -100,8 +105,9 @@ namespace CapaPresentacion
 
         private void loadCmbSearch()
         {
-            cmbSearch.Items.Add("Codigo de barras");
-            cmbSearch.Items.Add("Descripcion");
+            cmbSearch.Items.Add("Código de barras");
+            cmbSearch.Items.Add("Código de artículo");
+            cmbSearch.Items.Add("Descripción");
             cmbSearch.SelectedIndex = 0;
         }
 
@@ -109,11 +115,15 @@ namespace CapaPresentacion
         {
             switch (cmbSearch.SelectedItem.ToString())
             {
-                case "Codigo de barras":
+                case "Código de barras":
                     productos = Modulo.miNegocio.getProdsPorCodigoArticulo(txtSearch.Text);
                     dgvProducts.DataSource = productos;
                     break;
-                case "Descripcion":
+                case "Código de ártículo":
+                    productos = Modulo.miNegocio.getProdsPorCodigoArticulo(txtSearch.Text);
+                    dgvProducts.DataSource = productos;
+                    break;
+                case "Descripción":
                     productos = Modulo.miNegocio.getProdsPorDescripcion(txtSearch.Text);
                     dgvProducts.DataSource = productos;
                     break;
@@ -157,7 +167,7 @@ namespace CapaPresentacion
             }
             catch
             {
-                MessageBox.Show("Error al cargar el archivo de configuración!!! " + "" + "Se cargara la configuración por defecto", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error al cargar el archivo de configuración! " + "" + "Se cargara la configuración por defecto.", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 shopMode = "food";
             }
         }
