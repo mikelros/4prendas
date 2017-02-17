@@ -72,22 +72,32 @@ namespace CapaPresentacion
 
         private void loadWorkersList()
         {
-            Empleados = Modulo.miNegocio.getEmpleados();
-            cmbEmpleado.DataSource = Empleados;
-            cmbEmpleado.DisplayMember = "empleadoId";
+            //Empleados = Modulo.miNegocio.getEmpleados();
+            //cmbEmpleado.DataSource = Empleados;
+            //cmbEmpleado.DisplayMember = "empleadoId";
+            //cmbEmpleado.SelectedItem = Modulo.empleadoActual;
+
+            this.cmbEmpleado.SelectedIndexChanged -= new EventHandler(cmbEmpleado_SelectedIndexChanged);
+            cmbEmpleado.DataSource = Modulo.empleados;
+            this.cmbEmpleado.SelectedIndexChanged += new EventHandler(cmbEmpleado_SelectedIndexChanged);
+            cmbEmpleado.DisplayMember = "nombre";
             cmbEmpleado.SelectedItem = Modulo.empleadoActual;
         }
 
         private void cmbEmpleado_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Modulo.empleadoActual = (Empleado)cmbEmpleado.SelectedItem;
-            lblWorkerName.Text = ((Empleado)cmbEmpleado.SelectedItem).Nombre;
-            if (System.IO.File.Exists(((Empleado)cmbEmpleado.SelectedItem).Foto))
+            if (cmbEmpleado.SelectedItem != null)
             {
-                imgWorker.Image = new System.Drawing.Bitmap(((Empleado)cmbEmpleado.SelectedItem).Foto);
-            }else
-            {
-                imgWorker.Image = CapaPresentacion.Properties.Resources.newsle_empty_icon;
+                Modulo.empleadoActual = (Empleado)cmbEmpleado.SelectedItem;
+                lblWorkerName.Text = ((Empleado)cmbEmpleado.SelectedItem).Nombre;
+                if (System.IO.File.Exists(((Empleado)cmbEmpleado.SelectedItem).Foto))
+                {
+                    imgWorker.Image = new System.Drawing.Bitmap(((Empleado)cmbEmpleado.SelectedItem).Foto);
+                }
+                else
+                {
+                    imgWorker.Image = CapaPresentacion.Properties.Resources.newsle_empty_icon;
+                }
             }
         }
 
