@@ -95,6 +95,11 @@ namespace CapaNegocio
         {
             return datos.getRecogidasSinTodosRegistros();
         }
+
+        public int getSiguienteIDProd(string familia, string subFamilia)
+        {
+            return datos.getSiguienteIDProd(familia, subFamilia);
+        }
     }
 
 }
