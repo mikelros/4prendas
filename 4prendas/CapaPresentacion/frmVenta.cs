@@ -15,9 +15,9 @@ namespace CapaPresentacion
 {
     public partial class frmVenta : Form
     {
-        string shopMode;
-        List<Producto> ProdsStockMinimo;
-        List<Empleado> Empleados;
+        string tipoTienda;
+        List<Producto> prodsStockMinimo;
+        List<Empleado> empleados;
 
         private List<Familia> familias;
         private List<Producto> productos;
@@ -31,32 +31,28 @@ namespace CapaPresentacion
 
         private void frmVenta_Load(object sender, EventArgs e)
         {
-            loadCmbSearch();
+            cargarCmbSearch();
             dgvCarrito.Hide();
             dgvCarrito.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            checkStockMinimo();
-            loadWorkersList();
-            loadFamilias();
-            makeGboSubFamInvisible();
+            cargarStockMinimo();
+            cargarWorkersList();
+            cargarFamilias();
+            ocultarGboSubFam();
             dgvProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
         }
-
-        //Al seleccionar familia, cargar subfamilia
-
-        //Al seleccionar subfamilia, cagar dgv
-
-        private void checkStockMinimo()
+        
+        private void cargarStockMinimo()
         {
-            ProdsStockMinimo = Modulo.miNegocio.getProdsStockMinimo();
+            prodsStockMinimo = Modulo.miNegocio.getProdsStockMinimo();
             int num;
-            if (ProdsStockMinimo == null)
+            if (prodsStockMinimo == null)
             {
                 num = 0;
             }
             else
             {
-                num = ProdsStockMinimo.Count();
+                num = prodsStockMinimo.Count();
             }
             if (num > 0)
             {
@@ -70,10 +66,10 @@ namespace CapaPresentacion
             }
         }
 
-        private void loadWorkersList()
+        private void cargarWorkersList()
         {
-            //Empleados = Modulo.miNegocio.getEmpleados();
-            //cmbEmpleado.DataSource = Empleados;
+            //empleados = Modulo.miNegocio.getEmpleados();
+            //cmbEmpleado.DataSource = empleados;
             //cmbEmpleado.DisplayMember = "empleadoId";
             //cmbEmpleado.SelectedItem = Modulo.empleadoActual;
 
@@ -109,7 +105,7 @@ namespace CapaPresentacion
             proceso.Start();
         }
 
-        private void loadCmbSearch()
+        private void cargarCmbSearch()
         {
             cmbSearch.Items.Add("Código de barras");
             cmbSearch.Items.Add("Código de artículo");
@@ -161,12 +157,12 @@ namespace CapaPresentacion
             {
                 string mydocpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
                 System.IO.StreamReader file = new System.IO.StreamReader(mydocpath + @"\.config.txt");
-                System.Console.WriteLine(shopMode);
+                System.Console.WriteLine(tipoTienda);
                 while ((line = file.ReadLine()) != null)
                 {
                     if (line.StartsWith("ShopMode="))
                     {
-                        shopMode = line.Split('=')[1];
+                        tipoTienda = line.Split('=')[1];
                     }
                 }
                 file.Close();
@@ -174,11 +170,11 @@ namespace CapaPresentacion
             catch
             {
                 MessageBox.Show("Error al cargar el archivo de configuración! " + "" + "Se cargara la configuración por defecto.", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                shopMode = "food";
+                tipoTienda = "food";
             }
         }
 
-        private void loadFamilias()
+        private void cargarFamilias()
         {
             familias = Modulo.miNegocio.getFamiliasSubfamilias();
             
@@ -259,13 +255,13 @@ namespace CapaPresentacion
 
         private void btnStock_Click(object sender, EventArgs e)
         {
-            checkStockMinimo();
-            productos = ProdsStockMinimo;
-            dgvProducts.DataSource = ProdsStockMinimo;
+            cargarStockMinimo();
+            productos = prodsStockMinimo;
+            dgvProducts.DataSource = prodsStockMinimo;
             dgvProducts.Refresh();
         }
 
-        private void makeGboSubFamInvisible()
+        private void ocultarGboSubFam()
         {
             foreach (Control c in gboSubfamilia.Controls)
             {

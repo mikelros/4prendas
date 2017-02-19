@@ -59,7 +59,7 @@ namespace CapaDatos
             List<Producto> productos = new List<Producto>();
             productos.Add(product);
             eliminarProducto(product);
-            //insertarProductos(productos); //quien ha hecho esto
+            insertarProductos(productos);
         }
 
         public Empleado getEmpleados(int employeeNum)
@@ -234,7 +234,7 @@ namespace CapaDatos
         public List<Producto> getProdsPorDescripcion(string desc)
         {
             List<Producto> productos = new List<Producto>();
-            string sql = "SELECT * FROM Registro WHERE Registro.Descripcion LIKE %@desc%";
+            string sql = "SELECT * FROM Registro WHERE Registro.Descripcion = @desc";
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
             cmd.Parameters.AddWithValue("@desc", desc);
@@ -305,75 +305,32 @@ namespace CapaDatos
         //Productos por subfamilia ¿O es lo de arriba de getProductos?
 
 
-        public void insertarProducto(Producto producto)
+        public void insertarProductos(List<Producto> productos)
         {
-            string sql = "SELECT * FROM Lugar";
+            string sql = "INSERT INTO Registro(CodigoArticulo, Descripcion, TallaPesoLitro, Stock, EmpleadoId, RecogidaId, Coste, FechaEntrada, CodFamilia, CodSubFamilia) VALUES (@codArt, @desc, @medida, @stock, @empleadoid, @recogidaid, @coste, @fechaentrada, @codfam, @codsubfam)";
+
+            //faltan los datos de lugar porque no está hecho el form y eso
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
-
-            try
-            {
-                conTabla.Open();
-                OleDbDataReader dr = cmd.ExecuteReader();
-                if (!dr.HasRows)
-                {
-                    sql = "INSERT INTO Lugar(Estanteria, Estante, Altura) VALUES (@estanteria, @estante, @altura)";
-                    cmd = new OleDbCommand(sql, conTabla);
-                    try
-                    {
-                        conTabla.Open();
-                        cmd.ExecuteNonQuery();
-                    }
-                    catch (Exception ex)
-                    {
-                        //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
-                    }
-                    finally
-                    {
-                        conTabla.Close();
-                    }
-                }
-                while (dr.Read())
-                {
-
-                }
-                //return productos;
-            }
-            catch (Exception ex)
-            {
-                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
-                //return null;
-            }
-            finally
-            {
-                conTabla.Close();
-            }
-
-
-
-
-
-            sql = "INSERT INTO Registro(CodigoArticulo, Descripcion, TallaPesoLitro, Stock, EmpleadoId, RecogidaId, Coste, FechaEntrada, CodFamilia, CodSubFamilia) VALUES (@codArt, @desc, @medida, @stock, @empleadoid, @recogidaid, @coste, @fechaentrada, @codfam, @codsubfam)";
-
-            cmd = new OleDbCommand(sql, conTabla);
             try
             {
                 conTabla.Open();
 
-                cmd.Parameters.AddWithValue("@codArt", producto.CodigoArticulo);
-                cmd.Parameters.AddWithValue("@desc", producto.Descripcion);
-                cmd.Parameters.AddWithValue("@medida", producto.Medida);
-                cmd.Parameters.AddWithValue("@stock", producto.Stock);
-                cmd.Parameters.AddWithValue("@empleadoid", producto.EmpleadoId);
-                cmd.Parameters.AddWithValue("@recogidaid", producto.RecogidaId);
-                cmd.Parameters.AddWithValue("@coste", producto.Coste);
-                cmd.Parameters.AddWithValue("@fechaentrada", producto.FechaEntrada);
-                cmd.Parameters.AddWithValue("@codfam", producto.CodFamilia);
-                cmd.Parameters.AddWithValue("@codsubfam", producto.CodSubFamilia);
-                cmd.Parameters.AddWithValue("@codsubfam", producto.CodSubFamilia);
+                foreach (Producto p in productos)
+                {
+                    cmd.Parameters.AddWithValue("@codArt", p.CodigoArticulo);
+                    cmd.Parameters.AddWithValue("@desc", p.Descripcion);
+                    cmd.Parameters.AddWithValue("@medida", p.Medida);
+                    cmd.Parameters.AddWithValue("@stock", p.Stock);
+                    cmd.Parameters.AddWithValue("@empleadoid", p.EmpleadoId);
+                    cmd.Parameters.AddWithValue("@recogidaid", p.RecogidaId);
+                    cmd.Parameters.AddWithValue("@coste", p.Coste);
+                    cmd.Parameters.AddWithValue("@fechaentrada", p.FechaEntrada);
+                    cmd.Parameters.AddWithValue("@codfam", p.CodFamilia);
+                    cmd.Parameters.AddWithValue("@codsubfam", p.CodSubFamilia);
 
-                cmd.ExecuteNonQuery();
-
+                    cmd.ExecuteNonQuery();
+                }
             }
             catch (Exception ex)
             {
@@ -619,73 +576,6 @@ namespace CapaDatos
                 conTabla.Close();
             }
 
-        }
-
-        public int getSiguienteIDProd(string codFamilia, string codSubfamilia)
-        {
-            string producto;
-            int num = 0;
-            string sql = "SELECT TOP 1 CodigoArticulo FROM Registro WHERE Registro.CodFamilia = @codFamilia AND Registro.CodSubFamilia = @codSubFamilia ORDER BY CodigoArticulo DESC";
-
-            OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
-            OleDbCommand cmd = new OleDbCommand(sql, conTabla);
-            cmd.Parameters.AddWithValue("@codFamilia", codFamilia);
-            cmd.Parameters.AddWithValue("@codSubFamilia", codSubfamilia);
-            try
-            {
-                conTabla.Open();
-                OleDbDataReader dr = cmd.ExecuteReader();
-                if (!dr.HasRows)
-                {
-                    return 0; //No hay ids
-                }
-                dr.Read();
-                producto = (string)dr["CodigoArticulo"];
-                int.TryParse(producto.Substring(producto.Length - 3, 3), out num);
-
-                return num + 1;
-            }
-            catch (Exception ex)
-            {
-                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
-                return 0;
-            }
-            finally
-            {
-                conTabla.Close();
-            }
-        }
-
-        public void insertVenta(List<Producto> productos, int empleadoID)
-        {
-
-            string sql = "INSERT INTO Venta(FechaVenta, EmpleadoId, Devolucion) VALUES (@FechaVenta, @EmpleadoId, @Devolucion)";
-
-            OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
-            OleDbCommand cmd = new OleDbCommand(sql, conTabla);
-            cmd.Parameters.AddWithValue("@FechaVenta", DateTime.Now);
-            cmd.Parameters.AddWithValue("@EmpleadoId", empleadoID);
-            cmd.Parameters.AddWithValue("@Devolucion", false);
-            //cmd.Parameters.AddWithValue("@IVA", );
-            try
-            {
-                conTabla.Open();
-
-                //cmd.Parameters.AddWithValue("@FechaRecogida", recogida.FechaRecogida);
-                //cmd.Parameters.AddWithValue("@EmpleadoId", recogida.EmpleadoId);
-                //cmd.Parameters.AddWithValue("@CantProd", recogida.CantidadProductos);
-                //cmd.Parameters.AddWithValue("@PersonaId", recogida.PersonaId);
-
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
-            }
-            finally
-            {
-                conTabla.Close();
-            }
         }
     }
 }

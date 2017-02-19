@@ -45,6 +45,7 @@ namespace CapaPresentacion
             this.cmbEmpleado.SelectedIndexChanged += new EventHandler(cmbEmpleado_SelectedIndexChanged);
             cmbEmpleado.DisplayMember = "nombre";
             cmbEmpleado.SelectedItem = Modulo.empleadoActual;
+
         }
 
 
