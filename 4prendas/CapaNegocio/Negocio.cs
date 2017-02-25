@@ -56,12 +56,12 @@ namespace CapaNegocio
             return datos.getProdsPorCodigoArticulo(codigoArticulo);
         }
 
-        public string createEmployee(string name, string photo) //Id autonumerico...
+        public string crearEmpleado(string name, string photo) //Id autonumerico...
         {
             return datos.createEmployee(name, photo);
         }
 
-        public void deleteEmployee(int id)
+        public void eliminarEmpleado(int id)
         {
             datos.deleteEmployee(id);
         }

@@ -84,15 +84,6 @@ namespace CapaPresentacion
             empleados.Add(emp);
             empleadosCreados.Add(emp);
             cambios = true;
-            //string msg = negocio.createEmployee(txtCreateName.Text, txtCreatePhoto.Text); 
-            //if (msg == "")
-            //{
-            //    MessageBox.Show("El empleado " + txtCreateName.Text + " se ha creado correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //}
-            //else
-            //{
-            //    MessageBox.Show(msg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            //}
             cancelarCrear();
         }
 
@@ -191,18 +182,18 @@ namespace CapaPresentacion
             nudEditarProductoStock.Maximum  = int.MaxValue;
             nudEditarProductoMinStock.Maximum = int.MaxValue;
             nudEditarProductoCoste.Maximum = int.MaxValue;
-            nudEditarProductoEmployerId.Maximum = int.MaxValue; //WTF is employer???????????????????
+            nudEditarProductoIdEmpleado.Maximum = int.MaxValue; 
             nudEditarProductoLugarId.Maximum = int.MaxValue;
             nudEditarProductoCollectionId.Maximum = int.MaxValue; //No sabía a que hacía referencia "Collection" asi que no lo he traducido
 
-            cargarEmployees();
+            cargarEmpleados();
 
             cargarShopMode();
 
             empleadoBorrar = null;
 
         }
-        private void cargarEmployees()
+        private void cargarEmpleados()
         {
             empleados = Modulo.miNegocio.getEmpleados();
         }
@@ -291,11 +282,11 @@ namespace CapaPresentacion
             
             foreach (Empleado crtEmp in empleadosCreados)
             {
-                Modulo.miNegocio.createEmployee(crtEmp.Nombre, crtEmp.Foto);
+                Modulo.miNegocio.crearEmpleado(crtEmp.Nombre, crtEmp.Foto);
             }
             foreach (Empleado dltEmp in empleadosBorrados)
             {
-                Modulo.miNegocio.deleteEmployee(dltEmp.EmpleadoId);
+                Modulo.miNegocio.eliminarEmpleado(dltEmp.EmpleadoId);
                 borrarFotoEmpleado(dltEmp.Foto);
             }
 
@@ -362,7 +353,7 @@ namespace CapaPresentacion
                 producto.Coste = float.Parse(nudEditarProductoCoste.Value.ToString());
 
 
-            producto.EmpleadoId = int.Parse(nudEditarProductoEmployerId.Value.ToString()) ;
+            producto.EmpleadoId = int.Parse(nudEditarProductoIdEmpleado.Value.ToString()) ;
         
              
                 producto.Descripcion = txtEditarProductoDescripcion.Text;
@@ -388,7 +379,7 @@ namespace CapaPresentacion
             nudEditarProductoStock.Value = 0;
             nudEditarProductoMinStock.Value = 0;
             nudEditarProductoCoste.Value = 0;
-            nudEditarProductoEmployerId.Value = 0;
+            nudEditarProductoIdEmpleado.Value = 0;
             txtEditarProductoDescripcion.Text = "";
             txtEditarProductoCodigoFamilia.Text = "";
             nudEditarProductoLugarId.Text = "";
@@ -413,7 +404,7 @@ namespace CapaPresentacion
                 nudEditarProductoStock.Value = producto.Stock;
                 nudEditarProductoMinStock.Value = producto.StockMinimo;
                 nudEditarProductoCoste.Value = int.Parse(producto.Coste.ToString());
-                nudEditarProductoEmployerId.Value = producto.EmpleadoId;
+                nudEditarProductoIdEmpleado.Value = producto.EmpleadoId;
                 txtEditarProductoDescripcion.Text = producto.Descripcion;
                 txtEditarProductoCodigoFamilia.Text = producto.CodFamilia;
                 nudEditarProductoLugarId.Value = producto.LugarId;

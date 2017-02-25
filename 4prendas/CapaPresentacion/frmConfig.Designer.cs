@@ -58,7 +58,7 @@
             this.nudEditarProductoCoste = new System.Windows.Forms.NumericUpDown();
             this.nudEditarProductoStock = new System.Windows.Forms.NumericUpDown();
             this.nudEditarProductoMinStock = new System.Windows.Forms.NumericUpDown();
-            this.nudEditarProductoEmployerId = new System.Windows.Forms.NumericUpDown();
+            this.nudEditarProductoIdEmpleado = new System.Windows.Forms.NumericUpDown();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.lblCoste = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -95,7 +95,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudEditarProductoCoste)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEditarProductoStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEditarProductoMinStock)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudEditarProductoEmployerId)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEditarProductoIdEmpleado)).BeginInit();
             this.SuspendLayout();
             // 
             // rbtnFood
@@ -380,7 +380,7 @@
             this.grbEditProduct.Controls.Add(this.nudEditarProductoCoste);
             this.grbEditProduct.Controls.Add(this.nudEditarProductoStock);
             this.grbEditProduct.Controls.Add(this.nudEditarProductoMinStock);
-            this.grbEditProduct.Controls.Add(this.nudEditarProductoEmployerId);
+            this.grbEditProduct.Controls.Add(this.nudEditarProductoIdEmpleado);
             this.grbEditProduct.Controls.Add(this.dateTimePicker1);
             this.grbEditProduct.Controls.Add(this.lblCoste);
             this.grbEditProduct.Controls.Add(this.label8);
@@ -450,11 +450,11 @@
             // 
             // nudEditProductEmployerId
             // 
-            this.nudEditarProductoEmployerId.Location = new System.Drawing.Point(134, 143);
-            this.nudEditarProductoEmployerId.Name = "nudEditProductEmployerId";
-            this.nudEditarProductoEmployerId.Size = new System.Drawing.Size(98, 21);
-            this.nudEditarProductoEmployerId.TabIndex = 26;
-            this.nudEditarProductoEmployerId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.soloNumeros);
+            this.nudEditarProductoIdEmpleado.Location = new System.Drawing.Point(134, 143);
+            this.nudEditarProductoIdEmpleado.Name = "nudEditProductEmployerId";
+            this.nudEditarProductoIdEmpleado.Size = new System.Drawing.Size(98, 21);
+            this.nudEditarProductoIdEmpleado.TabIndex = 26;
+            this.nudEditarProductoIdEmpleado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.soloNumeros);
             // 
             // dateTimePicker1
             // 
@@ -758,7 +758,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudEditarProductoCoste)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEditarProductoStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEditarProductoMinStock)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudEditarProductoEmployerId)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEditarProductoIdEmpleado)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -813,7 +813,7 @@
         private System.Windows.Forms.NumericUpDown nudEditarProductoCoste;
         private System.Windows.Forms.NumericUpDown nudEditarProductoStock;
         private System.Windows.Forms.NumericUpDown nudEditarProductoMinStock;
-        private System.Windows.Forms.NumericUpDown nudEditarProductoEmployerId;
+        private System.Windows.Forms.NumericUpDown nudEditarProductoIdEmpleado;
         private System.Windows.Forms.NumericUpDown nudEditarProductoLugarId;
         private System.Windows.Forms.NumericUpDown nudEditarProductoCollectionId;
         private System.Windows.Forms.PictureBox pboFotoEmpleado;
