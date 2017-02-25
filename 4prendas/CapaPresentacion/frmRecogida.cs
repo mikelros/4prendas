@@ -22,26 +22,26 @@ namespace CapaPresentacion
 
         private void frmRecogida_Load(object sender, EventArgs e)
         {
-            lblEmployeePassError.Hide();
+            lblErrorPaseEmpleado.Hide();
             lblNRecogida.Text = "" + (Modulo.miNegocio.getLastNRecogida() + 1);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            txtGivingPerson.Text = "";
-            pboEmployee.BackgroundImage = null;
-            lblEmployeePassError.Hide();
+            txtDonante.Text = "";
+            pboEmpleado.BackgroundImage = null;
+            lblErrorPaseEmpleado.Hide(); //No sé si he acertado mucho con este nombre
             Modulo.empleadoActual = null;
-            lblEmployeeName.Text = "";
-            pboEmployee.BackgroundImage = null;
+            lblNombreEmpleado.Text = "";
+            pboEmpleado.BackgroundImage = null;
         }
 
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            int id = Modulo.miNegocio.comprobarPersona(txtGivingPerson.Text);
-            DateTime dtm = new DateTime(dtpCollectionDate.Value.Year, dtpCollectionDate.Value.Month, dtpCollectionDate.Value.Day, dtpCollectionDate.Value.Hour, dtpCollectionDate.Value.Minute, dtpCollectionDate.Value.Second);
-            Recogida recogida = new Recogida(dtm, Convert.ToInt32(Math.Round(nudEmployee.Value, 0)), Convert.ToInt32(Math.Round(nudQuantity.Value, 0)), id);
+            int id = Modulo.miNegocio.comprobarPersona(txtDonante.Text);
+            DateTime dtm = new DateTime(dtpFechaRecogida.Value.Year, dtpFechaRecogida.Value.Month, dtpFechaRecogida.Value.Day, dtpFechaRecogida.Value.Hour, dtpFechaRecogida.Value.Minute, dtpFechaRecogida.Value.Second);
+            Recogida recogida = new Recogida(dtm, Convert.ToInt32(Math.Round(nudEmpleado.Value, 0)), Convert.ToInt32(Math.Round(nudCantidad.Value, 0)), id);
             Modulo.miNegocio.realizarRecogida(recogida);
         }
 
@@ -64,26 +64,26 @@ namespace CapaPresentacion
         private void nudEmployee_Leave(object sender, EventArgs e)
         {
 
-            Empleado empleado = Modulo.empleados.Where((em) => em.EmpleadoId == Convert.ToInt32(Math.Round(nudEmployee.Value, 0))).SingleOrDefault();
+            Empleado empleado = Modulo.empleados.Where((em) => em.EmpleadoId == Convert.ToInt32(Math.Round(nudEmpleado.Value, 0))).SingleOrDefault();
             if (empleado == null)
             {
-                pboEmployee.BackgroundImage = null;
-                lblEmployeeName.Text = "";
+                pboEmpleado.BackgroundImage = null;
+                lblNombreEmpleado.Text = "";
                 return;
 
             }
 
             Modulo.empleadoActual = empleado;
-            lblEmployeeName.Text = empleado.Nombre;
+            lblNombreEmpleado.Text = empleado.Nombre;
             if (System.IO.File.Exists(empleado.Foto))
             {
                 //preguntar a María donde van a estar las fotos de los empleados? cambiar desde config?
-                pboEmployee.BackgroundImage = Image.FromFile(empleado.Foto);
-                pboEmployee.BackgroundImageLayout = ImageLayout.Stretch;
+                pboEmpleado.BackgroundImage = Image.FromFile(empleado.Foto);
+                pboEmpleado.BackgroundImageLayout = ImageLayout.Stretch;
             }
             else
             {
-                pboEmployee.BackgroundImage = null;
+                pboEmpleado.BackgroundImage = null;
             }
         }
 

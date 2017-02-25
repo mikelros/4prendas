@@ -71,7 +71,7 @@ namespace CapaNegocio
             return datos.getEmpleados(employeeNum);
         }
 
-        public void updateProduct(Producto product)
+        public void actualizarProducto(Producto product)
         {
             datos.updateProduct(product);
         }

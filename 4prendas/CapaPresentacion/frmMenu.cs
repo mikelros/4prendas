@@ -14,7 +14,7 @@ namespace CapaPresentacion
 {
     public partial class frmMenu : Form
     {
-        string shopMode;
+        string tipoTienda;
         string mydocpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
         List<Empleado> Empleados;
@@ -29,11 +29,11 @@ namespace CapaPresentacion
             btnRecogida.Location = new Point((this.Size.Width / 4) - btnRecogida.Width / 2, medioY - (btnRecogida.Height / 2));
             btnRegistro.Location = new Point((this.Size.Width * 2 / 4) - btnRegistro.Width / 2, medioY - (btnRegistro.Height / 2));
             btnVenta.Location = new Point((this.Size.Width * 3 / 4) - btnVenta.Width / 2, medioY - (btnVenta.Height / 2));
-            loadShopMode();
-            loadWorkersList();
+            cargarTipoTienda();
+            cargarListaEmpleados();
         }
 
-        private void loadWorkersList()
+        private void cargarListaEmpleados()
         {
             //Empleados = Modulo.miNegocio.getEmpleados();
             //cmbEmpleado.DataSource = Empleados;
@@ -55,19 +55,19 @@ namespace CapaPresentacion
             if (cmbEmpleado.SelectedItem != null)
             {
                 Modulo.empleadoActual = (Empleado)cmbEmpleado.SelectedItem;
-                lblWorkerName.Text = ((Empleado)cmbEmpleado.SelectedItem).Nombre;
+                lblNombreEmpleado.Text = ((Empleado)cmbEmpleado.SelectedItem).Nombre;
                 if (System.IO.File.Exists(((Empleado)cmbEmpleado.SelectedItem).Foto))
                 {
-                    imgWorker.Image = new System.Drawing.Bitmap(((Empleado)cmbEmpleado.SelectedItem).Foto);
+                    imgEmpleado.Image = new System.Drawing.Bitmap(((Empleado)cmbEmpleado.SelectedItem).Foto);
                 }
                 else
                 {
-                    imgWorker.Image = CapaPresentacion.Properties.Resources.newsle_empty_icon;
+                    imgEmpleado.Image = CapaPresentacion.Properties.Resources.newsle_empty_icon;
                 }
             }
         }
 
-        private void loadShopMode()
+        private void cargarTipoTienda()
         {
             string line;
             try
@@ -75,12 +75,12 @@ namespace CapaPresentacion
 
                 System.IO.StreamReader file = new System.IO.StreamReader(mydocpath + @"\.config.txt");
 
-                System.Console.WriteLine(shopMode);
+                System.Console.WriteLine(tipoTienda);
                 while ((line = file.ReadLine()) != null)
                 {
                     if (line.StartsWith("ShopMode="))
                     {
-                        shopMode = line.Split('=')[1];
+                        tipoTienda = line.Split('=')[1];
                     }
                 }
 
@@ -89,10 +89,10 @@ namespace CapaPresentacion
             catch
             {
                 MessageBox.Show("Error al cargar el archivo de configuración!!! " + "" + "Se cargara la configuración por defecto", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                shopMode = "food";
-                saveShopMode();
+                tipoTienda = "food";
+                guardarTipoTienda();
             }
-            if (shopMode == "food")
+            if (tipoTienda == "food")
             {
                // rbtnFood.Checked = true;
             }
@@ -101,17 +101,17 @@ namespace CapaPresentacion
                // rbtnClothes.Checked = true;
             }
         }
-        private void saveShopMode()
+        private void guardarTipoTienda()
         {
             try
             {
 
                 using (StreamWriter outputFile = new StreamWriter(mydocpath + @"\.config.txt"))
                 {
-                    outputFile.WriteLine("ShopMode=" + shopMode);
+                    outputFile.WriteLine("ShopMode=" + tipoTienda);
                 }
             }
-            catch
+            catch //QUEEEEEEE ESSSS ESSSTEEEEE TRYYYYYYY CATCHHHHH ???????????????????????
             {
 
             }
