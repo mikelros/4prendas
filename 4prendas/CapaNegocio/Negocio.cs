@@ -16,9 +16,9 @@ namespace CapaNegocio
         {
             datos = new Datos();
         }
-        public void InsertarProductos(List<Producto> productos)
+        public void InsertarProducto(Producto producto)
         {
-            datos.insertarProductos(productos);
+            datos.insertarProducto(producto);
         }
 
         public List<Familia> getFamiliasSubfamilias()
