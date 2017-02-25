@@ -32,14 +32,14 @@ namespace CapaPresentacion
         private void frmVenta_Load(object sender, EventArgs e)
         {
 
-            cargarCmbSearch();
+            cargarCmbBuscar();
             dgvCarrito.Hide();
             dgvCarrito.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             cargarStockMinimo();
-            cargarWorkersList();
+            cargarListaTrabajadores();
             cargarFamilias();
             ocultarGboSubFam();
-            dgvProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
         }
         
@@ -67,13 +67,8 @@ namespace CapaPresentacion
             }
         }
 
-        private void cargarWorkersList()
+        private void cargarListaTrabajadores()
         {
-            //empleados = Modulo.miNegocio.getEmpleados();
-            //cmbEmpleado.DataSource = empleados;
-            //cmbEmpleado.DisplayMember = "empleadoId";
-            //cmbEmpleado.SelectedItem = Modulo.empleadoActual;
-
             this.cmbEmpleado.SelectedIndexChanged -= new EventHandler(cmbEmpleado_SelectedIndexChanged);
             cmbEmpleado.DataSource = Modulo.empleados;
             this.cmbEmpleado.SelectedIndexChanged += new EventHandler(cmbEmpleado_SelectedIndexChanged);
@@ -86,14 +81,14 @@ namespace CapaPresentacion
             if (cmbEmpleado.SelectedItem != null)
             {
                 Modulo.empleadoActual = (Empleado)cmbEmpleado.SelectedItem;
-                lblWorkerName.Text = ((Empleado)cmbEmpleado.SelectedItem).Nombre;
+                lblNombreEmpleado.Text = ((Empleado)cmbEmpleado.SelectedItem).Nombre;
                 if (System.IO.File.Exists(((Empleado)cmbEmpleado.SelectedItem).Foto))
                 {
-                    imgWorker.Image = new System.Drawing.Bitmap(((Empleado)cmbEmpleado.SelectedItem).Foto);
+                    imgEmpleado.Image = new System.Drawing.Bitmap(((Empleado)cmbEmpleado.SelectedItem).Foto);
                 }
                 else
                 {
-                    imgWorker.Image = CapaPresentacion.Properties.Resources.newsle_empty_icon;
+                    imgEmpleado.Image = CapaPresentacion.Properties.Resources.newsle_empty_icon;
                 }
             }
         }
@@ -106,29 +101,29 @@ namespace CapaPresentacion
             proceso.Start();
         }
 
-        private void cargarCmbSearch()
+        private void cargarCmbBuscar()
         {
-            cmbSearch.Items.Add("Código de barras");
-            cmbSearch.Items.Add("Código de artículo");
-            cmbSearch.Items.Add("Descripción");
-            cmbSearch.SelectedIndex = 0;
+            cmbBuscar.Items.Add("Código de barras");
+            cmbBuscar.Items.Add("Código de artículo");
+            cmbBuscar.Items.Add("Descripción");
+            cmbBuscar.SelectedIndex = 0;
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            switch (cmbSearch.SelectedItem.ToString())
+            switch (cmbBuscar.SelectedItem.ToString())
             {
                 case "Código de barras":
-                    productos = Modulo.miNegocio.getProdsPorCodigoArticulo(txtSearch.Text);
-                    dgvProducts.DataSource = productos;
+                    productos = Modulo.miNegocio.getProdsPorCodigoArticulo(txtBuscar.Text);
+                    dgvProductos.DataSource = productos;
                     break;
                 case "Código de ártículo":
-                    productos = Modulo.miNegocio.getProdsPorCodigoArticulo(txtSearch.Text);
-                    dgvProducts.DataSource = productos;
+                    productos = Modulo.miNegocio.getProdsPorCodigoArticulo(txtBuscar.Text);
+                    dgvProductos.DataSource = productos;
                     break;
                 case "Descripción":
-                    productos = Modulo.miNegocio.getProdsPorDescripcion(txtSearch.Text);
-                    dgvProducts.DataSource = productos;
+                    productos = Modulo.miNegocio.getProdsPorDescripcion(txtBuscar.Text);
+                    dgvProductos.DataSource = productos;
                     break;
                 default:
                     break;
@@ -151,7 +146,7 @@ namespace CapaPresentacion
             dgvCarrito.Hide();
         }
 
-        private void loadShopMode()
+        private void loadTipoTienda()
         {
             string line;
             try
@@ -229,7 +224,7 @@ namespace CapaPresentacion
             productos = Modulo.miNegocio.getProductos(s.CodFamilia, s.CodSubFamilia);
             if (productos != null)
             {
-                dgvProducts.DataSource = productos;
+                dgvProductos.DataSource = productos;
             } else
             {
                 //TODO CONTROLAR ERROR
@@ -258,8 +253,8 @@ namespace CapaPresentacion
         {
             cargarStockMinimo();
             productos = prodsStockMinimo;
-            dgvProducts.DataSource = prodsStockMinimo;
-            dgvProducts.Refresh();
+            dgvProductos.DataSource = prodsStockMinimo;
+            dgvProductos.Refresh();
         }
 
         private void ocultarGboSubFam()
@@ -272,10 +267,10 @@ namespace CapaPresentacion
 
         private void dgvProducts_DataSourceChanged(object sender, EventArgs e)
         {
-            this.dgvProducts.Columns["StockMinimo"].Visible = false;
-            this.dgvProducts.Columns["EmpleadoId"].Visible = false;
-            this.dgvProducts.Columns["RecogidaId"].Visible = false;
-            this.dgvProducts.Columns["FechaEntrada"].Visible = false;
+            this.dgvProductos.Columns["StockMinimo"].Visible = false;
+            this.dgvProductos.Columns["EmpleadoId"].Visible = false;
+            this.dgvProductos.Columns["RecogidaId"].Visible = false;
+            this.dgvProductos.Columns["FechaEntrada"].Visible = false;
         }
 
       
