@@ -23,6 +23,8 @@ namespace CapaPresentacion
 
             lblCodArticulo.Text = "2231014";
 
+            dgvProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
             hacerGboSubFamInvisible();
             cargarRecogidas();
             cargarEmpleados();
@@ -114,9 +116,13 @@ namespace CapaPresentacion
                 lblCodArticulo.Text = "2231014";
             }
 
-            int id = Modulo.miNegocio.getSiguienteID(s.CodFamilia, s.CodSubfamilia);
-            lblCodArticulo.Text += s.NumeroCodigo.ToString() + f.NumCodigo.ToString() + id.toString();
+            //int id = Modulo.miNegocio.getSiguienteID(s.CodFamilia, s.CodSubfamilia);
+            //lblCodArticulo.Text += s.NumeroCodigo.ToString() + f.NumCodigo.ToString() + id.toString();
 
+            if (chb.Checked)
+            {
+                cargarProductos(s);
+            }
         }
 
         private void btnGenerar_Click(object sender, EventArgs e)
@@ -132,10 +138,7 @@ namespace CapaPresentacion
             Lugar lugar = new Lugar(txtEstanteria.Text, int.Parse(nudEstante.Value.ToString()), int.Parse(nudAltura.Value.ToString()));
 
             producto.CodigoArticulo = lblCodArticulo.Text;
-            if (!String.IsNullOrWhiteSpace(nudCoste.Text))
-            {
-                producto.Coste = int.Parse(nudCoste.Text);
-            }
+            producto.Coste = int.Parse(nudCoste.Text);
             producto.Descripcion = txtDescripcion.Text;
             producto.Medida = txtMedida.Text;
             producto.Stock = int.Parse(nudUnidades.Text);
@@ -146,7 +149,59 @@ namespace CapaPresentacion
             producto.CodFamilia = codfamilia;
             string codsubfamilia = producto.CodigoArticulo.Substring(10, 12);
             producto.CodSubFamilia = codsubfamilia;
-            //producto.LugarId = Modulo.miNegocio.comprobarLugar(lugar);
+            //Lugar lugar =  Modulo.miNegocio.comprobarLugar(lugar);
+            //producto.LugarId = lugar.id;
+
+            /*
+            Lugar lugarFinal;
+            string sql = "SELECT Count(IdLugar) FROM Lugar WHERE Estanteria = @estanteria AND Estante = @estante AND Altura = @altura";
+            OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
+            OleDbCommand cmd = new OleDbCommand(sql, conTabla);
+            cmd.Parameters.AddWithValue("@estanteria", lugar.Estanteria);
+            cmd.Parameters.AddWithValue("@estante", lugar.Estante);
+            cmd.Parameters.AddWithValue("@altura", lugar.Altura);
+            try
+            {
+                conTabla.Open();
+                int result = (int)cmd.ExecuteScalar();
+                if (result <= 0)
+                {
+                    sql = "INSERT INTO Lugar(Estanteria, Estante, Altura) VALUES(@estanteria, @estante, @altura)";
+                    OleDbCommand cmd = new OleDbCommand(sql, conTabla);
+                    cmd.Parameters.AddWithValue("@estanteria", lugar.Estanteria);
+                    cmd.Parameters.AddWithValue("@estante", lugar.Estante);
+                    cmd.Parameters.AddWithValue("@altura", lugar.Altura);
+                    cmd.ExecuteNonQuery();
+                    return lugarFinal;
+                }
+
+                sql = "SELECT * FROM Lugar WHERE Estanteria = @estanteria AND Estante = @estante AND Altura = @altura";
+                OleDbCommand cmd = new OleDbCommand(sql, conTabla);
+
+                OleDbDataReader dr = cmd.ExecuteReader();
+                if (!dr.HasRows)
+                {
+                    return lugarFinal; //sale vacío
+                }
+                dr.Read();
+                lugarFinal = new Lugar();
+                lugarFinal.id = (int)dr["IdLugar"];
+                lugarFinal.Estanteria = dr.IsDBNull(dr.GetOrdinal("Estanteria")) ? "" : (string)dr["Estanteria"];
+                lugarFinal.Estante = dr.IsDBNull(dr.GetOrdinal("Estante")) ? 0 : (int)dr["Estante"];
+                lugarFinal.Altura = dr.IsDBNull(dr.GetOrdinal("Altura")) ? 0 : (int)dr["Altura"];
+
+                return lugarFinal;
+            }
+            catch (Exception ex)
+            {
+                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
+                return null;
+            }
+            finally
+            {
+                conTabla.Close();
+            }
+             */
             //Modulo.miNegocio.InsertarProducto(producto)
         }
 
@@ -180,6 +235,8 @@ namespace CapaPresentacion
             if (MessageBox.Show("¿Seguro que deseas salir?", "Salir",
                    MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
+                Form frmMenu = new frmMenu();
+                frmMenu.Show();
                 this.Close();
             }
         }
@@ -211,5 +268,28 @@ namespace CapaPresentacion
             }
         }
 
+        private void chb_CheckedChanged(object sender, EventArgs e)
+        {
+            dgvProducts.Visible = !dgvProducts.Visible;
+
+            if(lblCodArticulo.Text.Length == 9)
+            {
+                lblCodArticulo.Text = "2231014";
+                gboFamilia.Focus();
+            }
+        }
+
+        private void cargarProductos(SubFamilia s)
+        {
+            List<Producto> productos = Modulo.miNegocio.getProductos(s.CodFamilia, s.CodSubFamilia);
+            if (productos != null)
+            {
+                dgvProducts.DataSource = productos.Select((p) => new { CodigoArticulo = p.CodigoArticulo, Descripcion = p.Descripcion, Coste = p.Coste, Unidades = p.Unidades }).ToList();
+            }
+            else
+            {
+                //TODO CONTROLAR ERROR
+            }
+        }
     }
 }

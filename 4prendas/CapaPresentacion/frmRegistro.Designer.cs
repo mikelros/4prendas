@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gboRegistros = new System.Windows.Forms.GroupBox();
+            this.chb = new System.Windows.Forms.CheckBox();
             this.lblCodArticulo = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cboRecogida = new System.Windows.Forms.ComboBox();
@@ -77,6 +78,7 @@
             this.lblNombreEmpleado = new System.Windows.Forms.Label();
             this.cmbEmpleado = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.dgvProducts = new System.Windows.Forms.DataGridView();
             this.gboRegistros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCoste)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAltura)).BeginInit();
@@ -85,12 +87,14 @@
             this.gboSubfamilia.SuspendLayout();
             this.gboFamilia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgEmpleado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.SuspendLayout();
             // 
             // gboRegistros
             // 
             this.gboRegistros.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.gboRegistros.BackColor = System.Drawing.Color.Transparent;
+            this.gboRegistros.Controls.Add(this.chb);
             this.gboRegistros.Controls.Add(this.lblCodArticulo);
             this.gboRegistros.Controls.Add(this.label5);
             this.gboRegistros.Controls.Add(this.cboRecogida);
@@ -118,6 +122,17 @@
             this.gboRegistros.TabIndex = 0;
             this.gboRegistros.TabStop = false;
             this.gboRegistros.Text = "Registro de Articulos";
+            // 
+            // chb
+            // 
+            this.chb.AutoSize = true;
+            this.chb.Location = new System.Drawing.Point(13, 477);
+            this.chb.Name = "chb";
+            this.chb.Size = new System.Drawing.Size(114, 17);
+            this.chb.TabIndex = 76;
+            this.chb.Text = "Producto existente";
+            this.chb.UseVisualStyleBackColor = true;
+            this.chb.CheckedChanged += new System.EventHandler(this.chb_CheckedChanged);
             // 
             // lblCodArticulo
             // 
@@ -321,7 +336,7 @@
             this.btnAtras.BackgroundImage = global::CapaPresentacion.Properties.Resources.exit;
             this.btnAtras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnAtras.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAtras.Location = new System.Drawing.Point(1186, 665);
+            this.btnAtras.Location = new System.Drawing.Point(1186, 736);
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.Size = new System.Drawing.Size(75, 113);
             this.btnAtras.TabIndex = 20;
@@ -615,12 +630,24 @@
             this.label1.TabIndex = 71;
             this.label1.Text = "Empleado:";
             // 
+            // dgvProducts
+            // 
+            this.dgvProducts.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProducts.Location = new System.Drawing.Point(12, 606);
+            this.dgvProducts.Name = "dgvProducts";
+            this.dgvProducts.ReadOnly = true;
+            this.dgvProducts.Size = new System.Drawing.Size(775, 231);
+            this.dgvProducts.TabIndex = 75;
+            this.dgvProducts.Visible = false;
+            // 
             // frmRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1273, 790);
+            this.ClientSize = new System.Drawing.Size(1273, 861);
+            this.Controls.Add(this.dgvProducts);
             this.Controls.Add(this.imgEmpleado);
             this.Controls.Add(this.lblNombreEmpleado);
             this.Controls.Add(this.cmbEmpleado);
@@ -642,6 +669,7 @@
             this.gboSubfamilia.ResumeLayout(false);
             this.gboFamilia.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgEmpleado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -698,5 +726,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblCodArticulo;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridView dgvProducts;
+        private System.Windows.Forms.CheckBox chb;
     }
 }
