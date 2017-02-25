@@ -16,7 +16,7 @@ namespace CapaNegocio
         {
             datos = new Datos();
         }
-        public void InsertarProductos(List<Producto> productos)
+        public void InsertarProducto(List<Producto> productos)
         {
             datos.insertarProductos(productos);
         }
@@ -56,12 +56,12 @@ namespace CapaNegocio
             return datos.getProdsPorCodigoArticulo(codigoArticulo);
         }
 
-        public string createEmployee(string name, string photo) //Id autonumerico...
+        public string crearEmpleado(string name, string photo) //Id autonumerico...
         {
             return datos.createEmployee(name, photo);
         }
 
-        public void deleteEmployee(int id)
+        public void eliminarEmpleado(int id)
         {
             datos.deleteEmployee(id);
         }
@@ -71,7 +71,7 @@ namespace CapaNegocio
             return datos.getEmpleados(employeeNum);
         }
 
-        public void updateProduct(Producto product)
+        public void actualizarProducto(Producto product)
         {
             datos.updateProduct(product);
         }
@@ -95,7 +95,15 @@ namespace CapaNegocio
         {
             return datos.getRecogidasSinTodosRegistros();
         }
-    }
 
+        public int getSiguienteID(string codFamilia, string codSubfamilia)
+        {
+            return datos.getSiguienteIDProd(codFamilia, codSubfamilia);
+        }
+        public void insertVenta(List<Producto> productos, int empleadoID)
+        {
+            insertVenta(productos, empleadoID);
+        }
+    }
 }
 

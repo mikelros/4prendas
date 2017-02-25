@@ -36,13 +36,13 @@
             this.btnVenta = new System.Windows.Forms.Button();
             this.btnRegistro = new System.Windows.Forms.Button();
             this.btnRecogida = new System.Windows.Forms.Button();
-            this.imgWorker = new System.Windows.Forms.PictureBox();
-            this.lblWorkerName = new System.Windows.Forms.Label();
+            this.imgEmpleado = new System.Windows.Forms.PictureBox();
+            this.lblNombreEmpleado = new System.Windows.Forms.Label();
             this.cmbEmpleado = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbo4prendas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboCuatrovientos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgWorker)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgEmpleado)).BeginInit();
             this.SuspendLayout();
             // 
             // pbo4prendas
@@ -142,25 +142,25 @@
             // 
             // imgWorker
             // 
-            this.imgWorker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.imgWorker.Image = global::CapaPresentacion.Properties.Resources.newsle_empty_icon;
-            this.imgWorker.Location = new System.Drawing.Point(1065, 185);
-            this.imgWorker.Name = "imgWorker";
-            this.imgWorker.Size = new System.Drawing.Size(100, 129);
-            this.imgWorker.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgWorker.TabIndex = 89;
-            this.imgWorker.TabStop = false;
+            this.imgEmpleado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.imgEmpleado.Image = global::CapaPresentacion.Properties.Resources.newsle_empty_icon;
+            this.imgEmpleado.Location = new System.Drawing.Point(1065, 185);
+            this.imgEmpleado.Name = "imgWorker";
+            this.imgEmpleado.Size = new System.Drawing.Size(100, 129);
+            this.imgEmpleado.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgEmpleado.TabIndex = 89;
+            this.imgEmpleado.TabStop = false;
             // 
             // lblWorkerName
             // 
-            this.lblWorkerName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblWorkerName.AutoSize = true;
-            this.lblWorkerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWorkerName.Location = new System.Drawing.Point(1062, 164);
-            this.lblWorkerName.Name = "lblWorkerName";
-            this.lblWorkerName.Size = new System.Drawing.Size(148, 18);
-            this.lblWorkerName.TabIndex = 88;
-            this.lblWorkerName.Text = "Nombre Empleado";
+            this.lblNombreEmpleado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblNombreEmpleado.AutoSize = true;
+            this.lblNombreEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreEmpleado.Location = new System.Drawing.Point(1062, 164);
+            this.lblNombreEmpleado.Name = "lblWorkerName";
+            this.lblNombreEmpleado.Size = new System.Drawing.Size(148, 18);
+            this.lblNombreEmpleado.TabIndex = 88;
+            this.lblNombreEmpleado.Text = "Nombre Empleado";
             // 
             // cmbEmpleado
             // 
@@ -191,8 +191,8 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1312, 780);
-            this.Controls.Add(this.imgWorker);
-            this.Controls.Add(this.lblWorkerName);
+            this.Controls.Add(this.imgEmpleado);
+            this.Controls.Add(this.lblNombreEmpleado);
             this.Controls.Add(this.cmbEmpleado);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnRecogida);
@@ -209,7 +209,7 @@
             this.Load += new System.EventHandler(this.frmMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbo4prendas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboCuatrovientos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgWorker)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgEmpleado)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -224,8 +224,8 @@
         private System.Windows.Forms.Button btnVenta;
         private System.Windows.Forms.Button btnRegistro;
         private System.Windows.Forms.Button btnRecogida;
-        private System.Windows.Forms.PictureBox imgWorker;
-        private System.Windows.Forms.Label lblWorkerName;
+        private System.Windows.Forms.PictureBox imgEmpleado;
+        private System.Windows.Forms.Label lblNombreEmpleado;
         private System.Windows.Forms.ComboBox cmbEmpleado;
         private System.Windows.Forms.Label label3;
     }

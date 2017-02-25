@@ -577,5 +577,90 @@ namespace CapaDatos
             }
 
         }
+
+        public int getSiguienteIDProd(string codFamilia, string codSubfamilia)
+        {
+            string producto;
+            int num = 0;
+            string sql = "SELECT TOP 1 CodigoArticulo FROM Registro WHERE Registro.CodFamilia = @codFamilia AND Registro.CodSubFamilia = @codSubFamilia ORDER BY CodigoArticulo DESC";
+
+            OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
+            OleDbCommand cmd = new OleDbCommand(sql, conTabla);
+            cmd.Parameters.AddWithValue("@codFamilia", codFamilia);
+            cmd.Parameters.AddWithValue("@codSubFamilia", codSubfamilia);
+            try
+            {
+                conTabla.Open();
+                OleDbDataReader dr = cmd.ExecuteReader();
+                if (!dr.HasRows)
+                {
+                    return 0; //No hay ids
+                }
+                dr.Read();
+                producto = (string)dr["CodigoArticulo"];
+                int.TryParse(producto.Substring(producto.Length - 3, 3), out num);
+
+                return num + 1;
+            }
+            catch (Exception ex)
+            {
+                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
+                return 0;
+            }
+            finally
+            {
+                conTabla.Close();
+            }
+        }
+
+        public void insertVenta(List<Producto> productos, int empleadoID)
+        {
+            int numVenta;
+
+
+            string sql = "INSERT INTO Venta(FechaVenta, EmpleadoId, Devolucion) VALUES (@FechaVenta, @EmpleadoId, @Devolucion)";
+
+            OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
+            OleDbCommand cmd = new OleDbCommand(sql, conTabla);
+            cmd.Parameters.AddWithValue("@FechaVenta", DateTime.Now);
+            cmd.Parameters.AddWithValue("@EmpleadoId", empleadoID);
+            cmd.Parameters.AddWithValue("@Devolucion", false);
+            //cmd.Parameters.AddWithValue("@IVA", );
+            try
+            {
+                conTabla.Open();
+                cmd.ExecuteNonQuery();
+
+                sql = "SELECT TOP 1 NumVenta FROM Venta ORDER BY NumVenta DESC";
+                cmd = new OleDbCommand(sql, conTabla);
+                OleDbDataReader dr = cmd.ExecuteReader();
+                dr.Read();
+                numVenta = (int)dr["NumVenta"];
+
+                sql = "INSERT INTO VentaArticulo(CodigoArticulo, NumVenta, Coste) VALUES (@codArt, @numVenta, @coste)";
+
+                //faltan los datos de lugar porque no está hecho el form y eso
+                 cmd = new OleDbCommand(sql, conTabla);
+
+                    foreach (Producto p in productos)
+                    {
+                        cmd.Parameters.AddWithValue("@codArt", p.CodigoArticulo);
+                        cmd.Parameters.AddWithValue("@numVenta", numVenta);
+                        cmd.Parameters.AddWithValue("@coste", p.Coste);
+
+                        cmd.ExecuteNonQuery();
+                    }
+
+                }
+            catch (Exception ex)
+            {
+                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
+            }
+            finally
+            {
+                conTabla.Close();
+            }
+        }
+
     }
 }
