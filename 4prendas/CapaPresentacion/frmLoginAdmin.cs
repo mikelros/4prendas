@@ -19,15 +19,15 @@ namespace CapaPresentacion
 
         private void frmLoginAdmin_Load(object sender, EventArgs e)
         {
-            txtUser.Focus();
-            lblPassError.Hide();
-            lblUserError.Hide();
+            txtUsuario.Focus();
+            lblClaveError.Hide();
+            lblUsuarioError.Hide();
 
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (Modulo.miNegocio.getAdministrador(txtUser.Text, txtPass.Text) != null)
+            if (Modulo.miNegocio.getAdministrador(txtUsuario.Text, txtPass.Text) != null)
             {
                 (new frmConfig()).Show();
                 this.Close();

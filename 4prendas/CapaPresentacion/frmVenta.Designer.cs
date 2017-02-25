@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVenta));
             this.label3 = new System.Windows.Forms.Label();
             this.cmbEmpleado = new System.Windows.Forms.ComboBox();
-            this.lblWorkerName = new System.Windows.Forms.Label();
+            this.lblNombreEmpleado = new System.Windows.Forms.Label();
             this.gboFamilia = new System.Windows.Forms.GroupBox();
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
@@ -43,7 +43,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.dgvProducts = new System.Windows.Forms.DataGridView();
+            this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.btnStock = new System.Windows.Forms.Button();
             this.gboSubfamilia = new System.Windows.Forms.GroupBox();
@@ -59,22 +59,22 @@
             this.button20 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.cmbSearch = new System.Windows.Forms.ComboBox();
-            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.cmbBuscar = new System.Windows.Forms.ComboBox();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
             this.dgvCarrito = new System.Windows.Forms.DataGridView();
             this.btnCarrito = new System.Windows.Forms.Button();
             this.btnCalculator = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.imgWorker = new System.Windows.Forms.PictureBox();
+            this.imgEmpleado = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnFinVenta = new System.Windows.Forms.Button();
             this.gboFamilia.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.gboSubfamilia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrito)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgWorker)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgEmpleado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,14 +103,14 @@
             // 
             // lblWorkerName
             // 
-            this.lblWorkerName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblWorkerName.AutoSize = true;
-            this.lblWorkerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWorkerName.Location = new System.Drawing.Point(1059, 136);
-            this.lblWorkerName.Name = "lblWorkerName";
-            this.lblWorkerName.Size = new System.Drawing.Size(148, 18);
-            this.lblWorkerName.TabIndex = 53;
-            this.lblWorkerName.Text = "Nombre Empleado";
+            this.lblNombreEmpleado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblNombreEmpleado.AutoSize = true;
+            this.lblNombreEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreEmpleado.Location = new System.Drawing.Point(1059, 136);
+            this.lblNombreEmpleado.Name = "lblWorkerName";
+            this.lblNombreEmpleado.Size = new System.Drawing.Size(148, 18);
+            this.lblNombreEmpleado.TabIndex = 53;
+            this.lblNombreEmpleado.Text = "Nombre Empleado";
             // 
             // gboFamilia
             // 
@@ -235,17 +235,17 @@
             // 
             // dgvProducts
             // 
-            this.dgvProducts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgvProductos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProducts.Location = new System.Drawing.Point(398, 202);
-            this.dgvProducts.Name = "dgvProducts";
-            this.dgvProducts.ReadOnly = true;
-            this.dgvProducts.Size = new System.Drawing.Size(649, 549);
-            this.dgvProducts.TabIndex = 69;
-            this.dgvProducts.DataSourceChanged += new System.EventHandler(this.dgvProducts_DataSourceChanged);
-            this.dgvProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducts_CellClick);
-            this.dgvProducts.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvProducts_CellMouseClick);
+            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductos.Location = new System.Drawing.Point(398, 202);
+            this.dgvProductos.Name = "dgvProducts";
+            this.dgvProductos.ReadOnly = true;
+            this.dgvProductos.Size = new System.Drawing.Size(649, 549);
+            this.dgvProductos.TabIndex = 69;
+            this.dgvProductos.DataSourceChanged += new System.EventHandler(this.dgvProducts_DataSourceChanged);
+            this.dgvProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducts_CellClick);
+            this.dgvProductos.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvProducts_CellMouseClick);
             // 
             // label2
             // 
@@ -416,23 +416,23 @@
             // 
             // cmbSearch
             // 
-            this.cmbSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbSearch.BackColor = System.Drawing.Color.White;
-            this.cmbSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSearch.FormattingEnabled = true;
-            this.cmbSearch.Location = new System.Drawing.Point(919, 174);
-            this.cmbSearch.Name = "cmbSearch";
-            this.cmbSearch.Size = new System.Drawing.Size(128, 21);
-            this.cmbSearch.TabIndex = 74;
+            this.cmbBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbBuscar.BackColor = System.Drawing.Color.White;
+            this.cmbBuscar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbBuscar.FormattingEnabled = true;
+            this.cmbBuscar.Location = new System.Drawing.Point(919, 174);
+            this.cmbBuscar.Name = "cmbSearch";
+            this.cmbBuscar.Size = new System.Drawing.Size(128, 21);
+            this.cmbBuscar.TabIndex = 74;
             // 
             // txtSearch
             // 
-            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearch.Location = new System.Drawing.Point(745, 174);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(129, 20);
-            this.txtSearch.TabIndex = 75;
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            this.txtBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBuscar.Location = new System.Drawing.Point(745, 174);
+            this.txtBuscar.Name = "txtSearch";
+            this.txtBuscar.Size = new System.Drawing.Size(129, 20);
+            this.txtBuscar.TabIndex = 75;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // dgvCarrito
             // 
@@ -494,14 +494,14 @@
             // 
             // imgWorker
             // 
-            this.imgWorker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.imgWorker.Image = global::CapaPresentacion.Properties.Resources.newsle_empty_icon;
-            this.imgWorker.Location = new System.Drawing.Point(1062, 157);
-            this.imgWorker.Name = "imgWorker";
-            this.imgWorker.Size = new System.Drawing.Size(100, 129);
-            this.imgWorker.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgWorker.TabIndex = 54;
-            this.imgWorker.TabStop = false;
+            this.imgEmpleado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.imgEmpleado.Image = global::CapaPresentacion.Properties.Resources.newsle_empty_icon;
+            this.imgEmpleado.Location = new System.Drawing.Point(1062, 157);
+            this.imgEmpleado.Name = "imgWorker";
+            this.imgEmpleado.Size = new System.Drawing.Size(100, 129);
+            this.imgEmpleado.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgEmpleado.TabIndex = 54;
+            this.imgEmpleado.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -556,19 +556,19 @@
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.dgvCarrito);
             this.Controls.Add(this.btnCarrito);
-            this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.cmbSearch);
+            this.Controls.Add(this.txtBuscar);
+            this.Controls.Add(this.cmbBuscar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.gboSubfamilia);
             this.Controls.Add(this.btnStock);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dgvProducts);
+            this.Controls.Add(this.dgvProductos);
             this.Controls.Add(this.gboFamilia);
             this.Controls.Add(this.btnCalculator);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.imgWorker);
-            this.Controls.Add(this.lblWorkerName);
+            this.Controls.Add(this.imgEmpleado);
+            this.Controls.Add(this.lblNombreEmpleado);
             this.Controls.Add(this.cmbEmpleado);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
@@ -578,11 +578,11 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmVenta_Load);
             this.gboFamilia.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.gboSubfamilia.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrito)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgWorker)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgEmpleado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -593,13 +593,13 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox cmbEmpleado;
-        private System.Windows.Forms.Label lblWorkerName;
-        private System.Windows.Forms.PictureBox imgWorker;
+        private System.Windows.Forms.Label lblNombreEmpleado;
+        private System.Windows.Forms.PictureBox imgEmpleado;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button btnCalculator;
         private System.Windows.Forms.GroupBox gboFamilia;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dgvProducts;
+        private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnStock;
         private System.Windows.Forms.Button button10;
@@ -624,8 +624,8 @@
         private System.Windows.Forms.Button button20;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cmbSearch;
-        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.ComboBox cmbBuscar;
+        private System.Windows.Forms.TextBox txtBuscar;
         internal System.Windows.Forms.Button btnCarrito;
         internal System.Windows.Forms.DataGridView dgvCarrito;
         private System.Windows.Forms.Button btnExit;

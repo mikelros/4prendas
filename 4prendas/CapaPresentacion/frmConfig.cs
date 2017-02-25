@@ -15,16 +15,16 @@ namespace CapaPresentacion
 {
     public partial class frmConfig : Form
     {
-        Empleado deleteEmployee;
-        List<Empleado> employees = new List<Empleado>();
-        List<Empleado> createdEmployees = new List<Empleado>();
-        List<Empleado> deletedEmployees = new List<Empleado>();
-        Producto product;
-        string previousShopMode;
+        Empleado empleadoBorrar;
+        List<Empleado> empleados = new List<Empleado>();
+        List<Empleado> empleadosCreados = new List<Empleado>();
+        List<Empleado> empleadosBorrados = new List<Empleado>();
+        Producto producto;
+        string tipoTiendaAnterior;
 
-        string mydocpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-        string shopMode;
-        bool changes;
+        string rutaMisDocumentos = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        string tipoTienda;
+        bool cambios;
 
         public frmConfig()
         {
@@ -34,56 +34,56 @@ namespace CapaPresentacion
 
         private void rbtnFood_CheckedChanged(object sender, EventArgs e)
         {
-            shopMode = "food";
-            changes = true;
-            if (shopMode == previousShopMode)
+            tipoTienda = "food";
+            cambios = true;
+            if (tipoTienda == tipoTiendaAnterior)
             {
-                changes = false;
+                cambios = false;
             }
 
         }
 
         private void rbtnClothes_CheckedChanged(object sender, EventArgs e)
         {
-            shopMode = "clothes";
-            changes = true;
-            if (shopMode == previousShopMode)
+            tipoTienda = "clothes";
+            cambios = true;
+            if (tipoTienda == tipoTiendaAnterior)
             {
-                changes = false;
+                cambios = false;
             }
         }
 
         private void btnCreate_Click(object sender, EventArgs e) //Probar
         {
-            if (txtCreateName.Text.Equals("") )
+            if (txtCrearNombre.Text.Equals("") )
             {
-                lblCreateError.Show();
+                lblCrearError.Show();
                 return;
             }else
             {
-                lblCreateError.Hide();
+                lblCrearError.Hide();
             }
-            if (!txtCreatePhoto.Equals(""))
+            if (!txtCrearFoto.Equals(""))
             {
-                if (!File.Exists(txtCreatePhoto.Text))
+                if (!File.Exists(txtCrearFoto.Text))
                 {
-                    lblCreateFileNoExistError.Show();
+                    lblNoExisteArchivoCrearError.Show();
                     return;
                 }
                 else
                 {
-                    lblCreateFileNoExistError.Hide();
-                    string NombreArchivo;
-                    NombreArchivo = System.IO.Path.GetFileNameWithoutExtension(txtCreatePhoto.Text);
-                    Bitmap Picture = new Bitmap(txtCreatePhoto.Text);
-                    Picture.Save(NombreArchivo + ".jpeg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                    lblNoExisteArchivoCrearError.Hide();
+                    string nombreArchivo;
+                    nombreArchivo = System.IO.Path.GetFileNameWithoutExtension(txtCrearFoto.Text);
+                    Bitmap imagen = new Bitmap(txtCrearFoto.Text);
+                    imagen.Save(nombreArchivo + ".jpeg", System.Drawing.Imaging.ImageFormat.Jpeg);
 
                 }
             }
-            Empleado emp = new Empleado(txtCreateName.Text, txtCreatePhoto.Text);
-            employees.Add(emp);
-            createdEmployees.Add(emp);
-            changes = true;
+            Empleado emp = new Empleado(txtCrearNombre.Text, txtCrearFoto.Text);
+            empleados.Add(emp);
+            empleadosCreados.Add(emp);
+            cambios = true;
             //string msg = negocio.createEmployee(txtCreateName.Text, txtCreatePhoto.Text); 
             //if (msg == "")
             //{
@@ -93,41 +93,41 @@ namespace CapaPresentacion
             //{
             //    MessageBox.Show(msg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             //}
-            createCancel();
+            cancelarCrear();
         }
 
         private void bntCreateCancel_Click(object sender, EventArgs e)
         {
-            createCancel();
+            cancelarCrear();
         }
-        private void createCancel()
+        private void cancelarCrear()
         {
-            txtCreateName.Text = "";
-            txtCreatePhoto.Text = "";
+            txtCrearNombre.Text = "";
+            txtCrearFoto.Text = "";
         }
         private void btnBrowse_Click(object sender, EventArgs e)
         {
             Stream myStream = null;
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            OpenFileDialog abrirFileDialog1 = new OpenFileDialog(); // abrirFileDialog1???? esto no se puede mejorar?
 
-            openFileDialog1.InitialDirectory = "c:\\";
-            openFileDialog1.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*";
-            openFileDialog1.FilterIndex = 2;
-            openFileDialog1.RestoreDirectory = true;
+            abrirFileDialog1.InitialDirectory = "c:\\";
+            abrirFileDialog1.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*";
+            abrirFileDialog1.FilterIndex = 2;
+            abrirFileDialog1.RestoreDirectory = true;
 
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            if (abrirFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
-                    if ((myStream = openFileDialog1.OpenFile()) != null)
+                    if ((myStream = abrirFileDialog1.OpenFile()) != null)
                     {
                         using (myStream)
                         {
-                            lblCreateFileNoExistError.Hide();
-                            txtCreatePhoto.Text = openFileDialog1.FileName;
-                            Bitmap Picture = new Bitmap(txtCreatePhoto.Text);
-                            pboEmployeePhoto.BackgroundImage = Picture;
-                            pboEmployeePhoto.BackgroundImageLayout = ImageLayout.Stretch;
+                            lblNoExisteArchivoCrearError.Hide();
+                            txtCrearFoto.Text = abrirFileDialog1.FileName;
+                            Bitmap imagen = new Bitmap(txtCrearFoto.Text);
+                            pboFotoEmpleado.BackgroundImage = imagen;
+                            pboFotoEmpleado.BackgroundImageLayout = ImageLayout.Stretch;
                         }
                     }
                 }
@@ -141,32 +141,28 @@ namespace CapaPresentacion
 
         private void btnDelete_Click(object sender, EventArgs e) //Probar
         {
-            if (deleteEmployee.Nombre == null)
+            if (empleadoBorrar.Nombre == null)
             {
-                lblDeleteError.Show();
+                lblBorrarError.Show();
             }
             else
             {
-                lblDeleteError.Hide();
-                employees.Remove(deleteEmployee);
-                if (!createdEmployees.Contains(deleteEmployee))
+                lblBorrarError.Hide();
+                empleados.Remove(empleadoBorrar);
+                if (!empleadosCreados.Contains(empleadoBorrar))
                 {
-                deletedEmployees.Add(deleteEmployee);
-                    deleteEmployeePhoto(deleteEmployee.Foto);
+                empleadosBorrados.Add(empleadoBorrar);
+                    borrarFotoEmpleado(empleadoBorrar.Foto);
                 }
-                changes = true;
+                cambios = true;
                 
             }
         }
 
-        private void deleteEmployeePhoto(string photo)
+        private void borrarFotoEmpleado(string photo)
         {
-            // Delete a file by using File class static method...
             if (System.IO.File.Exists(photo))
             {
-                // Use a try block to catch IOExceptions, to
-                // handle the case of the file already being
-                // opened by another process.
                 try
                 {
                     System.IO.File.Delete(photo);
@@ -181,50 +177,50 @@ namespace CapaPresentacion
 
         private void frmConfig_Load(object sender, EventArgs e)
         {
-            lblEmployeeNoExistError.Hide();
+            lblEmpleadoNoExisteError.Hide();
 
-            lblCreateFileNoExistError.Hide();
+            lblNoExisteArchivoCrearError.Hide();
             
 
-            lblDeleteError.Hide();
-            lblCreateError.Hide();
-            lblEmployeeNoExistError.Hide();
+            lblBorrarError.Hide();
+            lblCrearError.Hide();
+            lblEmpleadoNoExisteError.Hide();
             
 
 
-            nudEditProductStock.Maximum  = int.MaxValue;
-            nudEditProductMinStock.Maximum = int.MaxValue;
-            nudEditProductCost.Maximum = int.MaxValue;
-            nudEditProductEmployerId.Maximum = int.MaxValue;
-            nudEditProductPlaceId.Maximum = int.MaxValue;
-            nudEditProductCollectionId.Maximum = int.MaxValue;
+            nudEditarProductoStock.Maximum  = int.MaxValue;
+            nudEditarProductoMinStock.Maximum = int.MaxValue;
+            nudEditarProductoCoste.Maximum = int.MaxValue;
+            nudEditarProductoEmployerId.Maximum = int.MaxValue; //WTF is employer???????????????????
+            nudEditarProductoLugarId.Maximum = int.MaxValue;
+            nudEditarProductoCollectionId.Maximum = int.MaxValue; //No sabía a que hacía referencia "Collection" asi que no lo he traducido
 
-            loadEmployees();
+            cargarEmployees();
 
-            loadShopMode();
+            cargarShopMode();
 
-            deleteEmployee = null;
+            empleadoBorrar = null;
 
         }
-        private void loadEmployees()
+        private void cargarEmployees()
         {
-            employees = Modulo.miNegocio.getEmpleados();
+            empleados = Modulo.miNegocio.getEmpleados();
         }
-        private void loadShopMode()
+        private void cargarShopMode()
         {
             string line;
             try
             {
 
-                System.IO.StreamReader file = new System.IO.StreamReader(mydocpath + @"\.config.txt");
+                System.IO.StreamReader file = new System.IO.StreamReader(rutaMisDocumentos + @"\.config.txt");
 
-                System.Console.WriteLine(shopMode);
+                System.Console.WriteLine(tipoTienda);
                 while ((line = file.ReadLine()) != null)
                 {
                     if (line.StartsWith("ShopMode="))
                     {
-                        shopMode = line.Split('=')[1];
-                        previousShopMode = shopMode;
+                        tipoTienda = line.Split('=')[1];
+                        tipoTiendaAnterior = tipoTienda;
                     }
                 }
 
@@ -233,44 +229,44 @@ namespace CapaPresentacion
             catch
             {
                 MessageBox.Show("Error al cargar el archivo de configuración!!! " + "" + "Se cargara la configuración por defecto", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                shopMode = "food";
-                saveShopMode();
+                tipoTienda = "food";
+                guardarTipoTienda();
             }
-            if (shopMode == "food")
+            if (tipoTienda == "food")
             {
-                rbtnFood.Checked = true;
+                rbtnAlimentos.Checked = true;
             }
             else
             {
-                rbtnClothes.Checked = true;
+                rbtnPrendas.Checked = true;
             }
         }
 
         private void btnDeleteCancel_Click(object sender, EventArgs e)
         {
-            deleteCancel();
+            cancelarBorrado();
         }
 
         
 
         
 
-        private void deleteCancel()
+        private void cancelarBorrado()
         {
-            nudDeleteNumEmployee.Text = "";
-            lblDeleteName.Text = "";
-            lblEmployeeNoExistError.Hide();
-            deleteEmployee = null;
+            nudBorrarNumEmpleado.Text = "";
+            lblBorrarNombre.Text = "";
+            lblEmpleadoNoExisteError.Hide();
+            empleadoBorrar = null;
         }
 
-        private void saveShopMode()
+        private void guardarTipoTienda()
         {
             try
             {
 
-                using (StreamWriter outputFile = new StreamWriter(mydocpath + @"\.config.txt"))
+                using (StreamWriter outputFile = new StreamWriter(rutaMisDocumentos + @"\.config.txt"))
                 {
-                    outputFile.WriteLine("ShopMode=" + shopMode);
+                    outputFile.WriteLine("ShopMode=" + tipoTienda);
                 }
             }
             catch
@@ -281,38 +277,38 @@ namespace CapaPresentacion
             {
 
             }
-            deleteCancel();
-            createCancel();
+            cancelarBorrado();
+            cancelarCrear();
         }
 
         private void btnApply_Click(object sender, EventArgs e)
         {
-            saveShopMode();
-            saveEmployeesChanges();
+            guardarTipoTienda();
+            guardarCambiosEmpleado();
         }
-        private void saveEmployeesChanges()
+        private void guardarCambiosEmpleado()
         {
             
-            foreach (Empleado crtEmp in createdEmployees)
+            foreach (Empleado crtEmp in empleadosCreados)
             {
                 Modulo.miNegocio.createEmployee(crtEmp.Nombre, crtEmp.Foto);
             }
-            foreach (Empleado dltEmp in deletedEmployees)
+            foreach (Empleado dltEmp in empleadosBorrados)
             {
                 Modulo.miNegocio.deleteEmployee(dltEmp.EmpleadoId);
-                deleteEmployeePhoto(dltEmp.Foto);
+                borrarFotoEmpleado(dltEmp.Foto);
             }
 
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            if (changes)
+            if (cambios)
             {
                 DialogResult result = MessageBox.Show("As realizado cambios " + "\n" + "¿Desea guardar los cambios?", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
-                    saveShopMode();
+                    guardarTipoTienda();
                 }else if(result == DialogResult.Cancel)
                 {
                     return;
@@ -325,17 +321,17 @@ namespace CapaPresentacion
 
         private void btnCopy_Click(object sender, EventArgs e)
         {
-            string FileToCopy;
-            SaveFileDialog NewCopy = new SaveFileDialog();
-            NewCopy.Filter = "Base de datos|*.accdb";
-            NewCopy.ShowDialog();
-            FileToCopy = "CUASHOP_MODA.accdb";
+            string archivoCopiar;
+            SaveFileDialog nuevaCopia = new SaveFileDialog();
+            nuevaCopia.Filter = "Base de datos|*.accdb";
+            nuevaCopia.ShowDialog();
+            archivoCopiar = "CUASHOP_MODA.accdb";
             
-            if (System.IO.File.Exists(FileToCopy))
+            if (System.IO.File.Exists(archivoCopiar))
             {
-                if (!NewCopy.FileName.Equals(""))
+                if (!nuevaCopia.FileName.Equals(""))
                 {
-                    System.IO.File.Copy(FileToCopy, NewCopy.FileName);
+                    System.IO.File.Copy(archivoCopiar, nuevaCopia.FileName);
                     MessageBox.Show("File Copied");
                 }
             }
@@ -343,7 +339,7 @@ namespace CapaPresentacion
 
         }
 
-        private void onlyNums(object sender, KeyPressEventArgs e)
+        private void soloNumeros(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
@@ -356,125 +352,125 @@ namespace CapaPresentacion
         {
             
             
-                product.Stock = int.Parse(nudEditProductStock.Value.ToString());
+                producto.Stock = int.Parse(nudEditarProductoStock.Value.ToString());
 
              
-                product.StockMinimo = int.Parse(nudEditProductMinStock.Value.ToString());
+                producto.StockMinimo = int.Parse(nudEditarProductoMinStock.Value.ToString());
 
             
 
-                product.Coste = float.Parse(nudEditProductCost.Value.ToString());
+                producto.Coste = float.Parse(nudEditarProductoCoste.Value.ToString());
 
 
-            product.EmpleadoId = int.Parse(nudEditProductEmployerId.Value.ToString()) ;
+            producto.EmpleadoId = int.Parse(nudEditarProductoEmployerId.Value.ToString()) ;
         
              
-                product.Descripcion = txtEditProductDescription.Text;
+                producto.Descripcion = txtEditarProductoDescripcion.Text;
 
              
-                product.CodFamilia = txtEditProductFamilyCode.Text;
+                producto.CodFamilia = txtEditarProductoCodigoFamilia.Text;
 
             
-                product.LugarId = int.Parse(nudEditProductPlaceId.Value.ToString());
+                producto.LugarId = int.Parse(nudEditarProductoLugarId.Value.ToString());
 
              
-                product.RecogidaId = int.Parse(nudEditProductCollectionId.Value.ToString());
+                producto.RecogidaId = int.Parse(nudEditarProductoCollectionId.Value.ToString());
 
            
-                product.Medida = txtEditProductSize.Text;
-            Modulo.miNegocio.updateProduct(product);
+                producto.Medida = txtEditarTallaProducto.Text;
+            Modulo.miNegocio.actualizarProducto(producto);
 
         }
 
         private void btnUpdateCancel_Click(object sender, EventArgs e)
         {
-            txtEditProductCode.Text = "";
-            nudEditProductStock.Value = 0;
-            nudEditProductMinStock.Value = 0;
-            nudEditProductCost.Value = 0;
-            nudEditProductEmployerId.Value = 0;
-            txtEditProductDescription.Text = "";
-            txtEditProductFamilyCode.Text = "";
-            nudEditProductPlaceId.Text = "";
-            nudEditProductCollectionId.Text = "";
-            txtEditProductSize.Text = "";
-            product = null;
+            txtEditarProductoCodigo.Text = "";
+            nudEditarProductoStock.Value = 0;
+            nudEditarProductoMinStock.Value = 0;
+            nudEditarProductoCoste.Value = 0;
+            nudEditarProductoEmployerId.Value = 0;
+            txtEditarProductoDescripcion.Text = "";
+            txtEditarProductoCodigoFamilia.Text = "";
+            nudEditarProductoLugarId.Text = "";
+            nudEditarProductoCollectionId.Text = "";
+            txtEditarTallaProducto.Text = "";
+            producto = null;
 
         }
 
        
-        private void searchProduct()
+        private void buscarProducto()
         {
 
-            product = Modulo.miNegocio.getProdsPorCodigoArticulo(txtEditProductCode.Text).First<Producto>();
-            if (product == null)
+            producto = Modulo.miNegocio.getProdsPorCodigoArticulo(txtEditarProductoCodigo.Text).First<Producto>();
+            if (producto == null)
             {
-                lblCodeNotFoundMinStockError.Show();
+                lblCodigoNoEncontradoStockMinimoError.Show();
             }
             else
             {
-                lblCodeNotFoundMinStockError.Hide();
-                nudEditProductStock.Value = product.Stock;
-                nudEditProductMinStock.Value = product.StockMinimo;
-                nudEditProductCost.Value = int.Parse(product.Coste.ToString());
-                nudEditProductEmployerId.Value = product.EmpleadoId;
-                txtEditProductDescription.Text = product.Descripcion;
-                txtEditProductFamilyCode.Text = product.CodFamilia;
-                nudEditProductPlaceId.Value = product.LugarId;
-                nudEditProductCollectionId.Value = product.RecogidaId;
-                txtEditProductSize.Text = product.Medida;
-                txtEditProductSubFamilyCode.Text = product.CodSubFamilia;
+                lblCodigoNoEncontradoStockMinimoError.Hide();
+                nudEditarProductoStock.Value = producto.Stock;
+                nudEditarProductoMinStock.Value = producto.StockMinimo;
+                nudEditarProductoCoste.Value = int.Parse(producto.Coste.ToString());
+                nudEditarProductoEmployerId.Value = producto.EmpleadoId;
+                txtEditarProductoDescripcion.Text = producto.Descripcion;
+                txtEditarProductoCodigoFamilia.Text = producto.CodFamilia;
+                nudEditarProductoLugarId.Value = producto.LugarId;
+                nudEditarProductoCollectionId.Value = producto.RecogidaId;
+                txtEditarTallaProducto.Text = producto.Medida;
+                txtEditarProductoSubFamiliaCodigo.Text = producto.CodSubFamilia;
 
             }
         }
 
         private void txtEditProductCode_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (txtEditProductCode.TextLength == 9)
+            if (txtEditarProductoCodigo.TextLength == 9)
             {
-                searchProduct();
+                buscarProducto();
             }
         }
 
-        private void chargeEmployee(object sender, EventArgs e)
+        private void chargeEmpleado(object sender, EventArgs e)
         {
-            foreach (Empleado employ in employees)
+            foreach (Empleado emplead in empleados)
             {
-                if (employ.EmpleadoId == nudDeleteNumEmployee.Value)
+                if (emplead.EmpleadoId == nudBorrarNumEmpleado.Value)
                 {
-                    lblDeleteName.Text = employ.Nombre;
-                    deleteEmployee = employ;
+                    lblBorrarNombre.Text = emplead.Nombre;
+                    empleadoBorrar = emplead;
                 }
             }
         }
 
         private void txtEditProductCode_TextChanged(object sender, EventArgs e)
         {
-            if (txtEditProductCode.TextLength == 9)
+            if (txtEditarProductoCodigo.TextLength == 9)
             {
-                searchProduct();
+                buscarProducto();
             }
         }
 
         private void btnCreateSearchPhoto_Click(object sender, EventArgs e)
         {
-            if (!File.Exists(txtCreatePhoto.Text))
+            if (!File.Exists(txtCrearFoto.Text))
             {
-                lblCreateFileNoExistError.Show();
+                lblNoExisteArchivoCrearError.Show();
                 return;
             }else
             {
-                lblCreateFileNoExistError.Hide();
-                Bitmap Picture = new Bitmap(txtCreatePhoto.Text);
-                pboEmployeePhoto.BackgroundImage = Picture;
-                pboEmployeePhoto.BackgroundImageLayout = ImageLayout.Stretch;
+                lblNoExisteArchivoCrearError.Hide();
+                Bitmap Picture = new Bitmap(txtCrearFoto.Text);
+                pboFotoEmpleado.BackgroundImage = Picture;
+                pboFotoEmpleado.BackgroundImageLayout = ImageLayout.Stretch;
             }
         }
 
         private void btnRestoreDataBase_Click(object sender, EventArgs e)
         {
             Stream myStream = null;
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            OpenFileDialog openFileDialog1 = new OpenFileDialog(); //LO mismo de antes, no se puede mejorar este nombre?
 
             openFileDialog1.InitialDirectory = "c:\\";
             openFileDialog1.Filter = "Acces Data Base Files|*.accdb|All files (*.*)|*.*";
