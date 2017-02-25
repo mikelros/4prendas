@@ -31,6 +31,7 @@ namespace CapaPresentacion
 
         private void frmVenta_Load(object sender, EventArgs e)
         {
+
             cargarCmbSearch();
             dgvCarrito.Hide();
             dgvCarrito.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
