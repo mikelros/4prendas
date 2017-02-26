@@ -640,21 +640,72 @@ namespace CapaDatos
                 sql = "INSERT INTO VentaArticulo(CodigoArticulo, NumVenta, Coste) VALUES (@codArt, @numVenta, @coste)";
 
                 //faltan los datos de lugar porque no está hecho el form y eso
-                 cmd = new OleDbCommand(sql, conTabla);
+                cmd = new OleDbCommand(sql, conTabla);
 
-                    foreach (Producto p in productos)
-                    {
-                        cmd.Parameters.AddWithValue("@codArt", p.CodigoArticulo);
-                        cmd.Parameters.AddWithValue("@numVenta", numVenta);
-                        cmd.Parameters.AddWithValue("@coste", p.Coste);
+                foreach (Producto p in productos)
+                {
+                    cmd.Parameters.AddWithValue("@codArt", p.CodigoArticulo);
+                    cmd.Parameters.AddWithValue("@numVenta", numVenta);
+                    cmd.Parameters.AddWithValue("@coste", p.Coste);
 
-                        cmd.ExecuteNonQuery();
-                    }
-
+                    cmd.ExecuteNonQuery();
                 }
+
+            }
             catch (Exception ex)
             {
                 //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
+            }
+            finally
+            {
+                conTabla.Close();
+            }
+        }
+
+        public Lugar getLugar(Lugar lugar)
+        {
+            Lugar lugarFinal = null;
+            string sql = "SELECT Count(IdLugar) FROM Lugar WHERE Estanteria = @estanteria AND Estante = @estante AND Altura = @altura";
+            OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
+            OleDbCommand cmd = new OleDbCommand(sql, conTabla);
+            cmd.Parameters.AddWithValue("@estanteria", lugar.Estanteria);
+            cmd.Parameters.AddWithValue("@estante", lugar.Estante);
+            cmd.Parameters.AddWithValue("@altura", lugar.Altura);
+            try
+            {
+                conTabla.Open();
+                int result = (int)cmd.ExecuteScalar();
+                if (result <= 0)
+                {
+                    sql = "INSERT INTO Lugar(Estanteria, Estante, Altura) VALUES(@estanteria, @estante, @altura)";
+                    cmd = new OleDbCommand(sql, conTabla);
+                    cmd.Parameters.AddWithValue("@estanteria", lugar.Estanteria);
+                    cmd.Parameters.AddWithValue("@estante", lugar.Estante);
+                    cmd.Parameters.AddWithValue("@altura", lugar.Altura);
+                    cmd.ExecuteNonQuery();
+                }
+
+                sql = "SELECT * FROM Lugar WHERE Estanteria = @estanteria AND Estante = @estante AND Altura = @altura";
+                cmd = new OleDbCommand(sql, conTabla);
+
+                OleDbDataReader dr = cmd.ExecuteReader();
+                if (!dr.HasRows)
+                {
+                    return lugarFinal; //sale vacío
+                }
+                dr.Read();
+                lugarFinal = new Lugar();
+                lugarFinal.Id = (int)dr["IdLugar"];
+                lugarFinal.Estanteria = dr.IsDBNull(dr.GetOrdinal("Estanteria")) ? "" : (string)dr["Estanteria"];
+                lugarFinal.Estante = dr.IsDBNull(dr.GetOrdinal("Estante")) ? 0 : (int)dr["Estante"];
+                lugarFinal.Altura = dr.IsDBNull(dr.GetOrdinal("Altura")) ? 0 : (int)dr["Altura"];
+
+                return lugarFinal;
+            }
+            catch (Exception ex)
+            {
+                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
+                return null;
             }
             finally
             {

@@ -104,6 +104,11 @@ namespace CapaNegocio
         {
             insertVenta(productos, empleadoID);
         }
+
+        public Lugar getLugar(Lugar lugar)
+        {
+            return datos.getLugar(lugar);
+        }
     }
 }
 

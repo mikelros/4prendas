@@ -8,6 +8,7 @@ namespace CapaEntidades
 {
     public class Lugar
     {
+        private int id;
         private string estanteria;
         private int estante;
         private int altura;
@@ -17,13 +18,26 @@ namespace CapaEntidades
 
         }
 
-        public Lugar(string estanteria, int estante, int altura)
+        public Lugar(int id, string estanteria, int estante, int altura)
         {
             this.estanteria = estanteria;
             this.estante = estante;
             this.altura = altura;
+            this.id = id;
         }
 
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+            set
+            {
+                id = value;
+            }
+
+        }
         public string Estanteria
         {
             get
