@@ -295,14 +295,21 @@ namespace CapaDatos
             }
         }
 
-        public List<Producto> getProdsCodigoBarras()
+        public List<Producto> getProdsCodigoBarras(int codigoBarras)
         {
+            String codigoB = codigoBarras.ToString().Substring(0, 7) + 
+                getFamiliaCod(codigoBarras.ToString().Substring(8,1)) + 
+                getSubFamiliaCod(codigoBarras.ToString().Substring(8, 1), codigoBarras.ToString().Substring(9, 1)) +
+                codigoBarras.ToString().Substring(10, 3);
+
+
             List<Producto> productos = new List<Producto>();
             Producto prod = null;
             string sql = @"SELECT *
-                            FROM   Registro";
+                            FROM Registro WHERE CodigoArticulo = @cod";
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
+            cmd.Parameters.AddWithValue("@cod", codigoB);
             try
             {
                 conTabla.Open();
@@ -311,7 +318,7 @@ namespace CapaDatos
                 {
                     return productos; //sale vacía
                 }
-                String cod;
+
                 while (dr.Read())
                 {
                     prod = new Producto();
@@ -327,10 +334,6 @@ namespace CapaDatos
                     prod.RecogidaId = (int)dr["RecogidaId"];
                     prod.FechaEntrada = dr.IsDBNull(dr.GetOrdinal("FechaEntrada")) ? default(DateTime) : (DateTime)dr["FechaEntrada"];
                     prod.Coste = dr.IsDBNull(dr.GetOrdinal("Coste")) ? -1 : (int)dr["Coste"];
-
-                    cod = (string)dr["CodigoArticulo"];
-                    prod.CodigoBarras = cod.Substring(0, 7) + getFamiliaCod(prod.CodFamilia) + getSubFamiliaCod(prod.CodFamilia, prod.CodSubFamilia) + cod.Substring(12, 3);
-                    
                     productos.Add(prod);
                 }
 
@@ -347,21 +350,21 @@ namespace CapaDatos
             }
         }
 
-        private int getFamiliaCod(String codFamilia)
+        private string getFamiliaCod(string numFamilia)
         {
             Familia fam = null;
             string sql = @"SELECT *
-                            FROM Familia WHERE CodFamilia = @cod";
+                            FROM Familia WHERE NumeroCodigo = @cod";
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
-            cmd.Parameters.AddWithValue("@cod", codFamilia);
+            cmd.Parameters.AddWithValue("@cod", numFamilia);
             try
             {
                 conTabla.Open();
                 OleDbDataReader dr = cmd.ExecuteReader();
                 if (!dr.HasRows)
                 {
-                    return -1; //sale vacía
+                    return ""; //sale vacía
                 }
                 while (dr.Read())
                 {
@@ -370,12 +373,12 @@ namespace CapaDatos
                         dr.IsDBNull(dr.GetOrdinal("ImagenFamilia")) ? "" : (string)dr["ImagenFamilia"], 
                         dr.IsDBNull(dr.GetOrdinal("NumeroCodigoF")) ? -1 : (int)dr["NumeroCodigoF"]);
                 }
-                return fam.NumCodigo;
+                return fam.CodFamilia;
             }
             catch (Exception ex)
             {
                 //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
-                return -1;
+                return "";
             }
             finally
             {
@@ -383,14 +386,14 @@ namespace CapaDatos
             }
         }
 
-        private int getSubFamiliaCod(String codFamilia, String codSubFamilia)
+        private string getSubFamiliaCod(string codFamilia, string codSubFamilia)
         {
             SubFamilia subfam = null;
             string sql = @"SELECT *
-                            FROM SubFamilia WHERE CodFamilia = @cod AND CodSubFamilia = @sub";
+                            FROM SubFamilia WHERE FamiliaCod = @cod AND NumeroCodSF = @sub";
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
-            cmd.Parameters.AddWithValue("@cod", codFamilia);
+            cmd.Parameters.AddWithValue("@cod", getFamiliaCod(codFamilia));
             cmd.Parameters.AddWithValue("@sub", codSubFamilia);
             try
             {
@@ -398,7 +401,7 @@ namespace CapaDatos
                 OleDbDataReader dr = cmd.ExecuteReader();
                 if (!dr.HasRows)
                 {
-                    return -1; //sale vacía
+                    return ""; //sale vacía
                 }
                 while (dr.Read())
                 {
@@ -408,12 +411,12 @@ namespace CapaDatos
                         dr.IsDBNull(dr.GetOrdinal("IVA")) ? -1 : (int)dr["IVA"], 
                         dr.IsDBNull(dr.GetOrdinal("NumeroCodigoSF")) ? -1 : (int)dr["NumeroCodigoSF"]);
                 }
-                return subfam.NumeroCodigo;
+                return subfam.CodSubFamilia;
             }
             catch (Exception ex)
             {
                 //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
-                return -1;
+                return "";
             }
             finally
             {

@@ -21,7 +21,6 @@ namespace CapaEntidades
         private DateTime fechaEntrada;
         private float coste;
         private int unidades;
-        private string codigoBarras;
 
         public Producto()
         {
@@ -222,18 +221,6 @@ namespace CapaEntidades
         public bool Equals(Producto other)
         {
             return this.codigoArticulo.ToLower() == other.codigoArticulo.ToLower();
-        }
-
-        public string CodigoBarras
-        {
-            get
-            {
-                return codigoBarras;
-            }
-            set
-            {
-                codigoBarras = value;
-            }
         }
     }
 }
