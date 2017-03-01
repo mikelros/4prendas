@@ -111,23 +111,29 @@ namespace CapaPresentacion
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            switch (cmbBuscar.SelectedItem.ToString())
-            {
-                case "Código de barras":
-                    productos = Modulo.miNegocio.getProdsPorCodigoArticulo(txtBuscar.Text);
-                    dgvProductos.DataSource = productos;
-                    break;
-                case "Código de ártículo":
-                    productos = Modulo.miNegocio.getProdsPorCodigoArticulo(txtBuscar.Text);
-                    dgvProductos.DataSource = productos;
-                    break;
-                case "Descripción":
-                    productos = Modulo.miNegocio.getProdsPorDescripcion(txtBuscar.Text);
-                    dgvProductos.DataSource = productos;
-                    break;
-                default:
-                    break;
-            }
+            
+                switch (cmbBuscar.SelectedItem.ToString())
+                {
+                    case "Código de barras":
+                    if (txtBuscar.Text.Length > 13) { }
+                    else
+                    {
+                        productos = Modulo.miNegocio.getProdsPorCodigoArticulo(txtBuscar.Text);
+                        dgvProductos.DataSource = productos;
+                    }
+                        break;
+                    case "Código de ártículo":
+                        productos = Modulo.miNegocio.getProdsPorCodigoArticulo(txtBuscar.Text);
+                        dgvProductos.DataSource = productos;
+                        break;
+                    case "Descripción":
+                        productos = Modulo.miNegocio.getProdsPorDescripcion(txtBuscar.Text);
+                        dgvProductos.DataSource = productos;
+                        break;
+                    default:
+                        break;
+                }
+            
         }
 
 
