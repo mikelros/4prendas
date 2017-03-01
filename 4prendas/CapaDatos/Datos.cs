@@ -263,10 +263,10 @@ namespace CapaDatos
             List<Producto> productos = new List<Producto>();
             string sql = @"SELECT *
                             FROM   Registro
-                            WHERE  Registro.Descripcion = @desc;";
+                            WHERE  Registro.Descripcion LIKE @desc;";
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
-            cmd.Parameters.AddWithValue("@desc", desc);
+            cmd.Parameters.AddWithValue("@desc", "%" + desc + "%");
             try
             {
                 conTabla.Open();
