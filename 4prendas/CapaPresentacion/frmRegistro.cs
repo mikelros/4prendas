@@ -162,7 +162,8 @@ namespace CapaPresentacion
             List<Producto> productos = new List<Producto>();
             productos.Add(producto);
             Modulo.miNegocio.InsertarProductos(productos);
-            //limpiar todo
+
+            limpiarControles();
             MessageBox.Show("Insertado correctamente.");
         }
 
@@ -252,6 +253,19 @@ namespace CapaPresentacion
             {
                 dgvProductos.DataSource = productos.Select((p) => new { CodigoArticulo = p.CodigoArticulo, Descripcion = p.Descripcion, Coste = p.Coste, Unidades = p.Unidades }).ToList();
             }
+        }
+
+        private void limpiarControles()
+        {
+            lblCodArticulo.Text = "";
+            txtDescripcion.Text = "";
+            txtMedida.Text = "";
+            nudUnidades.Value = 0;
+            nudCoste.Value = 0;
+            txtEstanteria.Text = "";
+            nudEstante.Value = 0;
+            nudAltura.Value = 0;
+            hacerGboSubFamInvisible();
         }
     }
 }
