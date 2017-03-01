@@ -18,6 +18,13 @@ namespace CapaEntidades
 
         }
 
+        public Lugar(string estanteria, int estante, int altura)
+        {
+            this.estanteria = estanteria;
+            this.estante = estante;
+            this.altura = altura;
+        }
+
         public Lugar(int id, string estanteria, int estante, int altura)
         {
             this.estanteria = estanteria;

@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace CapaEntidades
 {
-    class Util
+    public class Util
     {
+
+        public static DateTime GetDateWithoutMilliseconds(DateTime d)
+        {
+            return new DateTime(d.Year, d.Month, d.Day, d.Hour, d.Minute, d.Second);
+        }
+
 
         public ulong SacarControl(ulong codBarras)
         {

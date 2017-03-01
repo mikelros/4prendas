@@ -307,9 +307,8 @@ namespace CapaDatos
 
         public void insertarProductos(List<Producto> productos)
         {
-            string sql = "INSERT INTO Registro(CodigoArticulo, Descripcion, TallaPesoLitro, Stock, EmpleadoId, RecogidaId, Coste, FechaEntrada, CodFamilia, CodSubFamilia) VALUES (@codArt, @desc, @medida, @stock, @empleadoid, @recogidaid, @coste, @fechaentrada, @codfam, @codsubfam)";
+            string sql = "INSERT INTO Registro(CodigoArticulo, Descripcion, TallaPesoLitros, Stock, EmpleadoId, RecogidaId, Coste, FechaEntrada, CodFamilia, CodSubFamilia, LugarId) VALUES (@codArt, @desc, @medida, @stock, @empleadoid, @recogidaid, @coste, @fechaentrada, @codfam, @codsubfam, @lugarid)";
 
-            //faltan los datos de lugar porque no está hecho el form y eso
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
             try
@@ -328,6 +327,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("@fechaentrada", p.FechaEntrada);
                     cmd.Parameters.AddWithValue("@codfam", p.CodFamilia);
                     cmd.Parameters.AddWithValue("@codsubfam", p.CodSubFamilia);
+                    cmd.Parameters.AddWithValue("@lugarid", p.LugarId);
 
                     cmd.ExecuteNonQuery();
                 }
@@ -578,7 +578,7 @@ namespace CapaDatos
 
         }
 
-        public int getSiguienteIDProd(string codFamilia, string codSubfamilia)
+        public string getSiguienteIDProd(string codFamilia, string codSubfamilia)
         {
             string producto;
             int num = 0;
@@ -594,18 +594,20 @@ namespace CapaDatos
                 OleDbDataReader dr = cmd.ExecuteReader();
                 if (!dr.HasRows)
                 {
-                    return 0; //No hay ids
+                    num = 0; //No hay ids
+                } else
+                {
+                    dr.Read();
+                    producto = (string)dr["CodigoArticulo"];
+                    int.TryParse(producto.Substring(producto.Length - 3, 3), out num);
                 }
-                dr.Read();
-                producto = (string)dr["CodigoArticulo"];
-                int.TryParse(producto.Substring(producto.Length - 3, 3), out num);
-
-                return num + 1;
+                num++;
+                return num.ToString("000");
             }
             catch (Exception ex)
             {
                 //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
-                return 0;
+                return "";
             }
             finally
             {
@@ -685,8 +687,11 @@ namespace CapaDatos
                     cmd.ExecuteNonQuery();
                 }
 
-                sql = "SELECT * FROM Lugar WHERE Estanteria = @estanteria AND Estante = @estante AND Altura = @altura";
+                sql = "SELECT * FROM Lugar LEFT JOIN Registro On Lugar.IdLugar = Registro.LugarId WHERE Registro.LugarId IS NULL AND Estanteria = @estanteria AND Estante = @estante AND Altura = @altura";
                 cmd = new OleDbCommand(sql, conTabla);
+                cmd.Parameters.AddWithValue("@estanteria", lugar.Estanteria);
+                cmd.Parameters.AddWithValue("@estante", lugar.Estante);
+                cmd.Parameters.AddWithValue("@altura", lugar.Altura);
 
                 OleDbDataReader dr = cmd.ExecuteReader();
                 if (!dr.HasRows)

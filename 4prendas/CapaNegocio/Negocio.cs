@@ -16,7 +16,7 @@ namespace CapaNegocio
         {
             datos = new Datos();
         }
-        public void InsertarProducto(List<Producto> productos)
+        public void InsertarProductos(List<Producto> productos)
         {
             datos.insertarProductos(productos);
         }
@@ -96,7 +96,7 @@ namespace CapaNegocio
             return datos.getRecogidasSinTodosRegistros();
         }
 
-        public int getSiguienteID(string codFamilia, string codSubfamilia)
+        public string getSiguienteID(string codFamilia, string codSubfamilia)
         {
             return datos.getSiguienteIDProd(codFamilia, codSubfamilia);
         }

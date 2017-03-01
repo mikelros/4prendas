@@ -122,8 +122,8 @@ namespace CapaPresentacion
             }
             else
             {
-                int id = Modulo.miNegocio.getSiguienteID(s.CodFamilia, s.CodSubFamilia);
-                lblCodArticulo.Text += s.NumeroCodigo.ToString() + f.NumCodigo.ToString() + id.ToString();
+                string id = Modulo.miNegocio.getSiguienteID(s.CodFamilia, s.CodSubFamilia);
+                lblCodArticulo.Text += s.CodFamilia.ToString() + s.CodSubFamilia.ToString() + id;
             }
         }
 
@@ -144,20 +144,31 @@ namespace CapaPresentacion
             producto.Medida = txtMedida.Text;
             producto.Stock = int.Parse(nudUnidades.Text);
             producto.EmpleadoId = ((Empleado)cmbEmpleado.SelectedItem).EmpleadoId;
-            producto.FechaEntrada = DateTime.Now;
+            producto.FechaEntrada = Util.GetDateWithoutMilliseconds(DateTime.Now);
             producto.RecogidaId = ((Recogida)cboRecogida.SelectedItem).IdRecogida;
-            string codfamilia = producto.CodigoArticulo.Substring(8, 10);
+            string codfamilia = producto.CodigoArticulo.Substring(7, 2);
             producto.CodFamilia = codfamilia;
-            string codsubfamilia = producto.CodigoArticulo.Substring(10, 12);
+            string codsubfamilia = producto.CodigoArticulo.Substring(9, 2);
             producto.CodSubFamilia = codsubfamilia;
-            //Lugar lugar =  Modulo.miNegocio.
-            //producto.LugarId = lugar.id;
-            //Modulo.miNegocio.InsertarProducto(producto)
+
+            Lugar lugarFinal = Modulo.miNegocio.getLugar(lugar);
+            if(lugarFinal == null)
+            {
+                MessageBox.Show("Lugar ocupado, debe elegir otro.");
+                return;
+            }
+            producto.LugarId = lugarFinal.Id;
+
+            List<Producto> productos = new List<Producto>();
+            productos.Add(producto);
+            Modulo.miNegocio.InsertarProductos(productos);
+            //limpiar todo
+            MessageBox.Show("Insertado correctamente.");
         }
 
         private bool hayErrores()
         {
-            if (lblCodArticulo.Text.Length != 12)
+            if (lblCodArticulo.Text.Length != 14)
             {
                 return true;
             }
