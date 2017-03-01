@@ -295,6 +295,133 @@ namespace CapaDatos
             }
         }
 
+        public List<Producto> getProdsCodigoBarras()
+        {
+            List<Producto> productos = new List<Producto>();
+            Producto prod = null;
+            string sql = @"SELECT *
+                            FROM   Registro";
+            OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
+            OleDbCommand cmd = new OleDbCommand(sql, conTabla);
+            try
+            {
+                conTabla.Open();
+                OleDbDataReader dr = cmd.ExecuteReader();
+                if (!dr.HasRows)
+                {
+                    return productos; //sale vacía
+                }
+                String cod;
+                while (dr.Read())
+                {
+                    prod = new Producto();
+                    prod.CodigoArticulo = (string)dr["CodigoArticulo"];
+                    prod.Descripcion = dr.IsDBNull(dr.GetOrdinal("Descripcion")) ? "" : (string)dr["Descripcion"];
+                    prod.Medida = dr.IsDBNull(dr.GetOrdinal("TallaPesoLitros")) ? "" : (string)dr["TallaPesoLitros"];
+                    prod.Stock = dr.IsDBNull(dr.GetOrdinal("Stock")) ? -1 : (int)dr["Stock"];
+                    prod.StockMinimo = dr.IsDBNull(dr.GetOrdinal("StockMinimo")) ? -1 : (int)dr["StockMinimo"];
+                    prod.EmpleadoId = (int)dr["EmpleadoID"];
+                    prod.LugarId = (int)dr["LugarId"];
+                    prod.CodFamilia = (string)dr["CodFamilia"];
+                    prod.CodSubFamilia = (string)dr["CodSubFamilia"];
+                    prod.RecogidaId = (int)dr["RecogidaId"];
+                    prod.FechaEntrada = dr.IsDBNull(dr.GetOrdinal("FechaEntrada")) ? default(DateTime) : (DateTime)dr["FechaEntrada"];
+                    prod.Coste = dr.IsDBNull(dr.GetOrdinal("Coste")) ? -1 : (int)dr["Coste"];
+
+                    cod = (string)dr["CodigoArticulo"];
+                    prod.CodigoBarras = cod.Substring(0, 7) + getFamiliaCod(prod.CodFamilia) + getSubFamiliaCod(prod.CodFamilia, prod.CodSubFamilia) + cod.Substring(12, 3);
+                    
+                    productos.Add(prod);
+                }
+
+                return productos;
+            }
+            catch (Exception ex)
+            {
+                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
+                return null;
+            }
+            finally
+            {
+                conTabla.Close();
+            }
+        }
+
+        private int getFamiliaCod(String codFamilia)
+        {
+            Familia fam = null;
+            string sql = @"SELECT *
+                            FROM Familia WHERE CodFamilia = @cod";
+            OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
+            OleDbCommand cmd = new OleDbCommand(sql, conTabla);
+            cmd.Parameters.AddWithValue("@cod", codFamilia);
+            try
+            {
+                conTabla.Open();
+                OleDbDataReader dr = cmd.ExecuteReader();
+                if (!dr.HasRows)
+                {
+                    return -1; //sale vacía
+                }
+                while (dr.Read())
+                {
+                    fam = new Familia((string)dr["CodFamilia"],
+                        dr.IsDBNull(dr.GetOrdinal("NombreFamilia")) ? "" : (string)dr["NombreFamilia"], 
+                        dr.IsDBNull(dr.GetOrdinal("ImagenFamilia")) ? "" : (string)dr["ImagenFamilia"], 
+                        dr.IsDBNull(dr.GetOrdinal("NumeroCodigoF")) ? -1 : (int)dr["NumeroCodigoF"]);
+                }
+                return fam.NumCodigo;
+            }
+            catch (Exception ex)
+            {
+                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
+                return -1;
+            }
+            finally
+            {
+                conTabla.Close();
+            }
+        }
+
+        private int getSubFamiliaCod(String codFamilia, String codSubFamilia)
+        {
+            SubFamilia subfam = null;
+            string sql = @"SELECT *
+                            FROM SubFamilia WHERE CodFamilia = @cod AND CodSubFamilia = @sub";
+            OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
+            OleDbCommand cmd = new OleDbCommand(sql, conTabla);
+            cmd.Parameters.AddWithValue("@cod", codFamilia);
+            cmd.Parameters.AddWithValue("@sub", codSubFamilia);
+            try
+            {
+                conTabla.Open();
+                OleDbDataReader dr = cmd.ExecuteReader();
+                if (!dr.HasRows)
+                {
+                    return -1; //sale vacía
+                }
+                while (dr.Read())
+                {
+                    subfam = new SubFamilia((string)dr["FamiliaCod"], 
+                        (string)dr["CodSubFamilia"], dr.IsDBNull(dr.GetOrdinal("Nombre")) ? "" : (string)dr["Nombre"],
+                        dr.IsDBNull(dr.GetOrdinal("Imagen")) ? "" : (string)dr["Imagen"], 
+                        dr.IsDBNull(dr.GetOrdinal("IVA")) ? -1 : (int)dr["IVA"], 
+                        dr.IsDBNull(dr.GetOrdinal("NumeroCodigoSF")) ? -1 : (int)dr["NumeroCodigoSF"]);
+                }
+                return subfam.NumeroCodigo;
+            }
+            catch (Exception ex)
+            {
+                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
+                return -1;
+            }
+            finally
+            {
+                conTabla.Close();
+            }
+        }
+
+
         //Porductos por codigoArticulo
         public List<Producto> getProdsPorCodigoArticulo(string codigoArticulo)
         {
