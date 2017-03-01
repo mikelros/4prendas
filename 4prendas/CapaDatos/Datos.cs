@@ -578,6 +578,35 @@ namespace CapaDatos
 
         }
 
+        public bool estaRecogidaCompleta(int id)
+        {
+            string sql = @"SELECT * FROM   Recogida r
+                            WHERE  r.IdRecogida = @recogidaid AND r.CantidadProductos =
+                            (SELECT COUNT(re.CodigoArticulo) FROM Registro re
+                            WHERE re.RecogidaId)";
+
+            OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
+            OleDbCommand cmd = new OleDbCommand(sql, conTabla);
+            cmd.Parameters.AddWithValue("@recogidid", id);
+            try
+            {
+                conTabla.Open();
+                OleDbDataReader dr = cmd.ExecuteReader();
+
+                return dr.HasRows;
+            }
+            catch (Exception ex)
+            {
+                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
+                return false;
+            }
+            finally
+            {
+                conTabla.Close();
+            }
+
+        }
+
         public string getSiguienteIDProd(string codFamilia, string codSubfamilia)
         {
             string producto;
@@ -595,7 +624,8 @@ namespace CapaDatos
                 if (!dr.HasRows)
                 {
                     num = 0; //No hay ids
-                } else
+                }
+                else
                 {
                     dr.Read();
                     producto = (string)dr["CodigoArticulo"];
