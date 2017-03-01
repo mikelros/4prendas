@@ -109,6 +109,11 @@ namespace CapaNegocio
         {
             return datos.getLugar(lugar);
         }
+
+        public bool estaRecogidaCompleta(int id)
+        {
+            return datos.estaRecogidaCompleta(id);
+        }
     }
 }
 
