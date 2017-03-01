@@ -23,7 +23,7 @@ namespace CapaPresentacion
 
             lblCodArticulo.Text = "2231014";
 
-            dgvProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             hacerGboSubFamInvisible();
             cargarRecogidas();
@@ -44,7 +44,7 @@ namespace CapaPresentacion
         {
             recogidas = Modulo.miNegocio.getRecogidasSinTodosRegistros();
             cboRecogida.DataSource = recogidas;
-            cboRecogida.DisplayMember = "IdRecogida";
+            cboRecogida.DisplayMember = "idRecogida";
         }
 
         private void cargarEmpleados()
@@ -116,18 +116,19 @@ namespace CapaPresentacion
                 lblCodArticulo.Text = "2231014";
             }
 
-            //int id = Modulo.miNegocio.getSiguienteID(s.CodFamilia, s.CodSubfamilia);
-            //lblCodArticulo.Text += s.NumeroCodigo.ToString() + f.NumCodigo.ToString() + id.toString();
-
             if (chb.Checked)
             {
                 cargarProductos(s);
+            }
+            else
+            {
+                int id = Modulo.miNegocio.getSiguienteID(s.CodFamilia, s.CodSubFamilia);
+                lblCodArticulo.Text += s.NumeroCodigo.ToString() + f.NumCodigo.ToString() + id.ToString();
             }
         }
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {
-
             if (hayErrores())
             {
                 MessageBox.Show("Los campos obligatorios deben ser introducidos.", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -149,59 +150,8 @@ namespace CapaPresentacion
             producto.CodFamilia = codfamilia;
             string codsubfamilia = producto.CodigoArticulo.Substring(10, 12);
             producto.CodSubFamilia = codsubfamilia;
-            //Lugar lugar =  Modulo.miNegocio.comprobarLugar(lugar);
+            //Lugar lugar =  Modulo.miNegocio.
             //producto.LugarId = lugar.id;
-
-            /*
-            Lugar lugarFinal;
-            string sql = "SELECT Count(IdLugar) FROM Lugar WHERE Estanteria = @estanteria AND Estante = @estante AND Altura = @altura";
-            OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
-            OleDbCommand cmd = new OleDbCommand(sql, conTabla);
-            cmd.Parameters.AddWithValue("@estanteria", lugar.Estanteria);
-            cmd.Parameters.AddWithValue("@estante", lugar.Estante);
-            cmd.Parameters.AddWithValue("@altura", lugar.Altura);
-            try
-            {
-                conTabla.Open();
-                int result = (int)cmd.ExecuteScalar();
-                if (result <= 0)
-                {
-                    sql = "INSERT INTO Lugar(Estanteria, Estante, Altura) VALUES(@estanteria, @estante, @altura)";
-                    OleDbCommand cmd = new OleDbCommand(sql, conTabla);
-                    cmd.Parameters.AddWithValue("@estanteria", lugar.Estanteria);
-                    cmd.Parameters.AddWithValue("@estante", lugar.Estante);
-                    cmd.Parameters.AddWithValue("@altura", lugar.Altura);
-                    cmd.ExecuteNonQuery();
-                    return lugarFinal;
-                }
-
-                sql = "SELECT * FROM Lugar WHERE Estanteria = @estanteria AND Estante = @estante AND Altura = @altura";
-                OleDbCommand cmd = new OleDbCommand(sql, conTabla);
-
-                OleDbDataReader dr = cmd.ExecuteReader();
-                if (!dr.HasRows)
-                {
-                    return lugarFinal; //sale vacío
-                }
-                dr.Read();
-                lugarFinal = new Lugar();
-                lugarFinal.id = (int)dr["IdLugar"];
-                lugarFinal.Estanteria = dr.IsDBNull(dr.GetOrdinal("Estanteria")) ? "" : (string)dr["Estanteria"];
-                lugarFinal.Estante = dr.IsDBNull(dr.GetOrdinal("Estante")) ? 0 : (int)dr["Estante"];
-                lugarFinal.Altura = dr.IsDBNull(dr.GetOrdinal("Altura")) ? 0 : (int)dr["Altura"];
-
-                return lugarFinal;
-            }
-            catch (Exception ex)
-            {
-                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
-                return null;
-            }
-            finally
-            {
-                conTabla.Close();
-            }
-             */
             //Modulo.miNegocio.InsertarProducto(producto)
         }
 
@@ -229,16 +179,21 @@ namespace CapaPresentacion
 
         private void btnAtras_Click(object sender, EventArgs e)
         {
-            //confirmar salida?
-            //comprobar si se han añadido para la recogida tantos productos como hubiese en la recogida
+            /*
+            Recogida recogida = (Recogida)cboRecogida.SelectedItem;
+            bool recogidaCompleta = Modulo.miNegocio.recogidaCompleta(recogida.IdRecogida);
 
-            if (MessageBox.Show("¿Seguro que deseas salir?", "Salir",
-                   MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (!recogidaCompleta)
             {
-                Form frmMenu = new frmMenu();
-                frmMenu.Show();
-                this.Close();
+                if (MessageBox.Show("¿Seguro que deseas salir sin introducir todos los productos para esta recogida?", "Salir",
+                       MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    Form frmMenu = new frmMenu();
+                    frmMenu.Show();
+                    this.Close();
+                }
             }
+            */
         }
 
         private void cmbEmpleado_SelectedIndexChanged(object sender, EventArgs e)
@@ -270,9 +225,9 @@ namespace CapaPresentacion
 
         private void chb_CheckedChanged(object sender, EventArgs e)
         {
-            dgvProducts.Visible = !dgvProducts.Visible;
+            dgvProductos.Visible = !dgvProductos.Visible;
 
-            if(lblCodArticulo.Text.Length == 9)
+            if (lblCodArticulo.Text.Length == 9)
             {
                 lblCodArticulo.Text = "2231014";
                 gboFamilia.Focus();
@@ -284,11 +239,7 @@ namespace CapaPresentacion
             List<Producto> productos = Modulo.miNegocio.getProductos(s.CodFamilia, s.CodSubFamilia);
             if (productos != null)
             {
-                dgvProducts.DataSource = productos.Select((p) => new { CodigoArticulo = p.CodigoArticulo, Descripcion = p.Descripcion, Coste = p.Coste, Unidades = p.Unidades }).ToList();
-            }
-            else
-            {
-                //TODO CONTROLAR ERROR
+                dgvProductos.DataSource = productos.Select((p) => new { CodigoArticulo = p.CodigoArticulo, Descripcion = p.Descripcion, Coste = p.Coste, Unidades = p.Unidades }).ToList();
             }
         }
     }

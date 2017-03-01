@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.gboRegistros = new System.Windows.Forms.GroupBox();
+            this.gboRegistro = new System.Windows.Forms.GroupBox();
             this.chb = new System.Windows.Forms.CheckBox();
             this.lblCodArticulo = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -78,8 +78,8 @@
             this.lblNombreEmpleado = new System.Windows.Forms.Label();
             this.cmbEmpleado = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvProducts = new System.Windows.Forms.DataGridView();
-            this.gboRegistros.SuspendLayout();
+            this.dgvProductos = new System.Windows.Forms.DataGridView();
+            this.gboRegistro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCoste)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAltura)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEstante)).BeginInit();
@@ -87,41 +87,41 @@
             this.gboSubfamilia.SuspendLayout();
             this.gboFamilia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgEmpleado)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.SuspendLayout();
             // 
-            // gboRegistros
+            // gboRegistro
             // 
-            this.gboRegistros.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.gboRegistros.BackColor = System.Drawing.Color.Transparent;
-            this.gboRegistros.Controls.Add(this.chb);
-            this.gboRegistros.Controls.Add(this.lblCodArticulo);
-            this.gboRegistros.Controls.Add(this.label5);
-            this.gboRegistros.Controls.Add(this.cboRecogida);
-            this.gboRegistros.Controls.Add(this.nudCoste);
-            this.gboRegistros.Controls.Add(this.label12);
-            this.gboRegistros.Controls.Add(this.nudAltura);
-            this.gboRegistros.Controls.Add(this.nudEstante);
-            this.gboRegistros.Controls.Add(this.nudUnidades);
-            this.gboRegistros.Controls.Add(this.btnGenerar);
-            this.gboRegistros.Controls.Add(this.lblErrorNumRecogida);
-            this.gboRegistros.Controls.Add(this.lblErrorStock);
-            this.gboRegistros.Controls.Add(this.txtEstanteria);
-            this.gboRegistros.Controls.Add(this.txtMedida);
-            this.gboRegistros.Controls.Add(this.txtDescripcion);
-            this.gboRegistros.Controls.Add(this.label9);
-            this.gboRegistros.Controls.Add(this.label6);
-            this.gboRegistros.Controls.Add(this.label8);
-            this.gboRegistros.Controls.Add(this.label4);
-            this.gboRegistros.Controls.Add(this.label7);
-            this.gboRegistros.Controls.Add(this.label3);
-            this.gboRegistros.Controls.Add(this.label2);
-            this.gboRegistros.Location = new System.Drawing.Point(12, 57);
-            this.gboRegistros.Name = "gboRegistros";
-            this.gboRegistros.Size = new System.Drawing.Size(260, 511);
-            this.gboRegistros.TabIndex = 0;
-            this.gboRegistros.TabStop = false;
-            this.gboRegistros.Text = "Registro de Articulos";
+            this.gboRegistro.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.gboRegistro.BackColor = System.Drawing.Color.Transparent;
+            this.gboRegistro.Controls.Add(this.chb);
+            this.gboRegistro.Controls.Add(this.lblCodArticulo);
+            this.gboRegistro.Controls.Add(this.label5);
+            this.gboRegistro.Controls.Add(this.cboRecogida);
+            this.gboRegistro.Controls.Add(this.nudCoste);
+            this.gboRegistro.Controls.Add(this.label12);
+            this.gboRegistro.Controls.Add(this.nudAltura);
+            this.gboRegistro.Controls.Add(this.nudEstante);
+            this.gboRegistro.Controls.Add(this.nudUnidades);
+            this.gboRegistro.Controls.Add(this.btnGenerar);
+            this.gboRegistro.Controls.Add(this.lblErrorNumRecogida);
+            this.gboRegistro.Controls.Add(this.lblErrorStock);
+            this.gboRegistro.Controls.Add(this.txtEstanteria);
+            this.gboRegistro.Controls.Add(this.txtMedida);
+            this.gboRegistro.Controls.Add(this.txtDescripcion);
+            this.gboRegistro.Controls.Add(this.label9);
+            this.gboRegistro.Controls.Add(this.label6);
+            this.gboRegistro.Controls.Add(this.label8);
+            this.gboRegistro.Controls.Add(this.label4);
+            this.gboRegistro.Controls.Add(this.label7);
+            this.gboRegistro.Controls.Add(this.label3);
+            this.gboRegistro.Controls.Add(this.label2);
+            this.gboRegistro.Location = new System.Drawing.Point(12, 57);
+            this.gboRegistro.Name = "gboRegistro";
+            this.gboRegistro.Size = new System.Drawing.Size(260, 511);
+            this.gboRegistro.TabIndex = 0;
+            this.gboRegistro.TabStop = false;
+            this.gboRegistro.Text = "Registro de Articulos";
             // 
             // chb
             // 
@@ -630,16 +630,16 @@
             this.label1.TabIndex = 71;
             this.label1.Text = "Empleado:";
             // 
-            // dgvProducts
+            // dgvProductos
             // 
-            this.dgvProducts.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProducts.Location = new System.Drawing.Point(12, 606);
-            this.dgvProducts.Name = "dgvProducts";
-            this.dgvProducts.ReadOnly = true;
-            this.dgvProducts.Size = new System.Drawing.Size(775, 231);
-            this.dgvProducts.TabIndex = 75;
-            this.dgvProducts.Visible = false;
+            this.dgvProductos.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductos.Location = new System.Drawing.Point(12, 606);
+            this.dgvProductos.Name = "dgvProductos";
+            this.dgvProductos.ReadOnly = true;
+            this.dgvProductos.Size = new System.Drawing.Size(775, 231);
+            this.dgvProductos.TabIndex = 75;
+            this.dgvProductos.Visible = false;
             // 
             // frmRegistro
             // 
@@ -647,7 +647,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1273, 861);
-            this.Controls.Add(this.dgvProducts);
+            this.Controls.Add(this.dgvProductos);
             this.Controls.Add(this.imgEmpleado);
             this.Controls.Add(this.lblNombreEmpleado);
             this.Controls.Add(this.cmbEmpleado);
@@ -655,13 +655,13 @@
             this.Controls.Add(this.gboSubfamilia);
             this.Controls.Add(this.gboFamilia);
             this.Controls.Add(this.btnAtras);
-            this.Controls.Add(this.gboRegistros);
+            this.Controls.Add(this.gboRegistro);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmRegistro";
             this.Text = "frmRegistro";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.gboRegistros.ResumeLayout(false);
-            this.gboRegistros.PerformLayout();
+            this.gboRegistro.ResumeLayout(false);
+            this.gboRegistro.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCoste)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAltura)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEstante)).EndInit();
@@ -669,7 +669,7 @@
             this.gboSubfamilia.ResumeLayout(false);
             this.gboFamilia.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgEmpleado)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -677,7 +677,7 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox gboRegistros;
+        private System.Windows.Forms.GroupBox gboRegistro;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -726,7 +726,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblCodArticulo;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridView dgvProducts;
+        private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.CheckBox chb;
     }
 }
