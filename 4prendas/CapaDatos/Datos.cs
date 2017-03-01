@@ -270,10 +270,10 @@ namespace CapaDatos
         public List<Producto> getProdsPorCodigoArticulo(string codigoArticulo)
         {
             List<Producto> productos = new List<Producto>();
-            string sql = "SELECT * FROM Registro WHERE Registro.CodigoArticulo = @codigoArticulo"; //WTF ¿Registro??????
+            string sql = "SELECT * FROM Registro WHERE Registro.CodigoArticulo LIKE @codigoArticulo";
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
-            cmd.Parameters.AddWithValue("@codigoArticulo", codigoArticulo);
+            cmd.Parameters.AddWithValue("@codigoArticulo", "%" + codigoArticulo + "%");
             try
             {
                 conTabla.Open();
