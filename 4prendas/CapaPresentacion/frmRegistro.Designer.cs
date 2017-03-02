@@ -129,7 +129,7 @@
             this.chb.Location = new System.Drawing.Point(13, 477);
             this.chb.Name = "chb";
             this.chb.Size = new System.Drawing.Size(114, 17);
-            this.chb.TabIndex = 76;
+            this.chb.TabIndex = 8;
             this.chb.Text = "Producto existente";
             this.chb.UseVisualStyleBackColor = true;
             this.chb.CheckedChanged += new System.EventHandler(this.chb_CheckedChanged);
@@ -161,14 +161,14 @@
             this.cboRecogida.Location = new System.Drawing.Point(130, 201);
             this.cboRecogida.Name = "cboRecogida";
             this.cboRecogida.Size = new System.Drawing.Size(121, 21);
-            this.cboRecogida.TabIndex = 25;
+            this.cboRecogida.TabIndex = 3;
             // 
             // nudCoste
             // 
             this.nudCoste.Location = new System.Drawing.Point(130, 251);
             this.nudCoste.Name = "nudCoste";
             this.nudCoste.Size = new System.Drawing.Size(124, 20);
-            this.nudCoste.TabIndex = 24;
+            this.nudCoste.TabIndex = 4;
             // 
             // label12
             // 
@@ -185,7 +185,7 @@
             this.nudAltura.Location = new System.Drawing.Point(130, 382);
             this.nudAltura.Name = "nudAltura";
             this.nudAltura.Size = new System.Drawing.Size(124, 20);
-            this.nudAltura.TabIndex = 20;
+            this.nudAltura.TabIndex = 7;
             this.nudAltura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.soloNumeros);
             // 
             // nudEstante
@@ -193,7 +193,7 @@
             this.nudEstante.Location = new System.Drawing.Point(130, 331);
             this.nudEstante.Name = "nudEstante";
             this.nudEstante.Size = new System.Drawing.Size(124, 20);
-            this.nudEstante.TabIndex = 19;
+            this.nudEstante.TabIndex = 6;
             this.nudEstante.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.soloNumeros);
             // 
             // nudUnidades
@@ -201,7 +201,7 @@
             this.nudUnidades.Location = new System.Drawing.Point(130, 151);
             this.nudUnidades.Name = "nudUnidades";
             this.nudUnidades.Size = new System.Drawing.Size(124, 20);
-            this.nudUnidades.TabIndex = 19;
+            this.nudUnidades.TabIndex = 2;
             this.nudUnidades.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.soloNumeros);
             // 
             // btnGenerar
@@ -213,7 +213,7 @@
             this.btnGenerar.Location = new System.Drawing.Point(185, 408);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(69, 86);
-            this.btnGenerar.TabIndex = 18;
+            this.btnGenerar.TabIndex = 9;
             this.btnGenerar.Text = "Añadir";
             this.btnGenerar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnGenerar.UseVisualStyleBackColor = false;
@@ -244,21 +244,21 @@
             this.txtEstanteria.Location = new System.Drawing.Point(130, 290);
             this.txtEstanteria.Name = "txtEstanteria";
             this.txtEstanteria.Size = new System.Drawing.Size(124, 20);
-            this.txtEstanteria.TabIndex = 9;
+            this.txtEstanteria.TabIndex = 5;
             // 
             // txtMedida
             // 
             this.txtMedida.Location = new System.Drawing.Point(130, 110);
             this.txtMedida.Name = "txtMedida";
             this.txtMedida.Size = new System.Drawing.Size(124, 20);
-            this.txtMedida.TabIndex = 9;
+            this.txtMedida.TabIndex = 1;
             // 
             // txtDescripcion
             // 
             this.txtDescripcion.Location = new System.Drawing.Point(130, 68);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(124, 20);
-            this.txtDescripcion.TabIndex = 8;
+            this.txtDescripcion.TabIndex = 0;
             // 
             // label9
             // 
@@ -361,7 +361,7 @@
             this.gboSubfamilia.Location = new System.Drawing.Point(331, 335);
             this.gboSubfamilia.Name = "gboSubfamilia";
             this.gboSubfamilia.Size = new System.Drawing.Size(456, 256);
-            this.gboSubfamilia.TabIndex = 70;
+            this.gboSubfamilia.TabIndex = 11;
             this.gboSubfamilia.TabStop = false;
             this.gboSubfamilia.Text = "Subfamilia";
             // 
@@ -481,7 +481,7 @@
             this.gboFamilia.Location = new System.Drawing.Point(331, 33);
             this.gboFamilia.Name = "gboFamilia";
             this.gboFamilia.Size = new System.Drawing.Size(456, 256);
-            this.gboFamilia.TabIndex = 69;
+            this.gboFamilia.TabIndex = 10;
             this.gboFamilia.TabStop = false;
             this.gboFamilia.Text = "Familia";
             // 
@@ -616,7 +616,7 @@
             this.cmbEmpleado.Location = new System.Drawing.Point(1114, 33);
             this.cmbEmpleado.Name = "cmbEmpleado";
             this.cmbEmpleado.Size = new System.Drawing.Size(121, 21);
-            this.cmbEmpleado.TabIndex = 72;
+            this.cmbEmpleado.TabIndex = 13;
             this.cmbEmpleado.SelectedIndexChanged += new System.EventHandler(this.cmbEmpleado_SelectedIndexChanged);
             // 
             // label1
@@ -638,7 +638,7 @@
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.ReadOnly = true;
             this.dgvProductos.Size = new System.Drawing.Size(775, 231);
-            this.dgvProductos.TabIndex = 75;
+            this.dgvProductos.TabIndex = 12;
             this.dgvProductos.Visible = false;
             // 
             // frmRegistro
