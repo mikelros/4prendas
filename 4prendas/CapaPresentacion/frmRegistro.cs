@@ -191,9 +191,9 @@ namespace CapaPresentacion
 
         private void btnAtras_Click(object sender, EventArgs e)
         {
-            /*
+            
             Recogida recogida = (Recogida)cboRecogida.SelectedItem;
-            bool recogidaCompleta = Modulo.miNegocio.recogidaCompleta(recogida.IdRecogida);
+            bool recogidaCompleta = Modulo.miNegocio.estaRecogidaCompleta(recogida.IdRecogida);
 
             if (!recogidaCompleta)
             {
@@ -204,8 +204,13 @@ namespace CapaPresentacion
                     frmMenu.Show();
                     this.Close();
                 }
+            } else
+            {
+                Form frmMenu = new frmMenu();
+                frmMenu.Show();
+                this.Close();
             }
-            */
+            
         }
 
         private void cmbEmpleado_SelectedIndexChanged(object sender, EventArgs e)
