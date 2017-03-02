@@ -23,7 +23,7 @@ namespace CapaPresentacion
         private void frmRecogida_Load(object sender, EventArgs e)
         {
             lblErrorPaseEmpleado.Hide();
-            lblNRecogida.Text = "" + (Modulo.miNegocio.getLastNRecogida() + 1);
+            lblNRecogida.Text = "" + (Modulo.miNegocio.getUltimoNumRecogida() + 1);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
