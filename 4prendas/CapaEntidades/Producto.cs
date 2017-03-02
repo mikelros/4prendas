@@ -22,7 +22,6 @@ namespace CapaEntidades
         private float coste;
         private int unidades;
 
-
         public Producto()
         {
 
