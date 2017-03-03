@@ -16,12 +16,16 @@ namespace CapaPresentacion
     {
         private List<Familia> familias;
         private List<Recogida> recogidas;
+        private List<Producto> productos;
+        private Producto productoExistenteSeleccionado;
 
         public frmRegistro()
         {
             InitializeComponent();
 
             lblCodArticulo.Text = "2231014";
+
+            productoExistenteSeleccionado = null;
 
             dgvProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
@@ -67,7 +71,7 @@ namespace CapaPresentacion
                     Familia f = familias[j];
                     gboFamilia.Controls[i].Tag = f;
                     gboFamilia.Controls[i].BackgroundImage = !f.Imagen.Equals("") && File.Exists(f.Imagen) ? Image.FromFile(f.Imagen) : null;
-                    gboFamilia.Controls[i].Text = f.CodFamilia;
+                    gboFamilia.Controls[i].Text = f.Nombre;
                     gboFamilia.Controls[i].Click += new EventHandler(cargarSubfamilias);
 
                 }
@@ -81,18 +85,25 @@ namespace CapaPresentacion
 
         private void cargarSubfamilias(object sender, EventArgs e)
         {
+            ponerFamiliasEnBlanco();
+
+
             Button b = (Button)sender;
+            b.BackColor = Color.LightBlue;
+
             Familia f = (Familia)b.Tag;
 
             for (int i = 0, j = 0; i < gboSubfamilia.Controls.Count; i++, j++)
             {
+                gboSubfamilia.Controls[i].BackColor = Color.White;
+
                 if (j < f.SubFamilias.Count)
                 {
                     gboSubfamilia.Controls[i].Show();
                     SubFamilia s = f.SubFamilias[j];
                     gboSubfamilia.Controls[i].Tag = s;
                     gboSubfamilia.Controls[i].BackgroundImage = !s.Imagen.Equals("") && File.Exists(s.Imagen) ? Image.FromFile(s.Imagen) : null;
-                    gboSubfamilia.Controls[i].Text = s.CodSubFamilia;
+                    gboSubfamilia.Controls[i].Text = s.Nombre;
                     gboSubfamilia.Controls[i].Click += new EventHandler(cargarProductosSubfam);
                 }
                 else
@@ -104,9 +115,23 @@ namespace CapaPresentacion
 
         }
 
+        private void ponerFamiliasEnBlanco()
+        {
+            for (int i = gboFamilia.Controls.Count - 1; i >= 0; i--)
+            {
+                if (gboFamilia.Controls[i].Visible)
+                {
+                    gboFamilia.Controls[i].BackColor = Color.White;
+                }
+            }
+        }
+
         private void cargarProductosSubfam(object sender, EventArgs e)
         {
+            ponerSubfamiliasEnBlanco();
+
             Button b = (Button)sender;
+            b.BackColor = Color.LightBlue;
             SubFamilia s = (SubFamilia)b.Tag;
 
             Familia f = familias.Where((fam) => fam.CodFamilia.ToLower().Equals(s.CodFamilia.ToLower())).SingleOrDefault();
@@ -122,8 +147,24 @@ namespace CapaPresentacion
             }
             else
             {
-                string id = Modulo.miNegocio.getSiguienteID(s.CodFamilia, s.CodSubFamilia);
-                lblCodArticulo.Text += s.CodFamilia.ToString() + s.CodSubFamilia.ToString() + id;
+                if (!chb.Checked)
+                {
+                    string id = Modulo.miNegocio.getSiguienteID(s.CodFamilia, s.CodSubFamilia);
+                    lblCodArticulo.Text += s.CodFamilia.ToString() + s.CodSubFamilia.ToString() + id;
+                }
+
+
+            }
+        }
+
+        private void ponerSubfamiliasEnBlanco()
+        {
+            for (int i = gboSubfamilia.Controls.Count - 1; i >= 0; i--)
+            {
+                if (gboSubfamilia.Controls[i].Visible)
+                {
+                    gboSubfamilia.Controls[i].BackColor = Color.White;
+                }
             }
         }
 
@@ -135,36 +176,49 @@ namespace CapaPresentacion
                 return;
             }
 
-            Producto producto = new Producto();
-            Lugar lugar = new Lugar(txtEstanteria.Text, int.Parse(nudEstante.Value.ToString()), int.Parse(nudAltura.Value.ToString()));
-
-            producto.CodigoArticulo = lblCodArticulo.Text;
-            producto.Coste = int.Parse(nudCoste.Text);
-            producto.Descripcion = txtDescripcion.Text;
-            producto.Medida = txtMedida.Text;
-            producto.Stock = int.Parse(nudUnidades.Text);
-            producto.EmpleadoId = ((Empleado)cmbEmpleado.SelectedItem).EmpleadoId;
-            producto.FechaEntrada = Util.GetDateWithoutMilliseconds(DateTime.Now);
-            producto.RecogidaId = ((Recogida)cboRecogida.SelectedItem).IdRecogida;
-            string codfamilia = producto.CodigoArticulo.Substring(7, 2);
-            producto.CodFamilia = codfamilia;
-            string codsubfamilia = producto.CodigoArticulo.Substring(9, 2);
-            producto.CodSubFamilia = codsubfamilia;
-
-            Lugar lugarFinal = Modulo.miNegocio.getLugar(lugar);
-            if(lugarFinal == null)
+            if (chb.Checked)
             {
-                MessageBox.Show("Lugar ocupado, debe elegir otro.");
-                return;
+                productoExistenteSeleccionado.Stock += int.Parse(nudUnidades.Value.ToString());
+                Modulo.miNegocio.actualizarProducto(productoExistenteSeleccionado);
+                limpiarControles();
+                MessageBox.Show("Actualizado correctamente.");
+
             }
-            producto.LugarId = lugarFinal.Id;
+            else
+            {
+                Producto producto = new Producto();
+                Lugar lugar = new Lugar(txtEstanteria.Text, int.Parse(nudEstante.Value.ToString()), int.Parse(nudAltura.Value.ToString()));
 
-            List<Producto> productos = new List<Producto>();
-            productos.Add(producto);
-            Modulo.miNegocio.InsertarProductos(productos);
+                producto.CodigoArticulo = lblCodArticulo.Text;
+                producto.Coste = int.Parse(nudCoste.Text);
+                producto.Descripcion = txtDescripcion.Text;
+                producto.Medida = txtMedida.Text;
+                producto.Stock = int.Parse(nudUnidades.Text);
+                producto.EmpleadoId = ((Empleado)cmbEmpleado.SelectedItem).EmpleadoId;
+                producto.FechaEntrada = Util.GetDateWithoutMilliseconds(DateTime.Now);
+                producto.RecogidaId = ((Recogida)cboRecogida.SelectedItem).IdRecogida;
+                string codfamilia = producto.CodigoArticulo.Substring(7, 2);
+                producto.CodFamilia = codfamilia;
+                string codsubfamilia = producto.CodigoArticulo.Substring(9, 2);
+                producto.CodSubFamilia = codsubfamilia;
 
-            limpiarControles();
-            MessageBox.Show("Insertado correctamente.");
+                Lugar lugarFinal = Modulo.miNegocio.getLugar(lugar);
+                if (lugarFinal == null)
+                {
+                    MessageBox.Show("Lugar ocupado, debe elegir otro.");
+                    return;
+                }
+                producto.LugarId = lugarFinal.Id;
+
+                List<Producto> productos = new List<Producto>();
+                productos.Add(producto);
+                Modulo.miNegocio.InsertarProductos(productos);
+                limpiarControles();
+                MessageBox.Show("Insertado correctamente.");
+
+            }
+
+
         }
 
         private bool hayErrores()
@@ -174,7 +228,7 @@ namespace CapaPresentacion
                 return true;
             }
 
-            if (cboRecogida.SelectedItem == null)
+            if (!chb.Checked && cboRecogida.SelectedItem == null)
             {
                 cboRecogida.Focus();
                 return true;
@@ -191,26 +245,31 @@ namespace CapaPresentacion
 
         private void btnAtras_Click(object sender, EventArgs e)
         {
-            
-            Recogida recogida = (Recogida)cboRecogida.SelectedItem;
-            bool recogidaCompleta = Modulo.miNegocio.estaRecogidaCompleta(recogida.IdRecogida);
-
-            if (!recogidaCompleta)
+            if (chb.Checked || cboRecogida.SelectedItem == null)
             {
-                if (MessageBox.Show("¿Seguro que deseas salir sin introducir todos los productos para esta recogida?", "Salir",
-                       MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    Form frmMenu = new frmMenu();
-                    frmMenu.Show();
-                    this.Close();
-                }
-            } else
-            {
-                Form frmMenu = new frmMenu();
-                frmMenu.Show();
-                this.Close();
+                cerrarFormulario();
             }
-            
+            else
+            {
+
+                Recogida recogida = (Recogida)cboRecogida.SelectedItem;
+                bool recogidaCompleta = Modulo.miNegocio.estaRecogidaCompleta(recogida.IdRecogida);
+
+                if (!recogidaCompleta)
+                {
+                    if (MessageBox.Show("¿Seguro que deseas salir sin introducir todos los productos para esta recogida?", "Salir",
+                           MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        cerrarFormulario();
+                    }
+                }
+                else
+                {
+                    cerrarFormulario();
+                }
+            }
+
+
         }
 
         private void cmbEmpleado_SelectedIndexChanged(object sender, EventArgs e)
@@ -244,19 +303,39 @@ namespace CapaPresentacion
         {
             dgvProductos.Visible = !dgvProductos.Visible;
 
-            if (lblCodArticulo.Text.Length == 9)
-            {
-                lblCodArticulo.Text = "2231014";
-                gboFamilia.Focus();
-            }
+            habilitarControlesInsercion(!dgvProductos.Visible);
+
+            lblCodArticulo.Text = "2231014";
+            ponerFamiliasEnBlanco();
+            ponerSubfamiliasEnBlanco();
+
+        }
+
+        private void habilitarControlesInsercion(bool opcion)
+        {
+            lblDescripcion.Enabled = opcion;
+            txtDescripcion.Enabled = opcion;
+            lblMedida.Enabled = opcion;
+            txtMedida.Enabled = opcion;
+            lblCoste.Enabled = opcion;
+            nudCoste.Enabled = opcion;
+            lblEstanteria.Enabled = opcion;
+            txtEstanteria.Enabled = opcion;
+            lblEstante.Enabled = opcion;
+            nudEstante.Enabled = opcion;
+            lblAltura.Enabled = opcion;
+            nudAltura.Enabled = opcion;
+            lblRecogida.Enabled = opcion;
+            cboRecogida.SelectedItem = null;
+            cboRecogida.Enabled = opcion;
         }
 
         private void cargarProductos(SubFamilia s)
         {
-            List<Producto> productos = Modulo.miNegocio.getProductos(s.CodFamilia, s.CodSubFamilia);
+            productos = Modulo.miNegocio.getProductos(s.CodFamilia, s.CodSubFamilia);
             if (productos != null)
             {
-                dgvProductos.DataSource = productos.Select((p) => new { CodigoArticulo = p.CodigoArticulo, Descripcion = p.Descripcion, Coste = p.Coste, Unidades = p.Unidades }).ToList();
+                dgvProductos.DataSource = productos.Select((p) => new { CodigoArticulo = p.CodigoArticulo, Descripcion = p.Descripcion, Coste = p.Coste, Unidades = p.Stock }).ToList();
             }
         }
 
@@ -270,7 +349,31 @@ namespace CapaPresentacion
             txtEstanteria.Text = "";
             nudEstante.Value = 0;
             nudAltura.Value = 0;
+            chb.Checked = false;
+            dgvProductos.DataSource = null;
+            dgvProductos.Hide();
+            ponerFamiliasEnBlanco();
+            ponerSubfamiliasEnBlanco();
             hacerGboSubFamInvisible();
+        }
+
+        private void dgvProductos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1)
+            {
+                return;
+            }
+
+            productoExistenteSeleccionado = productos.ElementAt(e.RowIndex);
+            lblCodArticulo.Text = productoExistenteSeleccionado.CodigoArticulo;
+
+        }
+
+        private void cerrarFormulario()
+        {
+            Form frmMenu = new frmMenu();
+            frmMenu.Show();
+            this.Close();
         }
     }
 }

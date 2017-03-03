@@ -31,10 +31,10 @@
             this.gboRegistro = new System.Windows.Forms.GroupBox();
             this.chb = new System.Windows.Forms.CheckBox();
             this.lblCodArticulo = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblCodArticuloLabel = new System.Windows.Forms.Label();
             this.cboRecogida = new System.Windows.Forms.ComboBox();
             this.nudCoste = new System.Windows.Forms.NumericUpDown();
-            this.label12 = new System.Windows.Forms.Label();
+            this.lblCoste = new System.Windows.Forms.Label();
             this.nudAltura = new System.Windows.Forms.NumericUpDown();
             this.nudEstante = new System.Windows.Forms.NumericUpDown();
             this.nudUnidades = new System.Windows.Forms.NumericUpDown();
@@ -44,13 +44,13 @@
             this.txtEstanteria = new System.Windows.Forms.TextBox();
             this.txtMedida = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblAltura = new System.Windows.Forms.Label();
+            this.lblRecogida = new System.Windows.Forms.Label();
+            this.lblEstanteria = new System.Windows.Forms.Label();
+            this.lblDescripcion = new System.Windows.Forms.Label();
+            this.lblEstante = new System.Windows.Forms.Label();
+            this.lblMedida = new System.Windows.Forms.Label();
+            this.lblUnidades = new System.Windows.Forms.Label();
             this.btnAtras = new System.Windows.Forms.Button();
             this.gboSubfamilia = new System.Windows.Forms.GroupBox();
             this.button11 = new System.Windows.Forms.Button();
@@ -96,10 +96,10 @@
             this.gboRegistro.BackColor = System.Drawing.Color.Transparent;
             this.gboRegistro.Controls.Add(this.chb);
             this.gboRegistro.Controls.Add(this.lblCodArticulo);
-            this.gboRegistro.Controls.Add(this.label5);
+            this.gboRegistro.Controls.Add(this.lblCodArticuloLabel);
             this.gboRegistro.Controls.Add(this.cboRecogida);
             this.gboRegistro.Controls.Add(this.nudCoste);
-            this.gboRegistro.Controls.Add(this.label12);
+            this.gboRegistro.Controls.Add(this.lblCoste);
             this.gboRegistro.Controls.Add(this.nudAltura);
             this.gboRegistro.Controls.Add(this.nudEstante);
             this.gboRegistro.Controls.Add(this.nudUnidades);
@@ -109,13 +109,13 @@
             this.gboRegistro.Controls.Add(this.txtEstanteria);
             this.gboRegistro.Controls.Add(this.txtMedida);
             this.gboRegistro.Controls.Add(this.txtDescripcion);
-            this.gboRegistro.Controls.Add(this.label9);
-            this.gboRegistro.Controls.Add(this.label6);
-            this.gboRegistro.Controls.Add(this.label8);
-            this.gboRegistro.Controls.Add(this.label4);
-            this.gboRegistro.Controls.Add(this.label7);
-            this.gboRegistro.Controls.Add(this.label3);
-            this.gboRegistro.Controls.Add(this.label2);
+            this.gboRegistro.Controls.Add(this.lblAltura);
+            this.gboRegistro.Controls.Add(this.lblRecogida);
+            this.gboRegistro.Controls.Add(this.lblEstanteria);
+            this.gboRegistro.Controls.Add(this.lblDescripcion);
+            this.gboRegistro.Controls.Add(this.lblEstante);
+            this.gboRegistro.Controls.Add(this.lblMedida);
+            this.gboRegistro.Controls.Add(this.lblUnidades);
             this.gboRegistro.Location = new System.Drawing.Point(12, 57);
             this.gboRegistro.Name = "gboRegistro";
             this.gboRegistro.Size = new System.Drawing.Size(260, 511);
@@ -137,21 +137,21 @@
             // lblCodArticulo
             // 
             this.lblCodArticulo.AutoSize = true;
-            this.lblCodArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodArticulo.Location = new System.Drawing.Point(127, 21);
+            this.lblCodArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodArticulo.Location = new System.Drawing.Point(127, 23);
             this.lblCodArticulo.Name = "lblCodArticulo";
-            this.lblCodArticulo.Size = new System.Drawing.Size(0, 18);
+            this.lblCodArticulo.Size = new System.Drawing.Size(0, 16);
             this.lblCodArticulo.TabIndex = 27;
             // 
-            // label5
+            // lblCodArticuloLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(6, 21);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(105, 18);
-            this.label5.TabIndex = 26;
-            this.label5.Text = "Cód. artículo";
+            this.lblCodArticuloLabel.AutoSize = true;
+            this.lblCodArticuloLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodArticuloLabel.Location = new System.Drawing.Point(6, 21);
+            this.lblCodArticuloLabel.Name = "lblCodArticuloLabel";
+            this.lblCodArticuloLabel.Size = new System.Drawing.Size(105, 18);
+            this.lblCodArticuloLabel.TabIndex = 26;
+            this.lblCodArticuloLabel.Text = "Cód. artículo";
             // 
             // cboRecogida
             // 
@@ -170,15 +170,15 @@
             this.nudCoste.Size = new System.Drawing.Size(124, 20);
             this.nudCoste.TabIndex = 4;
             // 
-            // label12
+            // lblCoste
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(6, 249);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(53, 18);
-            this.label12.TabIndex = 22;
-            this.label12.Text = "Coste";
+            this.lblCoste.AutoSize = true;
+            this.lblCoste.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCoste.Location = new System.Drawing.Point(6, 249);
+            this.lblCoste.Name = "lblCoste";
+            this.lblCoste.Size = new System.Drawing.Size(53, 18);
+            this.lblCoste.TabIndex = 22;
+            this.lblCoste.Text = "Coste";
             // 
             // nudAltura
             // 
@@ -199,6 +199,11 @@
             // nudUnidades
             // 
             this.nudUnidades.Location = new System.Drawing.Point(130, 151);
+            this.nudUnidades.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.nudUnidades.Name = "nudUnidades";
             this.nudUnidades.Size = new System.Drawing.Size(124, 20);
             this.nudUnidades.TabIndex = 2;
@@ -260,74 +265,74 @@
             this.txtDescripcion.Size = new System.Drawing.Size(124, 20);
             this.txtDescripcion.TabIndex = 0;
             // 
-            // label9
+            // lblAltura
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(6, 380);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(51, 18);
-            this.label9.TabIndex = 6;
-            this.label9.Text = "Altura";
+            this.lblAltura.AutoSize = true;
+            this.lblAltura.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAltura.Location = new System.Drawing.Point(6, 380);
+            this.lblAltura.Name = "lblAltura";
+            this.lblAltura.Size = new System.Drawing.Size(51, 18);
+            this.lblAltura.TabIndex = 6;
+            this.lblAltura.Text = "Altura";
             // 
-            // label6
+            // lblRecogida
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(6, 200);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(102, 18);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Nº Recogida";
+            this.lblRecogida.AutoSize = true;
+            this.lblRecogida.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRecogida.Location = new System.Drawing.Point(6, 200);
+            this.lblRecogida.Name = "lblRecogida";
+            this.lblRecogida.Size = new System.Drawing.Size(102, 18);
+            this.lblRecogida.TabIndex = 7;
+            this.lblRecogida.Text = "Nº Recogida";
             // 
-            // label8
+            // lblEstanteria
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(6, 289);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(84, 18);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "Estantería";
+            this.lblEstanteria.AutoSize = true;
+            this.lblEstanteria.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstanteria.Location = new System.Drawing.Point(6, 289);
+            this.lblEstanteria.Name = "lblEstanteria";
+            this.lblEstanteria.Size = new System.Drawing.Size(84, 18);
+            this.lblEstanteria.TabIndex = 4;
+            this.lblEstanteria.Text = "Estantería";
             // 
-            // label4
+            // lblDescripcion
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 67);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 18);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Descripción";
+            this.lblDescripcion.AutoSize = true;
+            this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescripcion.Location = new System.Drawing.Point(6, 67);
+            this.lblDescripcion.Name = "lblDescripcion";
+            this.lblDescripcion.Size = new System.Drawing.Size(98, 18);
+            this.lblDescripcion.TabIndex = 5;
+            this.lblDescripcion.Text = "Descripción";
             // 
-            // label7
+            // lblEstante
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 329);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 18);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "Estante";
+            this.lblEstante.AutoSize = true;
+            this.lblEstante.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstante.Location = new System.Drawing.Point(6, 329);
+            this.lblEstante.Name = "lblEstante";
+            this.lblEstante.Size = new System.Drawing.Size(65, 18);
+            this.lblEstante.TabIndex = 3;
+            this.lblEstante.Text = "Estante";
             // 
-            // label3
+            // lblMedida
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 109);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 18);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Medida";
+            this.lblMedida.AutoSize = true;
+            this.lblMedida.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMedida.Location = new System.Drawing.Point(6, 109);
+            this.lblMedida.Name = "lblMedida";
+            this.lblMedida.Size = new System.Drawing.Size(62, 18);
+            this.lblMedida.TabIndex = 4;
+            this.lblMedida.Text = "Medida";
             // 
-            // label2
+            // lblUnidades
             // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 149);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 38);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Unidades a introducir";
+            this.lblUnidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUnidades.Location = new System.Drawing.Point(6, 149);
+            this.lblUnidades.Name = "lblUnidades";
+            this.lblUnidades.Size = new System.Drawing.Size(102, 38);
+            this.lblUnidades.TabIndex = 3;
+            this.lblUnidades.Text = "Unidades a introducir";
             // 
             // btnAtras
             // 
@@ -640,6 +645,7 @@
             this.dgvProductos.Size = new System.Drawing.Size(775, 231);
             this.dgvProductos.TabIndex = 12;
             this.dgvProductos.Visible = false;
+            this.dgvProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellClick);
             // 
             // frmRegistro
             // 
@@ -678,10 +684,10 @@
         #endregion
 
         private System.Windows.Forms.GroupBox gboRegistro;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblRecogida;
+        private System.Windows.Forms.Label lblDescripcion;
+        private System.Windows.Forms.Label lblMedida;
+        private System.Windows.Forms.Label lblUnidades;
         private System.Windows.Forms.TextBox txtMedida;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label lblErrorNumRecogida;
@@ -690,13 +696,13 @@
         private System.Windows.Forms.NumericUpDown nudUnidades;
         private System.Windows.Forms.Button btnAtras;
         private System.Windows.Forms.NumericUpDown nudCoste;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lblCoste;
         private System.Windows.Forms.NumericUpDown nudAltura;
         private System.Windows.Forms.NumericUpDown nudEstante;
         private System.Windows.Forms.TextBox txtEstanteria;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblAltura;
+        private System.Windows.Forms.Label lblEstanteria;
+        private System.Windows.Forms.Label lblEstante;
         private System.Windows.Forms.ComboBox cboRecogida;
         private System.Windows.Forms.GroupBox gboSubfamilia;
         private System.Windows.Forms.Button button11;
@@ -725,7 +731,7 @@
         private System.Windows.Forms.ComboBox cmbEmpleado;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblCodArticulo;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblCodArticuloLabel;
         private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.CheckBox chb;
     }
