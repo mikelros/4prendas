@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ namespace CapaEntidades
         }
 
 
-        public ulong SacarControl(ulong codBarras)
+        public static ulong SacarControl(ulong codBarras)
         {
             //Supongamos que estamos utilizando el código ficticio de 05432122345.
             //Sumar todos los dígitos en las posiciones impares(dígitos en la posición 1, 3, 5, 7, 9 y 11)
@@ -62,12 +63,30 @@ namespace CapaEntidades
             return control;
         }
 
-        public bool ComprobarControl(ulong codBarrasConControl)
+        public static bool ComprobarControl(ulong codBarrasConControl)
         {
             ulong codBarras = UInt64.Parse(codBarrasConControl.ToString().Remove(codBarrasConControl.ToString().Length - 1));
             ushort control = UInt16.Parse(codBarrasConControl.ToString().ToCharArray()[codBarrasConControl.ToString().Length - 1].ToString());
 
             return SacarControl(codBarras) == control;
+        }
+
+        public static Bitmap CropImage(Image originalImage, Rectangle sourceRectangle,
+     Rectangle? destinationRectangle = null)
+        {
+            if (destinationRectangle == null)
+            {
+                destinationRectangle = new Rectangle(Point.Empty, sourceRectangle.Size);
+            }
+
+            var croppedImage = new Bitmap(destinationRectangle.Value.Width,
+                destinationRectangle.Value.Height);
+            using (var graphics = Graphics.FromImage(croppedImage))
+            {
+                graphics.DrawImage(originalImage, destinationRectangle.Value,
+                    sourceRectangle, GraphicsUnit.Pixel);
+            }
+            return croppedImage;
         }
 
     }

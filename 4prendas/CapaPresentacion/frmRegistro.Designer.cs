@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegistro));
             this.gboRegistro = new System.Windows.Forms.GroupBox();
             this.chb = new System.Windows.Forms.CheckBox();
             this.lblCodArticulo = new System.Windows.Forms.Label();
@@ -79,6 +80,7 @@
             this.cmbEmpleado = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.gboRegistro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCoste)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAltura)).BeginInit();
@@ -94,6 +96,7 @@
             // 
             this.gboRegistro.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.gboRegistro.BackColor = System.Drawing.Color.Transparent;
+            this.gboRegistro.Controls.Add(this.btnImprimir);
             this.gboRegistro.Controls.Add(this.chb);
             this.gboRegistro.Controls.Add(this.lblCodArticulo);
             this.gboRegistro.Controls.Add(this.lblCodArticuloLabel);
@@ -118,7 +121,7 @@
             this.gboRegistro.Controls.Add(this.lblUnidades);
             this.gboRegistro.Location = new System.Drawing.Point(12, 57);
             this.gboRegistro.Name = "gboRegistro";
-            this.gboRegistro.Size = new System.Drawing.Size(260, 511);
+            this.gboRegistro.Size = new System.Drawing.Size(281, 511);
             this.gboRegistro.TabIndex = 0;
             this.gboRegistro.TabStop = false;
             this.gboRegistro.Text = "Registro de Articulos";
@@ -126,7 +129,7 @@
             // chb
             // 
             this.chb.AutoSize = true;
-            this.chb.Location = new System.Drawing.Point(13, 477);
+            this.chb.Location = new System.Drawing.Point(6, 488);
             this.chb.Name = "chb";
             this.chb.Size = new System.Drawing.Size(114, 17);
             this.chb.TabIndex = 8;
@@ -138,7 +141,7 @@
             // 
             this.lblCodArticulo.AutoSize = true;
             this.lblCodArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodArticulo.Location = new System.Drawing.Point(127, 23);
+            this.lblCodArticulo.Location = new System.Drawing.Point(144, 23);
             this.lblCodArticulo.Name = "lblCodArticulo";
             this.lblCodArticulo.Size = new System.Drawing.Size(0, 16);
             this.lblCodArticulo.TabIndex = 27;
@@ -158,14 +161,14 @@
             this.cboRecogida.BackColor = System.Drawing.SystemColors.Window;
             this.cboRecogida.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboRecogida.FormattingEnabled = true;
-            this.cboRecogida.Location = new System.Drawing.Point(130, 201);
+            this.cboRecogida.Location = new System.Drawing.Point(147, 191);
             this.cboRecogida.Name = "cboRecogida";
             this.cboRecogida.Size = new System.Drawing.Size(121, 21);
             this.cboRecogida.TabIndex = 3;
             // 
             // nudCoste
             // 
-            this.nudCoste.Location = new System.Drawing.Point(130, 251);
+            this.nudCoste.Location = new System.Drawing.Point(147, 241);
             this.nudCoste.Name = "nudCoste";
             this.nudCoste.Size = new System.Drawing.Size(124, 20);
             this.nudCoste.TabIndex = 4;
@@ -182,7 +185,7 @@
             // 
             // nudAltura
             // 
-            this.nudAltura.Location = new System.Drawing.Point(130, 382);
+            this.nudAltura.Location = new System.Drawing.Point(147, 360);
             this.nudAltura.Name = "nudAltura";
             this.nudAltura.Size = new System.Drawing.Size(124, 20);
             this.nudAltura.TabIndex = 7;
@@ -190,7 +193,7 @@
             // 
             // nudEstante
             // 
-            this.nudEstante.Location = new System.Drawing.Point(130, 331);
+            this.nudEstante.Location = new System.Drawing.Point(147, 321);
             this.nudEstante.Name = "nudEstante";
             this.nudEstante.Size = new System.Drawing.Size(124, 20);
             this.nudEstante.TabIndex = 6;
@@ -198,7 +201,7 @@
             // 
             // nudUnidades
             // 
-            this.nudUnidades.Location = new System.Drawing.Point(130, 151);
+            this.nudUnidades.Location = new System.Drawing.Point(147, 141);
             this.nudUnidades.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -215,7 +218,7 @@
             this.btnGenerar.BackgroundImage = global::CapaPresentacion.Properties.Resources.plus;
             this.btnGenerar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnGenerar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.btnGenerar.Location = new System.Drawing.Point(185, 408);
+            this.btnGenerar.Location = new System.Drawing.Point(202, 408);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(69, 86);
             this.btnGenerar.TabIndex = 9;
@@ -228,7 +231,7 @@
             // 
             this.lblErrorNumRecogida.AutoSize = true;
             this.lblErrorNumRecogida.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorNumRecogida.Location = new System.Drawing.Point(147, 225);
+            this.lblErrorNumRecogida.Location = new System.Drawing.Point(164, 215);
             this.lblErrorNumRecogida.Name = "lblErrorNumRecogida";
             this.lblErrorNumRecogida.Size = new System.Drawing.Size(91, 13);
             this.lblErrorNumRecogida.TabIndex = 17;
@@ -238,7 +241,7 @@
             // 
             this.lblErrorStock.AutoSize = true;
             this.lblErrorStock.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorStock.Location = new System.Drawing.Point(147, 174);
+            this.lblErrorStock.Location = new System.Drawing.Point(164, 164);
             this.lblErrorStock.Name = "lblErrorStock";
             this.lblErrorStock.Size = new System.Drawing.Size(91, 13);
             this.lblErrorStock.TabIndex = 15;
@@ -246,21 +249,21 @@
             // 
             // txtEstanteria
             // 
-            this.txtEstanteria.Location = new System.Drawing.Point(130, 290);
+            this.txtEstanteria.Location = new System.Drawing.Point(147, 280);
             this.txtEstanteria.Name = "txtEstanteria";
             this.txtEstanteria.Size = new System.Drawing.Size(124, 20);
             this.txtEstanteria.TabIndex = 5;
             // 
             // txtMedida
             // 
-            this.txtMedida.Location = new System.Drawing.Point(130, 110);
+            this.txtMedida.Location = new System.Drawing.Point(147, 100);
             this.txtMedida.Name = "txtMedida";
             this.txtMedida.Size = new System.Drawing.Size(124, 20);
             this.txtMedida.TabIndex = 1;
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(130, 68);
+            this.txtDescripcion.Location = new System.Drawing.Point(147, 58);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(124, 20);
             this.txtDescripcion.TabIndex = 0;
@@ -269,7 +272,7 @@
             // 
             this.lblAltura.AutoSize = true;
             this.lblAltura.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAltura.Location = new System.Drawing.Point(6, 380);
+            this.lblAltura.Location = new System.Drawing.Point(6, 358);
             this.lblAltura.Name = "lblAltura";
             this.lblAltura.Size = new System.Drawing.Size(51, 18);
             this.lblAltura.TabIndex = 6;
@@ -279,7 +282,7 @@
             // 
             this.lblRecogida.AutoSize = true;
             this.lblRecogida.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRecogida.Location = new System.Drawing.Point(6, 200);
+            this.lblRecogida.Location = new System.Drawing.Point(6, 190);
             this.lblRecogida.Name = "lblRecogida";
             this.lblRecogida.Size = new System.Drawing.Size(102, 18);
             this.lblRecogida.TabIndex = 7;
@@ -289,7 +292,7 @@
             // 
             this.lblEstanteria.AutoSize = true;
             this.lblEstanteria.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstanteria.Location = new System.Drawing.Point(6, 289);
+            this.lblEstanteria.Location = new System.Drawing.Point(6, 279);
             this.lblEstanteria.Name = "lblEstanteria";
             this.lblEstanteria.Size = new System.Drawing.Size(84, 18);
             this.lblEstanteria.TabIndex = 4;
@@ -299,7 +302,7 @@
             // 
             this.lblDescripcion.AutoSize = true;
             this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescripcion.Location = new System.Drawing.Point(6, 67);
+            this.lblDescripcion.Location = new System.Drawing.Point(6, 57);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(98, 18);
             this.lblDescripcion.TabIndex = 5;
@@ -309,7 +312,7 @@
             // 
             this.lblEstante.AutoSize = true;
             this.lblEstante.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstante.Location = new System.Drawing.Point(6, 329);
+            this.lblEstante.Location = new System.Drawing.Point(6, 319);
             this.lblEstante.Name = "lblEstante";
             this.lblEstante.Size = new System.Drawing.Size(65, 18);
             this.lblEstante.TabIndex = 3;
@@ -328,7 +331,7 @@
             // lblUnidades
             // 
             this.lblUnidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUnidades.Location = new System.Drawing.Point(6, 149);
+            this.lblUnidades.Location = new System.Drawing.Point(6, 139);
             this.lblUnidades.Name = "lblUnidades";
             this.lblUnidades.Size = new System.Drawing.Size(102, 38);
             this.lblUnidades.TabIndex = 3;
@@ -647,6 +650,21 @@
             this.dgvProductos.Visible = false;
             this.dgvProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellClick);
             // 
+            // btnImprimir
+            // 
+            this.btnImprimir.BackColor = System.Drawing.Color.White;
+            this.btnImprimir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnImprimir.BackgroundImage")));
+            this.btnImprimir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimir.Location = new System.Drawing.Point(126, 408);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(70, 86);
+            this.btnImprimir.TabIndex = 28;
+            this.btnImprimir.Text = "C. Barras";
+            this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnImprimir.UseVisualStyleBackColor = false;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
             // frmRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -734,5 +752,6 @@
         private System.Windows.Forms.Label lblCodArticuloLabel;
         private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.CheckBox chb;
+        private System.Windows.Forms.Button btnImprimir;
     }
 }

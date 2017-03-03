@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaEntidades;
 using System.IO;
+using Spire.Barcode;
+using System.Drawing.Printing;
 
 namespace CapaPresentacion
 {
@@ -18,12 +20,14 @@ namespace CapaPresentacion
         private List<Recogida> recogidas;
         private List<Producto> productos;
         private Producto productoExistenteSeleccionado;
+        private String codBarrasProductoSeleccionado;
 
         public frmRegistro()
         {
             InitializeComponent();
 
             lblCodArticulo.Text = "2231014";
+            codBarrasProductoSeleccionado = lblCodArticulo.Text;
 
             productoExistenteSeleccionado = null;
 
@@ -139,6 +143,7 @@ namespace CapaPresentacion
             if (lblCodArticulo.Text.Length != 7)
             {
                 lblCodArticulo.Text = "2231014";
+                codBarrasProductoSeleccionado = lblCodArticulo.Text;
             }
 
             if (chb.Checked)
@@ -150,6 +155,7 @@ namespace CapaPresentacion
                 if (!chb.Checked)
                 {
                     string id = Modulo.miNegocio.getSiguienteID(s.CodFamilia, s.CodSubFamilia);
+                    codBarrasProductoSeleccionado = lblCodArticulo.Text + f.NumCodigo.ToString() + s.NumeroCodigo.ToString() + id;
                     lblCodArticulo.Text += s.CodFamilia.ToString() + s.CodSubFamilia.ToString() + id;
                 }
 
@@ -306,6 +312,7 @@ namespace CapaPresentacion
             habilitarControlesInsercion(!dgvProductos.Visible);
 
             lblCodArticulo.Text = "2231014";
+            codBarrasProductoSeleccionado = lblCodArticulo.Text;
             ponerFamiliasEnBlanco();
             ponerSubfamiliasEnBlanco();
 
@@ -374,6 +381,59 @@ namespace CapaPresentacion
             Form frmMenu = new frmMenu();
             frmMenu.Show();
             this.Close();
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            if(codBarrasProductoSeleccionado.Length != 12)
+            {
+                MessageBox.Show("Debe seleccionarse un producto antes de poder imprimir su código de barras.", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if(chb.Checked)
+            {
+                MessageBox.Show("No se puede aeeeeeeeeeeee", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                String codigoBarras = codBarrasProductoSeleccionado + Util.SacarControl(ulong.Parse(codBarrasProductoSeleccionado));
+                BarcodeSettings settings = new BarcodeSettings();
+                settings.Type = BarCodeType.EAN13;
+                settings.Data = codigoBarras.ToString();
+
+                settings.ResolutionType = ResolutionType.Graphics;
+                BarCodeGenerator generator = new BarCodeGenerator(settings);
+                Image image = generator.GenerateImage();
+
+                image.RotateFlip(RotateFlipType.Rotate180FlipX);
+                Bitmap b = Util.CropImage(image, new Rectangle(0, 0, image.Width, image.Height - 30));
+                b.RotateFlip(RotateFlipType.Rotate180FlipX);
+
+                PrintDocument pd = new PrintDocument();
+                pd.PrinterSettings.PrinterName = "Brother QL-700";
+                var sizes = pd.PrinterSettings.PaperSizes;
+                PaperSize ps = null;
+                foreach (PaperSize s in sizes)
+                {
+                    if (s.PaperName.Equals("62mm"))
+                    {
+                        ps = s;
+                        break;
+                    }
+                }
+                pd.DefaultPageSettings.PaperSize = ps;
+
+                pd.PrintPage += (s, args) =>
+                {
+                    args.Graphics.DrawImage(b, new Rectangle(0, 0, b.Width, b.Height));
+                };
+                PrintDialog pdi = new PrintDialog();
+                pdi.Document = pd;
+                if (pdi.ShowDialog() == DialogResult.OK)
+                {
+                    pd.Print();
+                }
+
+            }
         }
     }
 }
