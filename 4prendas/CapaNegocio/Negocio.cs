@@ -114,6 +114,26 @@ namespace CapaNegocio
         {
             return datos.estaRecogidaCompleta(id);
         }
+
+        public List<Producto> getTodosProductos()
+        {
+            return datos.getTodosProductos();
+        }
+
+        public List<Producto> getProdsCodigoBarras(int codigoBarras)
+        {
+            return datos.getProdsCodigoBarras(codigoBarras);
+        }
+
+        public string getCodigoBarras(string codigoArticulo)
+        {
+            return datos.getCodigoBarras(codigoArticulo);
+        }
+
+        public List<Producto> getProductosFamilia(string codFamilia)
+        {
+            return datos.getProductosFamilia(codFamilia);
+        }
     }
 }
 
