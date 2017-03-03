@@ -129,6 +129,11 @@ namespace CapaNegocio
         {
             return datos.getCodigoBarras(codigoArticulo);
         }
+
+        public List<Producto> getProductosFamilia(string codFamilia)
+        {
+            return datos.getProductosFamilia(codFamilia);
+        }
     }
 }
 
