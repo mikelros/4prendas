@@ -101,13 +101,13 @@
             this.cmbEmpleado.TabIndex = 52;
             this.cmbEmpleado.SelectedIndexChanged += new System.EventHandler(this.cmbEmpleado_SelectedIndexChanged);
             // 
-            // lblWorkerName
+            // lblNombreEmpleado
             // 
             this.lblNombreEmpleado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNombreEmpleado.AutoSize = true;
             this.lblNombreEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombreEmpleado.Location = new System.Drawing.Point(1059, 136);
-            this.lblNombreEmpleado.Name = "lblWorkerName";
+            this.lblNombreEmpleado.Name = "lblNombreEmpleado";
             this.lblNombreEmpleado.Size = new System.Drawing.Size(148, 18);
             this.lblNombreEmpleado.TabIndex = 53;
             this.lblNombreEmpleado.Text = "Nombre Empleado";
@@ -233,13 +233,13 @@
             this.button1.TabIndex = 58;
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // dgvProducts
+            // dgvProductos
             // 
             this.dgvProductos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProductos.Location = new System.Drawing.Point(398, 202);
-            this.dgvProductos.Name = "dgvProducts";
+            this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.ReadOnly = true;
             this.dgvProductos.Size = new System.Drawing.Size(649, 549);
             this.dgvProductos.TabIndex = 69;
@@ -414,22 +414,22 @@
             this.label4.TabIndex = 73;
             this.label4.Text = "por";
             // 
-            // cmbSearch
+            // cmbBuscar
             // 
             this.cmbBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbBuscar.BackColor = System.Drawing.Color.White;
             this.cmbBuscar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBuscar.FormattingEnabled = true;
             this.cmbBuscar.Location = new System.Drawing.Point(919, 174);
-            this.cmbBuscar.Name = "cmbSearch";
+            this.cmbBuscar.Name = "cmbBuscar";
             this.cmbBuscar.Size = new System.Drawing.Size(128, 21);
             this.cmbBuscar.TabIndex = 74;
             // 
-            // txtSearch
+            // txtBuscar
             // 
             this.txtBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBuscar.Location = new System.Drawing.Point(745, 174);
-            this.txtBuscar.Name = "txtSearch";
+            this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(129, 20);
             this.txtBuscar.TabIndex = 75;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
@@ -492,12 +492,12 @@
             this.pictureBox3.TabIndex = 55;
             this.pictureBox3.TabStop = false;
             // 
-            // imgWorker
+            // imgEmpleado
             // 
             this.imgEmpleado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.imgEmpleado.Image = global::CapaPresentacion.Properties.Resources.newsle_empty_icon;
             this.imgEmpleado.Location = new System.Drawing.Point(1062, 157);
-            this.imgEmpleado.Name = "imgWorker";
+            this.imgEmpleado.Name = "imgEmpleado";
             this.imgEmpleado.Size = new System.Drawing.Size(100, 129);
             this.imgEmpleado.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgEmpleado.TabIndex = 54;
@@ -544,6 +544,7 @@
             this.btnFinVenta.Text = "&Fin venta";
             this.btnFinVenta.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnFinVenta.UseVisualStyleBackColor = false;
+            this.btnFinVenta.Click += new System.EventHandler(this.btnFinVenta_Click);
             // 
             // frmVenta
             // 

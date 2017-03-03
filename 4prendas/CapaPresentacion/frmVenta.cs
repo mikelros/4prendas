@@ -178,6 +178,7 @@ namespace CapaPresentacion
 
         private void cargarFamilias()
         {
+            ponerFamiliasEnBlanco();
             familias = Modulo.miNegocio.getFamiliasSubfamilias();
             
             for(int i = gboFamilia.Controls.Count - 1, j = 0; i >= 0 ; i--, j++)
@@ -201,7 +202,10 @@ namespace CapaPresentacion
 
         private void loadSubfamilias(object sender, EventArgs e)
         {
+            ponerFamiliasEnBlanco();
+            ponerSubfamiliasEnBlanco();
             Button b = (Button)sender;
+            b.BackColor = Color.LightBlue;
             Familia f = (Familia)b.Tag;
 
             for (int i = gboSubfamilia.Controls.Count - 1, j = 0; i >= 0; i--, j++)
@@ -224,7 +228,9 @@ namespace CapaPresentacion
 
         private void loadProductosSubfam(object sender, EventArgs e)
         {
+            ponerSubfamiliasEnBlanco();
             Button b = (Button)sender;
+            b.BackColor = Color.LightBlue;
             SubFamilia s = (SubFamilia)b.Tag;
             
             productos = Modulo.miNegocio.getProductos(s.CodFamilia, s.CodSubFamilia);
@@ -330,6 +336,33 @@ namespace CapaPresentacion
             dgvCarrito.Refresh();
             numProdsCarrito -= 1;
             btnCarrito.Text = numProdsCarrito.ToString();
+        }
+
+        private void ponerFamiliasEnBlanco()
+        {
+            for (int i = gboFamilia.Controls.Count - 1; i >= 0; i--)
+            {
+                if (gboFamilia.Controls[i].Visible)
+                {
+                    gboFamilia.Controls[i].BackColor = Color.White;
+                }
+            }
+        }
+
+        private void ponerSubfamiliasEnBlanco()
+        {
+            for (int i = gboSubfamilia.Controls.Count - 1; i >= 0; i--)
+            {
+                if (gboSubfamilia.Controls[i].Visible)
+                {
+                    gboSubfamilia.Controls[i].BackColor = Color.White;
+                }
+            }
+        }
+
+        private void btnFinVenta_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
