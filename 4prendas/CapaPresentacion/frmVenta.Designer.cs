@@ -66,16 +66,15 @@
             this.btnCalculator = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.imgEmpleado = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnFinVenta = new System.Windows.Forms.Button();
+            this.btnTodos = new System.Windows.Forms.Button();
             this.gboFamilia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.gboSubfamilia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrito)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgEmpleado)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -503,17 +502,6 @@
             this.imgEmpleado.TabIndex = 54;
             this.imgEmpleado.TabStop = false;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.SizeNESW;
-            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.Logo4V;
-            this.pictureBox1.Location = new System.Drawing.Point(14, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(137, 140);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 50;
-            this.pictureBox1.TabStop = false;
-            // 
             // btnExit
             // 
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -546,6 +534,19 @@
             this.btnFinVenta.UseVisualStyleBackColor = false;
             this.btnFinVenta.Click += new System.EventHandler(this.btnFinVenta_Click);
             // 
+            // btnTodos
+            // 
+            this.btnTodos.BackColor = System.Drawing.Color.White;
+            this.btnTodos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnTodos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTodos.Location = new System.Drawing.Point(12, 112);
+            this.btnTodos.Name = "btnTodos";
+            this.btnTodos.Size = new System.Drawing.Size(220, 33);
+            this.btnTodos.TabIndex = 68;
+            this.btnTodos.Text = "&Mostrar todos los productos";
+            this.btnTodos.UseVisualStyleBackColor = false;
+            this.btnTodos.Click += new System.EventHandler(this.btnTodos_Click);
+            // 
             // frmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -553,6 +554,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1219, 771);
+            this.Controls.Add(this.btnTodos);
             this.Controls.Add(this.btnFinVenta);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.dgvCarrito);
@@ -571,7 +573,6 @@
             this.Controls.Add(this.imgEmpleado);
             this.Controls.Add(this.lblNombreEmpleado);
             this.Controls.Add(this.cmbEmpleado);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmVenta";
@@ -584,7 +585,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrito)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgEmpleado)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -592,7 +592,6 @@
 
         #endregion
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox cmbEmpleado;
         private System.Windows.Forms.Label lblNombreEmpleado;
         private System.Windows.Forms.PictureBox imgEmpleado;
@@ -631,6 +630,7 @@
         internal System.Windows.Forms.DataGridView dgvCarrito;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnFinVenta;
+        private System.Windows.Forms.Button btnTodos;
     }
 }
 

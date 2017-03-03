@@ -176,19 +176,7 @@ namespace CapaDatos
         public List<Producto> getProductosFamilia(string codFamilia)
         {
             List<Producto> productos = new List<Producto>();
-            string sql = @"SELECT Registro.CodigoArticulo,
-                                   Registro.Descripcion,
-                                   Registro.TallaPesoLitros,
-                                   Registro.Stock,
-                                   Registro.StockMinimo,
-                                   Registro.EmpleadoId,
-                                   Registro.LugarId,
-                                   Registro.CodFamilia,
-                                   Registro.CodSubFamilia,
-                                   Registro.NumeroVenta,
-                                   Registro.RecogidaId,
-                                   Registro.FechaEntrada,
-                                   Registro.Coste
+            string sql = @"SELECT *
                             FROM   Registro
                             WHERE  Registro.CodFamilia = @codFamilia;";
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);

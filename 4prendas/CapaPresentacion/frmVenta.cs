@@ -202,13 +202,12 @@ namespace CapaPresentacion
 
         private void loadSubfamilias(object sender, EventArgs e)
         {
-            //dgvProductos.DataSource = Modulo.miNegocio.getProductosFamilia(); oooooooooooooooooooooo
             ponerFamiliasEnBlanco();
             ponerSubfamiliasEnBlanco();
             Button b = (Button)sender;
             b.BackColor = Color.LightBlue;
             Familia f = (Familia)b.Tag;
-
+            dgvProductos.DataSource = Modulo.miNegocio.getProductosFamilia(f.CodFamilia);
             for (int i = gboSubfamilia.Controls.Count - 1, j = 0; i >= 0; i--, j++)
             {
                 gboSubfamilia.Controls[i].Visible = false;
@@ -368,6 +367,11 @@ namespace CapaPresentacion
             btnCarrito.Text = "0";
             productosCarrito.Clear();
             dgvCarrito.Refresh();
+        }
+
+        private void btnTodos_Click(object sender, EventArgs e)
+        {
+            dgvProductos.DataSource = Modulo.miNegocio.getTodosProductos();
         }
     }
 }
