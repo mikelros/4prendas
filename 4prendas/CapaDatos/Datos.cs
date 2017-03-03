@@ -17,8 +17,8 @@ namespace CapaDatos
             List<Familia> familias = new List<Familia>(); // no sé si es arraylist o qué
             string sql = @"SELECT *
                             FROM   Familia f
-                                   INNER JOIN SubFamilia sf
-                                           ON sf.FamiliaCod = f.CodFamilia;";
+                            INNER JOIN SubFamilia sf
+                             ON sf.FamiliaCod = f.CodFamilia;";
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
             try
@@ -57,23 +57,23 @@ namespace CapaDatos
             }
         }
 
-        public void updateProduct(Producto product)
+        public void actualizarProducto(Producto producto)
         {
             List<Producto> productos = new List<Producto>();
-            productos.Add(product);
-            eliminarProducto(product);
+            productos.Add(producto);
+            eliminarProducto(producto);
             insertarProductos(productos);
         }
 
-        public Empleado getEmpleados(int employeeNum)
+        public Empleado getEmpleado(int numEmpleado)
         {
             Empleado empleado = new Empleado();
             string sql = @"SELECT *
                             FROM   Empleado
-                            WHERE  IdEmpleado = @numEmployee;";
+                            WHERE  IdEmpleado = @numEmpleado;";
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
-            cmd.Parameters.AddWithValue("@numEmployee", employeeNum);
+            cmd.Parameters.AddWithValue("@numEmpleado", numEmpleado);
             try
             {
                 conTabla.Open();
@@ -186,7 +186,7 @@ namespace CapaDatos
             }
         }
 
-        public Administrador getAdministrador(string user, string pass)
+        public Administrador getAdministrador(string usuario, string contrasena)
         {
             string sql = @"SELECT *
                             FROM Administrador
@@ -194,15 +194,15 @@ namespace CapaDatos
                                    AND Contrasena = @Pass; ";
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
-            cmd.Parameters.AddWithValue("@User", user);
-            cmd.Parameters.AddWithValue("@Pass", pass);
+            cmd.Parameters.AddWithValue("@User", usuario);
+            cmd.Parameters.AddWithValue("@Pass", contrasena);
             try
             {
                 conTabla.Open();
                 int result = (int)cmd.ExecuteScalar();
                 if (result > 0)
                 {
-                    return new Administrador(user, pass);
+                    return new Administrador(usuario, contrasena);
                 }
                 else
                 {
@@ -298,7 +298,7 @@ namespace CapaDatos
         public List<Producto> getProdsCodigoBarras(int codigoBarras)
         {
             String codigoB = codigoBarras.ToString().Substring(0, 7) + 
-                getFamiliaCod(codigoBarras.ToString().Substring(8,1)) + 
+                getFamiliaCod(codigoBarras.ToString().Substring(8, 1)) + 
                 getSubFamiliaCod(codigoBarras.ToString().Substring(8, 1), codigoBarras.ToString().Substring(9, 1)) +
                 codigoBarras.ToString().Substring(10, 3);
 
@@ -553,7 +553,7 @@ namespace CapaDatos
             }
         }
 
-        public string createEmployee(string name, string photo) //Id autonumerico...
+        public string crearEmpleado(string nombre, string foto) //Id autonumerico...
         {
             string sql = @"INSERT INTO Empleado
                                         (Nombre,
@@ -563,8 +563,8 @@ namespace CapaDatos
 
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
-            cmd.Parameters.AddWithValue("@name", name);
-            cmd.Parameters.AddWithValue("@photo", photo);
+            cmd.Parameters.AddWithValue("@name", nombre);
+            cmd.Parameters.AddWithValue("@photo", foto);
             try
             {
                 conTabla.Open();
@@ -583,10 +583,10 @@ namespace CapaDatos
             }
         }
 
-        public void deleteEmployee(int id)
+        public void borrarEmpleado(int id)
         {
             string sql = @"DELETE FROM Empleado
-                            WHERE  IdEmpledo = @id;";
+                            WHERE  IdEmpleado = @id;";
 
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
@@ -611,7 +611,7 @@ namespace CapaDatos
         {
             List<Empleado> empleados = new List<Empleado>();
             string sql = @"SELECT *
-                            FROM   Empleado;";
+                            FROM Empleado;";
 
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
@@ -728,7 +728,7 @@ namespace CapaDatos
             return -1;
         }
 
-        public int getLastNRecogida()
+        public int getUltimoNumRecogida()
         {
             string sql = @"SELECT Max(IdRecogida)
                             FROM Recogida; ";
@@ -769,7 +769,7 @@ namespace CapaDatos
                                       Recogida.PersonaId,
                                       Registro.RecogidaId
                             HAVING Registro.RecogidaId IS NULL
-                                    OR Recogida.CantidadProductos > (SELECT Count(Registro.CodigoArticulo)
+                                    OR Recogida.CantidadProductos > (SELECT COUNT(Registro.CodigoArticulo)
                                                                      FROM   Recogida
                                                                             INNER JOIN Registro
                                                                                     ON Recogida.IdRecogida =
@@ -809,13 +809,14 @@ namespace CapaDatos
             string sql = @"SELECT *
                             FROM   Recogida r
                             WHERE  r.IdRecogida = @recogidaid
-                                   AND r.CantidadProductos = (SELECT Count(re.CodigoArticulo)
+                                   AND r.CantidadProductos = (SELECT SUM(re.Stock)
                                                               FROM   Registro re
-                                                              WHERE  re.RecogidaId);";
+                                                              WHERE  re.RecogidaId = @idd);";
 
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
             cmd.Parameters.AddWithValue("@recogidid", id);
+            cmd.Parameters.AddWithValue("@idd", id);
             try
             {
                 conTabla.Open();
@@ -877,7 +878,7 @@ namespace CapaDatos
             }
         }
 
-        public void insertVenta(List<Producto> productos, int empleadoID)
+        public void insertarVenta(List<Producto> productos, int empleadoID)
         {
             int numVenta;
 

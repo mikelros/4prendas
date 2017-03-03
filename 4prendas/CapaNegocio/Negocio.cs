@@ -31,9 +31,9 @@ namespace CapaNegocio
             return datos.getProductos(codFamilia, codSubFamilia);
         }
 
-        public Administrador getAdministrador(string user, string pass)
+        public Administrador getAdministrador(string usuario, string contrasena)
         {
-            return datos.getAdministrador(user, pass);
+            return datos.getAdministrador(usuario, contrasena);
         }
 
         public List<Empleado> getEmpleados()
@@ -56,24 +56,24 @@ namespace CapaNegocio
             return datos.getProdsPorCodigoArticulo(codigoArticulo);
         }
 
-        public string crearEmpleado(string name, string photo) //Id autonumerico...
+        public string crearEmpleado(string nombre, string foto) //Id autonumerico...
         {
-            return datos.createEmployee(name, photo);
+            return datos.crearEmpleado(nombre, foto);
         }
 
         public void eliminarEmpleado(int id)
         {
-            datos.deleteEmployee(id);
+            datos.borrarEmpleado(id);
         }
 
-        public Empleado getEmployee(int employeeNum)
+        public Empleado getEmpleado(int employeeNum)
         {
-            return datos.getEmpleados(employeeNum);
+            return datos.getEmpleado(employeeNum);
         }
 
-        public void actualizarProducto(Producto product)
+        public void actualizarProducto(Producto producto)
         {
-            datos.updateProduct(product);
+            datos.actualizarProducto(producto);
         }
 
         public void realizarRecogida(Recogida recogida)
@@ -86,9 +86,9 @@ namespace CapaNegocio
             return datos.comprobarPersona(nombre);
         }
 
-        public int getLastNRecogida()
+        public int getUltimoNumRecogida()
         {
-            return datos.getLastNRecogida();
+            return datos.getUltimoNumRecogida();
         }
 
         public List<Recogida> getRecogidasSinTodosRegistros()
