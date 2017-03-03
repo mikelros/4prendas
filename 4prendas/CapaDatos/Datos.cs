@@ -769,11 +769,10 @@ namespace CapaDatos
                                       Recogida.PersonaId,
                                       Registro.RecogidaId
                             HAVING Registro.RecogidaId IS NULL
-                                    OR Recogida.CantidadProductos > (SELECT COUNT(Registro.CodigoArticulo)
-                                                                     FROM   Recogida
-                                                                            INNER JOIN Registro
-                                                                                    ON Recogida.IdRecogida =
-                                                                                       Registro.RecogidaId)
+                                    OR Recogida.CantidadProductos > (SELECT SUM(re.Stock)
+                                                                     FROM   Recogida re
+                                                                     INNER JOIN Registro
+                                                                     ON re.IdRecogida = Registro.RecogidaId)
                             ORDER  BY Recogida.IdRecogida;";
 
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
