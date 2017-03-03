@@ -102,7 +102,7 @@ namespace CapaNegocio
         }
         public void insertVenta(List<Producto> productos, int empleadoID)
         {
-            insertVenta(productos, empleadoID);
+            datos.insertarVenta(productos, empleadoID);
         }
 
         public Lugar getLugar(Lugar lugar)

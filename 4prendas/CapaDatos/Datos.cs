@@ -891,7 +891,7 @@ namespace CapaDatos
 
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
-            cmd.Parameters.AddWithValue("@FechaVenta", DateTime.Now);
+            cmd.Parameters.AddWithValue("@FechaVenta", Util.GetDateWithoutMilliseconds(DateTime.Now));
             cmd.Parameters.AddWithValue("@EmpleadoId", empleadoID);
             cmd.Parameters.AddWithValue("@Devolucion", false);
             //cmd.Parameters.AddWithValue("@IVA", );
@@ -908,7 +908,7 @@ namespace CapaDatos
                 dr.Read();
                 numVenta = (int)dr["NumVenta"];
 
-                sql = @"INSERT INTO VentaArticulo
+                sql = @"INSERT INTO VentaArticulos
                                     (CodigoArticulo,
                                      NumVenta,
                                      Coste)

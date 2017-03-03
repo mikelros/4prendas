@@ -362,7 +362,7 @@ namespace CapaPresentacion
 
         private void btnFinVenta_Click(object sender, EventArgs e)
         {
-
+            Modulo.miNegocio.insertVenta(productosCarrito, Modulo.empleadoActual.EmpleadoId);
         }
     }
 }
