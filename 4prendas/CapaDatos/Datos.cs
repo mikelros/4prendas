@@ -889,7 +889,7 @@ namespace CapaDatos
                                       Recogida.PersonaId,
                                       Registro.RecogidaId
                             HAVING Registro.RecogidaId IS NULL
-                                    OR Recogida.CantidadProductos > (SELECT SUM(re.Stock)
+                                    OR Recogida.CantidadProductos > (SELECT SUM(Registro.Stock)
                                                                      FROM   Recogida re
                                                                      INNER JOIN Registro
                                                                      ON re.IdRecogida = Registro.RecogidaId)
