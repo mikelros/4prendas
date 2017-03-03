@@ -102,7 +102,7 @@ namespace CapaNegocio
         }
         public void insertVenta(List<Producto> productos, int empleadoID)
         {
-            insertVenta(productos, empleadoID);
+            datos.insertarVenta(productos, empleadoID);
         }
 
         public Lugar getLugar(Lugar lugar)
@@ -113,6 +113,21 @@ namespace CapaNegocio
         public bool estaRecogidaCompleta(int id)
         {
             return datos.estaRecogidaCompleta(id);
+        }
+
+        public List<Producto> getTodosProductos()
+        {
+            return datos.getTodosProductos();
+        }
+
+        public List<Producto> getProdsCodigoBarras(int codigoBarras)
+        {
+            return datos.getProdsCodigoBarras(codigoBarras);
+        }
+
+        public string getCodigoBarras(string codigoArticulo)
+        {
+            return datos.getCodigoBarras(codigoArticulo);
         }
     }
 }

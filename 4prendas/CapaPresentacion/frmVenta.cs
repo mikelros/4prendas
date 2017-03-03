@@ -362,7 +362,11 @@ namespace CapaPresentacion
 
         private void btnFinVenta_Click(object sender, EventArgs e)
         {
-
+            Modulo.miNegocio.insertVenta(productosCarrito, Modulo.empleadoActual.EmpleadoId);
+            numProdsCarrito = 0;
+            btnCarrito.Text = "0";
+            productosCarrito.Clear();
+            dgvCarrito.Refresh();
         }
     }
 }
