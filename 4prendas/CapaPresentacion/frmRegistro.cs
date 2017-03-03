@@ -390,12 +390,7 @@ namespace CapaPresentacion
             {
                 MessageBox.Show("Debe seleccionarse un producto antes de poder imprimir su código de barras.", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if(chb.Checked)
-            {
-                MessageBox.Show("No se puede aeeeeeeeeeeee", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
+            else {
                 String codigoBarras = codBarrasProductoSeleccionado + Util.SacarControl(ulong.Parse(codBarrasProductoSeleccionado));
                 BarcodeSettings settings = new BarcodeSettings();
                 settings.Type = BarCodeType.EAN13;
@@ -408,6 +403,8 @@ namespace CapaPresentacion
                 image.RotateFlip(RotateFlipType.Rotate180FlipX);
                 Bitmap b = Util.CropImage(image, new Rectangle(0, 0, image.Width, image.Height - 30));
                 b.RotateFlip(RotateFlipType.Rotate180FlipX);
+
+                b.Save("SAVED.jpg");
 
                 PrintDocument pd = new PrintDocument();
                 pd.PrinterSettings.PrinterName = "Brother QL-700";

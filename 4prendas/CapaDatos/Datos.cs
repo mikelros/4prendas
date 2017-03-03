@@ -376,9 +376,9 @@ namespace CapaDatos
         public string getCodigoBarras(string codigoArticulo)
         {
             String codigoB = codigoArticulo.ToString().Substring(0, 7) +
-                getFamiliaNumCod(codigoArticulo.ToString().Substring(8, 2)) +
-                getSubFamiliaNumCod(codigoArticulo.ToString().Substring(8, 2), codigoArticulo.ToString().Substring(10, 2)) +
-                codigoArticulo.ToString().Substring(12, 3);
+                getFamiliaNumCod(codigoArticulo.ToString().Substring(7, 2)) +
+                getSubFamiliaNumCod(codigoArticulo.ToString().Substring(7, 2), codigoArticulo.ToString().Substring(9, 2)) +
+                codigoArticulo.ToString().Substring(11, 3);
 
             return codigoB;
         }
