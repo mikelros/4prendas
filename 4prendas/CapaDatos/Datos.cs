@@ -877,10 +877,7 @@ namespace CapaDatos
                                       Recogida.PersonaId,
                                       Registro.RecogidaId
                             HAVING Registro.RecogidaId IS NULL
-                                    OR Recogida.CantidadProductos > (SELECT SUM(Registro.Stock)
-                                                                     FROM   Recogida re
-                                                                     INNER JOIN Registro
-                                                                     ON re.IdRecogida = Registro.RecogidaId)
+                                    OR Recogida.CantidadProductos > SUM(Registro.Stock)
                             ORDER  BY Recogida.IdRecogida;";
 
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
@@ -916,9 +913,7 @@ namespace CapaDatos
             string sql = @"SELECT *
                             FROM   Recogida r
                             WHERE  r.IdRecogida = @recogidaid
-                                   AND r.CantidadProductos = (SELECT SUM(re.Stock)
-                                                              FROM   Registro re
-                                                              WHERE  re.RecogidaId = @idd);";
+                                   AND r.CantidadProductos = SUM(Registro.Stock)";
 
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
