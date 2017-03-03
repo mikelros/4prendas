@@ -202,6 +202,7 @@ namespace CapaPresentacion
 
         private void loadSubfamilias(object sender, EventArgs e)
         {
+            //dgvProductos.DataSource = Modulo.miNegocio.getProductosFamilia(); oooooooooooooooooooooo
             ponerFamiliasEnBlanco();
             ponerSubfamiliasEnBlanco();
             Button b = (Button)sender;
