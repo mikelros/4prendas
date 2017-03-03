@@ -373,6 +373,7 @@ namespace CapaPresentacion
 
             productoExistenteSeleccionado = productos.ElementAt(e.RowIndex);
             lblCodArticulo.Text = productoExistenteSeleccionado.CodigoArticulo;
+            codBarrasProductoSeleccionado = Modulo.miNegocio.getCodigoBarras(productoExistenteSeleccionado.CodigoArticulo);
 
         }
 
