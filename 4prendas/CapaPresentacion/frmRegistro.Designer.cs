@@ -684,7 +684,6 @@
             this.Name = "frmRegistro";
             this.Text = "frmRegistro";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.frmRegistro_Load);
             this.gboRegistro.ResumeLayout(false);
             this.gboRegistro.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCoste)).EndInit();
