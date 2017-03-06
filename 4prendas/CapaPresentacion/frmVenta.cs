@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaNegocio;
 using CapaEntidades;
+using System.Drawing.Printing;
 
 namespace CapaPresentacion
 {
@@ -42,7 +43,7 @@ namespace CapaPresentacion
             dgvProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
         }
-        
+
         private void cargarStockMinimo()
         {
             prodsStockMinimo = Modulo.miNegocio.getProdsStockMinimo();
@@ -111,29 +112,32 @@ namespace CapaPresentacion
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            
-                switch (cmbBuscar.SelectedItem.ToString())
-                {
-                    case "Código de barras":
+
+            switch (cmbBuscar.SelectedItem.ToString())
+            {
+                case "Código de barras":
                     if (txtBuscar.Text.Length > 13) { }
                     else
                     {
-                        productos = Modulo.miNegocio.getProdsPorCodigoArticulo(txtBuscar.Text);
+                        int cod = 0;
+                        int.TryParse(txtBuscar.Text, out cod);
+                        
+                        productos = Modulo.miNegocio.getProdsCodigoBarras(int.Parse(txtBuscar.Text));
                         dgvProductos.DataSource = productos;
                     }
-                        break;
-                    case "Código de ártículo":
-                        productos = Modulo.miNegocio.getProdsPorCodigoArticulo(txtBuscar.Text);
-                        dgvProductos.DataSource = productos;
-                        break;
-                    case "Descripción":
-                        productos = Modulo.miNegocio.getProdsPorDescripcion(txtBuscar.Text);
-                        dgvProductos.DataSource = productos;
-                        break;
-                    default:
-                        break;
-                }
-            
+                    break;
+                case "Código de ártículo":
+                    productos = Modulo.miNegocio.getProdsPorCodigoArticulo(txtBuscar.Text);
+                    dgvProductos.DataSource = productos;
+                    break;
+                case "Descripción":
+                    productos = Modulo.miNegocio.getProdsPorDescripcion(txtBuscar.Text);
+                    dgvProductos.DataSource = productos;
+                    break;
+                default:
+                    break;
+            }
+
         }
 
 
@@ -142,7 +146,7 @@ namespace CapaPresentacion
         {
             dgvCarrito.DataSource = null;
             dgvCarrito.DataSource = (from p in productosCarrito
-                                     select new{CodigoArticulo = p.CodigoArticulo, Descripcion = p.Descripcion, Coste = p.Coste, Unidades = p.Unidades }).ToList();
+                                     select new { CodigoArticulo = p.CodigoArticulo, Descripcion = p.Descripcion, Coste = p.Coste, Unidades = p.Unidades }).ToList();
             dgvCarrito.Refresh();
             dgvCarrito.Show();
         }
@@ -180,10 +184,10 @@ namespace CapaPresentacion
         {
             ponerFamiliasEnBlanco();
             familias = Modulo.miNegocio.getFamiliasSubfamilias();
-            
-            for(int i = gboFamilia.Controls.Count - 1, j = 0; i >= 0 ; i--, j++)
+
+            for (int i = gboFamilia.Controls.Count - 1, j = 0; i >= 0; i--, j++)
             {
-                if(j <= familias.Count -1)
+                if (j <= familias.Count - 1)
                 {
                     Familia f = familias[j];
                     gboFamilia.Controls[i].Tag = f;
@@ -196,7 +200,7 @@ namespace CapaPresentacion
                 {
                     gboFamilia.Controls[i].Visible = false;
                 }
-                
+
             }
         }
 
@@ -232,7 +236,7 @@ namespace CapaPresentacion
             Button b = (Button)sender;
             b.BackColor = Color.LightBlue;
             SubFamilia s = (SubFamilia)b.Tag;
-            
+
             productos = Modulo.miNegocio.getProductos(s.CodFamilia, s.CodSubFamilia);
             if (productos != null)
             {
@@ -285,7 +289,7 @@ namespace CapaPresentacion
             this.dgvProductos.Columns["FechaEntrada"].Visible = false;
         }
 
-      
+
         private void dgvProducts_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex == -1)
@@ -367,6 +371,47 @@ namespace CapaPresentacion
             btnCarrito.Text = "0";
             productosCarrito.Clear();
             dgvCarrito.Refresh();
+
+
+
+            PrintDocument pd = new PrintDocument();
+            pd.PrinterSettings.PrinterName = "Brother QL-700";
+            var sizes = pd.PrinterSettings.PaperSizes;
+            PaperSize ps = null;
+            foreach (PaperSize s in sizes)
+            {
+                if (s.PaperName.Equals("62mm"))
+                {
+                    ps = s;
+                    break;
+                }
+            }
+            pd.DefaultPageSettings.PaperSize = ps;
+
+            pd.PrintPage += (s, args) =>
+            {
+                float linesPerPage = 0;
+                float yPos = 0;
+                int count = 0;
+                float leftMargin = 7;
+                float topMargin = 7;
+                Font printFont = new Font(FontFamily.GenericSansSerif, 12.0F, FontStyle.Bold);
+                //for con el array
+                yPos = topMargin + (count * 7);
+                for (int i = 0; i < productosCarrito.Count; i++)
+                {
+                    args.Graphics.DrawString(productosCarrito[i].ToString(), printFont, Brushes.Black, leftMargin, yPos, new StringFormat());
+                    count++;
+                }
+
+                PrintDialog pdi = new PrintDialog();
+                pdi.Document = pd;
+                if (pdi.ShowDialog() == DialogResult.OK)
+                {
+                    pd.Print();
+                }
+
+            };
         }
 
         private void btnTodos_Click(object sender, EventArgs e)
