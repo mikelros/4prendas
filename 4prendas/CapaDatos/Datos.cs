@@ -359,7 +359,7 @@ namespace CapaDatos
                             FROM Registro WHERE CodigoArticulo LIKE @cod";
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
-            cmd.Parameters.AddWithValue("@cod", codigoArticulo);
+            cmd.Parameters.AddWithValue("@cod", "%" + codigoArticulo + "%");
             try
             {
                 conTabla.Open();

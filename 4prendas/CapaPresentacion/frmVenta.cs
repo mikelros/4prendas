@@ -393,15 +393,25 @@ namespace CapaPresentacion
                 float yPos = 0;
                 int count = 0;
                 float leftMargin = 7;
+                float total = 0;
                 float topMargin = 7;
-                Font printFont = new Font(FontFamily.GenericSansSerif, 12.0F, FontStyle.Bold);
+                Font printFont = new Font(FontFamily.GenericSansSerif, 7.0F, FontStyle.Bold);
                 //for con el array
-                yPos = topMargin + (count * 7);
+                args.Graphics.DrawString("PRODUCTO - CANT - PRECIO - TOTAL", printFont, Brushes.Black, leftMargin, yPos, new StringFormat());
+
+                printFont = new Font(FontFamily.GenericSansSerif, 10.0F, FontStyle.Bold);
+                yPos = yPos + 5;
                 for (int i = 0; i < productosCarrito.Count; i++)
                 {
+                    yPos = yPos + 15;
                     args.Graphics.DrawString(productosCarrito[i].ToString(), printFont, Brushes.Black, leftMargin, yPos, new StringFormat());
                     count++;
+                    total = total + (productosCarrito[i].Coste * productosCarrito[i].Unidades);
                 }
+                yPos = yPos + 20;
+                args.Graphics.DrawString("Total: " + total.ToString() +"€", printFont, Brushes.Black, leftMargin, yPos, new StringFormat());
+
+
 
             };
             PrintDialog pdi = new PrintDialog();
