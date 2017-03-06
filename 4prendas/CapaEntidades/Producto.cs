@@ -222,5 +222,10 @@ namespace CapaEntidades
         {
             return this.codigoArticulo.ToLower() == other.codigoArticulo.ToLower();
         }
+
+        public string toString()
+        {
+            return (this.descripcion.ToString() + this.unidades.ToString() + this.coste.ToString());
+        }
     }
 }

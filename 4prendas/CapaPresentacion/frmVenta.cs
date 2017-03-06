@@ -24,7 +24,6 @@ namespace CapaPresentacion
         private List<Producto> productos;
         private List<Producto> productosCarrito = new List<Producto>();
         private int numProdsCarrito = 0;
-
         public frmVenta()
         {
             InitializeComponent();
@@ -211,7 +210,9 @@ namespace CapaPresentacion
             Button b = (Button)sender;
             b.BackColor = Color.LightBlue;
             Familia f = (Familia)b.Tag;
-            dgvProductos.DataSource = Modulo.miNegocio.getProductosFamilia(f.CodFamilia);
+            productos = Modulo.miNegocio.getProductosFamilia(f.CodFamilia);
+            dgvProductos.DataSource = productos;
+            
             for (int i = gboSubfamilia.Controls.Count - 1, j = 0; i >= 0; i--, j++)
             {
                 gboSubfamilia.Controls[i].Visible = false;
@@ -366,16 +367,13 @@ namespace CapaPresentacion
 
         private void btnFinVenta_Click(object sender, EventArgs e)
         {
-            Modulo.miNegocio.insertVenta(productosCarrito, Modulo.empleadoActual.EmpleadoId);
-            numProdsCarrito = 0;
-            btnCarrito.Text = "0";
-            productosCarrito.Clear();
-            dgvCarrito.Refresh();
+            
 
 
 
             PrintDocument pd = new PrintDocument();
             pd.PrinterSettings.PrinterName = "Brother QL-700";
+            pd.DefaultPageSettings.Landscape = false;
             var sizes = pd.PrinterSettings.PaperSizes;
             PaperSize ps = null;
             foreach (PaperSize s in sizes)
@@ -387,6 +385,7 @@ namespace CapaPresentacion
                 }
             }
             pd.DefaultPageSettings.PaperSize = ps;
+
 
             pd.PrintPage += (s, args) =>
             {
@@ -404,14 +403,19 @@ namespace CapaPresentacion
                     count++;
                 }
 
-                PrintDialog pdi = new PrintDialog();
+            };
+            PrintDialog pdi = new PrintDialog();
                 pdi.Document = pd;
                 if (pdi.ShowDialog() == DialogResult.OK)
                 {
                     pd.Print();
                 }
 
-            };
+            Modulo.miNegocio.insertVenta(productosCarrito, Modulo.empleadoActual.EmpleadoId);
+            numProdsCarrito = 0;
+            btnCarrito.Text = "0";
+            productosCarrito.Clear();
+            dgvCarrito.Refresh();
         }
 
         private void btnTodos_Click(object sender, EventArgs e)
