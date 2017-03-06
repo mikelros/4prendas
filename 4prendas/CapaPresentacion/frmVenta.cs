@@ -373,6 +373,7 @@ namespace CapaPresentacion
 
             PrintDocument pd = new PrintDocument();
             pd.PrinterSettings.PrinterName = "Brother QL-700";
+            pd.DefaultPageSettings.Landscape = false;
             var sizes = pd.PrinterSettings.PaperSizes;
             PaperSize ps = null;
             foreach (PaperSize s in sizes)
