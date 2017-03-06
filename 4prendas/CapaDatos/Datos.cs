@@ -11,8 +11,8 @@ namespace CapaDatos
     public class Datos
     {
         private static string cadenaConexion = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=4prendas.accdb";
-        public delegate void ErrorEventoDelegate(EventoError evento);
-        public event ErrorEventoDelegate errorEvent;
+        //public delegate void ErrorEventoDelegate(string message);
+        //public event ErrorEventoDelegate errorEvent;
 
         public List<Familia> getFamiliasSubfamilias()
         {
@@ -50,7 +50,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                errorEvent(new EventoError("Error en la base de datos. " + ex.Message));
+                //errorEvent(ex.Message);
                 return null;
             }
             finally

@@ -15,6 +15,8 @@ namespace CapaNegocio
         public Negocio()
         {
             datos = new Datos();
+
+            
         }
         public void InsertarProductos(List<Producto> productos)
         {
