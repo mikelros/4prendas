@@ -323,9 +323,9 @@ namespace CapaDatos
         public List<Producto> getProdsCodigoBarras(int codigoBarras)
         {
             String codigoArticulo = codigoBarras.ToString().Substring(0, 7) +
-                getFamiliaCod(codigoBarras.ToString().Substring(8, 1)) +
-                getSubFamiliaCod(codigoBarras.ToString().Substring(8, 1), codigoBarras.ToString().Substring(9, 1)) +
-                codigoBarras.ToString().Substring(10, 3);
+                getFamiliaCod(codigoBarras.ToString().Substring(7, 1)) +
+                getSubFamiliaCod(codigoBarras.ToString().Substring(7, 1), codigoBarras.ToString().Substring(8, 1)) +
+                codigoBarras.ToString().Substring(9, 3);
 
 
             List<Producto> productos = new List<Producto>();
