@@ -507,13 +507,13 @@ namespace CapaPresentacion
         {
 
             SubFamilia subFam = new SubFamilia(txtCodFamiliaParaSub.Text, txtCodigoSubFamilia.Text, txtNombreSubFamila.Text, txtImagenSubFamilia.Text, int.Parse(txtIVASub.Text), int.Parse(txtNumSub.Text));
-            //Modulo.miNegocio.InsertarSubFamilia(subFam);
+            Modulo.miNegocio.InsertarSubFamilia(subFam);
         }
 
         private void btnAnadirFamilia_Click(object sender, EventArgs e)
         {
             Familia fam = new Familia(txtCodigoFamilia.Text, txtNombreFamilia.Text, txtImagenFamilia.Text, int.Parse(txtNumCodFam.Text));
-            //Modulo.miNegocio.InsertarFamilia(fam);
+            Modulo.miNegocio.InsertarFamilia(fam);
 
         }
 
