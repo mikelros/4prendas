@@ -402,9 +402,7 @@ namespace CapaPresentacion
 
                 image.RotateFlip(RotateFlipType.Rotate180FlipX);
                 Bitmap b = Util.CropImage(image, new Rectangle(0, 0, image.Width, image.Height - 30));
-                b.RotateFlip(RotateFlipType.Rotate180FlipX);
-
-                b.Save("SAVED.jpg");
+                b.RotateFlip(RotateFlipType.Rotate90FlipX);               
 
                 PrintDocument pd = new PrintDocument();
                 pd.PrinterSettings.PrinterName = "Brother QL-700";
@@ -412,7 +410,7 @@ namespace CapaPresentacion
                 PaperSize ps = null;
                 foreach (PaperSize s in sizes)
                 {
-                    if (s.PaperName.Equals("62mm"))
+                    if (s.PaperName.Equals("62mm x 29mm"))
                     {
                         ps = s;
                         break;
