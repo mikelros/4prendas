@@ -134,6 +134,16 @@ namespace CapaNegocio
         {
             return datos.getProductosFamilia(codFamilia);
         }
+
+        public void InsertarSubFamilia(SubFamilia subFam)
+        {
+            datos.insertarSubFamilia(subFam);
+        }
+
+        public void InsertarFamilia(Familia fam)
+        {
+            datos.insertarFamilia(fam);
+        }
     }
 }
 
