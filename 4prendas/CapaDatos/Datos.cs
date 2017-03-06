@@ -320,37 +320,73 @@ namespace CapaDatos
             }
         }
 
-        public List<Producto> getProdsCodigoBarras(int codigoBarras)
+        public List<Producto> getProdsCodigoBarras(long codigoBarras)
         {
+            string resultado, resultado2;
             String codigoArticulo = codigoBarras.ToString();
 
             if (codigoArticulo.Length == 8)
             {
-                codigoArticulo = codigoBarras.ToString().Substring(0, 7) +
-                    getFamiliaCod(codigoBarras.ToString().Substring(8, 1));
+                resultado = getFamiliaCod(codigoBarras.ToString().Substring(7, 1));
+                if (resultado != "")
+                {
+                    codigoArticulo = codigoBarras.ToString().Substring(0, 7) + resultado;
+                } else
+                {
+                    codigoArticulo = "-1";
+                }
             } else if (codigoArticulo.Length == 9)
             {
-                codigoArticulo = codigoBarras.ToString().Substring(0, 7) +
-                    getFamiliaCod(codigoBarras.ToString().Substring(8, 1)) +
-                    getSubFamiliaCod(codigoBarras.ToString().Substring(8, 1), codigoBarras.ToString().Substring(9, 1));
+                resultado = getFamiliaCod(codigoBarras.ToString().Substring(7, 1));
+                resultado2 = getSubFamiliaCod(codigoBarras.ToString().Substring(7, 1), codigoBarras.ToString().Substring(8, 1));
+                if (resultado != "" && resultado2 != "")
+                {
+                    codigoArticulo = codigoBarras.ToString().Substring(0, 7) +
+                    resultado + resultado2;
+                } else
+                {
+                    codigoArticulo = "-1";
+                }
+                
             } else if (codigoArticulo.Length == 10)
             {
-                codigoArticulo = codigoBarras.ToString().Substring(0, 7) +
-                    getFamiliaCod(codigoBarras.ToString().Substring(8, 1)) +
-                    getSubFamiliaCod(codigoBarras.ToString().Substring(8, 1), codigoBarras.ToString().Substring(9, 1)) +
-                    codigoBarras.ToString().Substring(10, 1);
+                resultado = getFamiliaCod(codigoBarras.ToString().Substring(7, 1));
+                resultado2 = getSubFamiliaCod(codigoBarras.ToString().Substring(7, 1), codigoBarras.ToString().Substring(8, 1));
+                if (resultado != "" && resultado2 != "")
+                {
+                    codigoArticulo = codigoBarras.ToString().Substring(0, 7) +
+                    resultado + resultado2 + codigoBarras.ToString().Substring(9, 1);
+                }
+                else
+                {
+                    codigoArticulo = "-1";
+                }
             }else if (codigoArticulo.Length == 11)
             {
-                codigoArticulo = codigoBarras.ToString().Substring(0, 7) +
-                    getFamiliaCod(codigoBarras.ToString().Substring(8, 1)) +
-                    getSubFamiliaCod(codigoBarras.ToString().Substring(8, 1), codigoBarras.ToString().Substring(9, 1)) +
-                    codigoBarras.ToString().Substring(10, 2);
+                resultado = getFamiliaCod(codigoBarras.ToString().Substring(7, 1));
+                resultado2 = getSubFamiliaCod(codigoBarras.ToString().Substring(7, 1), codigoBarras.ToString().Substring(8, 1));
+                if (resultado != "" && resultado2 != "")
+                {
+                    codigoArticulo = codigoBarras.ToString().Substring(0, 7) +
+                    resultado + resultado2 + codigoBarras.ToString().Substring(9, 2);
+                }
+                else
+                {
+                    codigoArticulo = "-1";
+                }
             } else if (codigoArticulo.Length == 12)
             {
-                codigoArticulo = codigoBarras.ToString().Substring(0, 7) +
-                    getFamiliaCod(codigoBarras.ToString().Substring(8, 1)) +
-                    getSubFamiliaCod(codigoBarras.ToString().Substring(8, 1), codigoBarras.ToString().Substring(9, 1)) +
-                    codigoBarras.ToString().Substring(10, 3);
+                resultado = getFamiliaCod(codigoBarras.ToString().Substring(7, 1));
+                resultado2 = getSubFamiliaCod(codigoBarras.ToString().Substring(7, 1), codigoBarras.ToString().Substring(8, 1));
+                if (resultado != "" && resultado2 != "")
+                {
+                    codigoArticulo = codigoBarras.ToString().Substring(0, 7) +
+                    resultado + resultado2 + codigoBarras.ToString().Substring(9, 3);
+                }
+                else
+                {
+                    codigoArticulo = "-1";
+                }
             }
             
             List<Producto> productos = new List<Producto>();
@@ -359,7 +395,7 @@ namespace CapaDatos
                             FROM Registro WHERE CodigoArticulo LIKE @cod";
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
-            cmd.Parameters.AddWithValue("@cod", "%" + codigoArticulo + "%");
+            cmd.Parameters.AddWithValue("@cod", codigoArticulo + "%");
             try
             {
                 conTabla.Open();
@@ -489,7 +525,7 @@ namespace CapaDatos
         {
             Familia fam = null;
             string sql = @"SELECT *
-                            FROM Familia WHERE NumeroCodigo = @cod";
+                            FROM Familia WHERE NumeroCodigoF = @cod";
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
             cmd.Parameters.AddWithValue("@cod", numFamilia);
@@ -525,7 +561,7 @@ namespace CapaDatos
         {
             SubFamilia subfam = null;
             string sql = @"SELECT *
-                            FROM SubFamilia WHERE FamiliaCod = @cod AND NumeroCodSF = @sub";
+                            FROM SubFamilia WHERE FamiliaCod = @cod AND NumeroCodigoSF = @sub";
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
             cmd.Parameters.AddWithValue("@cod", getFamiliaCod(codFamilia));

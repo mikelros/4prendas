@@ -120,7 +120,7 @@ namespace CapaNegocio
             return datos.getTodosProductos();
         }
 
-        public List<Producto> getProdsCodigoBarras(int codigoBarras)
+        public List<Producto> getProdsCodigoBarras(long codigoBarras)
         {
             return datos.getProdsCodigoBarras(codigoBarras);
         }

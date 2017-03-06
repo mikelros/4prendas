@@ -115,23 +115,27 @@ namespace CapaPresentacion
             switch (cmbBuscar.SelectedItem.ToString())
             {
                 case "Código de barras":
-                    if (txtBuscar.Text.Length > 13) { }
-                    else
+                    long parse = 0;
+                    if (long.TryParse(txtBuscar.Text, out parse))
                     {
-                        int cod = 0;
-                        int.TryParse(txtBuscar.Text, out cod);
-                        
-                        productos = Modulo.miNegocio.getProdsCodigoBarras(int.Parse(txtBuscar.Text));
-                        dgvProductos.DataSource = productos;
+                        if (txtBuscar.Text.Length < 13) {
+                            productos = Modulo.miNegocio.getProdsCodigoBarras(parse);
+                            dgvProductos.DataSource = productos;
+                           dgvCarrito.Refresh();
+                        }
                     }
                     break;
                 case "Código de ártículo":
                     productos = Modulo.miNegocio.getProdsPorCodigoArticulo(txtBuscar.Text);
+                    
                     dgvProductos.DataSource = productos;
+                    dgvCarrito.Refresh();
                     break;
                 case "Descripción":
                     productos = Modulo.miNegocio.getProdsPorDescripcion(txtBuscar.Text);
+                    
                     dgvProductos.DataSource = productos;
+                    dgvCarrito.Refresh();
                     break;
                 default:
                     break;
