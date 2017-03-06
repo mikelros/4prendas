@@ -101,16 +101,6 @@ namespace CapaDatos
             }
         }
 
-        public void insertarSubFamilia(SubFamilia subFam)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void insertarFamilia(Familia fam)
-        {
-            throw new NotImplementedException();
-        }
-
         public List<Producto> getProductos(string codFamilia, string codSubfamilia)
         {
             List<Producto> productos = new List<Producto>();
@@ -302,6 +292,7 @@ namespace CapaDatos
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
             cmd.Parameters.AddWithValue("@desc", "%" + desc + "%");
+
             try
             {
                 conTabla.Open();
