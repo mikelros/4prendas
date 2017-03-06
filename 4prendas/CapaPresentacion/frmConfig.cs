@@ -186,6 +186,8 @@ namespace CapaPresentacion
             nudEditarProductoLugarId.Maximum = int.MaxValue;
             nudEditarProductoCollectionId.Maximum = int.MaxValue; //No sabía a que hacía referencia "Collection" asi que no lo he traducido
 
+            rbtnEditarProducto.Select();
+
             cargarEmpleados();
 
             cargarShopMode();
@@ -492,6 +494,58 @@ namespace CapaPresentacion
                     MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
                 }
             }
+        }
+
+        private void rbtnEditarProducto_CheckedChanged(object sender, EventArgs e)
+        {
+            gboEditProduct.Show();
+            gboAnadirFamilia.Hide();
+            gboAñadirSubFamilia.Hide();
+        }
+
+        private void btnAñadirSubFamilia_Click(object sender, EventArgs e)
+        {
+
+            SubFamilia subFam = new SubFamilia(txtCodFamiliaParaSub.Text, txtCodigoSubFamilia.Text, txtNombreSubFamila.Text, txtImagenSubFamilia.Text, int.Parse(txtIVASub.Text), int.Parse(txtNumSub.Text));
+            //Modulo.miNegocio.InsertarSubFamilia(subFam);
+        }
+
+        private void btnAnadirFamilia_Click(object sender, EventArgs e)
+        {
+            Familia fam = new Familia(txtCodigoFamilia.Text, txtNombreFamilia.Text, txtImagenFamilia.Text, int.Parse(txtNumCodFam.Text));
+            //Modulo.miNegocio.InsertarFamilia(fam);
+
+        }
+
+        private void btnCancelarAnadirFamilia_Click(object sender, EventArgs e)
+        {
+            foreach (Control c in gboAnadirFamilia.Controls)
+            {
+                if (c.GetType().ToString() == "TextBox")
+                {
+
+                }
+            }
+        }
+
+        private void btnCancelarSubFamilia_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbtnAnadirFamilia_CheckedChanged(object sender, EventArgs e)
+        {
+
+            gboEditProduct.Hide();
+            gboAnadirFamilia.Show();
+            gboAñadirSubFamilia.Hide();
+        }
+
+        private void rbtnAñadirSubFamilia_CheckedChanged(object sender, EventArgs e)
+        {
+            gboAñadirSubFamilia.Show();
+            gboEditProduct.Hide();
+            gboAnadirFamilia.Hide();
         }
     }
 }
