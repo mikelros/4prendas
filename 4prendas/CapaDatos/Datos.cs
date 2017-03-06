@@ -541,7 +541,7 @@ namespace CapaDatos
             List<Producto> productos = new List<Producto>();
             string sql = @"SELECT *
                             FROM   Registro
-                            WHERE  Registro.CodigoArticulo = @codigoArticulo; ";
+                            WHERE  Registro.CodigoArticulo LIKE @codigoArticulo; ";
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
             cmd.Parameters.AddWithValue("@codigoArticulo", "%" + codigoArticulo + "%");
