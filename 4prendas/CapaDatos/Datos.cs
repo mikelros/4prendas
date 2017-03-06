@@ -11,6 +11,8 @@ namespace CapaDatos
     public class Datos
     {
         private static string cadenaConexion = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=4prendas.accdb";
+        public delegate void ErrorEventoDelegate(EventoError evento);
+        public event ErrorEventoDelegate errorEvent;
 
         public List<Familia> getFamiliasSubfamilias()
         {
@@ -48,7 +50,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
+                errorEvent(new EventoError("Error en la base de datos. " + ex.Message));
                 return null;
             }
             finally
@@ -376,9 +378,9 @@ namespace CapaDatos
         public string getCodigoBarras(string codigoArticulo)
         {
             String codigoB = codigoArticulo.ToString().Substring(0, 7) +
-                getFamiliaNumCod(codigoArticulo.ToString().Substring(8, 2)) +
-                getSubFamiliaNumCod(codigoArticulo.ToString().Substring(8, 2), codigoArticulo.ToString().Substring(10, 2)) +
-                codigoArticulo.ToString().Substring(12, 3);
+                getFamiliaNumCod(codigoArticulo.ToString().Substring(7, 2)) +
+                getSubFamiliaNumCod(codigoArticulo.ToString().Substring(7, 2), codigoArticulo.ToString().Substring(9, 2)) +
+                codigoArticulo.ToString().Substring(11, 3);
 
             return codigoB;
         }
@@ -539,7 +541,7 @@ namespace CapaDatos
             List<Producto> productos = new List<Producto>();
             string sql = @"SELECT *
                             FROM   Registro
-                            WHERE  Registro.CodigoArticulo = @codigoArticulo; ";
+                            WHERE  Registro.CodigoArticulo LIKE @codigoArticulo; ";
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
             cmd.Parameters.AddWithValue("@codigoArticulo", "%" + codigoArticulo + "%");
@@ -877,10 +879,7 @@ namespace CapaDatos
                                       Recogida.PersonaId,
                                       Registro.RecogidaId
                             HAVING Registro.RecogidaId IS NULL
-                                    OR Recogida.CantidadProductos > (SELECT SUM(Registro.Stock)
-                                                                     FROM   Recogida re
-                                                                     INNER JOIN Registro
-                                                                     ON re.IdRecogida = Registro.RecogidaId)
+                                    OR Recogida.CantidadProductos > SUM(Registro.Stock)
                             ORDER  BY Recogida.IdRecogida;";
 
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
@@ -916,9 +915,7 @@ namespace CapaDatos
             string sql = @"SELECT *
                             FROM   Recogida r
                             WHERE  r.IdRecogida = @recogidaid
-                                   AND r.CantidadProductos = (SELECT SUM(re.Stock)
-                                                              FROM   Registro re
-                                                              WHERE  re.RecogidaId = @idd);";
+                                   AND r.CantidadProductos = SUM(Registro.Stock)";
 
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
