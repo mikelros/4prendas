@@ -386,11 +386,12 @@ namespace CapaPresentacion
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            if(codBarrasProductoSeleccionado.Length != 12)
+            if (codBarrasProductoSeleccionado.Length != 12)
             {
                 MessageBox.Show("Debe seleccionarse un producto antes de poder imprimir su código de barras.", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else {
+            else
+            {
                 String codigoBarras = codBarrasProductoSeleccionado + Util.SacarControl(ulong.Parse(codBarrasProductoSeleccionado));
                 BarcodeSettings settings = new BarcodeSettings();
                 settings.Type = BarCodeType.EAN13;
@@ -402,10 +403,11 @@ namespace CapaPresentacion
 
                 image.RotateFlip(RotateFlipType.Rotate180FlipX);
                 Bitmap b = Util.CropImage(image, new Rectangle(0, 0, image.Width, image.Height - 30));
-                b.RotateFlip(RotateFlipType.Rotate90FlipX);               
+                b.RotateFlip(RotateFlipType.Rotate180FlipX);
 
                 PrintDocument pd = new PrintDocument();
                 pd.PrinterSettings.PrinterName = "Brother QL-700";
+                pd.DefaultPageSettings.Landscape = false;
                 var sizes = pd.PrinterSettings.PaperSizes;
                 PaperSize ps = null;
                 foreach (PaperSize s in sizes)
@@ -420,7 +422,9 @@ namespace CapaPresentacion
 
                 pd.PrintPage += (s, args) =>
                 {
-                    args.Graphics.DrawImage(b, new Rectangle(0, 0, b.Width, b.Height));
+                    args.Graphics.DrawString(productoExistenteSeleccionado != null ? productoExistenteSeleccionado.Descripcion : txtDescripcion.Text, new Font("Arial", 8), new SolidBrush(Color.Black), 0, 0);
+                    args.Graphics.DrawString(productoExistenteSeleccionado != null ? productoExistenteSeleccionado.Coste.ToString() + "€" : nudCoste.Value.ToString() + "€", new Font("Arial", 8), new SolidBrush(Color.Black), 0, 10);
+                    args.Graphics.DrawImage(b, new Rectangle(0, 22, b.Width, b.Height));
                 };
                 PrintDialog pdi = new PrintDialog();
                 pdi.Document = pd;
