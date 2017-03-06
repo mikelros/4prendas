@@ -385,6 +385,7 @@ namespace CapaPresentacion
             }
             pd.DefaultPageSettings.PaperSize = ps;
 
+
             pd.PrintPage += (s, args) =>
             {
                 float linesPerPage = 0;
