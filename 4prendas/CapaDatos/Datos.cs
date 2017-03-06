@@ -322,12 +322,37 @@ namespace CapaDatos
 
         public List<Producto> getProdsCodigoBarras(int codigoBarras)
         {
-            String codigoArticulo = codigoBarras.ToString().Substring(0, 7) +
-                getFamiliaCod(codigoBarras.ToString().Substring(8, 1)) +
-                getSubFamiliaCod(codigoBarras.ToString().Substring(8, 1), codigoBarras.ToString().Substring(9, 1)) +
-                codigoBarras.ToString().Substring(10, 3);
+            String codigoArticulo = codigoBarras.ToString();
 
-
+            if (codigoArticulo.Length == 8)
+            {
+                codigoArticulo = codigoBarras.ToString().Substring(0, 7) +
+                    getFamiliaCod(codigoBarras.ToString().Substring(8, 1));
+            } else if (codigoArticulo.Length == 9)
+            {
+                codigoArticulo = codigoBarras.ToString().Substring(0, 7) +
+                    getFamiliaCod(codigoBarras.ToString().Substring(8, 1)) +
+                    getSubFamiliaCod(codigoBarras.ToString().Substring(8, 1), codigoBarras.ToString().Substring(9, 1));
+            } else if (codigoArticulo.Length == 10)
+            {
+                codigoArticulo = codigoBarras.ToString().Substring(0, 7) +
+                    getFamiliaCod(codigoBarras.ToString().Substring(8, 1)) +
+                    getSubFamiliaCod(codigoBarras.ToString().Substring(8, 1), codigoBarras.ToString().Substring(9, 1)) +
+                    codigoBarras.ToString().Substring(10, 1);
+            }else if (codigoArticulo.Length == 11)
+            {
+                codigoArticulo = codigoBarras.ToString().Substring(0, 7) +
+                    getFamiliaCod(codigoBarras.ToString().Substring(8, 1)) +
+                    getSubFamiliaCod(codigoBarras.ToString().Substring(8, 1), codigoBarras.ToString().Substring(9, 1)) +
+                    codigoBarras.ToString().Substring(10, 2);
+            } else if (codigoArticulo.Length == 12)
+            {
+                codigoArticulo = codigoBarras.ToString().Substring(0, 7) +
+                    getFamiliaCod(codigoBarras.ToString().Substring(8, 1)) +
+                    getSubFamiliaCod(codigoBarras.ToString().Substring(8, 1), codigoBarras.ToString().Substring(9, 1)) +
+                    codigoBarras.ToString().Substring(10, 3);
+            }
+            
             List<Producto> productos = new List<Producto>();
             Producto prod = null;
             string sql = @"SELECT *
