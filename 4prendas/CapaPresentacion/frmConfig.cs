@@ -513,7 +513,7 @@ namespace CapaPresentacion
         private void btnAnadirFamilia_Click(object sender, EventArgs e)
         {
             Familia fam = new Familia(txtCodigoFamilia.Text, txtNombreFamilia.Text, txtImagenFamilia.Text, int.Parse(txtNumCodFam.Text));
-            Modulo.miNegocio.InsertarFamilia(fam);
+            Modulo.miNegocio.InsertarFamilia(fam,Modulo.);
 
         }
 

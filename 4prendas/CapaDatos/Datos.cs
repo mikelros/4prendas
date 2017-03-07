@@ -103,12 +103,82 @@ namespace CapaDatos
 
         public void insertarFamilia(Familia fam)
         {
-            throw new NotImplementedException();
+            string sql = @"INSERT INTO Familia
+                                        (CodFamilia,
+                                         NombreFamilia,
+                                         ImagenFamilia,
+                                         NumeroCodigoF)
+                            VALUES      (@codFam,
+                                         @nombre,
+                                         @imagen,
+                                         @numCod);";
+
+            OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
+            OleDbCommand cmd = new OleDbCommand(sql, conTabla);
+            try
+            {
+                conTabla.Open();
+
+                
+                    cmd.Parameters.AddWithValue("@codFam", fam.CodFamilia);
+                    cmd.Parameters.AddWithValue("@nombre", fam.Nombre);
+                    cmd.Parameters.AddWithValue("@imagen", fam.Imagen);
+                    cmd.Parameters.AddWithValue("@numCod", fam.NumCodigo);
+
+                cmd.ExecuteNonQuery();
+                
+            }
+            catch (Exception ex)
+            {
+                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
+            }
+            finally
+            {
+                conTabla.Close();
+            }
         }
 
         public void insertarSubFamilia(SubFamilia subFam)
         {
-            throw new NotImplementedException();
+            string sql = @"INSERT INTO SubFamilia
+                                        (FamiliaCod,
+                                         CodSubFamilia,
+                                         Nombre,
+                                         Imagen,
+                                         IVA,
+                                         NumeroCodigoSF)
+                            VALUES      (@codFam,
+                                         @codSubFam,
+                                         @nombre,
+                                         @imagen,
+                                         @iva,
+                                         @numCodSF);";
+
+            OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
+            OleDbCommand cmd = new OleDbCommand(sql, conTabla);
+            try
+            {
+                conTabla.Open();
+
+
+                cmd.Parameters.AddWithValue("@codFam", subFam.CodFamilia);
+                cmd.Parameters.AddWithValue("@codSubFam", subFam.CodSubFamilia);
+                cmd.Parameters.AddWithValue("@nombre", subFam.Nombre);
+                cmd.Parameters.AddWithValue("@imagen", subFam.Imagen);
+                cmd.Parameters.AddWithValue("@iva", subFam.Iva);
+                cmd.Parameters.AddWithValue("@numCodSF", subFam.NumeroCodigo);
+
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
+            }
+            finally
+            {
+                conTabla.Close();
+            }
         }
 
         public List<Producto> getProductos(string codFamilia, string codSubfamilia)
