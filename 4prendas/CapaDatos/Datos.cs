@@ -101,6 +101,16 @@ namespace CapaDatos
             }
         }
 
+        public void insertarFamilia(Familia fam)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void insertarSubFamilia(SubFamilia subFam)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Producto> getProductos(string codFamilia, string codSubfamilia)
         {
             List<Producto> productos = new List<Producto>();
