@@ -226,3 +226,5 @@ C:\Users\Asrield\Source\Repos\4prendas10\4prendas\CapaPresentacion\obj\Debug\Cap
 C:\Users\Asrield\Source\Repos\4prendas10\4prendas\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.GenerateResource.Cache
 C:\Users\Asrield\Source\Repos\4prendas10\4prendas\CapaPresentacion\obj\Debug\CapaPresentacion.exe
 C:\Users\Asrield\Source\Repos\4prendas10\4prendas\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
+D:\DAM\Acceso Datos\4prendas\4prendas\CapaPresentacion\bin\Debug\Spire.Barcode.dll
+D:\DAM\Acceso Datos\4prendas\4prendas\CapaPresentacion\bin\Debug\Spire.Barcode.xml
