@@ -85,9 +85,12 @@
             this.btnApply = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.gboModoEdicion = new System.Windows.Forms.GroupBox();
+            this.rbtnAñadirSubFamilia = new System.Windows.Forms.RadioButton();
             this.rbtnAnadirFamilia = new System.Windows.Forms.RadioButton();
             this.rbtnEditarProducto = new System.Windows.Forms.RadioButton();
             this.gboAnadirFamilia = new System.Windows.Forms.GroupBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.txtNumCodFam = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -99,10 +102,9 @@
             this.txtImagenFamilia = new System.Windows.Forms.TextBox();
             this.btnCancelarAnadirFamilia = new System.Windows.Forms.Button();
             this.btnAnadirFamilia = new System.Windows.Forms.Button();
-            this.txtNumCodFam = new System.Windows.Forms.TextBox();
-            this.label27 = new System.Windows.Forms.Label();
-            this.rbtnAñadirSubFamilia = new System.Windows.Forms.RadioButton();
             this.gboAñadirSubFamilia = new System.Windows.Forms.GroupBox();
+            this.btnCancelarSubFamilia = new System.Windows.Forms.Button();
+            this.btnAñadirSubFamilia = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.txtNumSub = new System.Windows.Forms.TextBox();
@@ -111,15 +113,13 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.txtNombreSubFamila = new System.Windows.Forms.TextBox();
+            this.txtCodFamiliaParaSub = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.txtCodigoSubFamilia = new System.Windows.Forms.TextBox();
             this.txtImagenSubFamilia = new System.Windows.Forms.TextBox();
-            this.btnCancelarSubFamilia = new System.Windows.Forms.Button();
-            this.btnAñadirSubFamilia = new System.Windows.Forms.Button();
-            this.txtCodFamiliaParaSub = new System.Windows.Forms.TextBox();
-            this.label28 = new System.Windows.Forms.Label();
             this.grbType.SuspendLayout();
             this.grbNewEmployer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pboFotoEmpleado)).BeginInit();
@@ -776,6 +776,18 @@
             this.gboModoEdicion.TabIndex = 21;
             this.gboModoEdicion.TabStop = false;
             // 
+            // rbtnAñadirSubFamilia
+            // 
+            this.rbtnAñadirSubFamilia.AutoSize = true;
+            this.rbtnAñadirSubFamilia.Location = new System.Drawing.Point(234, 11);
+            this.rbtnAñadirSubFamilia.Name = "rbtnAñadirSubFamilia";
+            this.rbtnAñadirSubFamilia.Size = new System.Drawing.Size(112, 17);
+            this.rbtnAñadirSubFamilia.TabIndex = 0;
+            this.rbtnAñadirSubFamilia.TabStop = true;
+            this.rbtnAñadirSubFamilia.Text = "Añadir Sub Familia";
+            this.rbtnAñadirSubFamilia.UseVisualStyleBackColor = true;
+            this.rbtnAñadirSubFamilia.CheckedChanged += new System.EventHandler(this.rbtnAñadirSubFamilia_CheckedChanged);
+            // 
             // rbtnAnadirFamilia
             // 
             this.rbtnAnadirFamilia.AutoSize = true;
@@ -823,6 +835,23 @@
             this.gboAnadirFamilia.TabIndex = 20;
             this.gboAnadirFamilia.TabStop = false;
             this.gboAnadirFamilia.Text = "Añadir Familia";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(16, 193);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(74, 18);
+            this.label27.TabIndex = 22;
+            this.label27.Text = "NumCod";
+            // 
+            // txtNumCodFam
+            // 
+            this.txtNumCodFam.Location = new System.Drawing.Point(96, 193);
+            this.txtNumCodFam.Name = "txtNumCodFam";
+            this.txtNumCodFam.Size = new System.Drawing.Size(31, 21);
+            this.txtNumCodFam.TabIndex = 21;
             // 
             // label16
             // 
@@ -938,35 +967,6 @@
             this.btnAnadirFamilia.UseVisualStyleBackColor = false;
             this.btnAnadirFamilia.Click += new System.EventHandler(this.btnAnadirFamilia_Click);
             // 
-            // txtNumCodFam
-            // 
-            this.txtNumCodFam.Location = new System.Drawing.Point(96, 193);
-            this.txtNumCodFam.Name = "txtNumCodFam";
-            this.txtNumCodFam.Size = new System.Drawing.Size(31, 21);
-            this.txtNumCodFam.TabIndex = 21;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(16, 193);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(74, 18);
-            this.label27.TabIndex = 22;
-            this.label27.Text = "NumCod";
-            // 
-            // rbtnAñadirSubFamilia
-            // 
-            this.rbtnAñadirSubFamilia.AutoSize = true;
-            this.rbtnAñadirSubFamilia.Location = new System.Drawing.Point(234, 11);
-            this.rbtnAñadirSubFamilia.Name = "rbtnAñadirSubFamilia";
-            this.rbtnAñadirSubFamilia.Size = new System.Drawing.Size(112, 17);
-            this.rbtnAñadirSubFamilia.TabIndex = 0;
-            this.rbtnAñadirSubFamilia.TabStop = true;
-            this.rbtnAñadirSubFamilia.Text = "Añadir Sub Familia";
-            this.rbtnAñadirSubFamilia.UseVisualStyleBackColor = true;
-            this.rbtnAñadirSubFamilia.CheckedChanged += new System.EventHandler(this.rbtnAñadirSubFamilia_CheckedChanged);
-            // 
             // gboAñadirSubFamilia
             // 
             this.gboAñadirSubFamilia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
@@ -994,6 +994,36 @@
             this.gboAñadirSubFamilia.TabIndex = 22;
             this.gboAñadirSubFamilia.TabStop = false;
             this.gboAñadirSubFamilia.Text = "Añadir Sub Familia";
+            // 
+            // btnCancelarSubFamilia
+            // 
+            this.btnCancelarSubFamilia.BackColor = System.Drawing.Color.White;
+            this.btnCancelarSubFamilia.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCancelarSubFamilia.BackgroundImage")));
+            this.btnCancelarSubFamilia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnCancelarSubFamilia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarSubFamilia.Location = new System.Drawing.Point(266, 240);
+            this.btnCancelarSubFamilia.Name = "btnCancelarSubFamilia";
+            this.btnCancelarSubFamilia.Size = new System.Drawing.Size(79, 113);
+            this.btnCancelarSubFamilia.TabIndex = 37;
+            this.btnCancelarSubFamilia.Text = "C&ancelar";
+            this.btnCancelarSubFamilia.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCancelarSubFamilia.UseVisualStyleBackColor = false;
+            this.btnCancelarSubFamilia.Click += new System.EventHandler(this.btnCancelarSubFamilia_Click);
+            // 
+            // btnAñadirSubFamilia
+            // 
+            this.btnAñadirSubFamilia.BackColor = System.Drawing.Color.White;
+            this.btnAñadirSubFamilia.BackgroundImage = global::CapaPresentacion.Properties.Resources.insert_column;
+            this.btnAñadirSubFamilia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAñadirSubFamilia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAñadirSubFamilia.Location = new System.Drawing.Point(167, 240);
+            this.btnAñadirSubFamilia.Name = "btnAñadirSubFamilia";
+            this.btnAñadirSubFamilia.Size = new System.Drawing.Size(79, 113);
+            this.btnAñadirSubFamilia.TabIndex = 36;
+            this.btnAñadirSubFamilia.Text = "A&ñadir";
+            this.btnAñadirSubFamilia.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnAñadirSubFamilia.UseVisualStyleBackColor = false;
+            this.btnAñadirSubFamilia.Click += new System.EventHandler(this.btnAñadirSubFamilia_Click);
             // 
             // label26
             // 
@@ -1070,6 +1100,16 @@
             this.label19.TabIndex = 30;
             this.label19.Text = "Sub Familia";
             // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(205, 53);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(98, 18);
+            this.label28.TabIndex = 31;
+            this.label28.Text = "Cod Familia";
+            // 
             // label20
             // 
             this.label20.AutoSize = true;
@@ -1086,6 +1126,13 @@
             this.txtNombreSubFamila.Name = "txtNombreSubFamila";
             this.txtNombreSubFamila.Size = new System.Drawing.Size(126, 21);
             this.txtNombreSubFamila.TabIndex = 26;
+            // 
+            // txtCodFamiliaParaSub
+            // 
+            this.txtCodFamiliaParaSub.Location = new System.Drawing.Point(208, 74);
+            this.txtCodFamiliaParaSub.Name = "txtCodFamiliaParaSub";
+            this.txtCodFamiliaParaSub.Size = new System.Drawing.Size(43, 21);
+            this.txtCodFamiliaParaSub.TabIndex = 27;
             // 
             // button2
             // 
@@ -1112,53 +1159,6 @@
             this.txtImagenSubFamilia.Name = "txtImagenSubFamilia";
             this.txtImagenSubFamilia.Size = new System.Drawing.Size(177, 21);
             this.txtImagenSubFamilia.TabIndex = 23;
-            // 
-            // btnCancelarSubFamilia
-            // 
-            this.btnCancelarSubFamilia.BackColor = System.Drawing.Color.White;
-            this.btnCancelarSubFamilia.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCancelarSubFamilia.BackgroundImage")));
-            this.btnCancelarSubFamilia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnCancelarSubFamilia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelarSubFamilia.Location = new System.Drawing.Point(266, 240);
-            this.btnCancelarSubFamilia.Name = "btnCancelarSubFamilia";
-            this.btnCancelarSubFamilia.Size = new System.Drawing.Size(79, 113);
-            this.btnCancelarSubFamilia.TabIndex = 37;
-            this.btnCancelarSubFamilia.Text = "C&ancelar";
-            this.btnCancelarSubFamilia.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCancelarSubFamilia.UseVisualStyleBackColor = false;
-            this.btnCancelarSubFamilia.Click += new System.EventHandler(this.btnCancelarSubFamilia_Click);
-            // 
-            // btnAñadirSubFamilia
-            // 
-            this.btnAñadirSubFamilia.BackColor = System.Drawing.Color.White;
-            this.btnAñadirSubFamilia.BackgroundImage = global::CapaPresentacion.Properties.Resources.insert_column;
-            this.btnAñadirSubFamilia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAñadirSubFamilia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAñadirSubFamilia.Location = new System.Drawing.Point(167, 240);
-            this.btnAñadirSubFamilia.Name = "btnAñadirSubFamilia";
-            this.btnAñadirSubFamilia.Size = new System.Drawing.Size(79, 113);
-            this.btnAñadirSubFamilia.TabIndex = 36;
-            this.btnAñadirSubFamilia.Text = "A&ñadir";
-            this.btnAñadirSubFamilia.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnAñadirSubFamilia.UseVisualStyleBackColor = false;
-            this.btnAñadirSubFamilia.Click += new System.EventHandler(this.btnAñadirSubFamilia_Click);
-            // 
-            // txtCodFamiliaParaSub
-            // 
-            this.txtCodFamiliaParaSub.Location = new System.Drawing.Point(208, 74);
-            this.txtCodFamiliaParaSub.Name = "txtCodFamiliaParaSub";
-            this.txtCodFamiliaParaSub.Size = new System.Drawing.Size(43, 21);
-            this.txtCodFamiliaParaSub.TabIndex = 27;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(205, 53);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(98, 18);
-            this.label28.TabIndex = 31;
-            this.label28.Text = "Cod Familia";
             // 
             // frmConfig
             // 

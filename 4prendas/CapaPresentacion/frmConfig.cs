@@ -508,29 +508,36 @@ namespace CapaPresentacion
 
             SubFamilia subFam = new SubFamilia(txtCodFamiliaParaSub.Text, txtCodigoSubFamilia.Text, txtNombreSubFamila.Text, txtImagenSubFamilia.Text, int.Parse(txtIVASub.Text), int.Parse(txtNumSub.Text));
             Modulo.miNegocio.InsertarSubFamilia(subFam);
+            MessageBox.Show("Familia insertada correctamente");
+            btnCancelarSubFamilia_Click(sender, e);
         }
 
         private void btnAnadirFamilia_Click(object sender, EventArgs e)
         {
             Familia fam = new Familia(txtCodigoFamilia.Text, txtNombreFamilia.Text, txtImagenFamilia.Text, int.Parse(txtNumCodFam.Text));
-            Modulo.miNegocio.InsertarFamilia(fam,Modulo.);
+            Modulo.miNegocio.InsertarFamilia(fam);
+            MessageBox.Show("SubFamilia insertada correctamente");
+            btnCancelarAnadirFamilia_Click(sender, e);
 
         }
 
         private void btnCancelarAnadirFamilia_Click(object sender, EventArgs e)
         {
-            foreach (Control c in gboAnadirFamilia.Controls)
-            {
-                if (c.GetType().ToString() == "TextBox")
-                {
+            txtCodigoFamilia.Text = "";
+            txtNombreFamilia.Text = "";
+            txtImagenFamilia.Text = "";
+            txtNumCodFam.Text = "";
 
-                }
-            }
         }
 
         private void btnCancelarSubFamilia_Click(object sender, EventArgs e)
         {
-
+            txtCodigoSubFamilia.Text = "";
+            txtCodFamiliaParaSub.Text = "";
+            txtNombreSubFamila.Text = "";
+            txtImagenSubFamilia.Text = "";
+            txtIVASub.Text = "";
+            txtNumSub.Text = "";
         }
 
         private void rbtnAnadirFamilia_CheckedChanged(object sender, EventArgs e)
