@@ -66,22 +66,22 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Usuario:";
             // 
-            // lblUserError
+            // lblUsuarioError
             // 
             this.lblUsuarioError.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lblUsuarioError.AutoSize = true;
             this.lblUsuarioError.ForeColor = System.Drawing.Color.Red;
             this.lblUsuarioError.Location = new System.Drawing.Point(315, 178);
-            this.lblUsuarioError.Name = "lblUserError";
+            this.lblUsuarioError.Name = "lblUsuarioError";
             this.lblUsuarioError.Size = new System.Drawing.Size(99, 13);
             this.lblUsuarioError.TabIndex = 2;
             this.lblUsuarioError.Text = "Usuario inexistente!";
             // 
-            // txtUser
+            // txtUsuario
             // 
             this.txtUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtUsuario.Location = new System.Drawing.Point(309, 155);
-            this.txtUsuario.Name = "txtUser";
+            this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(153, 20);
             this.txtUsuario.TabIndex = 3;
             // 
@@ -94,13 +94,13 @@
             this.txtPass.Size = new System.Drawing.Size(153, 20);
             this.txtPass.TabIndex = 6;
             // 
-            // lblPassError
+            // lblClaveError
             // 
             this.lblClaveError.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lblClaveError.AutoSize = true;
             this.lblClaveError.ForeColor = System.Drawing.Color.Red;
             this.lblClaveError.Location = new System.Drawing.Point(315, 223);
-            this.lblClaveError.Name = "lblPassError";
+            this.lblClaveError.Name = "lblClaveError";
             this.lblClaveError.Size = new System.Drawing.Size(114, 13);
             this.lblClaveError.TabIndex = 5;
             this.lblClaveError.Text = "Contraseña incorrecta!";
@@ -138,6 +138,7 @@
             this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(686, 413);
             this.Controls.Add(this.btnCancel);
