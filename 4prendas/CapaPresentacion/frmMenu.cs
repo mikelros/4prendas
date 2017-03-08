@@ -15,7 +15,7 @@ namespace CapaPresentacion
     public partial class frmMenu : Form
     {
         string tipoTienda;
-        string mydocpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        string rutaAMisDocumentos = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         bool estaCargado = false;
 
         public frmMenu()
@@ -70,7 +70,7 @@ namespace CapaPresentacion
             try
             {
 
-                System.IO.StreamReader file = new System.IO.StreamReader(mydocpath + @"\.config.txt");
+                System.IO.StreamReader file = new System.IO.StreamReader(rutaAMisDocumentos + @"\.config.txt");
 
                 System.Console.WriteLine(tipoTienda);
                 while ((line = file.ReadLine()) != null)
@@ -103,7 +103,7 @@ namespace CapaPresentacion
             try
             {
 
-                using (StreamWriter outputFile = new StreamWriter(mydocpath + @"\.config.txt"))
+                using (StreamWriter outputFile = new StreamWriter(rutaAMisDocumentos + @"\.config.txt"))
                 {
                     outputFile.WriteLine("ShopMode=" + tipoTienda);
                 }
