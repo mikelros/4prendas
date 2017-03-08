@@ -108,9 +108,9 @@ namespace CapaPresentacion
                     outputFile.WriteLine("ShopMode=" + tipoTienda);
                 }
             }
-            catch //QUEEEEEEE ESSSS ESSSTEEEEE TRYYYYYYY CATCHHHHH ???????????????????????
+            catch(Exception ex)
             {
-
+                MessageBox.Show("Ha ocurrido un error: " + ex.Message, "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
