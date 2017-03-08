@@ -140,24 +140,24 @@
             this.btnRecogida.UseVisualStyleBackColor = true;
             this.btnRecogida.Click += new System.EventHandler(this.btnRecogida_Click);
             // 
-            // imgWorker
+            // imgEmpleado
             // 
             this.imgEmpleado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.imgEmpleado.Image = global::CapaPresentacion.Properties.Resources.newsle_empty_icon;
             this.imgEmpleado.Location = new System.Drawing.Point(1065, 185);
-            this.imgEmpleado.Name = "imgWorker";
+            this.imgEmpleado.Name = "imgEmpleado";
             this.imgEmpleado.Size = new System.Drawing.Size(100, 129);
             this.imgEmpleado.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgEmpleado.TabIndex = 89;
             this.imgEmpleado.TabStop = false;
             // 
-            // lblWorkerName
+            // lblNombreEmpleado
             // 
             this.lblNombreEmpleado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNombreEmpleado.AutoSize = true;
             this.lblNombreEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombreEmpleado.Location = new System.Drawing.Point(1062, 164);
-            this.lblNombreEmpleado.Name = "lblWorkerName";
+            this.lblNombreEmpleado.Name = "lblNombreEmpleado";
             this.lblNombreEmpleado.Size = new System.Drawing.Size(148, 18);
             this.lblNombreEmpleado.TabIndex = 88;
             this.lblNombreEmpleado.Text = "Nombre Empleado";

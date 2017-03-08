@@ -18,7 +18,7 @@ namespace CapaPresentacion
     {
         string tipoTienda;
         List<Producto> prodsStockMinimo;
-        List<Empleado> empleados;
+        bool estaCargado = false;
 
         private List<Familia> familias;
         private List<Producto> productos;
@@ -31,12 +31,13 @@ namespace CapaPresentacion
 
         private void frmVenta_Load(object sender, EventArgs e)
         {
-
+            estaCargado = false;
             cargarCmbBuscar();
             dgvCarrito.Hide();
             dgvCarrito.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             cargarStockMinimo();
             cargarListaTrabajadores();
+            estaCargado = true;
             cargarFamilias();
             ocultarGboSubFam();
             dgvProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -78,7 +79,7 @@ namespace CapaPresentacion
 
         private void cmbEmpleado_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbEmpleado.SelectedItem != null)
+            if (cmbEmpleado.SelectedItem != null && estaCargado)
             {
                 Modulo.empleadoActual = (Empleado)cmbEmpleado.SelectedItem;
                 lblNombreEmpleado.Text = ((Empleado)cmbEmpleado.SelectedItem).Nombre;

@@ -16,8 +16,8 @@ namespace CapaPresentacion
     {
         string tipoTienda;
         string mydocpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        bool estaCargado = false;
 
-        List<Empleado> Empleados;
         public frmMenu()
         {
             InitializeComponent();
@@ -25,21 +25,18 @@ namespace CapaPresentacion
 
         private void frmMenu_Load(object sender, EventArgs e)
         {
+            estaCargado = false;
             int medioY = this.Size.Height / 2;
             btnRecogida.Location = new Point((this.Size.Width / 4) - btnRecogida.Width / 2, medioY - (btnRecogida.Height / 2));
             btnRegistro.Location = new Point((this.Size.Width * 2 / 4) - btnRegistro.Width / 2, medioY - (btnRegistro.Height / 2));
             btnVenta.Location = new Point((this.Size.Width * 3 / 4) - btnVenta.Width / 2, medioY - (btnVenta.Height / 2));
             cargarTipoTienda();
             cargarListaEmpleados();
+            estaCargado = true;
         }
 
         private void cargarListaEmpleados()
         {
-            //Empleados = Modulo.miNegocio.getEmpleados();
-            //cmbEmpleado.DataSource = Empleados;
-            //cmbEmpleado.DisplayMember = "empleadoId";
-            //cmbEmpleado.SelectedItem = Modulo.empleadoActual;
-
             this.cmbEmpleado.SelectedIndexChanged -= new EventHandler(cmbEmpleado_SelectedIndexChanged);
             cmbEmpleado.DataSource = Modulo.empleados;
             this.cmbEmpleado.SelectedIndexChanged += new EventHandler(cmbEmpleado_SelectedIndexChanged);
@@ -52,7 +49,7 @@ namespace CapaPresentacion
 
         private void cmbEmpleado_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbEmpleado.SelectedItem != null)
+            if (cmbEmpleado.SelectedItem != null && estaCargado)
             {
                 Modulo.empleadoActual = (Empleado)cmbEmpleado.SelectedItem;
                 lblNombreEmpleado.Text = ((Empleado)cmbEmpleado.SelectedItem).Nombre;
