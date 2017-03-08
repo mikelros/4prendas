@@ -12,6 +12,18 @@ namespace CapaPresentacion
     {
         public static Negocio miNegocio = new Negocio();
         public static Empleado empleadoActual;
-        public static List<Empleado> empleados = miNegocio.getEmpleados();
+        public static List<Empleado> empleados;
+
+        public Modulo()
+        {
+            try
+            {
+                empleados = miNegocio.getEmpleados();
+            } catch(Exception ex)
+            {
+                empleados = new List<Empleado>();
+            }
+            
+        }
     }
 }
