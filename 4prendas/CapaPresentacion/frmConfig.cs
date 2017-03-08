@@ -333,7 +333,7 @@ namespace CapaPresentacion
             SaveFileDialog nuevaCopia = new SaveFileDialog();
             nuevaCopia.Filter = "Base de datos|*.accdb";
             nuevaCopia.ShowDialog();
-            archivoCopiar = "CUASHOP_MODA.accdb";
+            archivoCopiar = "4Prendas.accdb";
             
             if (System.IO.File.Exists(archivoCopiar))
             {
