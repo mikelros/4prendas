@@ -34,10 +34,17 @@ namespace CapaPresentacion
             dgvProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             hacerGboSubFamInvisible();
-            cargarRecogidas();
-            cargarEmpleados();
-            estaCargado = true;
-            cargarFamilias();
+            try
+            {
+                cargarRecogidas();
+                cargarEmpleados();
+                estaCargado = true;
+                cargarFamilias();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error: " + ex.Message, "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 
@@ -91,7 +98,6 @@ namespace CapaPresentacion
         private void cargarSubfamilias(object sender, EventArgs e)
         {
             ponerFamiliasEnBlanco();
-
 
             Button b = (Button)sender;
             b.BackColor = Color.LightBlue;
@@ -155,9 +161,17 @@ namespace CapaPresentacion
             {
                 if (!chb.Checked)
                 {
-                    string id = Modulo.miNegocio.getSiguienteID(s.CodFamilia, s.CodSubFamilia);
-                    codBarrasProductoSeleccionado = lblCodArticulo.Text + f.NumCodigo.ToString() + s.NumeroCodigo.ToString() + id;
-                    lblCodArticulo.Text += s.CodFamilia.ToString() + s.CodSubFamilia.ToString() + id;
+                    try
+                    {
+                        string id = Modulo.miNegocio.getSiguienteID(s.CodFamilia, s.CodSubFamilia);
+                        codBarrasProductoSeleccionado = lblCodArticulo.Text + f.NumCodigo.ToString() + s.NumeroCodigo.ToString() + id;
+                        lblCodArticulo.Text += s.CodFamilia.ToString() + s.CodSubFamilia.ToString() + id;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Ha ocurrido un error: " + ex.Message, "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
                 }
 
 
@@ -185,43 +199,59 @@ namespace CapaPresentacion
 
             if (chb.Checked)
             {
-                productoExistenteSeleccionado.Stock += int.Parse(nudUnidades.Value.ToString());
-                Modulo.miNegocio.actualizarProducto(productoExistenteSeleccionado);
-                limpiarControles();
-                MessageBox.Show("Actualizado correctamente.");
+                try
+                {
+                    productoExistenteSeleccionado.Stock += int.Parse(nudUnidades.Value.ToString());
+                    Modulo.miNegocio.actualizarProducto(productoExistenteSeleccionado);
+                    limpiarControles();
+                    MessageBox.Show("Actualizado correctamente.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ha ocurrido un error: " + ex.Message, "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
 
             }
             else
             {
-                Producto producto = new Producto();
-                Lugar lugar = new Lugar(txtEstanteria.Text, int.Parse(nudEstante.Value.ToString()), int.Parse(nudAltura.Value.ToString()));
-
-                producto.CodigoArticulo = lblCodArticulo.Text;
-                producto.Coste = int.Parse(nudCoste.Text);
-                producto.Descripcion = txtDescripcion.Text;
-                producto.Medida = txtMedida.Text;
-                producto.Stock = int.Parse(nudUnidades.Text);
-                producto.EmpleadoId = ((Empleado)cmbEmpleado.SelectedItem).EmpleadoId;
-                producto.FechaEntrada = Util.GetDateWithoutMilliseconds(DateTime.Now);
-                producto.RecogidaId = ((Recogida)cboRecogida.SelectedItem).IdRecogida;
-                string codfamilia = producto.CodigoArticulo.Substring(7, 2);
-                producto.CodFamilia = codfamilia;
-                string codsubfamilia = producto.CodigoArticulo.Substring(9, 2);
-                producto.CodSubFamilia = codsubfamilia;
-
-                Lugar lugarFinal = Modulo.miNegocio.getLugar(lugar);
-                if (lugarFinal == null)
+                try
                 {
-                    MessageBox.Show("Lugar ocupado, debe elegir otro.");
-                    return;
-                }
-                producto.LugarId = lugarFinal.Id;
+                    Producto producto = new Producto();
+                    Lugar lugar = new Lugar(txtEstanteria.Text, int.Parse(nudEstante.Value.ToString()), int.Parse(nudAltura.Value.ToString()));
 
-                List<Producto> productos = new List<Producto>();
-                productos.Add(producto);
-                Modulo.miNegocio.InsertarProductos(productos);
-                limpiarControles();
-                MessageBox.Show("Insertado correctamente.");
+                    producto.CodigoArticulo = lblCodArticulo.Text;
+                    producto.Coste = int.Parse(nudCoste.Text);
+                    producto.Descripcion = txtDescripcion.Text;
+                    producto.Medida = txtMedida.Text;
+                    producto.Stock = int.Parse(nudUnidades.Text);
+                    producto.EmpleadoId = ((Empleado)cmbEmpleado.SelectedItem).EmpleadoId;
+                    producto.FechaEntrada = Util.GetDateWithoutMilliseconds(DateTime.Now);
+                    producto.RecogidaId = ((Recogida)cboRecogida.SelectedItem).IdRecogida;
+                    string codfamilia = producto.CodigoArticulo.Substring(7, 2);
+                    producto.CodFamilia = codfamilia;
+                    string codsubfamilia = producto.CodigoArticulo.Substring(9, 2);
+                    producto.CodSubFamilia = codsubfamilia;
+
+                    Lugar lugarFinal = Modulo.miNegocio.getLugar(lugar);
+                    if (lugarFinal == null)
+                    {
+                        MessageBox.Show("Lugar ocupado, debe elegir otro.");
+                        return;
+                    }
+                    producto.LugarId = lugarFinal.Id;
+
+                    List<Producto> productos = new List<Producto>();
+                    productos.Add(producto);
+                    Modulo.miNegocio.InsertarProductos(productos);
+                    limpiarControles();
+                    MessageBox.Show("Insertado correctamente.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ha ocurrido un error: " + ex.Message, "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
 
             }
 
@@ -258,22 +288,29 @@ namespace CapaPresentacion
             }
             else
             {
-
-                Recogida recogida = (Recogida)cboRecogida.SelectedItem;
-                bool recogidaCompleta = Modulo.miNegocio.estaRecogidaCompleta(recogida.IdRecogida);
-
-                if (!recogidaCompleta)
+                try
                 {
-                    if (MessageBox.Show("¿Seguro que deseas salir sin introducir todos los productos para esta recogida?", "Salir",
-                           MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    Recogida recogida = (Recogida)cboRecogida.SelectedItem;
+                    bool recogidaCompleta = Modulo.miNegocio.estaRecogidaCompleta(recogida.IdRecogida);
+
+                    if (!recogidaCompleta)
+                    {
+                        if (MessageBox.Show("¿Seguro que deseas salir sin introducir todos los productos para esta recogida?", "Salir",
+                               MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        {
+                            cerrarFormulario();
+                        }
+                    }
+                    else
                     {
                         cerrarFormulario();
                     }
                 }
-                else
+                catch (Exception ex)
                 {
-                    cerrarFormulario();
+                    MessageBox.Show("Ha ocurrido un error: " + ex.Message, "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
             }
 
 
@@ -340,11 +377,18 @@ namespace CapaPresentacion
 
         private void cargarProductos(SubFamilia s)
         {
-            productos = Modulo.miNegocio.getProductos(s.CodFamilia, s.CodSubFamilia);
-            if (productos != null)
+            try
             {
-                dgvProductos.DataSource = productos.Select((p) => new { CodigoArticulo = p.CodigoArticulo, Descripcion = p.Descripcion, Coste = p.Coste, Unidades = p.Stock }).ToList();
+                productos = Modulo.miNegocio.getProductos(s.CodFamilia, s.CodSubFamilia);
+                if (productos != null)
+                {
+                    dgvProductos.DataSource = productos.Select((p) => new { CodigoArticulo = p.CodigoArticulo, Descripcion = p.Descripcion, Coste = p.Coste, Unidades = p.Stock }).ToList();
+                }
+            } catch(Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error: " + ex.Message, "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
         }
 
         private void limpiarControles()
@@ -367,14 +411,20 @@ namespace CapaPresentacion
 
         private void dgvProductos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex == -1)
+            try
             {
-                return;
-            }
+                if (e.RowIndex == -1)
+                {
+                    return;
+                }
 
-            productoExistenteSeleccionado = productos.ElementAt(e.RowIndex);
-            lblCodArticulo.Text = productoExistenteSeleccionado.CodigoArticulo;
-            codBarrasProductoSeleccionado = Modulo.miNegocio.getCodigoBarras(productoExistenteSeleccionado.CodigoArticulo);
+                productoExistenteSeleccionado = productos.ElementAt(e.RowIndex);
+                lblCodArticulo.Text = productoExistenteSeleccionado.CodigoArticulo;
+                codBarrasProductoSeleccionado = Modulo.miNegocio.getCodigoBarras(productoExistenteSeleccionado.CodigoArticulo);
+            } catch(Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error: " + ex.Message, "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 

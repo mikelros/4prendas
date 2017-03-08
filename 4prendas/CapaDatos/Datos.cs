@@ -14,7 +14,7 @@ namespace CapaDatos
 
         public List<Familia> getFamiliasSubfamilias()
         {
-            List<Familia> familias = new List<Familia>(); // no sé si es arraylist o qué
+            List<Familia> familias = new List<Familia>();
             string sql = @"SELECT *
                             FROM   Familia f
                             INNER JOIN SubFamilia sf
@@ -34,7 +34,7 @@ namespace CapaDatos
                 {
                     Familia familia = new Familia((string)dr["CodFamilia"], dr.IsDBNull(dr.GetOrdinal("NombreFamilia")) ? "" : (string)dr["NombreFamilia"], dr.IsDBNull(dr.GetOrdinal("ImagenFamilia")) ? "" : (string)dr["ImagenFamilia"], dr.IsDBNull(dr.GetOrdinal("NumeroCodigoF")) ? -1 : (int)dr["NumeroCodigoF"]);
                     do
-                    { //Una familia no puede no tener subfamilia... pero y si si?
+                    {
                         familia.SubFamilias.Add(new SubFamilia((string)dr["FamiliaCod"], (string)dr["CodSubFamilia"], dr.IsDBNull(dr.GetOrdinal("Nombre")) ? "" : (string)dr["Nombre"], dr.IsDBNull(dr.GetOrdinal("Imagen")) ? "" : (string)dr["Imagen"], dr.IsDBNull(dr.GetOrdinal("IVA")) ? -1 : (int)dr["IVA"], dr.IsDBNull(dr.GetOrdinal("NumeroCodigoSF")) ? -1 : (int)dr["NumeroCodigoSF"]));
                         if (!dr.Read())
                         {
@@ -48,8 +48,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
-                return null;
+                throw ex;
             }
             finally
             {
@@ -90,8 +89,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
-                return null;
+                throw ex;
             }
             finally
             {
@@ -128,7 +126,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
+                throw ex;
             }
             finally
             {
@@ -171,7 +169,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
+                throw ex;
             }
             finally
             {
@@ -209,8 +207,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
-                return null;
+                throw ex;
             }
             finally
             {
@@ -244,8 +241,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
-                return null;
+                throw ex;
             }
             finally
             {
@@ -280,8 +276,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
-                return null;
+                throw ex;
             }
             finally
             {
@@ -314,8 +309,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
-                return null;
+                throw ex;
             }
             finally
             {
@@ -351,8 +345,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
-                return null;
+                throw ex;
             }
             finally
             {
@@ -390,8 +383,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
-                return null;
+                throw ex;
             }
             finally
             {
@@ -506,8 +498,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
-                return null;
+                throw ex;
             }
             finally
             {
@@ -552,8 +543,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
-                return 0;
+                throw ex;
             }
             finally
             {
@@ -590,8 +580,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
-                return 0;
+                throw ex;
             }
             finally
             {
@@ -627,8 +616,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
-                return "";
+                throw ex;
             }
             finally
             {
@@ -665,8 +653,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
-                return "";
+                throw ex;
             }
             finally
             {
@@ -674,8 +661,6 @@ namespace CapaDatos
             }
         }
 
-
-        //Porductos por codigoArticulo
         public List<Producto> getProdsPorCodigoArticulo(string codigoArticulo)
         {
             List<Producto> productos = new List<Producto>();
@@ -703,18 +688,13 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
-                return null;
+                throw ex;
             }
             finally
             {
                 conTabla.Close();
             }
         }
-
-        //Portductos por familia
-        //Productos por subfamilia ¿O es lo de arriba de getProductos?
-
 
         public void insertarProductos(List<Producto> productos)
         {
@@ -767,7 +747,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
+                throw ex;
             }
             finally
             {
@@ -795,7 +775,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
+                throw ex;
             }
             finally
             {
@@ -824,8 +804,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
-                return "Database error: " + ex.Message;
+                throw ex;
             }
             finally
             {
@@ -849,7 +828,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
+                throw ex;
             }
             finally
             {
@@ -881,8 +860,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
-                return null;
+                throw ex;
             }
             finally
             {
@@ -917,7 +895,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
+                throw ex;
             }
             finally
             {
@@ -968,7 +946,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
+                throw ex;
             }
             finally
             {
@@ -992,8 +970,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
-                return 0;
+                throw ex;
             }
             finally
             {
@@ -1040,8 +1017,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
-                return null;
+                throw ex;
             }
             finally
             {
@@ -1070,8 +1046,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
-                return false;
+                throw ex;
             }
             finally
             {
@@ -1113,8 +1088,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
-                return "";
+                throw ex;
             }
             finally
             {
@@ -1139,7 +1113,7 @@ namespace CapaDatos
             cmd.Parameters.AddWithValue("@FechaVenta", Util.GetDateWithoutMilliseconds(DateTime.Now));
             cmd.Parameters.AddWithValue("@EmpleadoId", empleadoID);
             cmd.Parameters.AddWithValue("@Devolucion", false);
-            //cmd.Parameters.AddWithValue("@IVA", );
+            
             try
             {
                 conTabla.Open();
@@ -1161,7 +1135,7 @@ namespace CapaDatos
                                      @numVenta,
                                      @coste);";
 
-                //faltan los datos de lugar porque no está hecho el form y eso
+                
                 cmd = new OleDbCommand(sql, conTabla);
 
                 foreach (Producto p in productos)
@@ -1176,7 +1150,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
+                throw ex;
             }
             finally
             {
@@ -1246,8 +1220,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                //RaiseEvent errorBaseDatos(Me, New BaseDatosEventArgs("Error de base de datos"))
-                return null;
+                throw ex;
             }
             finally
             {
