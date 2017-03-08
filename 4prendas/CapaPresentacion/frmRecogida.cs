@@ -23,9 +23,15 @@ namespace CapaPresentacion
 
         private void frmRecogida_Load(object sender, EventArgs e)
         {
-            lblErrorPaseEmpleado.Hide();
-            lblNRecogida.Text = "" + (Modulo.miNegocio.getUltimoNumRecogida() + 1);
-            nudEmpleado.Value = Modulo.empleadoActual != null ? Modulo.empleadoActual.EmpleadoId : 0;
+            try
+            {
+                lblErrorPaseEmpleado.Hide();
+                lblNRecogida.Text = "" + (Modulo.miNegocio.getUltimoNumRecogida() + 1);
+                nudEmpleado.Value = Modulo.empleadoActual != null ? Modulo.empleadoActual.EmpleadoId : 0;
+            } catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error: " + ex.Message, "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -41,10 +47,16 @@ namespace CapaPresentacion
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            int id = Modulo.miNegocio.comprobarPersona(txtDonante.Text);
-            DateTime dtm = new DateTime(dtpFechaRecogida.Value.Year, dtpFechaRecogida.Value.Month, dtpFechaRecogida.Value.Day, dtpFechaRecogida.Value.Hour, dtpFechaRecogida.Value.Minute, dtpFechaRecogida.Value.Second);
-            Recogida recogida = new Recogida(dtm, Convert.ToInt32(Math.Round(nudEmpleado.Value, 0)), Convert.ToInt32(Math.Round(nudCantidad.Value, 0)), id);
-            Modulo.miNegocio.realizarRecogida(recogida);
+            try
+            {
+                int id = Modulo.miNegocio.comprobarPersona(txtDonante.Text);
+                DateTime dtm = new DateTime(dtpFechaRecogida.Value.Year, dtpFechaRecogida.Value.Month, dtpFechaRecogida.Value.Day, dtpFechaRecogida.Value.Hour, dtpFechaRecogida.Value.Minute, dtpFechaRecogida.Value.Second);
+                Recogida recogida = new Recogida(dtm, Convert.ToInt32(Math.Round(nudEmpleado.Value, 0)), Convert.ToInt32(Math.Round(nudCantidad.Value, 0)), id);
+                Modulo.miNegocio.realizarRecogida(recogida);
+            } catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error: " + ex.Message, "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnBack_Click(object sender, EventArgs e)
