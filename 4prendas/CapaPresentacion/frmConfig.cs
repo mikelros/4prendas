@@ -16,7 +16,7 @@ namespace CapaPresentacion
     public partial class frmConfig : Form
     {
         Empleado empleadoBorrar;
-        List<Empleado> empleados = new List<Empleado>();
+        List<Empleado> empleados;
         List<Empleado> empleadosCreados = new List<Empleado>();
         List<Empleado> empleadosBorrados = new List<Empleado>();
         Producto producto;
@@ -168,6 +168,7 @@ namespace CapaPresentacion
 
         private void frmConfig_Load(object sender, EventArgs e)
         {
+            
             lblEmpleadoNoExisteError.Hide();
 
             gboDeleteEmployer.Hide();
@@ -287,20 +288,25 @@ namespace CapaPresentacion
         {
             guardarTipoTienda();
             guardarCambiosEmpleado();
+            cambios = false;
         }
         private void guardarCambiosEmpleado()
         {
-            try { 
-            
-            foreach (Empleado crtEmp in empleadosCreados)
+            try
             {
-                Modulo.miNegocio.crearEmpleado(crtEmp.Nombre, crtEmp.Foto);
-            }
-            foreach (Empleado dltEmp in empleadosBorrados)
-            {
-                Modulo.miNegocio.eliminarEmpleado(dltEmp.EmpleadoId);
-                borrarFotoEmpleado(dltEmp.Foto);
-            }
+
+                foreach (Empleado crtEmp in empleadosCreados)
+                {
+                    Modulo.miNegocio.crearEmpleado(crtEmp.Nombre, crtEmp.Foto);
+                    Modulo.empleados = Modulo.miNegocio.getEmpleados();
+                }
+                foreach (Empleado dltEmp in empleadosBorrados)
+                {
+                    Modulo.miNegocio.eliminarEmpleado(dltEmp.EmpleadoId);
+                    borrarFotoEmpleado(dltEmp.Foto);
+                }
+
+                Modulo.empleados = Modulo.miNegocio.getEmpleados();
             }
             catch (Exception ex)
             {
