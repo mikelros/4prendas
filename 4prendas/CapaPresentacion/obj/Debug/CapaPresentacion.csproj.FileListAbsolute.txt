@@ -228,3 +228,4 @@ C:\Users\Asrield\Source\Repos\4prendas10\4prendas\CapaPresentacion\obj\Debug\Cap
 C:\Users\Asrield\Source\Repos\4prendas10\4prendas\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
 D:\DAM\Acceso Datos\4prendas\4prendas\CapaPresentacion\bin\Debug\Spire.Barcode.dll
 D:\DAM\Acceso Datos\4prendas\4prendas\CapaPresentacion\bin\Debug\Spire.Barcode.xml
+C:\Users\Asrield\Source\Repos\4prendas11\4prendas\CapaPresentacion\bin\Debug\CapaPresentacion.exe.config

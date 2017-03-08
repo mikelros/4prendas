@@ -54,7 +54,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.gboEditProduct = new System.Windows.Forms.GroupBox();
             this.nudEditarProductoLugarId = new System.Windows.Forms.NumericUpDown();
-            this.nudEditarProductoCollectionId = new System.Windows.Forms.NumericUpDown();
+            this.nudEditarProductoIdRecogida = new System.Windows.Forms.NumericUpDown();
             this.nudEditarProductoCoste = new System.Windows.Forms.NumericUpDown();
             this.nudEditarProductoStock = new System.Windows.Forms.NumericUpDown();
             this.nudEditarProductoMinStock = new System.Windows.Forms.NumericUpDown();
@@ -127,7 +127,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudBorrarNumEmpleado)).BeginInit();
             this.gboEditProduct.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudEditarProductoLugarId)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudEditarProductoCollectionId)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEditarProductoIdRecogida)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEditarProductoCoste)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEditarProductoStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEditarProductoMinStock)).BeginInit();
@@ -415,7 +415,7 @@
             // 
             this.gboEditProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.gboEditProduct.Controls.Add(this.nudEditarProductoLugarId);
-            this.gboEditProduct.Controls.Add(this.nudEditarProductoCollectionId);
+            this.gboEditProduct.Controls.Add(this.nudEditarProductoIdRecogida);
             this.gboEditProduct.Controls.Add(this.nudEditarProductoCoste);
             this.gboEditProduct.Controls.Add(this.nudEditarProductoStock);
             this.gboEditProduct.Controls.Add(this.nudEditarProductoMinStock);
@@ -456,12 +456,12 @@
             this.nudEditarProductoLugarId.Size = new System.Drawing.Size(98, 21);
             this.nudEditarProductoLugarId.TabIndex = 29;
             // 
-            // nudEditarProductoCollectionId
+            // nudEditarProductoIdRecogida
             // 
-            this.nudEditarProductoCollectionId.Location = new System.Drawing.Point(212, 188);
-            this.nudEditarProductoCollectionId.Name = "nudEditarProductoCollectionId";
-            this.nudEditarProductoCollectionId.Size = new System.Drawing.Size(98, 21);
-            this.nudEditarProductoCollectionId.TabIndex = 28;
+            this.nudEditarProductoIdRecogida.Location = new System.Drawing.Point(212, 188);
+            this.nudEditarProductoIdRecogida.Name = "nudEditarProductoIdRecogida";
+            this.nudEditarProductoIdRecogida.Size = new System.Drawing.Size(98, 21);
+            this.nudEditarProductoIdRecogida.TabIndex = 28;
             // 
             // nudEditarProductoCoste
             // 
@@ -1164,6 +1164,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1126, 640);
             this.Controls.Add(this.gboAñadirSubFamilia);
             this.Controls.Add(this.gboModoEdicion);
@@ -1192,7 +1193,7 @@
             this.gboEditProduct.ResumeLayout(false);
             this.gboEditProduct.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudEditarProductoLugarId)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudEditarProductoCollectionId)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEditarProductoIdRecogida)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEditarProductoCoste)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEditarProductoStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEditarProductoMinStock)).EndInit();
@@ -1259,7 +1260,7 @@
         private System.Windows.Forms.NumericUpDown nudEditarProductoMinStock;
         private System.Windows.Forms.NumericUpDown nudEditarProductoIdEmpleado;
         private System.Windows.Forms.NumericUpDown nudEditarProductoLugarId;
-        private System.Windows.Forms.NumericUpDown nudEditarProductoCollectionId;
+        private System.Windows.Forms.NumericUpDown nudEditarProductoIdRecogida;
         private System.Windows.Forms.PictureBox pboFotoEmpleado;
         private System.Windows.Forms.Button btnRestoreDataBase;
         private System.Windows.Forms.Label label2;

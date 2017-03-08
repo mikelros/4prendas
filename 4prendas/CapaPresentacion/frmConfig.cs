@@ -184,7 +184,7 @@ namespace CapaPresentacion
             nudEditarProductoCoste.Maximum = int.MaxValue;
             nudEditarProductoIdEmpleado.Maximum = int.MaxValue; 
             nudEditarProductoLugarId.Maximum = int.MaxValue;
-            nudEditarProductoCollectionId.Maximum = int.MaxValue; //No sabía a que hacía referencia "Collection" asi que no lo he traducido
+            nudEditarProductoIdRecogida.Maximum = int.MaxValue; 
 
             rbtnEditarProducto.Select();
 
@@ -197,7 +197,14 @@ namespace CapaPresentacion
         }
         private void cargarEmpleados()
         {
+            try
+            {
             empleados = Modulo.miNegocio.getEmpleados();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error: " + ex.Message, "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void cargarShopMode()
         {
@@ -281,6 +288,7 @@ namespace CapaPresentacion
         }
         private void guardarCambiosEmpleado()
         {
+            try { 
             
             foreach (Empleado crtEmp in empleadosCreados)
             {
@@ -290,6 +298,11 @@ namespace CapaPresentacion
             {
                 Modulo.miNegocio.eliminarEmpleado(dltEmp.EmpleadoId);
                 borrarFotoEmpleado(dltEmp.Foto);
+            }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error: " + ex.Message, "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -367,11 +380,17 @@ namespace CapaPresentacion
                 producto.LugarId = int.Parse(nudEditarProductoLugarId.Value.ToString());
 
              
-                producto.RecogidaId = int.Parse(nudEditarProductoCollectionId.Value.ToString());
+                producto.RecogidaId = int.Parse(nudEditarProductoIdRecogida.Value.ToString());
 
            
                 producto.Medida = txtEditarTallaProducto.Text;
+            try { 
             Modulo.miNegocio.actualizarProducto(producto);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error: " + ex.Message, "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 
@@ -385,7 +404,7 @@ namespace CapaPresentacion
             txtEditarProductoDescripcion.Text = "";
             txtEditarProductoCodigoFamilia.Text = "";
             nudEditarProductoLugarId.Text = "";
-            nudEditarProductoCollectionId.Text = "";
+            nudEditarProductoIdRecogida.Text = "";
             txtEditarTallaProducto.Text = "";
             producto = null;
 
@@ -394,7 +413,7 @@ namespace CapaPresentacion
        
         private void buscarProducto()
         {
-
+            try { 
             producto = Modulo.miNegocio.getProdsPorCodigoArticulo(txtEditarProductoCodigo.Text).First<Producto>();
             if (producto == null)
             {
@@ -410,10 +429,15 @@ namespace CapaPresentacion
                 txtEditarProductoDescripcion.Text = producto.Descripcion;
                 txtEditarProductoCodigoFamilia.Text = producto.CodFamilia;
                 nudEditarProductoLugarId.Value = producto.LugarId;
-                nudEditarProductoCollectionId.Value = producto.RecogidaId;
+                nudEditarProductoIdRecogida.Value = producto.RecogidaId;
                 txtEditarTallaProducto.Text = producto.Medida;
                 txtEditarProductoSubFamiliaCodigo.Text = producto.CodSubFamilia;
 
+            }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error: " + ex.Message, "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -463,7 +487,7 @@ namespace CapaPresentacion
         private void btnRestoreDataBase_Click(object sender, EventArgs e)
         {
             Stream myStream = null;
-            OpenFileDialog openFileDialog1 = new OpenFileDialog(); //LO mismo de antes, no se puede mejorar este nombre?
+            OpenFileDialog openFileDialog1 = new OpenFileDialog(); 
 
             openFileDialog1.InitialDirectory = "c:\\";
             openFileDialog1.Filter = "Acces Data Base Files|*.accdb|All files (*.*)|*.*";
@@ -505,19 +529,30 @@ namespace CapaPresentacion
 
         private void btnAñadirSubFamilia_Click(object sender, EventArgs e)
         {
-
+            try { 
             SubFamilia subFam = new SubFamilia(txtCodFamiliaParaSub.Text, txtCodigoSubFamilia.Text, txtNombreSubFamila.Text, txtImagenSubFamilia.Text, int.Parse(txtIVASub.Text), int.Parse(txtNumSub.Text));
             Modulo.miNegocio.InsertarSubFamilia(subFam);
             MessageBox.Show("Familia insertada correctamente");
             btnCancelarSubFamilia_Click(sender, e);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error: " + ex.Message, "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnAnadirFamilia_Click(object sender, EventArgs e)
         {
+            try { 
             Familia fam = new Familia(txtCodigoFamilia.Text, txtNombreFamilia.Text, txtImagenFamilia.Text, int.Parse(txtNumCodFam.Text));
             Modulo.miNegocio.InsertarFamilia(fam);
             MessageBox.Show("SubFamilia insertada correctamente");
             btnCancelarAnadirFamilia_Click(sender, e);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error: " + ex.Message, "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 
