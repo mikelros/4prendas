@@ -286,7 +286,7 @@ namespace CapaDatos
 
         public Administrador getAdministrador(string usuario, string contrasena)
         {
-            string sql = @"SELECT *
+            string sql = @"SELECT COUNT(*)
                             FROM Administrador
                             WHERE Usuario = @User
                                    AND Contrasena = @Pass; ";
