@@ -55,6 +55,7 @@ namespace CapaPresentacion
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
+            string nombreArchivo ="";
             if (txtCrearNombre.Text.Equals("") )
             {
                 lblCrearError.Show();
@@ -73,14 +74,13 @@ namespace CapaPresentacion
                 else
                 {
                     lblNoExisteArchivoCrearError.Hide();
-                    string nombreArchivo;
                     nombreArchivo = System.IO.Path.GetFileNameWithoutExtension(txtCrearFoto.Text);
                     Bitmap imagen = new Bitmap(txtCrearFoto.Text);
-                    imagen.Save(nombreArchivo + ".jpeg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                    imagen.Save(rutaMisDocumentos+"/"+ nombreArchivo + ".jpeg", System.Drawing.Imaging.ImageFormat.Jpeg);
 
                 }
             }
-            Empleado emp = new Empleado(txtCrearNombre.Text, txtCrearFoto.Text);
+            Empleado emp = new Empleado(txtCrearNombre.Text, rutaMisDocumentos + "/" + nombreArchivo + ".jpeg");
             empleados.Add(emp);
             empleadosCreados.Add(emp);
             cambios = true;
@@ -169,6 +169,8 @@ namespace CapaPresentacion
         private void frmConfig_Load(object sender, EventArgs e)
         {
             lblEmpleadoNoExisteError.Hide();
+
+            gboDeleteEmployer.Hide();
 
             lblNoExisteArchivoCrearError.Hide();
             
@@ -457,6 +459,10 @@ namespace CapaPresentacion
                 {
                     lblBorrarNombre.Text = emplead.Nombre;
                     empleadoBorrar = emplead;
+                    return;
+                }else
+                {
+                    lblBorrarNombre.Text = "";
                 }
             }
         }

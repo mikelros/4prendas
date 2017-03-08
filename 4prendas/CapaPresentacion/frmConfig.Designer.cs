@@ -43,7 +43,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtCrearNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.grbDeleteEmployer = new System.Windows.Forms.GroupBox();
+            this.gboDeleteEmployer = new System.Windows.Forms.GroupBox();
             this.nudBorrarNumEmpleado = new System.Windows.Forms.NumericUpDown();
             this.lblBorrarError = new System.Windows.Forms.Label();
             this.lblEmpleadoNoExisteError = new System.Windows.Forms.Label();
@@ -123,7 +123,7 @@
             this.grbType.SuspendLayout();
             this.grbNewEmployer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pboFotoEmpleado)).BeginInit();
-            this.grbDeleteEmployer.SuspendLayout();
+            this.gboDeleteEmployer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudBorrarNumEmpleado)).BeginInit();
             this.gboEditProduct.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudEditarProductoLugarId)).BeginInit();
@@ -303,24 +303,24 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Nombre:";
             // 
-            // grbDeleteEmployer
+            // gboDeleteEmployer
             // 
-            this.grbDeleteEmployer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.grbDeleteEmployer.Controls.Add(this.nudBorrarNumEmpleado);
-            this.grbDeleteEmployer.Controls.Add(this.lblBorrarError);
-            this.grbDeleteEmployer.Controls.Add(this.lblEmpleadoNoExisteError);
-            this.grbDeleteEmployer.Controls.Add(this.lblBorrarNombre);
-            this.grbDeleteEmployer.Controls.Add(this.btnDeleteCancel);
-            this.grbDeleteEmployer.Controls.Add(this.btnDelete);
-            this.grbDeleteEmployer.Controls.Add(this.label5);
-            this.grbDeleteEmployer.Controls.Add(this.label6);
-            this.grbDeleteEmployer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbDeleteEmployer.Location = new System.Drawing.Point(545, 106);
-            this.grbDeleteEmployer.Name = "grbDeleteEmployer";
-            this.grbDeleteEmployer.Size = new System.Drawing.Size(207, 363);
-            this.grbDeleteEmployer.TabIndex = 16;
-            this.grbDeleteEmployer.TabStop = false;
-            this.grbDeleteEmployer.Text = "Eliminar Empleado";
+            this.gboDeleteEmployer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.gboDeleteEmployer.Controls.Add(this.nudBorrarNumEmpleado);
+            this.gboDeleteEmployer.Controls.Add(this.lblBorrarError);
+            this.gboDeleteEmployer.Controls.Add(this.lblEmpleadoNoExisteError);
+            this.gboDeleteEmployer.Controls.Add(this.lblBorrarNombre);
+            this.gboDeleteEmployer.Controls.Add(this.btnDeleteCancel);
+            this.gboDeleteEmployer.Controls.Add(this.btnDelete);
+            this.gboDeleteEmployer.Controls.Add(this.label5);
+            this.gboDeleteEmployer.Controls.Add(this.label6);
+            this.gboDeleteEmployer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gboDeleteEmployer.Location = new System.Drawing.Point(545, 106);
+            this.gboDeleteEmployer.Name = "gboDeleteEmployer";
+            this.gboDeleteEmployer.Size = new System.Drawing.Size(207, 363);
+            this.gboDeleteEmployer.TabIndex = 16;
+            this.gboDeleteEmployer.TabStop = false;
+            this.gboDeleteEmployer.Text = "Eliminar Empleado";
             // 
             // nudBorrarNumEmpleado
             // 
@@ -1172,7 +1172,7 @@
             this.Controls.Add(this.gboEditProduct);
             this.Controls.Add(this.btnRestoreDataBase);
             this.Controls.Add(this.btnCopy);
-            this.Controls.Add(this.grbDeleteEmployer);
+            this.Controls.Add(this.gboDeleteEmployer);
             this.Controls.Add(this.grbNewEmployer);
             this.Controls.Add(this.grbType);
             this.Controls.Add(this.btnApply);
@@ -1187,8 +1187,8 @@
             this.grbNewEmployer.ResumeLayout(false);
             this.grbNewEmployer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pboFotoEmpleado)).EndInit();
-            this.grbDeleteEmployer.ResumeLayout(false);
-            this.grbDeleteEmployer.PerformLayout();
+            this.gboDeleteEmployer.ResumeLayout(false);
+            this.gboDeleteEmployer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudBorrarNumEmpleado)).EndInit();
             this.gboEditProduct.ResumeLayout(false);
             this.gboEditProduct.PerformLayout();
@@ -1223,7 +1223,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button bntCreateCancel;
         private System.Windows.Forms.Button btnCreate;
-        private System.Windows.Forms.GroupBox grbDeleteEmployer;
+        private System.Windows.Forms.GroupBox gboDeleteEmployer;
         private System.Windows.Forms.Label lblEmpleadoNoExisteError;
         private System.Windows.Forms.Label lblBorrarNombre;
         private System.Windows.Forms.Button btnDeleteCancel;
