@@ -46,25 +46,32 @@ namespace CapaPresentacion
 
         private void cargarStockMinimo()
         {
-            prodsStockMinimo = Modulo.miNegocio.getProdsStockMinimo();
-            int num;
-            if (prodsStockMinimo == null)
+            try
             {
-                num = 0;
+                prodsStockMinimo = Modulo.miNegocio.getProdsStockMinimo();
+                int num;
+                if (prodsStockMinimo == null)
+                {
+                    num = 0;
+                }
+                else
+                {
+                    num = prodsStockMinimo.Count();
+                }
+                if (num > 0)
+                {
+                    btnStock.BackColor = Color.Red;
+                    btnStock.Text = num.ToString();
+                }
+                else
+                {
+                    btnStock.BackColor = Color.Lime;
+                    btnStock.Text = "0";
+                }
             }
-            else
+            catch (Exception ex)
             {
-                num = prodsStockMinimo.Count();
-            }
-            if (num > 0)
-            {
-                btnStock.BackColor = Color.Red;
-                btnStock.Text = num.ToString();
-            }
-            else
-            {
-                btnStock.BackColor = Color.Lime;
-                btnStock.Text = "0";
+                MessageBox.Show("Ha ocurrido un error: " + ex.Message, "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -112,36 +119,42 @@ namespace CapaPresentacion
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-
-            switch (cmbBuscar.SelectedItem.ToString())
+            try
             {
-                case "Código de barras":
-                    long parse = 0;
-                    if (long.TryParse(txtBuscar.Text, out parse))
-                    {
-                        if (txtBuscar.Text.Length < 13) {
-                            productos = Modulo.miNegocio.getProdsCodigoBarras(parse);
-                            dgvProductos.DataSource = productos;
-                           dgvCarrito.Refresh();
+                switch (cmbBuscar.SelectedItem.ToString())
+                {
+                    case "Código de barras":
+                        long parse = 0;
+                        if (long.TryParse(txtBuscar.Text, out parse))
+                        {
+                            if (txtBuscar.Text.Length < 13)
+                            {
+                                productos = Modulo.miNegocio.getProdsCodigoBarras(parse);
+                                dgvProductos.DataSource = productos;
+                                dgvCarrito.Refresh();
+                            }
                         }
-                    }
-                    break;
-                case "Código de ártículo":
-                    productos = Modulo.miNegocio.getProdsPorCodigoArticulo(txtBuscar.Text);
-                    
-                    dgvProductos.DataSource = productos;
-                    dgvCarrito.Refresh();
-                    break;
-                case "Descripción":
-                    productos = Modulo.miNegocio.getProdsPorDescripcion(txtBuscar.Text);
-                    
-                    dgvProductos.DataSource = productos;
-                    dgvCarrito.Refresh();
-                    break;
-                default:
-                    break;
-            }
+                        break;
+                    case "Código de ártículo":
+                        productos = Modulo.miNegocio.getProdsPorCodigoArticulo(txtBuscar.Text);
 
+                        dgvProductos.DataSource = productos;
+                        dgvCarrito.Refresh();
+                        break;
+                    case "Descripción":
+                        productos = Modulo.miNegocio.getProdsPorDescripcion(txtBuscar.Text);
+
+                        dgvProductos.DataSource = productos;
+                        dgvCarrito.Refresh();
+                        break;
+                    default:
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error: " + ex.Message, "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 
@@ -186,70 +199,91 @@ namespace CapaPresentacion
 
         private void cargarFamilias()
         {
-            ponerFamiliasEnBlanco();
-            familias = Modulo.miNegocio.getFamiliasSubfamilias();
-
-            for (int i = gboFamilia.Controls.Count - 1, j = 0; i >= 0; i--, j++)
+            try
             {
-                if (j <= familias.Count - 1)
+                ponerFamiliasEnBlanco();
+                familias = Modulo.miNegocio.getFamiliasSubfamilias();
+
+                for (int i = gboFamilia.Controls.Count - 1, j = 0; i >= 0; i--, j++)
                 {
-                    Familia f = familias[j];
-                    gboFamilia.Controls[i].Tag = f;
-                    gboFamilia.Controls[i].BackgroundImage = !f.Imagen.Equals("") && File.Exists(f.Imagen) ? Image.FromFile(f.Imagen) : null;
-                    gboFamilia.Controls[i].Text = f.CodFamilia;
-                    gboFamilia.Controls[i].Click += new EventHandler(loadSubfamilias);
+                    if (j <= familias.Count - 1)
+                    {
+                        Familia f = familias[j];
+                        gboFamilia.Controls[i].Tag = f;
+                        gboFamilia.Controls[i].BackgroundImage = !f.Imagen.Equals("") && File.Exists(f.Imagen) ? Image.FromFile(f.Imagen) : null;
+                        gboFamilia.Controls[i].Text = f.CodFamilia;
+                        gboFamilia.Controls[i].Click += new EventHandler(loadSubfamilias);
+
+                    }
+                    else
+                    {
+                        gboFamilia.Controls[i].Visible = false;
+                    }
 
                 }
-                else
-                {
-                    gboFamilia.Controls[i].Visible = false;
-                }
-
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error: " + ex.Message, "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void loadSubfamilias(object sender, EventArgs e)
         {
-            ponerFamiliasEnBlanco();
-            ponerSubfamiliasEnBlanco();
-            Button b = (Button)sender;
-            b.BackColor = Color.LightBlue;
-            Familia f = (Familia)b.Tag;
-            productos = Modulo.miNegocio.getProductosFamilia(f.CodFamilia);
-            dgvProductos.DataSource = productos;
-            
-            for (int i = gboSubfamilia.Controls.Count - 1, j = 0; i >= 0; i--, j++)
+            try
             {
-                gboSubfamilia.Controls[i].Visible = false;
-                if (j <= f.SubFamilias.Count - 1)
+                ponerFamiliasEnBlanco();
+                ponerSubfamiliasEnBlanco();
+                Button b = (Button)sender;
+                b.BackColor = Color.LightBlue;
+                Familia f = (Familia)b.Tag;
+                productos = Modulo.miNegocio.getProductosFamilia(f.CodFamilia);
+                dgvProductos.DataSource = productos;
+
+                for (int i = gboSubfamilia.Controls.Count - 1, j = 0; i >= 0; i--, j++)
                 {
-                    SubFamilia s = f.SubFamilias[j];
-                    gboSubfamilia.Controls[i].Tag = s;
-                    gboSubfamilia.Controls[i].BackgroundImage = !s.Imagen.Equals("") && File.Exists(s.Imagen) ? Image.FromFile(s.Imagen) : null;
-                    gboSubfamilia.Controls[i].Text = s.CodSubFamilia;
-                    gboSubfamilia.Controls[i].Click += new EventHandler(loadProductosSubfam);
-                    gboSubfamilia.Controls[i].Visible = true;
+                    gboSubfamilia.Controls[i].Visible = false;
+                    if (j <= f.SubFamilias.Count - 1)
+                    {
+                        SubFamilia s = f.SubFamilias[j];
+                        gboSubfamilia.Controls[i].Tag = s;
+                        gboSubfamilia.Controls[i].BackgroundImage = !s.Imagen.Equals("") && File.Exists(s.Imagen) ? Image.FromFile(s.Imagen) : null;
+                        gboSubfamilia.Controls[i].Text = s.CodSubFamilia;
+                        gboSubfamilia.Controls[i].Click += new EventHandler(loadProductosSubfam);
+                        gboSubfamilia.Controls[i].Visible = true;
+
+                    }
 
                 }
-
             }
-
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error: " + ex.Message, "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void loadProductosSubfam(object sender, EventArgs e)
         {
-            ponerSubfamiliasEnBlanco();
-            Button b = (Button)sender;
-            b.BackColor = Color.LightBlue;
-            SubFamilia s = (SubFamilia)b.Tag;
+            try
+            {
+                ponerSubfamiliasEnBlanco();
+                Button b = (Button)sender;
+                b.BackColor = Color.LightBlue;
+                SubFamilia s = (SubFamilia)b.Tag;
 
-            productos = Modulo.miNegocio.getProductos(s.CodFamilia, s.CodSubFamilia);
-            if (productos != null)
+                productos = Modulo.miNegocio.getProductos(s.CodFamilia, s.CodSubFamilia);
+                if (productos != null)
+                {
+                    dgvProductos.DataSource = productos;
+                }
+                else
+                {
+                    MessageBox.Show("Ha ocurrido un error.", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
             {
-                dgvProductos.DataSource = productos;
-            } else
-            {
-                //TODO CONTROLAR ERROR
+                MessageBox.Show("Ha ocurrido un error: " + ex.Message, "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -335,7 +369,8 @@ namespace CapaPresentacion
             if (productosCarrito.Where((p) => p.Equals(producto)).SingleOrDefault().Unidades == 1)
             {
                 productosCarrito.Remove(producto);
-            } else
+            }
+            else
             {
                 productosCarrito.Where((p) => p.Equals(producto)).SingleOrDefault().Unidades--;
             }
@@ -372,9 +407,6 @@ namespace CapaPresentacion
 
         private void btnFinVenta_Click(object sender, EventArgs e)
         {
-            
-
-
 
             PrintDocument pd = new PrintDocument();
             pd.PrinterSettings.PrinterName = "Brother QL-700";
@@ -394,48 +426,58 @@ namespace CapaPresentacion
 
             pd.PrintPage += (s, args) =>
             {
-                float linesPerPage = 0;
                 float yPos = 0;
-                int count = 0;
-                float leftMargin = 7;
+                int cont = 0;
+                float margenIzq = 7;
                 float total = 0;
-                float topMargin = 7;
                 Font printFont = new Font(FontFamily.GenericSansSerif, 7.0F, FontStyle.Bold);
-                //for con el array
-                args.Graphics.DrawString("PRODUCTO - CANT - PRECIO - TOTAL", printFont, Brushes.Black, leftMargin, yPos, new StringFormat());
+                args.Graphics.DrawString("PRODUCTO - CANT - PRECIO - TOTAL", printFont, Brushes.Black, margenIzq, yPos, new StringFormat());
 
                 printFont = new Font(FontFamily.GenericSansSerif, 10.0F, FontStyle.Bold);
                 yPos = yPos + 5;
                 for (int i = 0; i < productosCarrito.Count; i++)
                 {
                     yPos = yPos + 15;
-                    args.Graphics.DrawString(productosCarrito[i].ToString(), printFont, Brushes.Black, leftMargin, yPos, new StringFormat());
-                    count++;
+                    args.Graphics.DrawString(productosCarrito[i].ToString(), printFont, Brushes.Black, margenIzq, yPos, new StringFormat());
+                    cont++;
                     total = total + (productosCarrito[i].Coste * productosCarrito[i].Unidades);
                 }
                 yPos = yPos + 20;
-                args.Graphics.DrawString("Total: " + total.ToString() +"€", printFont, Brushes.Black, leftMargin, yPos, new StringFormat());
+                args.Graphics.DrawString("Total: " + total.ToString() + "€", printFont, Brushes.Black, margenIzq, yPos, new StringFormat());
 
 
 
             };
             PrintDialog pdi = new PrintDialog();
-                pdi.Document = pd;
-                if (pdi.ShowDialog() == DialogResult.OK)
-                {
-                    pd.Print();
-                }
-
-            Modulo.miNegocio.insertVenta(productosCarrito, Modulo.empleadoActual.EmpleadoId);
-            numProdsCarrito = 0;
-            btnCarrito.Text = "0";
-            productosCarrito.Clear();
-            dgvCarrito.Refresh();
+            pdi.Document = pd;
+            if (pdi.ShowDialog() == DialogResult.OK)
+            {
+                pd.Print();
+            }
+            try
+            {
+                Modulo.miNegocio.insertVenta(productosCarrito, Modulo.empleadoActual.EmpleadoId);
+                numProdsCarrito = 0;
+                btnCarrito.Text = "0";
+                productosCarrito.Clear();
+                dgvCarrito.Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error: " + ex.Message, "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnTodos_Click(object sender, EventArgs e)
         {
-            dgvProductos.DataSource = Modulo.miNegocio.getTodosProductos();
+            try
+            {
+                dgvProductos.DataSource = Modulo.miNegocio.getTodosProductos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error: " + ex.Message, "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
