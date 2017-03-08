@@ -53,7 +53,7 @@ namespace CapaPresentacion
             }
         }
 
-        private void btnCreate_Click(object sender, EventArgs e) //Probar
+        private void btnCreate_Click(object sender, EventArgs e)
         {
             if (txtCrearNombre.Text.Equals("") )
             {
@@ -99,7 +99,7 @@ namespace CapaPresentacion
         private void btnBrowse_Click(object sender, EventArgs e)
         {
             Stream myStream = null;
-            OpenFileDialog abrirFileDialog1 = new OpenFileDialog(); // abrirFileDialog1???? esto no se puede mejorar?
+            OpenFileDialog abrirFileDialog1 = new OpenFileDialog();
 
             abrirFileDialog1.InitialDirectory = "c:\\";
             abrirFileDialog1.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*";
@@ -228,7 +228,7 @@ namespace CapaPresentacion
             }
             catch
             {
-                MessageBox.Show("Error al cargar el archivo de configuración!!! " + "" + "Se cargara la configuración por defecto", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("¡Error al cargar el archivo de configuración! " + "" + "Se cargará la configuración por defecto.", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 tipoTienda = "food";
                 guardarTipoTienda();
             }
@@ -311,7 +311,7 @@ namespace CapaPresentacion
         {
             if (cambios)
             {
-                DialogResult result = MessageBox.Show("As realizado cambios " + "\n" + "¿Desea guardar los cambios?", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show("Ha realizado cambios." + "\n" + "¿Desea guardar los cambios?", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
                     guardarTipoTienda();
@@ -502,7 +502,7 @@ namespace CapaPresentacion
                     {
                         using (myStream)
                         {
-                            DialogResult result = MessageBox.Show("¿ESTÁ SEGURO DE QUERER SOBRESCRIBIR LA BASE DE DATOS ACTUAL POR EL ARCHIVO SELECCIONADO? RECUERDE QUE ESTE CAMBIO NO SE PODRÁ DESACER", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+                            DialogResult result = MessageBox.Show("¿ESTÁ SEGURO DE QUERER SOBRESCRIBIR LA BASE DE DATOS ACTUAL POR EL ARCHIVO SELECCIONADO? RECUERDE QUE ESTE CAMBIO NO SE PODRÁ DESHACER.", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
                             if (result == DialogResult.Yes)
                             {
                             File.Copy(openFileDialog1.FileName, "4Prendas.accdb", true);
@@ -515,7 +515,7 @@ namespace CapaPresentacion
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
+                    MessageBox.Show("Error: " + ex.Message);
                 }
             }
         }

@@ -669,7 +669,7 @@ namespace CapaDatos
                             WHERE  Registro.CodigoArticulo LIKE @codigoArticulo; ";
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
-            cmd.Parameters.AddWithValue("@codigoArticulo", "%" + codigoArticulo + "%");
+            cmd.Parameters.AddWithValue("@codigoArticulo", codigoArticulo + "%");
             try
             {
                 conTabla.Open();
@@ -1028,15 +1028,17 @@ namespace CapaDatos
 
         public bool estaRecogidaCompleta(int id)
         {
-            string sql = @"SELECT *
-                            FROM   Recogida r
-                            WHERE  r.IdRecogida = @recogidaid
-                                   AND r.CantidadProductos = SUM(Registro.Stock)";
+            string sql = @"SELECT Recogida.CantidadProductos
+                            FROM   Recogida
+                                   INNER JOIN Registro
+                                           ON Recogida.IdRecogida = Registro.RecogidaId
+                            WHERE  Recogida.IdRecogida = 2
+                            GROUP  BY Recogida.CantidadProductos
+                            HAVING Recogida.CantidadProductos = SUM(Registro.Stock); ";
 
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
             cmd.Parameters.AddWithValue("@recogidid", id);
-            cmd.Parameters.AddWithValue("@idd", id);
             try
             {
                 conTabla.Open();

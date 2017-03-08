@@ -309,6 +309,7 @@ namespace CapaPresentacion
                 catch (Exception ex)
                 {
                     MessageBox.Show("Ha ocurrido un error: " + ex.Message, "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cerrarFormulario();
                 }
 
             }

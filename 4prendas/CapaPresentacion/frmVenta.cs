@@ -135,7 +135,7 @@ namespace CapaPresentacion
                             }
                         }
                         break;
-                    case "Código de ártículo":
+                    case "Código de artículo":
                         productos = Modulo.miNegocio.getProdsPorCodigoArticulo(txtBuscar.Text);
 
                         dgvProductos.DataSource = productos;

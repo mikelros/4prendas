@@ -89,14 +89,7 @@ namespace CapaPresentacion
                 tipoTienda = "food";
                 guardarTipoTienda();
             }
-            if (tipoTienda == "food")
-            {
-               // rbtnFood.Checked = true;
-            }
-            else
-            {
-               // rbtnClothes.Checked = true;
-            }
+            
         }
         private void guardarTipoTienda()
         {

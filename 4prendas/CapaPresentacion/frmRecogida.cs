@@ -37,11 +37,7 @@ namespace CapaPresentacion
         private void btnCancel_Click(object sender, EventArgs e)
         {
             txtDonante.Text = "";
-            pboEmpleado.BackgroundImage = null;
-            lblErrorPaseEmpleado.Hide(); //No sé si he acertado mucho con este nombre
-            Modulo.empleadoActual = null;
-            lblNombreEmpleado.Text = "";
-            pboEmpleado.BackgroundImage = null;
+            nudCantidad.Value = 0;
         }
 
 
@@ -53,6 +49,9 @@ namespace CapaPresentacion
                 DateTime dtm = new DateTime(dtpFechaRecogida.Value.Year, dtpFechaRecogida.Value.Month, dtpFechaRecogida.Value.Day, dtpFechaRecogida.Value.Hour, dtpFechaRecogida.Value.Minute, dtpFechaRecogida.Value.Second);
                 Recogida recogida = new Recogida(dtm, Convert.ToInt32(Math.Round(nudEmpleado.Value, 0)), Convert.ToInt32(Math.Round(nudCantidad.Value, 0)), id);
                 Modulo.miNegocio.realizarRecogida(recogida);
+                txtDonante.Text = "";
+                nudCantidad.Value = 0;
+                lblNRecogida.Text = "" + (Modulo.miNegocio.getUltimoNumRecogida() + 1);
             } catch (Exception ex)
             {
                 MessageBox.Show("Ha ocurrido un error: " + ex.Message, "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
