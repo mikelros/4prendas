@@ -21,11 +21,11 @@ namespace CapaPresentacion
         private List<Producto> productos;
         private Producto productoExistenteSeleccionado;
         private String codBarrasProductoSeleccionado;
-
+        bool estaCargado = false;
         public frmRegistro()
         {
             InitializeComponent();
-
+            estaCargado = false;
             lblCodArticulo.Text = "2231014";
             codBarrasProductoSeleccionado = lblCodArticulo.Text;
 
@@ -36,6 +36,7 @@ namespace CapaPresentacion
             hacerGboSubFamInvisible();
             cargarRecogidas();
             cargarEmpleados();
+            estaCargado = true;
             cargarFamilias();
 
         }
@@ -280,7 +281,7 @@ namespace CapaPresentacion
 
         private void cmbEmpleado_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbEmpleado.SelectedItem != null)
+            if (cmbEmpleado.SelectedItem != null && estaCargado)
             {
                 Modulo.empleadoActual = (Empleado)cmbEmpleado.SelectedItem;
                 lblNombreEmpleado.Text = ((Empleado)cmbEmpleado.SelectedItem).Nombre;

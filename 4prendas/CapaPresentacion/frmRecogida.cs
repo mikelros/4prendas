@@ -14,6 +14,7 @@ namespace CapaPresentacion
 {
     public partial class frmRecogida : Form
     {
+
         public frmRecogida()
         {
             InitializeComponent();
@@ -24,6 +25,7 @@ namespace CapaPresentacion
         {
             lblErrorPaseEmpleado.Hide();
             lblNRecogida.Text = "" + (Modulo.miNegocio.getUltimoNumRecogida() + 1);
+            nudEmpleado.Value = Modulo.empleadoActual != null ? Modulo.empleadoActual.EmpleadoId : 0;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
