@@ -286,6 +286,40 @@ namespace CapaPresentacion
             this.Close();
         }
 
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+            Stream myStream = null;
+            OpenFileDialog abrirFileDialog1 = new OpenFileDialog(); // abrirFileDialog1???? esto no se puede mejorar?
+
+            abrirFileDialog1.InitialDirectory = "c:\\";
+            abrirFileDialog1.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*";
+            abrirFileDialog1.FilterIndex = 2;
+            abrirFileDialog1.RestoreDirectory = true;
+
+            if (abrirFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    if ((myStream = abrirFileDialog1.OpenFile()) != null)
+                    {
+                        using (myStream)
+                        {
+                            lblNoExisteArchivoCrearError.Hide();
+                            txtCrearFoto.Text = abrirFileDialog1.FileName;
+                            Bitmap imagen = new Bitmap(txtCrearFoto.Text);
+                            pboFotoEmpleado.BackgroundImage = imagen;
+                            pboFotoEmpleado.BackgroundImageLayout = ImageLayout.Stretch;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
+                }
+            }
+
+        }
+
         private void btnCopy_Click(object sender, EventArgs e)
         {
             string archivoCopiar;
@@ -841,6 +875,11 @@ namespace CapaPresentacion
         private void btnEditarEmpleadoCancelar_Click(object sender, EventArgs e)
         {
             cancelarEditarEmpleado();
+        }
+
+        private void btnAceptarEditarEmpleado_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
