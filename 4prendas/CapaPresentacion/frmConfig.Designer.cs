@@ -674,7 +674,7 @@
             // 
             this.gboModoProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.gboModoProductos.Controls.Add(this.gboEditProduct);
-            this.gboModoProductos.Location = new System.Drawing.Point(369, 539);
+            this.gboModoProductos.Location = new System.Drawing.Point(135, 113);
             this.gboModoProductos.Name = "gboModoProductos";
             this.gboModoProductos.Size = new System.Drawing.Size(966, 381);
             this.gboModoProductos.TabIndex = 25;
@@ -1008,7 +1008,7 @@
             this.gboModoFamilia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.gboModoFamilia.Controls.Add(this.gboEditarFamilia);
             this.gboModoFamilia.Controls.Add(this.gboAnadirFamilia);
-            this.gboModoFamilia.Location = new System.Drawing.Point(684, 537);
+            this.gboModoFamilia.Location = new System.Drawing.Point(127, 113);
             this.gboModoFamilia.Name = "gboModoFamilia";
             this.gboModoFamilia.Size = new System.Drawing.Size(966, 383);
             this.gboModoFamilia.TabIndex = 26;
@@ -1348,7 +1348,7 @@
             this.gboModoSubFamilias.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.gboModoSubFamilias.Controls.Add(this.gboEditarSubFamilia);
             this.gboModoSubFamilias.Controls.Add(this.gboAñadirSubFamilia);
-            this.gboModoSubFamilias.Location = new System.Drawing.Point(1039, 28);
+            this.gboModoSubFamilias.Location = new System.Drawing.Point(131, 113);
             this.gboModoSubFamilias.Name = "gboModoSubFamilias";
             this.gboModoSubFamilias.Size = new System.Drawing.Size(966, 383);
             this.gboModoSubFamilias.TabIndex = 27;
