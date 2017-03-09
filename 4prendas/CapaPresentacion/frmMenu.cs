@@ -37,12 +37,17 @@ namespace CapaPresentacion
 
         private void cargarListaEmpleados()
         {
-            this.cmbEmpleado.SelectedIndexChanged -= new EventHandler(cmbEmpleado_SelectedIndexChanged);
-            cmbEmpleado.DataSource = Modulo.empleados;
-            this.cmbEmpleado.SelectedIndexChanged += new EventHandler(cmbEmpleado_SelectedIndexChanged);
-            cmbEmpleado.DisplayMember = "nombre";
-            cmbEmpleado.SelectedItem = Modulo.empleadoActual;
-
+            try
+            {
+                this.cmbEmpleado.SelectedIndexChanged -= new EventHandler(cmbEmpleado_SelectedIndexChanged);
+                cmbEmpleado.DataSource = Modulo.empleados;
+                this.cmbEmpleado.SelectedIndexChanged += new EventHandler(cmbEmpleado_SelectedIndexChanged);
+                cmbEmpleado.DisplayMember = "nombre";
+                cmbEmpleado.SelectedItem = Modulo.empleadoActual;
+            } catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error: " + ex.Message, "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 
@@ -104,10 +109,6 @@ namespace CapaPresentacion
             catch(Exception ex)
             {
                 MessageBox.Show("Ha ocurrido un error: " + ex.Message, "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-
             }
         }
 
