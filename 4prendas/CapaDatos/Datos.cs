@@ -115,14 +115,14 @@ namespace CapaDatos
             {
                 conTabla.Open();
 
-                
-                    cmd.Parameters.AddWithValue("@codFam", fam.CodFamilia);
-                    cmd.Parameters.AddWithValue("@nombre", fam.Nombre);
-                    cmd.Parameters.AddWithValue("@imagen", fam.Imagen);
-                    cmd.Parameters.AddWithValue("@numCod", fam.NumCodigo);
+
+                cmd.Parameters.AddWithValue("@codFam", fam.CodFamilia);
+                cmd.Parameters.AddWithValue("@nombre", fam.Nombre);
+                cmd.Parameters.AddWithValue("@imagen", fam.Imagen);
+                cmd.Parameters.AddWithValue("@numCod", fam.NumCodigo);
 
                 cmd.ExecuteNonQuery();
-                
+
             }
             catch (Exception ex)
             {
@@ -402,11 +402,13 @@ namespace CapaDatos
                 if (resultado != "")
                 {
                     codigoArticulo = codigoBarras.ToString().Substring(0, 7) + resultado;
-                } else
+                }
+                else
                 {
                     codigoArticulo = "-1";
                 }
-            } else if (codigoArticulo.Length == 9)
+            }
+            else if (codigoArticulo.Length == 9)
             {
                 resultado = getFamiliaCod(codigoBarras.ToString().Substring(7, 1));
                 resultado2 = getSubFamiliaCod(codigoBarras.ToString().Substring(7, 1), codigoBarras.ToString().Substring(8, 1));
@@ -414,12 +416,14 @@ namespace CapaDatos
                 {
                     codigoArticulo = codigoBarras.ToString().Substring(0, 7) +
                     resultado + resultado2;
-                } else
+                }
+                else
                 {
                     codigoArticulo = "-1";
                 }
-                
-            } else if (codigoArticulo.Length == 10)
+
+            }
+            else if (codigoArticulo.Length == 10)
             {
                 resultado = getFamiliaCod(codigoBarras.ToString().Substring(7, 1));
                 resultado2 = getSubFamiliaCod(codigoBarras.ToString().Substring(7, 1), codigoBarras.ToString().Substring(8, 1));
@@ -432,7 +436,8 @@ namespace CapaDatos
                 {
                     codigoArticulo = "-1";
                 }
-            }else if (codigoArticulo.Length == 11)
+            }
+            else if (codigoArticulo.Length == 11)
             {
                 resultado = getFamiliaCod(codigoBarras.ToString().Substring(7, 1));
                 resultado2 = getSubFamiliaCod(codigoBarras.ToString().Substring(7, 1), codigoBarras.ToString().Substring(8, 1));
@@ -445,7 +450,8 @@ namespace CapaDatos
                 {
                     codigoArticulo = "-1";
                 }
-            } else if (codigoArticulo.Length == 12)
+            }
+            else if (codigoArticulo.Length == 12)
             {
                 resultado = getFamiliaCod(codigoBarras.ToString().Substring(7, 1));
                 resultado2 = getSubFamiliaCod(codigoBarras.ToString().Substring(7, 1), codigoBarras.ToString().Substring(8, 1));
@@ -459,7 +465,7 @@ namespace CapaDatos
                     codigoArticulo = "-1";
                 }
             }
-            
+
             List<Producto> productos = new List<Producto>();
             Producto prod = null;
             string sql = @"SELECT *
@@ -836,6 +842,60 @@ namespace CapaDatos
             }
         }
 
+        public bool eliminarFamilia(string cod)
+        {
+            string sql = "DELETE FROM Familia    WHERE  CodFamilia = @cod;";
+
+            OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
+            OleDbCommand cmd = new OleDbCommand(sql, conTabla);
+            cmd.Parameters.AddWithValue("@cod", cod);
+            try
+            {
+                conTabla.Open();
+                //cmd.ExecuteNonQuery();
+
+                //string sql = @"DELETE FROM SubFamilia WHERE FamiliaCod = @cod";
+                //cmd = new OleDbCommand(sql, conTabla);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+                throw ex;
+            }
+            finally
+            {
+                conTabla.Close();
+            }
+        }
+
+        public bool eliminarSubFamilia(string cod, string subCod)
+        {
+            string sql = @"DELETE FROM SubFamilia
+                            WHERE  FamiliaCod = @cod AND CodSubFamilia = @subCod;";
+
+            OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
+            OleDbCommand cmd = new OleDbCommand(sql, conTabla);
+            cmd.Parameters.AddWithValue("@cod", cod);
+            cmd.Parameters.AddWithValue("@subCod", subCod);
+            try
+            {
+                conTabla.Open();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+                throw ex;
+            }
+            finally
+            {
+                conTabla.Close();
+            }
+        }
+
         public List<Empleado> getEmpleados()
         {
             List<Empleado> empleados = new List<Empleado>();
@@ -1102,20 +1162,14 @@ namespace CapaDatos
         {
             int numVenta;
 
-            string sql = @"INSERT INTO Venta
-                                        (FechaVenta,
-                                         EmpleadoId,
-                                         Devolucion)
-                            VALUES      (@FechaVenta,
-                                         @EmpleadoId,
-                                         @Devolucion);";
+            string sql = "INSERT INTO Venta (FechaVenta, EmpleadoId, Devolucion) VALUES (@FechaVenta, @EmpleadoId, @Devolucion);";
 
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
             cmd.Parameters.AddWithValue("@FechaVenta", Util.GetDateWithoutMilliseconds(DateTime.Now));
             cmd.Parameters.AddWithValue("@EmpleadoId", empleadoID);
             cmd.Parameters.AddWithValue("@Devolucion", false);
-            
+
             try
             {
                 conTabla.Open();
@@ -1137,7 +1191,7 @@ namespace CapaDatos
                                      @numVenta,
                                      @coste);";
 
-                
+
                 cmd = new OleDbCommand(sql, conTabla);
 
                 foreach (Producto p in productos)

@@ -66,7 +66,7 @@ namespace CapaPresentacion
             pboFotoEmpleado.BackgroundImage = null;
         }
 
-        private void btnDelete_Click(object sender, EventArgs e) 
+        private void btnDelete_Click(object sender, EventArgs e)
         {
 
             if (empleadoEditar.Nombre == null)
@@ -106,11 +106,8 @@ namespace CapaPresentacion
         private void frmConfig_Load(object sender, EventArgs e)
         {
             lblEmpleadoNoExisteError.Hide();
-            lblSubFamErrorEditarSubFam.Hide();
 
             //Ocultados hasta implementación
-            gboEditarSubFamilia.Hide();
-            gboEditarFamilia.Hide();
             gboEditarEmpleado.Hide();
 
             //------------------------//
@@ -120,14 +117,14 @@ namespace CapaPresentacion
 
             lblBorrarError.Hide();
             lblCrearError.Hide();
-            
 
 
-            nudEditarProductoStock.Maximum  = int.MaxValue;
+
+            nudEditarProductoStock.Maximum = int.MaxValue;
             nudEditarProductoMinStock.Maximum = int.MaxValue;
             nudEditarProductoCoste.Maximum = int.MaxValue;
-            nudEditarProductoIdEmpleado.Maximum = int.MaxValue; 
-            nudEditarProductoIdRecogida.Maximum = int.MaxValue; 
+            nudEditarProductoIdEmpleado.Maximum = int.MaxValue;
+            nudEditarProductoIdRecogida.Maximum = int.MaxValue;
 
             rbtnModoEmpleado.Select();
 
@@ -155,7 +152,7 @@ namespace CapaPresentacion
         {
             try
             {
-            empleados = Modulo.miNegocio.getEmpleados();
+                empleados = Modulo.miNegocio.getEmpleados();
             }
             catch (Exception ex)
             {
@@ -203,9 +200,9 @@ namespace CapaPresentacion
             cancelarEditarEmpleado();
         }
 
-        
 
-        
+
+
 
         private void cancelarEditarEmpleado()
         {
@@ -276,7 +273,8 @@ namespace CapaPresentacion
                 if (result == DialogResult.Yes)
                 {
                     guardarTipoTienda();
-                }else if(result == DialogResult.Cancel)
+                }
+                else if (result == DialogResult.Cancel)
                 {
                     return;
                 }
@@ -327,7 +325,7 @@ namespace CapaPresentacion
             nuevaCopia.Filter = "Base de datos|*.accdb";
             nuevaCopia.ShowDialog();
             archivoCopiar = "4Prendas.accdb";
-            
+
             if (System.IO.File.Exists(archivoCopiar))
             {
                 if (!nuevaCopia.FileName.Equals(""))
@@ -359,31 +357,32 @@ namespace CapaPresentacion
 
             producto.Stock = int.Parse(nudEditarProductoStock.Value.ToString());
 
-             
-                producto.StockMinimo = int.Parse(nudEditarProductoMinStock.Value.ToString());
 
-            
-
-                producto.Coste = float.Parse(nudEditarProductoCoste.Value.ToString());
+            producto.StockMinimo = int.Parse(nudEditarProductoMinStock.Value.ToString());
 
 
-            producto.EmpleadoId = int.Parse(nudEditarProductoIdEmpleado.Value.ToString()) ;
-        
-             
-                producto.Descripcion = txtEditarProductoDescripcion.Text;
 
-             
-                producto.CodFamilia = txtEditarProductoCodigoFamilia.Text;
+            producto.Coste = float.Parse(nudEditarProductoCoste.Value.ToString());
 
-            
 
-             
-                producto.RecogidaId = int.Parse(nudEditarProductoIdRecogida.Value.ToString());
+            producto.EmpleadoId = int.Parse(nudEditarProductoIdEmpleado.Value.ToString());
 
-           
-                producto.Medida = txtEditarTallaProducto.Text;
-            try { 
-            Modulo.miNegocio.actualizarProducto(producto);
+
+            producto.Descripcion = txtEditarProductoDescripcion.Text;
+
+
+            producto.CodFamilia = txtEditarProductoCodigoFamilia.Text;
+
+
+
+
+            producto.RecogidaId = int.Parse(nudEditarProductoIdRecogida.Value.ToString());
+
+
+            producto.Medida = txtEditarTallaProducto.Text;
+            try
+            {
+                Modulo.miNegocio.actualizarProducto(producto);
             }
             catch (Exception ex)
             {
@@ -410,33 +409,34 @@ namespace CapaPresentacion
 
         }
 
-       
+
         private void buscarProducto()
         {
-            try { 
-            producto = Modulo.miNegocio.getProdsPorCodigoArticulo(txtEditarProductoCodigo.Text).First<Producto>();
-            if (producto == null)
+            try
             {
-                lblCodigoNoEncontradoStockMinimoError.Show();
-            }
-            else
-            {
-                lblCodigoNoEncontradoStockMinimoError.Hide();
-                nudEditarProductoStock.Value = producto.Stock;
-                nudEditarProductoMinStock.Value = producto.StockMinimo;
-                nudEditarProductoCoste.Value = int.Parse(producto.Coste.ToString());
-                nudEditarProductoIdEmpleado.Value = producto.EmpleadoId;
-                txtEditarProductoDescripcion.Text = producto.Descripcion;
-                txtEditarProductoCodigoFamilia.Text = producto.CodFamilia;
-                nudEditarProductoIdRecogida.Value = producto.RecogidaId;
-                txtEditarTallaProducto.Text = producto.Medida;
-                txtEditarProductoSubFamiliaCodigo.Text = producto.CodSubFamilia;
+                producto = Modulo.miNegocio.getProdsPorCodigoArticulo(txtEditarProductoCodigo.Text).First<Producto>();
+                if (producto == null)
+                {
+                    lblCodigoNoEncontradoStockMinimoError.Show();
+                }
+                else
+                {
+                    lblCodigoNoEncontradoStockMinimoError.Hide();
+                    nudEditarProductoStock.Value = producto.Stock;
+                    nudEditarProductoMinStock.Value = producto.StockMinimo;
+                    nudEditarProductoCoste.Value = int.Parse(producto.Coste.ToString());
+                    nudEditarProductoIdEmpleado.Value = producto.EmpleadoId;
+                    txtEditarProductoDescripcion.Text = producto.Descripcion;
+                    txtEditarProductoCodigoFamilia.Text = producto.CodFamilia;
+                    nudEditarProductoIdRecogida.Value = producto.RecogidaId;
+                    txtEditarTallaProducto.Text = producto.Medida;
+                    txtEditarProductoSubFamiliaCodigo.Text = producto.CodSubFamilia;
                     //Implementar en negocio y datos
                     //txtEstanteria = Modulo.miNegocio.getLugar(producto.LugarId).Estanteria;
                     //nudEstante = Modulo.miNegocio.getLugar(producto.LugarId).Estante;
                     //nudAltura = Modulo.miNegocio.getLugar(producto.LugarId).Altura;
 
-            }
+                }
             }
             catch (Exception ex)
             {
@@ -446,7 +446,7 @@ namespace CapaPresentacion
 
         private void txtEditProductCode_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (txtEditarProductoCodigo.TextLength == 9)
+            if (txtEditarProductoCodigo.TextLength == 13)
             {
                 buscarProducto();
             }
@@ -462,14 +462,15 @@ namespace CapaPresentacion
                     txtEditarFotoEmpleado.Text = emplead.Foto;
                     if (File.Exists(emplead.Foto))
                     {
-                    Bitmap Picture = new Bitmap(emplead.Foto);
-                    pboEditarEmpleadoImagen.BackgroundImage = Picture;
-                    pboEditarEmpleadoImagen.BackgroundImageLayout = ImageLayout.Stretch;
+                        Bitmap Picture = new Bitmap(emplead.Foto);
+                        pboEditarEmpleadoImagen.BackgroundImage = Picture;
+                        pboEditarEmpleadoImagen.BackgroundImageLayout = ImageLayout.Stretch;
                     }
                     empleadoEditar = emplead;
                     lblEmpleadoNoExisteError.Hide();
                     return;
-                }else
+                }
+                else
                 {
                     txtEditarNombreEmpleado.Text = "";
                     lblEmpleadoNoExisteError.Show();
@@ -479,7 +480,7 @@ namespace CapaPresentacion
 
         private void txtEditProductCode_TextChanged(object sender, EventArgs e)
         {
-            if (txtEditarProductoCodigo.TextLength == 9)
+            if (txtEditarProductoCodigo.TextLength == 13)
             {
                 buscarProducto();
             }
@@ -491,7 +492,8 @@ namespace CapaPresentacion
             {
                 lblNoExisteArchivoCrearError.Show();
                 return;
-            }else
+            }
+            else
             {
                 lblNoExisteArchivoCrearError.Hide();
                 Bitmap Picture = new Bitmap(txtCrearFoto.Text);
@@ -503,7 +505,7 @@ namespace CapaPresentacion
         private void btnRestoreDataBase_Click(object sender, EventArgs e)
         {
             Stream myStream = null;
-            OpenFileDialog openFileDialog1 = new OpenFileDialog(); 
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
             openFileDialog1.InitialDirectory = "c:\\";
             openFileDialog1.Filter = "Acces Data Base Files|*.accdb|All files (*.*)|*.*";
@@ -521,10 +523,10 @@ namespace CapaPresentacion
                             DialogResult result = MessageBox.Show("¿ESTÁ SEGURO DE QUERER SOBRESCRIBIR LA BASE DE DATOS ACTUAL POR EL ARCHIVO SELECCIONADO? RECUERDE QUE ESTE CAMBIO NO SE PODRÁ DESHACER.", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
                             if (result == DialogResult.Yes)
                             {
-                            File.Copy(openFileDialog1.FileName, "4Prendas.accdb", true);
+                                File.Copy(openFileDialog1.FileName, "4Prendas.accdb", true);
                             }
-                                return;
-                            
+                            return;
+
 
                         }
                     }
@@ -545,11 +547,12 @@ namespace CapaPresentacion
 
         private void btnAñadirSubFamilia_Click(object sender, EventArgs e)
         {
-            try { 
-            SubFamilia subFam = new SubFamilia(txtCodFamiliaParaSub.Text, txtCodigoSubFamilia.Text, txtNombreSubFamila.Text, txtImagenSubFamilia.Text, int.Parse(txtIVASub.Text), int.Parse(txtNumSub.Text));
-            Modulo.miNegocio.InsertarSubFamilia(subFam);
-            MessageBox.Show("Familia insertada correctamente");
-            btnCancelarSubFamilia_Click(sender, e);
+            try
+            {
+                SubFamilia subFam = new SubFamilia(txtCodFamiliaParaSub.Text, txtCodigoSubFamilia.Text, txtNombreSubFamila.Text, txtImagenSubFamilia.Text, int.Parse(txtIVASub.Text), int.Parse(txtNumSub.Text));
+                Modulo.miNegocio.InsertarSubFamilia(subFam);
+                MessageBox.Show("Familia insertada correctamente");
+                btnCancelarSubFamilia_Click(sender, e);
             }
             catch (Exception ex)
             {
@@ -559,11 +562,12 @@ namespace CapaPresentacion
 
         private void btnAnadirFamilia_Click(object sender, EventArgs e)
         {
-            try { 
-            Familia fam = new Familia(txtCodigoFamilia.Text, txtNombreFamilia.Text, txtImagenFamilia.Text, int.Parse(txtNumCodFam.Text));
-            Modulo.miNegocio.InsertarFamilia(fam);
-            MessageBox.Show("SubFamilia insertada correctamente");
-            btnCancelarAnadirFamilia_Click(sender, e);
+            try
+            {
+                Familia fam = new Familia(txtCodigoFamilia.Text, txtNombreFamilia.Text, txtImagenFamilia.Text, int.Parse(txtNumCodFam.Text));
+                Modulo.miNegocio.InsertarFamilia(fam);
+                MessageBox.Show("SubFamilia insertada correctamente");
+                btnCancelarAnadirFamilia_Click(sender, e);
             }
             catch (Exception ex)
             {
@@ -590,6 +594,7 @@ namespace CapaPresentacion
             txtIVASub.Text = "";
             txtNumSub.Text = "";
         }
+
 
         private void rbtnAnadirFamilia_CheckedChanged(object sender, EventArgs e)
         {
@@ -674,84 +679,6 @@ namespace CapaPresentacion
             }
         }
 
-        private void btnExaminarEditarSubFamilia_Click(object sender, EventArgs e)
-        {
-
-
-            Stream myStream = null;
-            OpenFileDialog abrirFileDialog1 = new OpenFileDialog();
-
-            abrirFileDialog1.InitialDirectory = "c:\\";
-            abrirFileDialog1.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*";
-            abrirFileDialog1.FilterIndex = 2;
-            abrirFileDialog1.RestoreDirectory = true;
-
-            if (abrirFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                try
-                {
-                    if ((myStream = abrirFileDialog1.OpenFile()) != null)
-                    {
-                        using (myStream)
-                        {
-                            lblNoExisteArchivoCrearError.Hide();
-                            txtEditarSubFamiliaImagen.Text = abrirFileDialog1.FileName;
-                            Bitmap imagen = new Bitmap(txtCrearFoto.Text);
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
-                }
-            }
-        }
-
-        private void txtEditarSubFamCodSubFam_TextChanged(object sender, EventArgs e)
-        {
-            foreach (Familia fam in familias)
-            {
-                foreach (SubFamilia subFam in fam.SubFamilias)
-                {
-                    if (subFam.CodSubFamilia.Equals(txtEditarSubFamCodSubFam.Text))
-                    {
-                        txtEditarSubFamiliaCodFam.Text = subFam.CodFamilia;
-                        txtEditarSubFamiliaNombreSubFamilia.Text = subFam.Nombre;
-                        txtEditarSubFamiliaImagen.Text = subFam.Imagen;
-                        txtEditarSubFamiliaIVA.Text = subFam.Iva.ToString();
-                        txtEditarSubFamiliaCodSF.Text = subFam.NumeroCodigo.ToString();
-                        lblSubFamErrorEditarSubFam.Hide();
-                        return;
-                    }else
-                    {
-                        lblSubFamErrorEditarSubFam.Show();
-                    }
-                }
-            }
-        }
-
-        private void btnAceptarEditarSubFamilia_Click(object sender, EventArgs e)
-        {
-            //Lo siento falta de tiempo
-            SubFamilia sf = new SubFamilia(txtEditarSubFamiliaCodFam.Text, txtEditarSubFamCodSubFam.Text, txtEditarSubFamiliaNombreSubFamilia.Text, txtEditarSubFamiliaImagen.Text, int.Parse(txtEditarSubFamiliaIVA.Text), int.Parse(txtEditarSubFamiliaCodSF.Text));
-            //Modulo.miNegocio.actualizarSubFamilia(sf)
-        }
-
-        private void btnCancelarEditarSubFamilia_Click(object sender, EventArgs e)
-        {
-            cancelarEditarSubFamilia();
-        }
-        private void cancelarEditarSubFamilia()
-        {
-            txtEditarSubFamCodSubFam.Text = "";
-            txtEditarSubFamiliaCodFam.Text = "";
-            txtEditarSubFamiliaNombreSubFamilia.Text = "";
-            txtEditarSubFamiliaImagen.Text = "";
-            txtEditarSubFamiliaIVA.Text = "";
-            txtEditarSubFamiliaCodSF.Text = "";
-            lblSubFamErrorEditarSubFam.Hide();
-        }
-
         private void btnAñadirFamiliaExaminarFoto_Click(object sender, EventArgs e)
         {
 
@@ -785,57 +712,9 @@ namespace CapaPresentacion
 
         }
 
-        private void btnEliminarFamilia_Click(object sender, EventArgs e)
-        {
-            //Falta de tiempo, facil de implementar (relativamente) falta la implementacion de los metodo en negocio y datos.
-            //if (Modulo.miNegocio.eliminarFamilia(txtEditarFamiliaCodFam.Text))
-            //{
-            //MessageBox.Show("Familia eliminada correctamente");
-            //}
-        }
 
-        private void txtEditarFamiliaCodFam_TextChanged(object sender, EventArgs e)
-        {
-            foreach(Familia fam in familias)
-            {
-                if (fam.CodFamilia.Equals(txtEditarFamiliaCodFam.Text)){
-                    txtEditarFamiliaNombreFam.Text = fam.Nombre;
-                    txtEditarFamiliaImagen.Text = fam.Imagen;
-                    txtEditarFamNumCod.Text = fam.NumCodigo.ToString();
-                    lblFamErrorEditarFam.Hide();
-                    return;
-                }
-                else
-                {
-                    lblFamErrorEditarFam.Show();
 
-                }
-            }
-        }
-
-        private void btnEditarFamilia_Click(object sender, EventArgs e)
-        {
-            Familia f = new Familia(txtEditarFamiliaCodFam.Text, txtEditarFamiliaNombreFam.Text, txtEditarFamiliaImagen.Text, int.Parse(txtEditarFamNumCod.Text));
-            //Modulo.miNegocio.actualizarFamilia(f);
-
-        }
-
-        private void btnCancelarEditarFamilia_Click(object sender, EventArgs e)
-        {
-            cancelarEditarFamilia();
-        }
-        private void cancelarEditarFamilia()
-        {
-            txtEditarFamiliaCodFam.Text="";
-            txtEditarFamiliaNombreFam.Text = "";
-            txtEditarFamiliaImagen.Text = "";
-            txtEditarFamNumCod.Text = "";
-            lblFamErrorEditarFam.Hide();
-
-        }
-
-        
-            private void btnCreate_Click(object sender, EventArgs e) //Probar
+        private void btnCreate_Click(object sender, EventArgs e) //Probar
         {
             string rutaImagen = "";
             if (txtCrearNombre.Text.Equals(""))
@@ -881,5 +760,30 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void btnEliminarSubFamilia_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrWhiteSpace(txtCodigoSubFamilia.Text) && !String.IsNullOrWhiteSpace(txtCodFamiliaParaSub.Text))
+                if (Modulo.miNegocio.eliminarSubFamilia(txtCodigoSubFamilia.Text, txtCodFamiliaParaSub.Text))
+                {
+                    MessageBox.Show("SubFamilia eliminada correctamente");
+                }
+        }
+
+        private void btnEliminarFamilia_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrWhiteSpace(txtCodigoFamilia.Text))
+            {
+                if (Modulo.miNegocio.eliminarFamilia(txtCodigoFamilia.Text))
+                {
+                    MessageBox.Show("Familia eliminada correctamente");
+                }
+                else
+                {
+                    MessageBox.Show("No se ha borrado la familia. Causa: Familia especificada contiene subfamilias.");
+                }
+            }
+        }
+
     }
 }

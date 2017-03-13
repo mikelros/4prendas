@@ -1094,7 +1094,6 @@
             this.btnEditarFamilia.Text = "A&ñadir";
             this.btnEditarFamilia.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnEditarFamilia.UseVisualStyleBackColor = false;
-            this.btnEditarFamilia.Click += new System.EventHandler(this.btnEditarFamilia_Click);
             // 
             // lblFamErrorEditarFam
             // 
@@ -1131,7 +1130,6 @@
             this.btnCancelarEditarFamilia.Text = "C&ancelar";
             this.btnCancelarEditarFamilia.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCancelarEditarFamilia.UseVisualStyleBackColor = false;
-            this.btnCancelarEditarFamilia.Click += new System.EventHandler(this.btnCancelarEditarFamilia_Click);
             // 
             // label37
             // 
@@ -1167,7 +1165,6 @@
             this.txtEditarFamiliaCodFam.Name = "txtEditarFamiliaCodFam";
             this.txtEditarFamiliaCodFam.Size = new System.Drawing.Size(43, 21);
             this.txtEditarFamiliaCodFam.TabIndex = 19;
-            this.txtEditarFamiliaCodFam.TextChanged += new System.EventHandler(this.txtEditarFamiliaCodFam_TextChanged);
             // 
             // button5
             // 
@@ -1397,7 +1394,6 @@
             this.btnCancelarEditarSubFamilia.Text = "C&ancelar";
             this.btnCancelarEditarSubFamilia.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCancelarEditarSubFamilia.UseVisualStyleBackColor = false;
-            this.btnCancelarEditarSubFamilia.Click += new System.EventHandler(this.btnCancelarEditarSubFamilia_Click);
             // 
             // btnEliminarSubFamilia
             // 
@@ -1426,7 +1422,6 @@
             this.btnAceptarEditarSubFamilia.Text = "Aceptar";
             this.btnAceptarEditarSubFamilia.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnAceptarEditarSubFamilia.UseVisualStyleBackColor = false;
-            this.btnAceptarEditarSubFamilia.Click += new System.EventHandler(this.btnAceptarEditarSubFamilia_Click);
             // 
             // label38
             // 
@@ -1548,7 +1543,6 @@
             this.btnExaminarEditarSubFamilia.TabIndex = 24;
             this.btnExaminarEditarSubFamilia.Text = "&Examinar";
             this.btnExaminarEditarSubFamilia.UseVisualStyleBackColor = false;
-            this.btnExaminarEditarSubFamilia.Click += new System.EventHandler(this.btnExaminarEditarSubFamilia_Click);
             // 
             // txtEditarSubFamCodSubFam
             // 
@@ -1556,7 +1550,6 @@
             this.txtEditarSubFamCodSubFam.Name = "txtEditarSubFamCodSubFam";
             this.txtEditarSubFamCodSubFam.Size = new System.Drawing.Size(43, 21);
             this.txtEditarSubFamCodSubFam.TabIndex = 27;
-            this.txtEditarSubFamCodSubFam.TextChanged += new System.EventHandler(this.txtEditarSubFamCodSubFam_TextChanged);
             // 
             // txtEditarSubFamiliaImagen
             // 

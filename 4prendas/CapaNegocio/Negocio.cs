@@ -66,6 +66,16 @@ namespace CapaNegocio
             datos.borrarEmpleado(id);
         }
 
+        public bool eliminarFamilia(string cod)
+        {
+            return datos.eliminarFamilia(cod);
+        }
+
+        public bool eliminarSubFamilia(string cod, string subCod)
+        {
+            return datos.eliminarSubFamilia(cod, subCod);
+        }
+
         public Empleado getEmpleado(int employeeNum)
         {
             return datos.getEmpleado(employeeNum);
