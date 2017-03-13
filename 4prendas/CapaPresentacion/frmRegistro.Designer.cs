@@ -615,7 +615,7 @@
             this.imgEmpleado.Location = new System.Drawing.Point(1114, 78);
             this.imgEmpleado.Name = "imgEmpleado";
             this.imgEmpleado.Size = new System.Drawing.Size(100, 129);
-            this.imgEmpleado.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgEmpleado.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgEmpleado.TabIndex = 74;
             this.imgEmpleado.TabStop = false;
             // 

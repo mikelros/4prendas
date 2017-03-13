@@ -115,19 +115,20 @@
             this.label6.TabIndex = 51;
             this.label6.Text = "NºRecogida";
             // 
-            // pboEmployee
+            // pboEmpleado
             // 
             this.pboEmpleado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pboEmpleado.Location = new System.Drawing.Point(413, 100);
-            this.pboEmpleado.Name = "pboEmployee";
+            this.pboEmpleado.Name = "pboEmpleado";
             this.pboEmpleado.Size = new System.Drawing.Size(71, 88);
+            this.pboEmpleado.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pboEmpleado.TabIndex = 50;
             this.pboEmpleado.TabStop = false;
             // 
-            // dtpCollectionDate
+            // dtpFechaRecogida
             // 
             this.dtpFechaRecogida.Location = new System.Drawing.Point(239, 74);
-            this.dtpFechaRecogida.Name = "dtpCollectionDate";
+            this.dtpFechaRecogida.Name = "dtpFechaRecogida";
             this.dtpFechaRecogida.Size = new System.Drawing.Size(200, 20);
             this.dtpFechaRecogida.TabIndex = 49;
             // 
@@ -167,24 +168,24 @@
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // nudQuantity
+            // nudCantidad
             // 
             this.nudCantidad.Location = new System.Drawing.Point(239, 256);
-            this.nudCantidad.Name = "nudQuantity";
+            this.nudCantidad.Name = "nudCantidad";
             this.nudCantidad.Size = new System.Drawing.Size(152, 20);
             this.nudCantidad.TabIndex = 64;
             // 
-            // lblEmployeePassError
+            // lblErrorPaseEmpleado
             // 
             this.lblErrorPaseEmpleado.AutoSize = true;
             this.lblErrorPaseEmpleado.ForeColor = System.Drawing.Color.Red;
             this.lblErrorPaseEmpleado.Location = new System.Drawing.Point(248, 157);
-            this.lblErrorPaseEmpleado.Name = "lblEmployeePassError";
+            this.lblErrorPaseEmpleado.Name = "lblErrorPaseEmpleado";
             this.lblErrorPaseEmpleado.Size = new System.Drawing.Size(32, 13);
             this.lblErrorPaseEmpleado.TabIndex = 48;
             this.lblErrorPaseEmpleado.Text = "Error!";
             // 
-            // nudEmployee
+            // nudEmpleado
             // 
             this.nudEmpleado.Location = new System.Drawing.Point(240, 137);
             this.nudEmpleado.Maximum = new decimal(new int[] {
@@ -192,7 +193,7 @@
             0,
             0,
             0});
-            this.nudEmpleado.Name = "nudEmployee";
+            this.nudEmpleado.Name = "nudEmpleado";
             this.nudEmpleado.Size = new System.Drawing.Size(58, 20);
             this.nudEmpleado.TabIndex = 64;
             this.nudEmpleado.Leave += new System.EventHandler(this.nudEmployee_Leave);
@@ -229,19 +230,19 @@
             this.lblNRecogida.Size = new System.Drawing.Size(0, 18);
             this.lblNRecogida.TabIndex = 66;
             // 
-            // lblEmployeeName
+            // lblNombreEmpleado
             // 
             this.lblNombreEmpleado.AutoSize = true;
             this.lblNombreEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombreEmpleado.Location = new System.Drawing.Point(304, 139);
-            this.lblNombreEmpleado.Name = "lblEmployeeName";
+            this.lblNombreEmpleado.Name = "lblNombreEmpleado";
             this.lblNombreEmpleado.Size = new System.Drawing.Size(0, 18);
             this.lblNombreEmpleado.TabIndex = 65;
             // 
-            // txtGivingPerson
+            // txtDonante
             // 
             this.txtDonante.Location = new System.Drawing.Point(239, 313);
-            this.txtDonante.Name = "txtGivingPerson";
+            this.txtDonante.Name = "txtDonante";
             this.txtDonante.Size = new System.Drawing.Size(153, 20);
             this.txtDonante.TabIndex = 59;
             // 

@@ -70,6 +70,7 @@ namespace CapaPresentacion
             this.cmbEmpleado.SelectedIndexChanged += new EventHandler(cmbEmpleado_SelectedIndexChanged);
             cmbEmpleado.DisplayMember = "nombre";
             cmbEmpleado.SelectedItem = Modulo.empleadoActual;
+            imgEmpleado.Image = Modulo.empleadoActual != null && File.Exists(Modulo.empleadoActual.Foto) ? Image.FromFile(Modulo.empleadoActual.Foto) : Properties.Resources.newsle_empty_icon;
         }
 
         private void cargarFamilias()

@@ -28,6 +28,7 @@ namespace CapaPresentacion
                 lblErrorPaseEmpleado.Hide();
                 lblNRecogida.Text = "" + (Modulo.miNegocio.getUltimoNumRecogida() + 1);
                 nudEmpleado.Value = Modulo.empleadoActual != null ? Modulo.empleadoActual.EmpleadoId : 0;
+                pboEmpleado.Image = Modulo.empleadoActual != null && System.IO.File.Exists(Modulo.empleadoActual.Foto) ? Image.FromFile(Modulo.empleadoActual.Foto) : Properties.Resources.newsle_empty_icon;
             } catch (Exception ex)
             {
                 MessageBox.Show("Ha ocurrido un error: " + ex.Message, "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
