@@ -430,7 +430,7 @@ namespace CapaPresentacion
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            if (codBarrasProductoSeleccionado.Length != 12)
+            if (codBarrasProductoSeleccionado.Length != 14)
             {
                 MessageBox.Show("Debe seleccionarse un producto antes de poder imprimir su código de barras.", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
