@@ -26,8 +26,6 @@ namespace CapaPresentacion
         {
             InitializeComponent();
             estaCargado = false;
-            lblCodArticulo.Text = "2231014";
-            codBarrasProductoSeleccionado = lblCodArticulo.Text;
 
             productoExistenteSeleccionado = null;
 
@@ -147,13 +145,7 @@ namespace CapaPresentacion
             SubFamilia s = (SubFamilia)b.Tag;
 
             Familia f = familias.Where((fam) => fam.CodFamilia.ToLower().Equals(s.CodFamilia.ToLower())).SingleOrDefault();
-
-            if (lblCodArticulo.Text.Length != 7)
-            {
-                lblCodArticulo.Text = "2231014";
-                codBarrasProductoSeleccionado = lblCodArticulo.Text;
-            }
-
+            
             if (chb.Checked)
             {
                 cargarProductos(s);
@@ -165,7 +157,7 @@ namespace CapaPresentacion
                     try
                     {
                         string id = Modulo.miNegocio.getSiguienteID(s.CodFamilia, s.CodSubFamilia);
-                        codBarrasProductoSeleccionado = lblCodArticulo.Text + f.NumCodigo.ToString() + s.NumeroCodigo.ToString() + id;
+                        codBarrasProductoSeleccionado = "2231014" + lblCodArticulo.Text + f.NumCodigo.ToString() + s.NumeroCodigo.ToString() + id;
                         lblCodArticulo.Text += s.CodFamilia.ToString() + s.CodSubFamilia.ToString() + id;
                     }
                     catch (Exception ex)
@@ -261,7 +253,7 @@ namespace CapaPresentacion
 
         private bool hayErrores()
         {
-            if (lblCodArticulo.Text.Length != 14)
+            if (lblCodArticulo.Text.Length != 7)
             {
                 return true;
             }
@@ -350,9 +342,8 @@ namespace CapaPresentacion
             dgvProductos.Visible = !dgvProductos.Visible;
 
             habilitarControlesInsercion(!dgvProductos.Visible);
-
-            lblCodArticulo.Text = "2231014";
-            codBarrasProductoSeleccionado = lblCodArticulo.Text;
+            
+            codBarrasProductoSeleccionado = "2231014";
             ponerFamiliasEnBlanco();
             ponerSubfamiliasEnBlanco();
 
