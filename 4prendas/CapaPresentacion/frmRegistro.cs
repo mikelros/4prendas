@@ -157,8 +157,8 @@ namespace CapaPresentacion
                     try
                     {
                         string id = Modulo.miNegocio.getSiguienteID(s.CodFamilia, s.CodSubFamilia);
-                        codBarrasProductoSeleccionado = "2231014" + lblCodArticulo.Text + f.NumCodigo.ToString() + s.NumeroCodigo.ToString() + id;
-                        lblCodArticulo.Text += s.CodFamilia.ToString() + s.CodSubFamilia.ToString() + id;
+                        codBarrasProductoSeleccionado = "2231014" + f.NumCodigo.ToString() + s.NumeroCodigo.ToString() + id;
+                        lblCodArticulo.Text = s.CodFamilia.ToString() + s.CodSubFamilia.ToString() + id;
                     }
                     catch (Exception ex)
                     {
@@ -213,7 +213,7 @@ namespace CapaPresentacion
                     Producto producto = new Producto();
                     Lugar lugar = new Lugar(txtEstanteria.Text, int.Parse(nudEstante.Value.ToString()), int.Parse(nudAltura.Value.ToString()));
 
-                    producto.CodigoArticulo = lblCodArticulo.Text;
+                    producto.CodigoArticulo = "2231014" + lblCodArticulo.Text;
                     producto.Coste = int.Parse(nudCoste.Text);
                     producto.Descripcion = txtDescripcion.Text;
                     producto.Medida = txtMedida.Text;
@@ -221,9 +221,9 @@ namespace CapaPresentacion
                     producto.EmpleadoId = ((Empleado)cmbEmpleado.SelectedItem).EmpleadoId;
                     producto.FechaEntrada = Util.GetDateWithoutMilliseconds(DateTime.Now);
                     producto.RecogidaId = ((Recogida)cboRecogida.SelectedItem).IdRecogida;
-                    string codfamilia = producto.CodigoArticulo.Substring(7, 2);
+                    string codfamilia = producto.CodigoArticulo.Substring(0, 2);
                     producto.CodFamilia = codfamilia;
-                    string codsubfamilia = producto.CodigoArticulo.Substring(9, 2);
+                    string codsubfamilia = producto.CodigoArticulo.Substring(2, 2);
                     producto.CodSubFamilia = codsubfamilia;
 
                     Lugar lugarFinal = Modulo.miNegocio.getLugar(lugar);
@@ -412,7 +412,7 @@ namespace CapaPresentacion
                 }
 
                 productoExistenteSeleccionado = productos.ElementAt(e.RowIndex);
-                lblCodArticulo.Text = productoExistenteSeleccionado.CodigoArticulo;
+                lblCodArticulo.Text = productoExistenteSeleccionado.CodigoArticulo.Substring(7, 7);
                 codBarrasProductoSeleccionado = Modulo.miNegocio.getCodigoBarras(productoExistenteSeleccionado.CodigoArticulo);
             } catch(Exception ex)
             {
@@ -430,7 +430,7 @@ namespace CapaPresentacion
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            if (codBarrasProductoSeleccionado.Length != 14)
+            if (codBarrasProductoSeleccionado.Length != 12)
             {
                 MessageBox.Show("Debe seleccionarse un producto antes de poder imprimir su código de barras.", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

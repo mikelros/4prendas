@@ -560,8 +560,7 @@ namespace CapaDatos
         private int getSubFamiliaNumCod(string codFamilia, string codSubFamilia)
         {
             SubFamilia subfam = null;
-            string sql = @"SELECT *
-                           FROM SubFamilia WHERE FamiliaCod = @cod AND CodSubFam = @sub";
+            string sql = @"SELECT * FROM SubFamilia WHERE FamiliaCod = @cod AND CodSubFamilia = @sub";
             OleDbConnection conTabla = new OleDbConnection(cadenaConexion);
             OleDbCommand cmd = new OleDbCommand(sql, conTabla);
             cmd.Parameters.AddWithValue("@cod", codFamilia);
